@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import post2 from '../../assets/felix-rostig-UmV2wr-Vbq8-unsplash.jpg'
+import post2 from '../../assets/shutterstock_1470527960.jpg'
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import countryData from 'country-data';
 import Logincomponent from './Logincomponent';

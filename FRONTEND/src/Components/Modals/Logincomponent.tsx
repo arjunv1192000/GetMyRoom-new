@@ -50,7 +50,7 @@ const Logincomponent = ({ onBack, isLogin, onClose }) => {
         validationSchema: validationSchemaStep1,
         onSubmit: (values) => {
 
-           
+
 
             const fullPhoneNumber = `${values.selectedCountryCode} ${values.phoneNumber}`;
 
@@ -89,7 +89,7 @@ const Logincomponent = ({ onBack, isLogin, onClose }) => {
         validationSchema: validationSchemaStep2,
         onSubmit: (values) => {
 
-           
+
 
             const body = {
                 phoneNumber: phoneNumber,
@@ -112,11 +112,11 @@ const Logincomponent = ({ onBack, isLogin, onClose }) => {
                             access_token: response.data.AccessToken,
 
                         }));
-                      
+
 
                         handleModalClose();
 
-                    }else{
+                    } else {
                         toast.error("Invalid OTP")
                     }
                 })
@@ -134,7 +134,7 @@ const Logincomponent = ({ onBack, isLogin, onClose }) => {
 
         console.log(body, "fjnfbfbfk");
         axios.post('/googlelogin', body).then((response) => {
-                            
+
             if (response.data.status === true) {
                 console.log(response.data);
                 localStorage.setItem('access_token_user', response.data.AccessToken);
@@ -150,13 +150,13 @@ const Logincomponent = ({ onBack, isLogin, onClose }) => {
                 toast.success('user login Successfully')
                 handleModalClose();
 
-                
+
             } else {
                 toast.error(response.data.message)
-                
-              
 
-              
+
+
+
 
             }
 
@@ -164,7 +164,7 @@ const Logincomponent = ({ onBack, isLogin, onClose }) => {
             console.error(response.message);
 
         })
-        
+
 
     }
 
@@ -232,28 +232,28 @@ const Logincomponent = ({ onBack, isLogin, onClose }) => {
                             <hr className="border-t border-gray-300 flex-grow ml-2" />
                         </div>
                         <div className='mt-5 p-2 flex justify-center'>
-                        <GoogleOAuthProvider clientId="1084048115629-gpikjorqk28djapdi3qid41bn8k3k67e.apps.googleusercontent.com">
-                            <GoogleLogin
-                                onSuccess={(credentialResponse) => {
-                                    const decoded = jwtDecode(credentialResponse.credential);
-                                    const body = {
-                                        fullname: decoded.name,
-                                        email: decoded.email,
-                                        image: decoded.picture,
-                                    }
+                            <GoogleOAuthProvider clientId="1084048115629-gpikjorqk28djapdi3qid41bn8k3k67e.apps.googleusercontent.com">
+                                <GoogleLogin
+                                    onSuccess={(credentialResponse) => {
+                                        const decoded = jwtDecode(credentialResponse.credential);
+                                        const body = {
+                                            fullname: decoded.name,
+                                            email: decoded.email,
+                                            image: decoded.picture,
+                                        }
 
-                                   
-                                    googlelogin(body)
-                                }}
-                                onError={() => {
-                                    toast.error("Register failed !")
-                                }}
-                                width={300}
-                                
-                            />
 
-                        </GoogleOAuthProvider>
-                          
+                                        googlelogin(body)
+                                    }}
+                                    onError={() => {
+                                        toast.error("Register failed !")
+                                    }}
+                                    width={300}
+
+                                />
+
+                            </GoogleOAuthProvider>
+
                         </div>
 
                     </form>

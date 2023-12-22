@@ -1,5 +1,5 @@
 import React, { MutableRefObject, useRef, useEffect } from 'react'
-import hero from "../assets/felix-rostig-UmV2wr-Vbq8-unsplash.jpg"
+import hero from "../assets/shutterstock_1470527960.jpg"
 import time from "../assets/time.svg"
 import key from "../assets/Keys.svg"
 import welcom from "../assets/Welcome.svg"
@@ -69,10 +69,10 @@ const Home_Search = () => {
     return (
         <>
             <div className='ansolute' ref={secondSectionRef}>
-                <img className="w-full h-[700px] object-cover" src={hero} alt="image description" />
+                <img className="w-full h-[700px] object-cover " src={hero} alt="image description" />
                 <div className='absolute top-[25%] left-[10%] md:w-[70%] md:left-[15%]'>
-                    <h2 className="flex font-normal text-white text-2xl md:text-4xl">Living Together is Better</h2>
-                    <h2 className="flex font-bold text-white text-3xl md:text-5xl">
+                    <h2 className="flex font-normal text-[#870e4d] text-2xl md:text-4xl">Living Together is Better</h2>
+                    <h2 className="flex font-bold text-black text-3xl md:text-5xl">
                         Find flexible, convenient, and affordable<br />homes with friends included
                     </h2>
                 </div>
