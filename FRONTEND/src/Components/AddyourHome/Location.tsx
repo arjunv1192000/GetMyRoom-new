@@ -141,7 +141,11 @@ const Location = ({handleFormDataChange}) => {
               value={formik.values.coordinates.lng}
             />
             <div ref={mapRef} className="h-80 w-[500px] mt-5"></div>
-            <button type="submit" className="mt-3 p-3 mb-10 bg-blue-500 text-white rounded-md ml-10">Submit</button>
+            <div className='flex justify-end'>
+            <button type="submit" className="mt-3 p-3 w-24 mb-10 bg-[#390b79] text-white rounded-md ">Submit</button>
+
+            </div>
+           
           </div>
         </form>
       </div>

@@ -1,4 +1,4 @@
-import  { useState } from 'react'
+import { useState } from 'react'
 import { useFormik } from 'formik';
 const Description = ({ handleFormDataChange }) => {
     const formik = useFormik({
@@ -7,7 +7,7 @@ const Description = ({ handleFormDataChange }) => {
         },
         onSubmit: (values) => {
             console.log(values);
-            handleFormDataChange({ step9Data: values.description  });
+            handleFormDataChange({ step9Data: values.description });
         },
     });
     return (
@@ -28,9 +28,12 @@ const Description = ({ handleFormDataChange }) => {
                         />
                     </div>
                 </div>
-                <button type="submit" className="mt-3 p-3 bg-blue-500 text-white rounded-md w-40">
-                    Add
-                </button>
+                <div className='flex justify-end'>
+                    <button type="submit" className="mt-3 p-3 bg-[#390b79] text-white rounded-md w-40 ">
+                        Add
+                    </button>
+
+                </div>
             </form>
         </div>
     )

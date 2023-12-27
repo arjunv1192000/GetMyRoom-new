@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import img1 from '../../assets/formimg.png';
+import img1 from '../../assets/avatarmedia.png';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -37,24 +37,22 @@ const SellerType = ({ handleFormDataChange }) => {
         <form onSubmit={formik.handleSubmit}>
 
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row mt-10">
-                <div className="w-full sm:w-1/2 h-[400px] sm:flex flex-col ">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white mt-10"></h5>
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        Tell us about your place
+                <div className="w-full sm:w-1/2 h-[400px] sm:flex flex-col mr-10">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"></h5>
+                    <h5 className="mb-2 text-[40px] font-bold tracking-tight text-gray-900 dark:text-white">
+                        Final step
                     </h5>
-                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                        In this step, we'll ask you which type of property you have and if guests will book the entire
-                        place or just a room. Then let us know the location and how many guests can stay.
-                    </p>
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Finish up and publish</h5>
+                   
                     <img
-                        className="object-cover rounded-t-lg h-20 md:h-24 md:w-28 md:rounded-none md:rounded-s-lg ml-20 mt-10"
+                        className="object-cover rounded-t-lg h-40 md:h-44 md:w-28 md:rounded-none md:rounded-s-lg ml-20 mt-10"
                         src={img1}
                         alt=""
                     ></img>
                 </div>
                 <div className="w-full sm:w-1/2 h-auto sm:flex flex-col">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white p-3">
-                        What type of place will guests have?
+                     Are you an
                     </h5>
                     <div className="flex flex-col gap-2 p-3">
                         {placeTypes.map((placeType, index) => (
@@ -71,9 +69,12 @@ const SellerType = ({ handleFormDataChange }) => {
                             </button>
                         ))}
                     </div>
-                    <button type="submit" className="mt-3 p-3 bg-blue-500 text-white rounded-md">
+                    <div className='flex justify-end'>
+                    <button type="submit" className="mt-3 p-3 bg-[#390b79] text-white rounded-md w-40 ">
                         Add
                     </button>
+
+                </div>
                 </div>
             </div>
         </form> 

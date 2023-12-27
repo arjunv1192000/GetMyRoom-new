@@ -182,7 +182,7 @@ const Logincomponent = ({ onBack, isLogin, onClose }) => {
                         <div className='flex justify-center mt-5'>
                             <h2 className=" font-semibold text-black text-[20px]  ml-5  ">Login</h2>
                         </div>
-                        <div className='mt-5 p-2'>
+                        {/* <div className='mt-5 p-2'>
                             <select
                                 id="countryCode"
                                 name='selectedCountryCode'
@@ -225,7 +225,7 @@ const Logincomponent = ({ onBack, isLogin, onClose }) => {
                         <div className='mt-5 p-2'>
                             <button type='submit' className=" transition ease-in-out delay-150 bg-[#390b79]  hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 rounded w-full " >Login</button>
 
-                        </div>
+                        </div> */}
                         <div className="flex items-center justify-center p-2">
                             <hr className="border-t border-gray-300 flex-grow mr-2" />
                             <span className="text-gray-500">or</span>
@@ -262,7 +262,7 @@ const Logincomponent = ({ onBack, isLogin, onClose }) => {
 
                 </>
             )}
-            {step === 2 && (
+            {/* {step === 2 && (
                 <div className="bg-white w-auto h-auto  flex flex-row  overflow-hidden mt-11 ">
 
                     <div className='w-[500px] h-[350px] border-gray-200 shadow-lg rounded-lg ml-1  flex flex-col overflow-hidden ' >
@@ -302,7 +302,7 @@ const Logincomponent = ({ onBack, isLogin, onClose }) => {
                         </form>
                     </div>
                 </div>
-            )}
+            )} */}
 
             <Toaster
                 position="bottom-center"

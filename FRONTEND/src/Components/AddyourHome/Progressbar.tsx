@@ -42,8 +42,8 @@ const Progressbar = ({ currentStep, totalSteps, onNext, onPrev,onSubmit }) => {
                 <button
                     type="button"
                     onClick={handleNextClick}
-                    className={`${isLastStep ? 'bg-green-500' : 'bg-blue-500'
-                        } text-white px-4 py-2 rounded-md focus:outline-none`}
+                    className={`${isLastStep ? 'bg-green-500' : 'bg-[#870e4d]'
+                        } text-white px-4 py-2 rounded-md focus:outline-none w-40`}
                 >
                     {isLastStep ? 'Submit' : 'Next'}
                 </button>

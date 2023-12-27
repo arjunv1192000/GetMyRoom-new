@@ -307,7 +307,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                         <div className='flex justify-center mt-5'>
                             <h2 className=" font-semibold text-black text-[20px]  ml-5  ">Register</h2>
                         </div>
-                        <div className='mt-5 p-2'>
+                        {/* <div className='mt-5 p-2'>
                             <select
                                 id="countryCode"
                                 name='selectedCountryCode'
@@ -350,7 +350,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                         <div className='mt-5 p-2'>
                             <button type='submit' className=" transition ease-in-out delay-150 bg-[#390b79]  hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 rounded w-full " >Register</button>
 
-                        </div>
+                        </div> */}
                     </form>
                     <div className="flex items-center justify-center p-2">
                         <hr className="border-t border-gray-300 flex-grow mr-2" />
@@ -385,7 +385,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                 </>
 
             )}
-            {step === 2 && (
+            {/* {step === 2 && (
                 <div className="bg-white w-auto h-auto  flex flex-row  overflow-hidden mt-11 ">
                     <div className='w-[500px] h-[350px] border-gray-200 shadow-lg rounded-lg ml-1  flex flex-col overflow-hidden ' >
                         <button onClick={handleBack} className=" top-20 left-5 text-gray-500 hover:text-gray-700">
@@ -426,7 +426,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                     </div>
                 </div>
 
-            )}
+            )} */}
             {step === 3 && (
                 <>
                     <div >
@@ -541,8 +541,8 @@ const Registercomponent = ({ onBack, onClose }) => {
                                 onBlur={formikStep4.handleBlur}
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             >
-                                <option value="+91">+91(India)</option>
-                                <option value="+1">+1(Canada)</option>
+                                {/* <option value="+91">+91(India)</option>
+                                <option value="+1">+1(Canada)</option> */}
                                 <option value="+44">+44(UK)</option>
                             </select>
                             {formikStep4.touched.selectedCountryCodes && formikStep4.errors.selectedCountryCodes && (

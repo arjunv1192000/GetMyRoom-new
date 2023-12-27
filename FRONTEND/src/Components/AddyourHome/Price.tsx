@@ -6,7 +6,7 @@ const Price = ({ handleFormDataChange }) => {
 
   const formik = useFormik({
     initialValues: {
-      price: 22230,
+      price: 100,
     },
     onSubmit: (values) => {
       handleFormDataChange({ step10Data: values.price });
@@ -58,7 +58,7 @@ const Price = ({ handleFormDataChange }) => {
               <label htmlFor="lys-base-price-input">
                 <div className="flex items-center">
                   <div className="flex items-center">
-                    <span className="text-[80px] font-extrabold">$</span>
+                    <span className="text-[80px] font-extrabold">£</span>
                     <h3 className="text-[80px] font-extrabold" aria-hidden="true">
                       {formik.values.price || 0}
                     </h3>

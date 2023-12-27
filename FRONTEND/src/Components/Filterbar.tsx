@@ -28,45 +28,45 @@ const Filterbar = ({ onViewTypeChange, onApplyFilters }) => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCoQVX3-I5XP1kdYs0b1SX-h-qy5Bd_CGU&libraries=places`;
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
+  // useEffect(() => {
+  //   const script = document.createElement('script');
+  //   script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCoQVX3-I5XP1kdYs0b1SX-h-qy5Bd_CGU&libraries=places`;
+  //   script.async = true;
+  //   script.defer = true;
+  //   document.head.appendChild(script);
 
-    script.onload = () => {
-      initAutocomplete();
-    };
+  //   script.onload = () => {
+  //     initAutocomplete();
+  //   };
 
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
+  //   return () => {
+  //     document.head.removeChild(script);
+  //   };
+  // }, []);
 
-  const initAutocomplete = () => {
-    const input = searchInputRef.current;
+  // const initAutocomplete = () => {
+  //   const input = searchInputRef.current;
 
-    if (input) {
-      const searchBox = new window.google.maps.places.SearchBox(input);
+  //   if (input) {
+  //     const searchBox = new window.google.maps.places.SearchBox(input);
 
-      searchBox.addListener('places_changed', () => {
-        const places = searchBox.getPlaces();
+  //     searchBox.addListener('places_changed', () => {
+  //       const places = searchBox.getPlaces();
 
-        if (places.length === 0) {
-          return;
-        }
+  //       if (places.length === 0) {
+  //         return;
+  //       }
 
-        const selectedPlace = places[0];
-        const coordinates = selectedPlace.geometry?.location?.toJSON();
-        const locationName = selectedPlace.formatted_address;
-        setLocation(locationName)
+  //       const selectedPlace = places[0];
+  //       const coordinates = selectedPlace.geometry?.location?.toJSON();
+  //       const locationName = selectedPlace.formatted_address;
+  //       setLocation(locationName)
 
-        console.log('Coordinates: ', coordinates);
-        console.log('Location Name: ', locationName);
-      });
-    }
-  };
+  //       console.log('Coordinates: ', coordinates);
+  //       console.log('Location Name: ', locationName);
+  //     });
+  //   }
+  // };
 
   const handleFilterClick = () => {
     setShowFilterDropdown(!showFilterDropdown);
@@ -129,7 +129,7 @@ const Filterbar = ({ onViewTypeChange, onApplyFilters }) => {
         <div className=" items-center mr-4 hidden sm:inline-block">
           <div className="relative inline-block">
             <label htmlFor="propertyType" className="text-black mb-1 text-start text-sm">
-              Property type
+              Property Type
             </label>
             <select
               ref={propertyTypeRef}
@@ -155,17 +155,17 @@ const Filterbar = ({ onViewTypeChange, onApplyFilters }) => {
 
         <div className="flex items-center mt-5">
           <button
-            className="w-30 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 border rounded lg:flex  items-center hidden md,sm:inline-block"
+            className="w-40 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#77435d] duration-300 text-center font-medium text-white px-4 py-2 border rounded lg:flex  items-center  hidden md,sm:inline-block"
             onClick={handleSearchButtonClick}
           >
-            <IoIosSearch className="mr-2" />
+            <IoIosSearch className="flex justify-center ml-6 mr-2" />
             Search
           </button>
           <button
-            className="w-30 ml-5 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 border rounded mr-2 flex items-center"
+            className="w-40 ml-5 transition ease-in-out delay-150 bg-[#870e4d] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#870e4d] duration-300 font-normal text-white px-4 py-2 border rounded mr-2 flex items-center"
             onClick={toggleFilterDialog}
           >
-            <IoIosOptions className="mr-2" />
+            <IoIosOptions className="ml-6 mr-2" />
             <span>Filter</span>
           </button>
           

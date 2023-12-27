@@ -55,12 +55,12 @@ const Videos = ({ handleFormDataChange }) => {
   return (
     <div className="mx-auto max-w-2xl px-4 py-16sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row justify-center">
       <div className="w-full sm:w-[80%] h-auto sm:flex flex-col items-center">
-        <h5 className="mb-1 text-[36px] font-bold tracking-tight text-gray-900 dark:text-white">
-          Add some photos of your house
+        <h5 className="mb-10 text-[30px] font-bold tracking-tight text-gray-900 dark:text-white w-full">
+          Add a video of your property
         </h5>
-        <p className=" font-normal text-gray-700 dark:text-gray-400">
+        {/* <p className=" font-normal text-gray-700 dark:text-gray-400">
           You'll need one video to get started. You can add more or make changes later.
-        </p>
+        </p> */}
         <form onSubmit={formik.handleSubmit}>
           <div className="flex flex-col items-center gap-2 p-3 border-dotted border-2 border-gray-300 sm:w-[400px] ">
             <label htmlFor="videoInput" className="flex items-center cursor-pointer">
@@ -76,7 +76,7 @@ const Videos = ({ handleFormDataChange }) => {
               onChange={handleVideoChange}
               className="hidden"
             />
-            <button type="submit" className="mt-20 p-3 bg-blue-500 text-white rounded-md w-full">
+            <button type="submit" className="mt-20 p-3 text-white rounded-md w-full bg-[#390b79]">
               Add
             </button>
           </div>

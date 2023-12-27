@@ -41,7 +41,7 @@ const Editprofile = ({ onClose }) => {
   useEffect(() => {
     axios.get('/getprofile?id=' + id).then((response) => {
       setProfile(response.data.profiledata);
-      console.log(response.data.profiledata, "fhhf");
+      console.log(response.data.profiledata, "data fromdb");
 
     })
       .catch((response) => {
@@ -78,12 +78,13 @@ const Editprofile = ({ onClose }) => {
           });
 
           let imageUrls = imageUrl.split('?')[0];
+          console.log(imageUrls,"s333333");
+          
 
         } else {
 
-          imageUrls = values.profileImage
-
-            ;
+           imageUrls = values.profileImage;
+          console.log(imageUrls,"normall");
 
 
         }
@@ -95,6 +96,9 @@ const Editprofile = ({ onClose }) => {
           image: imageUrls,
           userId: id
         };
+
+        console.log(body.image,"which image ");
+        
         axios.post('/updateuserdata', body).then((response) => {
 
 
@@ -138,34 +142,34 @@ const Editprofile = ({ onClose }) => {
   return (
     <form onSubmit={formik.handleSubmit}>
       <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75">
-        
-        <div className="bg-white w-auto h-auto border-gray-200 shadow-lg rounded-lg p-20">
-        <div className="flex justify-between p-2">
-                    <button
-                        type="button"
-                        className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        data-modal-hide="authentication-modal"
-                        onClick={onClose}
-                    >
-                        <svg
-                            className="w-3 h-3"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 14 14"
-                        >
-                            <path
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                            />
-                        </svg>
-                        <span className="sr-only">Close modal</span>
-                    </button>
-                </div>
-          
+
+        <div className="bg-white w-[800px] h-auto border-gray-200 shadow-lg rounded-lg p-10">
+          <div className="flex justify-between p-2">
+            <button
+              type="button"
+              className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              data-modal-hide="authentication-modal"
+              onClick={onClose}
+            >
+              <svg
+                className="w-3 h-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 14"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                />
+              </svg>
+              <span className="sr-only">Close modal</span>
+            </button>
+          </div>
+
           <div className="mt-5 p-2">
             <input
               type="text"
@@ -238,15 +242,14 @@ const Editprofile = ({ onClose }) => {
             )}
           </div>
 
-          <button
-            type='submit'
-            className="px-4 py-2 bg-[#390b79] text-white rounded"
+          <div className='flex justify-end'>
+            <button type="submit" className="mt-3 p-3 bg-[#390b79] text-white rounded-md w-40 ">
+              Update
+            </button>
 
-          >
-            Update
-          </button>
+          </div>
         </div>
-       
+
 
         <Toaster
           position="bottom-center"

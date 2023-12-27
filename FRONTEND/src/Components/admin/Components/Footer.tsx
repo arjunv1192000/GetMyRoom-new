@@ -93,7 +93,7 @@ const Footer = () => {
                         <a href="#" className="text-gray-500">Tax strategy</a>
                     </div>
                     <div className="flex mt-4 sm:justify-center sm:mt-0">
-                        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">Getmyroom™</a>. All Rights Reserved.
+                        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">GetMyRoom™</a>. All Rights Reserved.
                         </span>
 
                     </div>

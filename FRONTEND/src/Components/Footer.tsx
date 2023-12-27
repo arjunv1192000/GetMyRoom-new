@@ -3,7 +3,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#f7f6f5] mt-10">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div className="lg:flex lg:justify-center">
+        {/* <div className="lg:flex lg:justify-center">
           <div className="grid grid-cols- gap-8 sm:gap-6 sm:grid-cols-3">
             <div className=" lg:w-60">
               <h2 className="mb-6 text-sm font-semibold text-gray-900 ">To rent</h2>
@@ -14,7 +14,7 @@ const Footer = () => {
                 <li className="mb-4">
                   <a href="https://flowbite.com/" className="hover:underline  text-[#322744]">Find letting agents</a>
                 </li>
-                
+
               </ul>
             </div>
             <div className="">
@@ -29,7 +29,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="">
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 ">Zoopla for business</h2>
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 "> for business</h2>
               <ul className="text-gray-500 dark:text-gray-400 ">
                 <li className="mb-4">
                   <a href="#" className="hover:underline">Privacy Policy</a>
@@ -39,19 +39,20 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-           
+
           </div>
-        </div>
+        </div> */}
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8 " />
         <div className="sm:flex sm:items-center sm:justify-between xl:px-24">
-          <div className="xl:flex flex-nowrap mt-4 gap-3">
+          <div className="flex flex-col mt-4 gap-2 sm:flex-row sm:flex-nowrap sm:gap-5">
             <a href="#" className="text-gray-500 hover:text-gray-900">Privacy</a>
             <a href="#" className="text-gray-500 hover:text-gray-900">Cookies</a>
             <a href="#" className="text-gray-500 hover:text-gray-900">Contact us</a>
-            <a href="#" className="text-gray-500 hover:text-gray-900">About Zoopla</a>
+            <a href="#" className="text-gray-500 hover:text-gray-900">About</a>
             <a href="#" className="text-gray-500 hover:text-gray-900">Careers</a>
             <a href="#" className="text-gray-500 hover:text-gray-900">Display advertising</a>
           </div>
+
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
               <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
@@ -98,9 +99,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-10 xl:px-24 ">
-          <p className="text-[#322744] text-xs p-3">Sold house prices provided by Land Registry/Registers of Scotland. © Crown copyright 2023. Our website is completely free for you to use but we may receive a commission from some of the companies we link to on the site.</p>
-          <p className="text-[#322744] text-xs p-3">Zoopla Limited is an appointed representative of Uswitch Limited which is authorised and regulated by the Financial Conduct Authority (FRN 312850) to provide the mortgage calculator tool and incorporated with company registration number 06074771 and registered office at The Cooperage, 5 Copper Row, London SE1 2LH. Uswitch Limited is authorised and regulated by the Financial Conduct Authority (FCA) under firm reference number 312850.</p>
-          <p className="text-[#322744] text-xs p-3">Zoopla.co.uk is not a mortgage intermediary and makes introductions to Mojo Mortgages to provide mortgage solutions. Zoopla.co.uk and Mojo Mortgages are part of the same group of companies. Zoopla may receive an introduction fee from Mojo Mortgages on completion of successful mortgage applications. This fee is based on a percentage of your loan amount. Mojo is a trading style of Life's Great Limited which is registered in England and Wales (06246376) and is authorised and regulated by the Financial Conduct Authority and is on the Financial Services Register (478215). Mojo's registered office is The Cooperage, 5 Copper Row, London, SE1 2LH. To contact Mojo by phone, please call 0333 123 0012.</p>
+          <p className="text-gray-500 text-xs p-3">GetMyRoom: Your one-stop shop for stress-free travel. Find your ideal accommodation, research visa requirements with our expert guidance (Registered Visa Help Company No. 14409618).</p>
+          <p className="text-gray-500 text-xs p-3">Explore local attractions, and manage your booking with ease. We're here to empower your adventures every step of the wayRegistered Office Address: 12, 2 Westbourne Crescent, London, United Kingdom, W2 3DB</p>
+
 
         </div>
 

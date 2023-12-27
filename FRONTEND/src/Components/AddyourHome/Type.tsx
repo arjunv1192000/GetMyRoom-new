@@ -48,7 +48,7 @@ const Type = ({ handleFormDataChange }) => {
         <form onSubmit={formik.handleSubmit}>
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-2 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row mt-10">
                 <div className="w-full sm:w-1/2 h-[400px] sm:flex flex-col mb-60 ">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white mt-10">Step 1</h5>
+                    <h5 className="mb-2  text-[36px] font-bold tracking-tight text-gray-900 dark:text-white mt-10">Step 1</h5>
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Tell us about your place
                     </h5>

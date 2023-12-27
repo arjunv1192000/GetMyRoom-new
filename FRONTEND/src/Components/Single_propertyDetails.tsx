@@ -173,12 +173,12 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
             if (savejob.data.status == true) {
 
-                toast.success('property Saved Successfully')
+                toast.success('Property Saved Successfully')
 
 
 
             } else {
-                toast.error("Already Saved this property")
+                toast.error("Already Saved This Property")
 
 
             }
@@ -187,7 +187,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
         } catch (error) {
 
-            console.error('Error Saving this job:', error);
+            console.error('Error Saving This job:', error);
         }
     };
 
@@ -214,7 +214,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                         <div className='w-1/2'>
                             {/*------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
-                            <h2 className="flex sm:justify-end  font-semibold text-gray-900 text-[32px] ">${price}/month</h2>
+                            <h2 className="flex sm:justify-end  font-semibold text-gray-900 text-[32px] ">£ {price}/month</h2>
 
                         </div>
 
@@ -222,14 +222,14 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                     </div>
                     <div className='w-full   flex flex-col sm:flex-row'>
                         <div className='w-1/2 flex flex-row '>
-                            <FaMapMarkerAlt className="mt-1.9 " />
+                            <FaMapMarkerAlt className="mt-1 " />
                             <h2 className="flex  justify-start font-semibold text-gray-900 text-[18px] ml-3 "> {location.locationName}</h2>
 
                         </div>
                         <div className='w-1/2 flex flex-row gap-3 sm:justify-end pr-3 pb-2 '>
                             <button className="w-28 h-8 flex items-center  border rounded sm:ml-12  mt-1 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#870e4d] duration-300 text-white" >
                                 <IoShareSocialSharp className="w-5 h-5 ml-2 mr-3" />
-                                share
+                                Share
                             </button>
 
 
@@ -310,38 +310,38 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                 <div className='w-full h-auto  bg-white mt-10  shadow-md'>
                     <div className='w-full h-auto flex flex-col'>
                         <div className='w-full h-16'>
-                            <h2 className="mt-3 font-semibold text-gray-900 text-[24px] ml-3 ">overview</h2>
+                            <h2 className="mt-3 font-semibold text-gray-900 text-[24px] ml-5 ">Overview</h2>
                         </div>
                         <div className='w-full h-auto grid grid-cols-2 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-8 gap-y-8 '>
                             <div className='w-40  h-30  flex flex-col items-center bg-white'>
 
-                                <h5 className="mb-2 text-base font-sans  font-medium tracking-tight text-gray-900 mt-1">Updated On:</h5>
-                                <h5 className="mb-5 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1  ml-10">{date}</h5>
+                                <h5 className="mb-2 text-base font-sans  font-medium tracking-tight text-gray-900 mt-1">Updated On</h5>
+                                <h5 className="mb-5 text-base font-sans  font-medium  tracking-tight text-gray-900   ml-10">{date}</h5>
 
                             </div>
                             <div className='w-32  h-20  flex flex-col items-center bg-white'>
 
                                 <MdMeetingRoom color="red" fill="red" className=" w-[20px] h-[20px] mt-5" />
-                                <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1"> {room}Rooms</h5>
+                                <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1"> {room} Room</h5>
 
                             </div>
                             <div className='w-32  h-20  flex flex-col items-center bg-white'>
 
                                 <FaBath color="red" fill="red" className=" w-[20px] h-[20px] mt-5" />
 
-                                <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1">{bathrooms} Bedrooms</h5>
+                                <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1">{bathrooms} Bathroom</h5>
 
                             </div>
                             <div className='w-32  h-20  flex flex-col items-center bg-white'>
 
                                 <BiBed color="red" fill="red" className=" w-[20px] h-[20px] mt-5" />
-                                <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1">{bedrooms} Bathrooms</h5>
+                                <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1">{bedrooms} Bedroom</h5>
 
                             </div>
 
                             <div className='w-40  h-30  flex flex-col items-center bg-white'>
 
-                                <h5 className="mb-2 text-base font-sans  font-medium tracking-tight text-gray-900 mt-1">Build year:</h5>
+                                <h5 className="mb-2 text-base font-sans  font-medium tracking-tight text-gray-900 mt-1">Build Year</h5>
                                 <h5 className="mb-5 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1  ml-10">{formatted}</h5>
 
                             </div>
@@ -397,7 +397,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
                         <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
                             <div className='flex items-center justify-between cursor-pointer h-20' onClick={handleToggle7}>
-                                <h3 className='text-base font-sans  font-semibold ml-5'>Floor Plans</h3>
+                                <h3 className='text-base font-sans  font-semibold ml-5'>Floor Plan</h3>
                                 {isExpanded7 ? <FaChevronUp className="mr-5" /> : <FaChevronDown className="mr-5" />}
                             </div>
                             {isExpanded7 && <div className='mt-1 w-full h-auto '>
@@ -436,7 +436,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
                                     </div>
                                     <div className='w-1/2 h-40  flex flex-col ml-5 '>
-                                        <h5 className="mb-2 text-base font-sans  font-semibold  tracking-tight text-gray-900 mt-1">Price: {price} ¥ / month</h5>
+                                        <h5 className="mb-2 text-base font-sans  font-semibold  tracking-tight text-gray-900 mt-1">Price: £ {price}  / month</h5>
                                         <h5 className="mb-2 text-base font-sans  font-semibold  tracking-tight text-gray-900 mt-1"> Bedrooms:{bedrooms}</h5>
                                         <h5 className="mb-2 text-base font-sans  font-semibold  tracking-tight text-gray-900 mt-1">Year Built:{buildYear}</h5>
 

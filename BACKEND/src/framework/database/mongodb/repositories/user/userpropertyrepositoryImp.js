@@ -62,18 +62,30 @@ const userpropertyrepositoryImp = () => {
   const properties = async (locationName, type) => {
     try {
       const totalCount = await Property.countDocuments({
-        'location.locationName': locationName,
-        type: type,
+        'location.locationName': new RegExp(locationName.split(' ').join('|'), 'i'),
+         type: type,
         approve: true,
       });
+      if(type=="AllType"){
+        const allproperty = await Property.find({
+          'location.locationName': new RegExp(locationName.split(' ').join('|'), 'i'),
+          approve: true,
+        }).populate('userId', 'name email phone image');
+  
+        return { totalCount, allproperty };
 
-      const allproperty = await Property.find({
-        'location.locationName': locationName,
-        type: type,
-        approve: true,
-      }).populate('userId', 'name email phone image');
+      }else{
+        const allproperty = await Property.find({
+          'location.locationName': new RegExp(locationName.split(' ').join('|'), 'i'),
+          type: type,
+          approve: true,
+        }).populate('userId', 'name email phone image');
+  
+        return { totalCount, allproperty };
 
-      return { totalCount, allproperty };
+      }
+
+     
     } catch (error) {
       console.error('Error fetching properties:', error);
       throw error;

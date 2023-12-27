@@ -346,7 +346,7 @@ const Homeaddform = () => {
                         <div>
                             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row ">
                                 <div className='w-full sm:w-1/2 h-auto sm:flex flex-col '>
-                                    <h2 className="flex  font-semibold text-gray-900 text-[48px]  justify-center  ">It’s easy to get <br></br>started on Getmyroom</h2>
+                                    <h2 className="flex  font-semibold text-gray-900 text-[48px]  justify-center  ">It’s easy to get <br></br>started on GetMyRoom</h2>
 
                                 </div>
                                 <div className='w-full sm:w-1/2 h-auto sm:flex flex-col'>

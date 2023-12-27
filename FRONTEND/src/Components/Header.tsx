@@ -45,6 +45,12 @@ const Header = ({ openLoginModal }) => {
         navigate('/')
 
     };
+    const handlesidebarclose = () => {
+
+        setMobileMenuOpen(false)
+      
+
+    };
 
     const handletoggleClick = () => {
         if (userdata && userdata.phone) {
@@ -122,9 +128,6 @@ const Header = ({ openLoginModal }) => {
                             <a href="#" className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer" onClick={() => navigate('/')}>
                                 Home
                             </a>
-                            {/* <a href="#" className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer" onClick={() => navigate('/compare')}>
-                                Compare
-                            </a> */}
                             <div
                                 onClick={handleformClick}
                                 className='hidden md:block text-sm font-semibold py-3 px-4 rounded-full transition ease-in-out delay-150 bg-[#870e4d]  hover:-translate-y-1 hover:scale-110 hover:bg-[#390b79] hover: duration-300transition cursor-pointer text-white'
@@ -190,7 +193,7 @@ const Header = ({ openLoginModal }) => {
                         <button
                             type="button"
                             className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                            onClick={() => setMobileMenuOpen(false)}
+                            onClick={handlesidebarclose}
                         >
                             <span className="sr-only">Close menu</span>
                             <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -212,37 +215,29 @@ const Header = ({ openLoginModal }) => {
                                 <a
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                    onClick={() => userdata && userdata.phone? navigate('/save'):  openLoginModal() }
+                                    onClick={() => userdata && userdata.phone ? navigate('/save') : openLoginModal() || handlesidebarclose() }
                                 >
                                     Saved List
                                 </a>
                                 <a
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                    onClick={() => userdata && userdata.phone? navigate('/save'):openLoginModal()}
+                                    onClick={() => userdata && userdata.phone ? navigate('/save') : openLoginModal() || handlesidebarclose()}
                                 >
                                     My List
                                 </a>
                                 <a
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                    onClick={() => userdata && userdata.phone? navigate('/form'):openLoginModal()}
+                                    onClick={() => userdata && userdata.phone ? navigate('/form') : openLoginModal() || handlesidebarclose()}
                                 >
                                     Add your home
                                 </a>
 
 
-                                
+
                             </div>
-                            <div className="py-6">
-                            <a
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                >
-                                    Add your home
-                                </a>
-                               
-                            </div>
+                           
 
                         </div>
                     </div>
