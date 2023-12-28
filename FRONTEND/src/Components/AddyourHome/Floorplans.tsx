@@ -57,7 +57,7 @@ const Floorplans = ({ handleFormDataChange }) => {
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 flex flex-col sm:flex-row mt-10 justify-center">
+      <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 flex flex-col sm:flex-row  justify-center ">
         <div className="w-full sm:w-1/2 h-auto sm:flex flex-col">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white "> Add floor plan of your house</h5>
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">You'll need 1 photos to get started.</p>
@@ -74,9 +74,12 @@ const Floorplans = ({ handleFormDataChange }) => {
               <div className="text-red-500 text-sm">{formik.errors.image}</div>
             )}
           </div>
-          <button type="submit" className="mt-3 p-3 bg-[#390b79] text-white rounded-md h-16">
-            Submit
+          <div className='flex justify-end'>
+          <button type="submit" className="mt-3 mb-10 p-3 w-40 bg-[#390b79] text-white rounded-md">
+            Add
           </button>
+
+          </div>
         </div>
       </div>
     </form>

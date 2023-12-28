@@ -8,6 +8,17 @@ import { FaBath } from "react-icons/fa6";
 import axios from "../Components/Utils/user/axios";
 import { useSelector } from "react-redux";
 import toast, { Toaster } from 'react-hot-toast';
+import { useState } from "react";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TelegramIcon,
+  TelegramShareButton,
+  TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+  XIcon,
+} from "react-share";
 
 type Props = {
   id: string;
@@ -62,6 +73,7 @@ const Listcard: React.FC<Props> = ({ Id, title, image, date, room, bathrooms, be
   const navigate = useNavigate();
   const userdata = useSelector((state: RootState) => state.user.value);
   console.log(userdata.id);
+  const shareUrl = window.location.href;
 
 
 
@@ -90,6 +102,16 @@ const Listcard: React.FC<Props> = ({ Id, title, image, date, room, bathrooms, be
 
       console.error('Error Saving this Property:', error);
     }
+  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleShareClick = () => {
+     
+      setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+      setIsModalOpen(false);
   };
 
 
@@ -150,9 +172,67 @@ const Listcard: React.FC<Props> = ({ Id, title, image, date, room, bathrooms, be
           </div>
         </div>
         <div className="w-1/2 flex items-center gap-5">
-          <button data-popover-target="popover-default" type="button" className="w-10 h-10 flex items-center  border rounded ml-12 " >
+          <button data-popover-target="popover-default" type="button" className="w-10 h-10 flex items-center  border rounded ml-12  " onClick={handleShareClick} >
             <IoShareSocialSharp className="w-5 h-5 ml-2" color="#c2cbd9" fill="#c2cbd9" />
           </button>
+          {isModalOpen && (
+                                <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
+                                    <div className="relative w-auto max-w-[90%] sm:max-w-md">
+
+                                        <div className="relative flex flex-col w-full bg-white border rounded-md shadow-lg outline-none focus:outline-none">
+
+                                            <button
+                                                className="self-end p-2 text-sm font-semibold text-gray-500 hover:text-gray-700 focus:outline-none"
+                                                onClick={closeModal}
+                                            >
+                                                Close
+                                            </button>
+
+                                            <div className="p-4">
+                                                <div style={{ display: 'grid', gridGap: '20px', gridTemplateColumns: 'repeat(auto-fill, 30px)', maxWidth: '200px', margin: '0 auto' }}>
+                                                    <div style={{ textAlign: 'center' }}>
+                                                        <FacebookShareButton
+                                                            url={shareUrl}
+                                                            className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
+                                                        >
+                                                            <FacebookIcon size={32} round />
+                                                        </FacebookShareButton>
+                                                    </div>
+                                                    <div style={{ textAlign: 'center' }}>
+                                                        <TwitterShareButton
+                                                            url={shareUrl}
+                                                           
+                                                            className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
+                                                        >
+                                                            <XIcon size={32} round />
+                                                        </TwitterShareButton>
+                                                    </div>
+                                                    <div style={{ textAlign: 'center' }}>
+                                                        <TelegramShareButton
+                                                            url={shareUrl}
+                                                           
+                                                            className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
+                                                        >
+                                                            <TelegramIcon size={32} round />
+                                                        </TelegramShareButton>
+                                                    </div>
+                                                    <div style={{ textAlign: 'center' }}>
+                                                        <WhatsappShareButton
+                                                            url={shareUrl}
+                                                           
+                                                            separator=":: "
+                                                            className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
+                                                        >
+                                                            <WhatsappIcon size={32} round />
+                                                        </WhatsappShareButton>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
 
           <button className="w-10 h-10 flex items-center  border rounded " onClick={handleSaveClick} >
             <MdOutlineFavoriteBorder className="w-5 h-5 ml-2" color="#c2cbd9" fill="#c2cbd9" />

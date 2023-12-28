@@ -85,14 +85,12 @@ const Features = ({ handleFormDataChange }) => {
   });
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row mt-10  justify-center ">
+    <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row justify-center mb-20">
       <div className="w-full sm:w-[70%] h-auto sm:flex flex-col ">
         <h5 className="mb-2 text-[36px] font-bold tracking-tight text-gray-900 dark:text-white">
           Tell us about what your place has to offer
         </h5>
-        {/* <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          You can add more amenities after you publish your listing.
-        </p> */}
+       
 
         <form onSubmit={formik.handleSubmit}>
           <div className="w-full h-auto mt-5">
@@ -111,8 +109,8 @@ const Features = ({ handleFormDataChange }) => {
                     handleFeatureToggle('interiorDetails', placeType.name)
                   }
                 >
-                  <span className="text-base">{placeType.name}</span>
-                  <span className="text-lg ">{placeType.logo}</span>
+                  <span className="text-[16px] sm:text-center">{placeType.name}</span>
+                  <span className="text-lg hidden sm:inline-block">{placeType.logo}</span>
                 </button>
               ))}
             </div>
@@ -134,8 +132,8 @@ const Features = ({ handleFormDataChange }) => {
                     handleFeatureToggle('outdoorDetails', placeType.name)
                   }
                 >
-                  <span className="text-base">{placeType.name}</span>
-                  <span className="text-lg">{placeType.logo}</span>
+                  <span className="text-[16px]">{placeType.name}</span>
+                  <span className="text-lg hidden sm:inline-block">{placeType.logo}</span>
                 </button>
               ))}
             </div>
@@ -157,8 +155,8 @@ const Features = ({ handleFormDataChange }) => {
                     handleFeatureToggle('utilities', placeType.name)
                   }
                 >
-                  <span className="text-base">{placeType.name}</span>
-                  <span className="text-lg">{placeType.logo}</span>
+                  <span className="text-[16px]">{placeType.name}</span>
+                  <span className="text-lg hidden sm:inline-block">{placeType.logo}</span>
                 </button>
               ))}
             </div>
@@ -180,8 +178,8 @@ const Features = ({ handleFormDataChange }) => {
                     handleFeatureToggle('otherFeatures', placeType.name)
                   }
                 >
-                  <span className="text-base">{placeType.name}</span>
-                  <span className="text-lg">{placeType.logo}</span>
+                  <span className="text-[16px]">{placeType.name}</span>
+                  <span className="text-lg hidden sm:inline-block">{placeType.logo}</span>
                 </button>
               ))}
             </div>

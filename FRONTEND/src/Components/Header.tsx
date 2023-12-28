@@ -48,7 +48,7 @@ const Header = ({ openLoginModal }) => {
     const handlesidebarclose = () => {
 
         setMobileMenuOpen(false)
-      
+
 
     };
 
@@ -215,7 +215,14 @@ const Header = ({ openLoginModal }) => {
                                 <a
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                    onClick={() => userdata && userdata.phone ? navigate('/save') : openLoginModal() || handlesidebarclose() }
+                                    onClick={() => userdata && userdata.phone ? navigate('/profile') : openLoginModal() || handlesidebarclose()}
+                                >
+                                    Profile
+                                </a>
+                                <a
+                                    href="#"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    onClick={() => userdata && userdata.phone ? navigate('/save') : openLoginModal() || handlesidebarclose()}
                                 >
                                     Saved List
                                 </a>
@@ -234,10 +241,19 @@ const Header = ({ openLoginModal }) => {
                                     Add your home
                                 </a>
 
+                                {userdata && userdata.phone && (
+                                    <a
+                                        href="#"
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                        onClick={handleLogout}
+                                    >
+                                        Logout
+                                    </a>
+                                )}
 
 
                             </div>
-                           
+
 
                         </div>
                     </div>

@@ -165,19 +165,21 @@ const Mapview = ({ location, type,filters }) => {
   };
 
   return (
-    <div className="w-full h-[800px] bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden mt-20">
-      {property.length === 0 ? (
-        <div className='flex justify-center items-center w-full h-[500px] flex-col'>
-          <img className="w-40 h-40 rounded-t-lg scale-1 hover:scale-[1.1] duration-300 " src={notfound} alt="" />
-          <a href='/' className="mt-4 px-4 py-2">
+    <div className="sm:w-full h-auto bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden mt-20">
+    {property.length === 0 ? (
+      <div className='flex justify-center items-center w-full h-[300px] sm:h-[500px] flex-col'>
+        <img className="w-40 h-40 rounded-t-lg scale-1 hover:scale-[1.1] duration-300 " src={notfound} alt="" />
+        <a href='/' className="mt-4 px-4 py-2">
           Go to Home
+        </a>
+      </div>
+    ) : (
+      <div ref={mapRef} className="w-full h-[400px] sm:w-full sm:h-[400px] md:h-[600px] lg:h-[800px]" />
 
-          </a>
-        </div>
-      ) : (
-        <div ref={mapRef} style={{ width: '100%', height: '100%' }} />
-      )}
-    </div>
+
+    )}
+  </div>
+  
   );
 };
 

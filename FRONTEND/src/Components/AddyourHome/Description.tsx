@@ -11,7 +11,7 @@ const Description = ({ handleFormDataChange }) => {
         },
     });
     return (
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-18 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row   justify-center ">
+        <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-18 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row   justify-center ">
             <form onSubmit={formik.handleSubmit}>
                 <div className='w-full h-[300px] sm:flex flex-col'>
                     <h5 className="mb-2 text-[36px] font-bold tracking-tight text-gray-900 dark:text-white">Create your description</h5>
@@ -28,7 +28,7 @@ const Description = ({ handleFormDataChange }) => {
                         />
                     </div>
                 </div>
-                <div className='flex justify-end'>
+                <div className='flex justify-end mt-5'>
                     <button type="submit" className="mt-3 p-3 bg-[#390b79] text-white rounded-md w-40 ">
                         Add
                     </button>

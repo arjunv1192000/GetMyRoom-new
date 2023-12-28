@@ -20,6 +20,17 @@ import { useSelector } from "react-redux";
 import axios from "../Components/Utils/user/axios";
 import toast, { Toaster } from 'react-hot-toast';
 import Map from './Map';
+import {
+    FacebookShareButton,
+    FacebookIcon,
+    FacebookShareCount,
+    TelegramIcon,
+    TelegramShareButton,
+    TwitterShareButton,
+    WhatsappIcon,
+    WhatsappShareButton,
+    XIcon,
+} from "react-share";
 
 type RootState = {
     user: {
@@ -80,6 +91,7 @@ type Props = {
 const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room, bathrooms, bedrooms, date, image, price, Id, buildYear, description, username, features, userimg, phone, video, floorplans, document, openLoginModal, sellertype }) => {
 
     const navigate = useNavigate()
+    const shareUrl = window.location.href;
 
 
 
@@ -169,7 +181,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
     const handleSaveClick = async () => {
 
         try {
-            const savejob = await axios.post('/save', { UserId: userdata.id, postId: Id });
+            const savejob = await axios.post('/save', { UserId: userdata.id, postId: proId });
 
             if (savejob.data.status == true) {
 
@@ -189,6 +201,17 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
             console.error('Error Saving This job:', error);
         }
+    };
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleShareClick = () => {
+       
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
     };
 
     const options = {
@@ -227,18 +250,78 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
                         </div>
                         <div className='w-1/2 flex flex-row gap-3 sm:justify-end pr-3 pb-2 '>
-                            <button className=" flex items-center   sm:ml-12  mt-1 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover: hover: duration-300 text-white" >
-                                <IoShareSocialSharp  fill="#870e4d" className="w-8 h-8 ml-2 mr-3" />
-                               
+                            <button className=" flex items-center   sm:ml-12  mt-1 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover: hover: duration-300 text-white" onClick={handleShareClick} >
+                                <IoShareSocialSharp fill="#870e4d" className="w-8 h-8 ml-2 mr-3" />
+
                             </button>
+                            {/* Modal */}
+                            {isModalOpen && (
+                                <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
+                                    <div className="relative w-auto max-w-[90%] sm:max-w-md">
+
+                                        <div className="relative flex flex-col w-full bg-white border rounded-md shadow-lg outline-none focus:outline-none">
+
+                                            <button
+                                                className="self-end p-2 text-sm font-semibold text-gray-500 hover:text-gray-700 focus:outline-none"
+                                                onClick={closeModal}
+                                            >
+                                                Close
+                                            </button>
+
+                                            <div className="p-4">
+                                                <div style={{ display: 'grid', gridGap: '20px', gridTemplateColumns: 'repeat(auto-fill, 30px)', maxWidth: '200px', margin: '0 auto' }}>
+                                                    <div style={{ textAlign: 'center' }}>
+                                                        <FacebookShareButton
+                                                            url={shareUrl}
+                                                            className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
+                                                        >
+                                                            <FacebookIcon size={32} round />
+                                                        </FacebookShareButton>
+                                                    </div>
+                                                    <div style={{ textAlign: 'center' }}>
+                                                        <TwitterShareButton
+                                                            url={shareUrl}
+                                                           
+                                                            className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
+                                                        >
+                                                            <XIcon size={32} round />
+                                                        </TwitterShareButton>
+                                                    </div>
+                                                    <div style={{ textAlign: 'center' }}>
+                                                        <TelegramShareButton
+                                                            url={shareUrl}
+                                                           
+                                                            className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
+                                                        >
+                                                            <TelegramIcon size={32} round />
+                                                        </TelegramShareButton>
+                                                    </div>
+                                                    <div style={{ textAlign: 'center' }}>
+                                                        <WhatsappShareButton
+                                                            url={shareUrl}
+                                                           
+                                                            separator=":: "
+                                                            className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
+                                                        >
+                                                            <WhatsappIcon size={32} round />
+                                                        </WhatsappShareButton>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                            {/* End Modal */}
 
 
 
                             <button className="w-auto  flex items-center  mr-1 " onClick={handleSaveClick} >
                                 <MdOutlineFavoriteBorder
-                                   
+
                                     className="w-8 h-8 flex justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:bg-[#870e4d]scale-110 hover:duration-300"
-                                    fill="#870e4d"  
+                                    fill="#870e4d"
                                 />
 
                             </button>

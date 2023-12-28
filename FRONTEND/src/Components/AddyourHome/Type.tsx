@@ -21,7 +21,7 @@ const Type = ({ handleFormDataChange }) => {
         { name: '2 BED HOUSE/FLAT', logo: '🛌' },
         { name: '3 BED HOUSE/FLAT', logo: '🛌' },
         { name: '4+ BED HOUSE/FLAT', logo: '🛌' },
-        
+
     ];
 
     const [selectedPlaceType, setSelectedPlaceType] = useState('');
@@ -46,8 +46,8 @@ const Type = ({ handleFormDataChange }) => {
 
     return (
         <form onSubmit={formik.handleSubmit}>
-            <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-2 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row mt-10">
-                <div className="w-full sm:w-1/2 h-[400px] sm:flex flex-col mb-60 ">
+            <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-2 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row   ">
+                <div className="w-full sm:w-1/2 h-[400px] sm:flex flex-col mb-60  ">
                     <h5 className="mb-2  text-[36px] font-bold tracking-tight text-gray-900 dark:text-white mt-10">Step 1</h5>
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Tell us about your place
@@ -57,10 +57,11 @@ const Type = ({ handleFormDataChange }) => {
                         place or just a room. Then let us know the location and how many guests can stay.
                     </p>
                     <img
-                        className="object-contain w-[400px] justify-center "
+                        className="object-contain w-full max-w-[400px] mx-auto"
                         src={img1}
                         alt=""
-                    ></img>
+                    />
+
                 </div>
                 <div className="w-full sm:w-1/2 h-auto sm:flex flex-col mb-32">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white p-3">
@@ -71,8 +72,8 @@ const Type = ({ handleFormDataChange }) => {
                             <button
                                 key={index}
                                 className={`flex items-center justify-between px-4 py-2 border ${selectedPlaceType === placeType.name
-                                        ? ' bg-gray-200 '
-                                        : 'border-gray-300'
+                                    ? ' bg-gray-200 '
+                                    : 'border-gray-300'
                                     } rounded-lg focus:outline-none focus:border-black h-20`}
                                 onClick={() => handlePlaceTypeSelection(placeType.name)}
                             >
@@ -81,7 +82,7 @@ const Type = ({ handleFormDataChange }) => {
                             </button>
                         ))}
                     </div>
-                   
+
                 </div>
             </div>
         </form>

@@ -16,7 +16,7 @@ const Hometitle = ({ handleFormDataChange }) => {
         },
     });
     return (
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row  ">
+        <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8 mb-20  flex flex-col sm:flex-row  ">
             <div className='w-full sm:w-1/2 h-[400px] sm:flex flex-col  mb-50  '>
                 <h5 className="mb-2 text-[36px] font-bold tracking-tight text-gray-900 dark:text-white">Step 4</h5>
               

@@ -70,7 +70,7 @@ const Home_Search = () => {
         <>
             <div className='ansolute' ref={secondSectionRef}>
                 <img className="w-full h-[700px] object-cover " src={hero} alt="image description" />
-                <div className='absolute top-[25%] left-[10%] md:w-[70%] md:left-[15%]'>
+                <div className='absolute top-[20%] left-[10%] md:w-[62%] md:left-[10%] '>
                     <h2 className="flex font-normal text-[#870e4d] text-2xl md:text-4xl">Living Together is Better</h2>
                     <h2 className="flex font-bold text-black text-3xl md:text-5xl">
                         Find flexible, convenient, and affordable<br />homes with friends included

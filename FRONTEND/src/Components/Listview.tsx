@@ -53,7 +53,6 @@ const Listview = ({ location, type, filters }) => {
         const response = await axios.get(`/getallproperty?location=${location}&type=${type}`);
         const allProperties = response.data.propertydata.allproperty;
 
-        console.log(filters, "ooooo");
 
         const filteredProperties = allProperties.filter((property: {
           sellertype: any; room: number; bedrooms: number; bathrooms: number; price: any; sellerType: any;
@@ -70,9 +69,6 @@ const Listview = ({ location, type, filters }) => {
 
           return true;
         });
-        console.log(allProperties, "all");
-
-        console.log(filteredProperties, "fitt");
 
         const sortedProperty = filteredProperties.sort((a: { price: number; }, b: { price: number; }) => {
           return sortOrder === 'asc' ? a.price - b.price : b.price - a.price;

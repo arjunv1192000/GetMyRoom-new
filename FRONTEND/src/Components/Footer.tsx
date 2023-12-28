@@ -3,45 +3,6 @@ const Footer = () => {
   return (
     <footer className="bg-[#f7f6f5] mt-10">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        {/* <div className="lg:flex lg:justify-center">
-          <div className="grid grid-cols- gap-8 sm:gap-6 sm:grid-cols-3">
-            <div className=" lg:w-60">
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 ">To rent</h2>
-              <ul className="text-gray-500 dark:text-gray-400 ">
-                <li className="mb-4">
-                  <a href="https://flowbite.com/" className="hover:underline text-[#322744]">Commercial properties to rent</a>
-                </li>
-                <li className="mb-4">
-                  <a href="https://flowbite.com/" className="hover:underline  text-[#322744]">Find letting agents</a>
-                </li>
-
-              </ul>
-            </div>
-            <div className="">
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 ">Research</h2>
-              <ul className="text-gray-500 dark:text-gray-400 ">
-                <li className="mb-4">
-                  <a href="https://github.com/themesberg/flowbite" className="hover:underline ">Shared Ownership</a>
-                </li>
-                <li>
-                  <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Guides</a>
-                </li>
-              </ul>
-            </div>
-            <div className="">
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 "> for business</h2>
-              <ul className="text-gray-500 dark:text-gray-400 ">
-                <li className="mb-4">
-                  <a href="#" className="hover:underline">Privacy Policy</a>
-                </li>
-                <li>
-                  <a href="#" className="hover:underline">Terms &amp; Conditions</a>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </div> */}
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8 " />
         <div className="sm:flex sm:items-center sm:justify-between xl:px-24">
           <div className="flex flex-col mt-4 gap-2 sm:flex-row sm:flex-nowrap sm:gap-5">

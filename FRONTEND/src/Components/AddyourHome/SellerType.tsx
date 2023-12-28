@@ -36,22 +36,21 @@ const SellerType = ({ handleFormDataChange }) => {
 
         <form onSubmit={formik.handleSubmit}>
 
-            <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row mt-10">
+            <div className="mx-auto max-w-2xl px-4 py-16 justify-center sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row mb-20 ">
                 <div className="w-full sm:w-1/2 h-[400px] sm:flex flex-col mr-10">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"></h5>
-                    <h5 className="mb-2 text-[40px] font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h5 className="mb-2 text-[40px] font-bold tracking-tight text-gray-900 flex justify-center ">
                         Final step
                     </h5>
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Finish up and publish</h5>
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 flex justify-center ">Finish up and publish</h5>
                    
                     <img
-                        className="object-cover rounded-t-lg h-40 md:h-44 md:w-28 md:rounded-none md:rounded-s-lg ml-20 mt-10"
+                        className="object-cover rounded-t-lg h-40  md:h-44 md:w-32 md:ml-40 md:rounded-none md:rounded-s-lg ml-28 mt-10 "
                         src={img1}
                         alt=""
                     ></img>
                 </div>
                 <div className="w-full sm:w-1/2 h-auto sm:flex flex-col">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white p-3">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900  p-3">
                      Are you an
                     </h5>
                     <div className="flex flex-col gap-2 p-3">

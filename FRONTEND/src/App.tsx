@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense, useEffect } from 'react';
 import Loadingpage from './Components/Loadingpage';
 import Loginpage from './Components/admin/Pages/Loginpage';
-import axios from 'axios';
+
 
 
 
@@ -18,10 +18,7 @@ const AdminRoutes=lazy(()=>import('./Routes/AdminRoutes'))
 
 function App() {
  
-  useEffect(()=>{
-    console.log('first gfgfdgjfdlhlhmd;flhmdflhdfh')
-    axios.get('https://getmyroom.co.uk').then(resp=>console.log(resp)).then(err=>console.log(err))
-  },[])
+  
 
   return (
     <BrowserRouter>

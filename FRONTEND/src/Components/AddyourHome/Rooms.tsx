@@ -41,9 +41,9 @@ const Rooms = ({ handleFormDataChange }) => {
     };
 
     return (
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row mt-10">
+        <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row mb-24 ">
             <div className="w-full sm:w-full h-auto sm:flex flex-col">
-                <h5 className="mb-2 text-[36px] font-bold tracking-tight text-gray-900 dark:text-white">Let's start with the basics</h5>
+                <h5 className="mb-2 font-bold tracking-tight text-gray-900 text-[26px] sm:text-[38px] md:text-4xl lg:text-5xl xl:text-[48px]">Let's start with the basics</h5>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">How many people can stay here?</p>
 
                 <form onSubmit={formik.handleSubmit}>

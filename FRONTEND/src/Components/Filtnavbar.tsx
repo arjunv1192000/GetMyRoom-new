@@ -106,12 +106,12 @@ const FilterDialog = ({ isOpen, onClose, onApplyFilters }) => {
               onChange={(e) => setPriceRange(e.target.value)}
               className="mt-1 p-2 w-full border rounded-md"
             >
-              <option value="0-500">$0 - $500</option>
-              <option value="501-1000">$501 - $1000</option>
-              <option value="1001-1500">$1001 - $1500</option>
-              <option value="1501-2000">$1501 - $2000</option>
-              <option value="2001-3000">$2001 - $3000</option>
-              <option value="3001-4000">$3001 - $4000</option>
+              <option value="0-500">£0 - £500</option>
+              <option value="501-1000">£501 - £1000</option>
+              <option value="1001-1500">£1001 - £1500</option>
+              <option value="1501-2000">£1501 - £2000</option>
+              <option value="2001-3000">£2001 - £3000</option>
+              <option value="3001-4000">£3001 - £4000</option>
             </select>
           </div>
 
