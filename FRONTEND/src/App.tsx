@@ -2,9 +2,10 @@
 import './App.css'
 import Homepage from './Pages/Homepage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import Loadingpage from './Components/Loadingpage';
 import Loginpage from './Components/admin/Pages/Loginpage';
+import axios from 'axios';
 
 
 
@@ -17,6 +18,10 @@ const AdminRoutes=lazy(()=>import('./Routes/AdminRoutes'))
 
 function App() {
  
+  useEffect(()=>{
+    console.log('first')
+    axios.get('https://getmyroom.co.uk/api').then(resp=>console.log(resp)).then(err=>console.log(err))
+  },[])
 
   return (
     <BrowserRouter>
@@ -29,10 +34,7 @@ function App() {
           </Routes>
       </BrowserRouter>
 
-  //   <>
-  // <Addyourhomepage/>
-  //   </>
-
+ 
       
   
 
