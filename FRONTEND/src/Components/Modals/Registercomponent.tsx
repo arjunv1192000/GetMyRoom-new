@@ -305,7 +305,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                 <>
                     <form onSubmit={formikStep1.handleSubmit}>
                         <div className='flex justify-center mt-5'>
-                            <h2 className=" font-semibold text-black text-[20px]  ml-5  ">Register</h2>
+                            <h2 className=" font-semibold text-black text-[25px]  ml-5  ">Register</h2>
                         </div>
                         {/* <div className='mt-5 p-2'>
                             <select
@@ -353,9 +353,9 @@ const Registercomponent = ({ onBack, onClose }) => {
                         </div> */}
                     </form>
                     <div className="flex items-center justify-center p-2">
-                        <hr className="border-t border-gray-300 flex-grow mr-2" />
+                        {/* <hr className="border-t border-gray-300 flex-grow mr-2" />
                         <span className="text-gray-500">or</span>
-                        <hr className="border-t border-gray-300 flex-grow ml-2" />
+                        <hr className="border-t border-gray-300 flex-grow ml-2" /> */}
                     </div>
                     <div className='mt-5 p-2 flex justify-center'>
                         <GoogleOAuthProvider clientId="1084048115629-gpikjorqk28djapdi3qid41bn8k3k67e.apps.googleusercontent.com">

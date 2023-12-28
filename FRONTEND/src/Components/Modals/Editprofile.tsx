@@ -77,27 +77,27 @@ const Editprofile = ({ onClose }) => {
             },
           });
 
-          let imageUrls = imageUrl.split('?')[0];
+          imageUrls = imageUrl.split('?')[0];
           console.log(imageUrls,"s333333");
           
 
         } else {
 
            imageUrls = values.profileImage;
-          console.log(imageUrls,"normall");
+           console.log(imageUrls,"normall");
 
 
         }
 
         const body = {
           name: values.fullName,
-          dob: values.dob,
-          email: values.email,
-          image: imageUrls,
+          dob:values.dob,
+          email:values.email,
+          image:imageUrls,
           userId: id
         };
 
-        console.log(body.image,"which image ");
+        console.log(body,"which image ");
         
         axios.post('/updateuserdata', body).then((response) => {
 
@@ -117,6 +117,7 @@ const Editprofile = ({ onClose }) => {
             }));
             toast.success('updated Successfully')
             handleModalClose();
+            window.location.reload();
 
 
           }

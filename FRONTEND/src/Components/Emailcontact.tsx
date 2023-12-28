@@ -7,6 +7,9 @@ import * as Yup from 'yup';
 import Axios from "../Components/Utils/Ssrvice/axios"
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { BiBed } from "react-icons/bi";
+import { MdMeetingRoom } from "react-icons/md";
+import { FaBath } from "react-icons/fa6";
 
 type RootState = {
     user: {
@@ -50,9 +53,9 @@ type Props = {
     userimg: string;
     username: string;
     Id: string;
-    useremail:string;
-    phone:string;
-    Ids:string;
+    useremail: string;
+    phone: string;
+    Ids: string;
 
 }
 
@@ -65,13 +68,13 @@ const validationSchema = Yup.object({
 
 
 
-const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedrooms, image, price, userimg, username, useremail,phone,Ids }) => {
+const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedrooms, image, price, userimg, username, useremail, phone, Ids }) => {
     const userdata = useSelector((state: RootState) => state.user.value);
     const navigate = useNavigate();
 
     const handleSubmit = (values: any) => {
 
-       
+
 
         const body = {
             fullname: values.fullName,
@@ -87,12 +90,12 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
 
         Axios.post('/nodemailer', body).then((response) => {
 
-           
-            
+
+
 
             if (response.data.response == true) {
                 console.log(response);
-                
+
                 toast.success('Email send Successfully')
 
                 navigate(`/details?Id=${Ids}`)
@@ -171,7 +174,7 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
                         </Form>
                     </Formik>
                 </div>
-                <div className='w-full sm:w-1/2 h-[800px] flex justify-center'>
+                <div className='w-full sm:w-1/2 h-auto flex justify-center'>
                     <div className=" w-[80%] h-[700px] bg-white border border-gray-200 rounded-lg shadow  hover:bg-gray-100 overflow-hidden mt-12">
                         <div className="flex flex-col">
                             <img className="object-cover w-full" src={image[0]} alt="" />
@@ -186,33 +189,35 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
 
                                 </div>
                                 <div className='w-1/2 flex flex-row ml-10 mt-2'>
-                                    <FaMapMarkerAlt className="mt-2.5 " />
+                                    <FaMapMarkerAlt className="mt-2 " />
                                     <h2 className="flex  justify-start font-semibold text-gray-900 text-[18px] ml-3 ">{location.locationName}</h2>
 
                                 </div>
 
-                                <div className="w-full h-20 flex flex-row  gap-4 mt-6">
+                                <div className="w-full h-20 flex flex-row  gap-6">
                                     <div className='w-20 h-20 ml-4  flex flex-col items-center'>
 
-                                        <img className="w-10 h-10 mt-2 " src={post} alt="" />
+                                        <MdMeetingRoom color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
 
 
-                                        <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1"> {room}room</h5>
+
+
+                                        <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1"> {room} room</h5>
 
 
                                     </div>
                                     <div className='w-20 h-20  flex flex-col items-center'>
-                                        <img className="w-10 h-10 mt-2 " src={post} alt="" />
+                                        <BiBed color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
 
 
-                                        <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1">{bedrooms}room</h5>
+                                        <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1"> {bathrooms}Beds</h5>
 
                                     </div>
                                     <div className='w-20 h-20  flex flex-col items-center'>
-                                        <img className="w-10 h-10 mt-2 " src={post} alt="" />
+                                        <FaBath color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
 
 
-                                        <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1">{bathrooms}room</h5>
+                                        <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1">{bedrooms} Baths</h5>
 
                                     </div>
                                 </div>
@@ -242,15 +247,15 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
                     </div>
 
                 </div>
-                
+
 
 
             </div>
 
             <Toaster
-                    position="top-center"
-                    reverseOrder={false}
-                />
+                position="top-center"
+                reverseOrder={false}
+            />
         </div >
     )
 }

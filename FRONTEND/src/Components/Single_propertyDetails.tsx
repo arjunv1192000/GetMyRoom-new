@@ -1,4 +1,4 @@
-import  { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import * as React from 'react';
 import { FaRegImage } from "react-icons/fa6";
 import { FaMapMarkerAlt } from "react-icons/fa";
@@ -80,7 +80,7 @@ type Props = {
 const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room, bathrooms, bedrooms, date, image, price, Id, buildYear, description, username, features, userimg, phone, video, floorplans, document, openLoginModal, sellertype }) => {
 
     const navigate = useNavigate()
-    
+
 
 
 
@@ -195,7 +195,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
         year: 'numeric',
         month: 'long',
         day: 'numeric',
-      };
+    };
     const originalDateString = buildYear;
     const dateObject = new Date(originalDateString);
     const formatted = dateObject.toLocaleString('en-US', options);
@@ -214,7 +214,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                         <div className='w-1/2'>
                             {/*------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
-                            <h2 className="flex sm:justify-end  font-semibold text-gray-900 text-[32px] ">£ {price}/month</h2>
+                            <h2 className="flex sm:justify-end  font-semibold text-gray-900 text-[32px] ">£{price} / month</h2>
 
                         </div>
 
@@ -227,16 +227,20 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
                         </div>
                         <div className='w-1/2 flex flex-row gap-3 sm:justify-end pr-3 pb-2 '>
-                            <button className="w-28 h-8 flex items-center  border rounded sm:ml-12  mt-1 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#870e4d] duration-300 text-white" >
-                                <IoShareSocialSharp className="w-5 h-5 ml-2 mr-3" />
-                                Share
+                            <button className=" flex items-center   sm:ml-12  mt-1 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover: hover: duration-300 text-white" >
+                                <IoShareSocialSharp  fill="#870e4d" className="w-8 h-8 ml-2 mr-3" />
+                               
                             </button>
 
 
 
-                            <button className="w-28 h-8 flex items-center  border rounded mt-1 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#870e4d] duration-300 text-white " onClick={handleSaveClick} >
-                                <MdOutlineFavoriteBorder className="w-5 h-5 ml-2 me-1 " />
-                                Favourite
+                            <button className="w-auto  flex items-center  mr-1 " onClick={handleSaveClick} >
+                                <MdOutlineFavoriteBorder
+                                   
+                                    className="w-8 h-8 flex justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:bg-[#870e4d]scale-110 hover:duration-300"
+                                    fill="#870e4d"  
+                                />
+
                             </button>
                         </div>
 
@@ -249,14 +253,11 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
                     {contentType === 'image' && (
 
-
-
-
-                        <div className='w-full h-[600px] bg-black   '>
+                        <div className='w-full h-auto bg-black  '>
                             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                                 {image.map((imageUrl, index) => (
                                     <SwiperSlide key={index}>
-                                        <img className='w-full h-[600px] object-fit' src={imageUrl} alt={`Image ${index + 1}`} />
+                                        <img className='w-full h-auto object-contain' src={imageUrl} alt={`Image ${index + 1}`} />
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
@@ -267,7 +268,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                     )}
                     {contentType === 'location' && (
                         <div className="w-full h-[600px] bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden ">
-                           <Map location={location}/>
+                            <Map location={location} />
                         </div>
 
 
@@ -321,20 +322,20 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                             </div>
                             <div className='w-32  h-20  flex flex-col items-center bg-white'>
 
-                                <MdMeetingRoom color="red" fill="red" className=" w-[20px] h-[20px] mt-5" />
+                                <MdMeetingRoom color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
                                 <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1"> {room} Room</h5>
 
                             </div>
                             <div className='w-32  h-20  flex flex-col items-center bg-white'>
 
-                                <FaBath color="red" fill="red" className=" w-[20px] h-[20px] mt-5" />
+                                <FaBath color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
 
                                 <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1">{bathrooms} Bathroom</h5>
 
                             </div>
                             <div className='w-32  h-20  flex flex-col items-center bg-white'>
 
-                                <BiBed color="red" fill="red" className=" w-[20px] h-[20px] mt-5" />
+                                <BiBed color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
                                 <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1">{bedrooms} Bedroom</h5>
 
                             </div>
@@ -384,7 +385,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                             {isExpanded3 && <div className='mt-1 w-full h-auto'>
 
                                 <div className="w-full h-[400px] bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden mt-20">
-                                 <Map location={location}/>
+                                    <Map location={location} />
                                 </div>
                             </div>}
 
@@ -454,25 +455,24 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                                 {isExpanded5 ? <FaChevronUp className="mr-5" /> : <FaChevronDown className="mr-5" />}
                             </div>
                             {isExpanded5 && <div className='mt-1 w-full h-auto flex flex-col'>
-                                <div className='w-full h-auto'>
-                                    <h5 className="mb-2 text-lg font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Interior Details</h5>
-                                    <div className='w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:gap-x-8 gap-y-8 '>
-
+                                <div className="w-full h-auto">
+                                    <h5 className="mb-2 text-[25px] font-sans font-semibold ml-5 tracking-tight text-gray-900 mt-1">
+                                        Interior Details
+                                    </h5>
+                                    <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8">
                                         {features?.interiorDetails.map((feature, index) => (
-                                            <div className='flex flex-row ml-5'>
-
-                                                <h5 className="mb-2 text-base font-sans font-medium  tracking-tight text-gray-900 mt-3">{feature}</h5>
+                                            <div key={index} className="flex flex-col ml-5">
+                                                <h5 className="mb-2 text-base font-sans font-medium tracking-tight text-gray-900 mt-3">
+                                                    {feature}
+                                                </h5>
                                             </div>
-
                                         ))}
-
                                     </div>
-
-
                                 </div>
+
                                 <div className='w-full h-auto'>
-                                    <h5 className="mb-2 text-lg font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Outdoor Details</h5>
-                                    <div className='w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:gap-x-8 gap-y-8 '>
+                                    <h5 className="mb-2 text-[25px] font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Outdoor Details</h5>
+                                    <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8">
                                         {features?.outdoorDetails.map((feature, index) => (
                                             <div className='flex flex-row ml-5'>
 
@@ -486,8 +486,8 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
                                 </div>
                                 <div className='w-full h-auto'>
-                                    <h5 className="mb-2 text-lg font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Utilities</h5>
-                                    <div className='w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:gap-x-8 gap-y-8 '>
+                                    <h5 className="mb-2 text-[25px] font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Utilities</h5>
+                                    <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8">
                                         {features?.utilities.map((feature, index) => (
                                             <div className='flex flex-row ml-5'>
 
@@ -501,8 +501,8 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
                                 </div>
                                 <div className='w-full h-auto'>
-                                    <h5 className="mb-2 text-lg font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Other Features</h5>
-                                    <div className='w-full h-auto grid grid-cols-1 gap-3 gap-x-3 sm:grid-cols-2 lg:grid-cols-2 xl:gap-x-3 gap-y-3 '>
+                                    <h5 className="mb-2 text-[25px] font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Other Features</h5>
+                                    <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8">
                                         {features?.otherFeatures.map((feature, index) => (
                                             <div className='flex flex-row ml-5'>
                                                 <h5 className="mb-2 text-base font-sans font-medium  tracking-tight text-gray-900 mt-3">{feature}</h5>
@@ -540,7 +540,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                         {/*---------------------------------------------------------------Contact ---------------------------------------------------------------------------------------------------- */}
                     </div>
                 </div>
-                <div className=' sm:flex w-11/12 h-auto bg-white shadow-md mt-10 rounded-md mb-10 flex flex-row'>
+                <div className='sm:flex flex-row w-11/12 h-auto bg-white shadow-md mt-10 rounded-md mb-10'>
 
                     <img className="w-60 h-60 bg-white border border-gray-200 rounded-lg shadow items-center m-6 object-cover" src={userimg} alt="Video Thumbnail" />
 

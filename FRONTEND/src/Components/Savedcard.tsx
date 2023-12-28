@@ -63,6 +63,7 @@ const Savedcard: React.FC<Props> = ({title,location,room,bathrooms,bedrooms,imag
             if (remove.data.status == true) {
 
                 toast.success('property remove Successfully')
+                window.location.reload();
               
 
             } else {

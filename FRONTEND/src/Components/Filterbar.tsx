@@ -140,14 +140,15 @@ const Filterbar = ({ onViewTypeChange, onApplyFilters }) => {
             >
               <option value="AllType" className='font-semibold'>AllType</option>
               <option value="BOX ROOM" className='font-semibold'>BOX ROOM</option>
-              <option value="TWIN ROOM" className='font-semibold'>TWIN ROOM</option>
+              <option value="BEDSIT" className='font-semibold'>TWIN ROOM</option>
               <option value="SINGLE ROOM" className='font-semibold'>SINGLE ROOM</option>
               <option value="STUDIO" className='font-semibold'>STUDIO</option>
               <option value="DOUBLE ROOM" className='font-semibold'>DOUBLE ROOM</option>
-              <option value="RENT HOUSE" className='font-semibold'>RENT HOUSE</option>
-              <option value="ONE BED" className='font-semibold'>ONE BED</option>
-              <option value="TWO BE" className='font-semibold'>TWO BED</option>
-              <option value="MORE THAN TWO BED" className='font-semibold'>MORE THAN TWO BED</option>
+              <option value="TRIPLE/QUADRUPLE ROOM" className='font-semibold'>TRIPLE/QUADRUPLE ROOM</option>
+              <option value="1 BED HOUSE/FLAT" className='font-semibold'>1 BED HOUSE/FLAT</option>
+              <option value="2 BED HOUSE/FLAT" className='font-semibold'>2 BED HOUSE/FLAT</option>
+              <option value="3 BED HOUSE/FLAT" className='font-semibold'>3 BED HOUSE/FLAT</option>
+              <option value="4+ BED HOUSE/FLAT" className='font-semibold'>4+ BED HOUSE/FLAT</option>
 
             </select>
           </div>
@@ -168,7 +169,7 @@ const Filterbar = ({ onViewTypeChange, onApplyFilters }) => {
             <IoIosOptions className="ml-6 mr-2" />
             <span>Filter</span>
           </button>
-          
+
         </div>
       </div>
       <hr className=" border-gray-200 sm:mx-auto dark:border-gray-700 mt-2" />

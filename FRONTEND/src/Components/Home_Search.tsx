@@ -85,10 +85,11 @@ const Home_Search = () => {
                         <option value="SINGLE ROOM" className='font-semibold'>SINGLE ROOM</option>
                         <option value="STUDIO" className='font-semibold'>STUDIO</option>
                         <option value="DOUBLE ROOM" className='font-semibold'>DOUBLE ROOM</option>
-                        <option value="RENT HOUSE" className='font-semibold'>RENT HOUSE</option>
-                        <option value="ONE BED" className='font-semibold'>ONE BED</option>
-                        <option value="TWO BE" className='font-semibold'>TWO BED</option>
-                        <option value="MORE THAN TWO BED" className='font-semibold'>MORE THAN TWO BED</option>
+                        <option value="TRIPLE/QUADRUPLE ROOM" className='font-semibold'>TRIPLE/QUADRUPLE ROOM</option>
+                        <option value="1 BED HOUSE/FLAT" className='font-semibold'>1 BED HOUSE/FLAT</option>
+                        <option value="2 BED HOUSE/FLAT" className='font-semibold'>2 BED HOUSE/FLAT</option>
+                        <option value="3 BED HOUSE/FLAT" className='font-semibold'>3 BED HOUSE/FLAT</option>
+                        <option value="4+ BED HOUSE/FLAT" className='font-semibold'>4+ BED HOUSE/FLAT</option>
 
                     </select>
                     <button className=" transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 rounded-lg w-full font-semibold h-16" onClick={handleSearchButtonClicks}>Search</button>

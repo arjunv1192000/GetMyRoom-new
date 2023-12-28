@@ -67,7 +67,7 @@ const Login = ({ onClose }) => {
                 )}
 
                 <div className='mt-2 text-center'>
-                    <p className="text-xs text-gray-600">
+                    <p className="text-[16px] text-gray-600">
                         {isLogin ? "Don't have an account? " : "Already have an account? "}
                         <span className="text-blue-500 cursor-pointer" onClick={handleSwitchComponent}>
                             {isLogin ? "Register" : "Login"}

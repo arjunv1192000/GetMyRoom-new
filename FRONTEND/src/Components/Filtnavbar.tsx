@@ -133,14 +133,14 @@ const FilterDialog = ({ isOpen, onClose, onApplyFilters }) => {
 
           <button
             type="submit"
-            className="transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 border rounded lg:flex  items-center hidden md,sm:inline-block"
+            className="transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 border rounded lg:flex  items-center "
           >
             Apply Filters
           </button>
 
           <button
             type="button"
-            className="mt-2 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 border rounded lg:flex items-center hidden md,sm:inline-block"
+            className="mt-2 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 border rounded lg:flex items-center "
             onClick={handleApplyDefaultValues}
           >
             Apply Default Values
