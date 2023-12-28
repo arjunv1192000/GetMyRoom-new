@@ -358,7 +358,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                         <hr className="border-t border-gray-300 flex-grow ml-2" /> */}
                     </div>
                     <div className='mt-5 p-2 flex justify-center'>
-                        <GoogleOAuthProvider clientId="1084048115629-gpikjorqk28djapdi3qid41bn8k3k67e.apps.googleusercontent.com">
+                        <GoogleOAuthProvider clientId="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com">
                             <GoogleLogin
                                 onSuccess={(credentialResponse) => {
                                     const decoded = jwtDecode(credentialResponse.credential);
