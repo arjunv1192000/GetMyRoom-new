@@ -19,7 +19,7 @@ const AdminRoutes=lazy(()=>import('./Routes/AdminRoutes'))
 function App() {
  
   useEffect(()=>{
-    console.log('first')
+    console.log('first gfgfdgjfdlhlhmd;flhmdflhdfh')
     axios.get('https://getmyroom.co.uk/api').then(resp=>console.log(resp)).then(err=>console.log(err))
   },[])
 
