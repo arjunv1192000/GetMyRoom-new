@@ -20,7 +20,7 @@ function App() {
  
   useEffect(()=>{
     console.log('first gfgfdgjfdlhlhmd;flhmdflhdfh')
-    axios.get('https://getmyroom.co.uk/api').then(resp=>console.log(resp)).then(err=>console.log(err))
+    axios.get('https://getmyroom.co.uk').then(resp=>console.log(resp)).then(err=>console.log(err))
   },[])
 
   return (
