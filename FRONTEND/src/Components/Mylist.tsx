@@ -73,6 +73,9 @@ const Mylist = () => {
             <div className='flex justify-center w-full h-40'>
 
               <p className="text-gray-500 mt-4">No listings found.</p>
+              <a href='/form' className="mt-4 px-4 py-2">
+                List your property
+              </a>
 
             </div>
 

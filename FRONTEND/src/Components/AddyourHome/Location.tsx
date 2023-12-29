@@ -78,7 +78,7 @@ const Location = ({handleFormDataChange}) => {
       const bounds = new window.google.maps.LatLngBounds();
       places.forEach((place) => {
         if (!place.geometry || !place.geometry.location) {
-          console.log("Returned place contains no geometry");
+         
           return;
         }
 
@@ -93,8 +93,7 @@ const Location = ({handleFormDataChange}) => {
           const coordinates = place.geometry.location.toJSON();
           const locationName = place.formatted_address;
 
-          console.log("Coordinates: ", coordinates);
-          console.log("Location Name: ", locationName);
+         
 
          
           formik.setValues({

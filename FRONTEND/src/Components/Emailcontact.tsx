@@ -95,7 +95,7 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
 
 
             if (response.data.response == true) {
-                console.log(response);
+               
 
                 toast.success('Email send Successfully')
 

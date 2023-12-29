@@ -36,7 +36,7 @@ const Profile = () => {
   useEffect(() => {
     axios.get('/getprofile?id=' + id).then((response) => {
         setprofile(response.data.profiledata)
-        console.log(response.data.profiledata);
+       
         
 
 

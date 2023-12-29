@@ -61,7 +61,7 @@ const Detaildatapage = () => {
     axios
       .get('/getsingleproperty?id=' + IdParam)
       .then((response) => {
-        console.log(response.data.propertydata, "jobdetails");
+       
         setProperty(response.data.propertydata);
       })
       .catch((error) => {

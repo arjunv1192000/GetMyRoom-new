@@ -167,7 +167,7 @@ const Header = ({ openLoginModal }) => {
                                         <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold" onClick={() => navigate('/profile')}> Profile </div>
                                         <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold" onClick={() => navigate('/save')}> Saved List </div>
                                         <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold" onClick={() => navigate('/mylist')}> My List</div>
-                                        <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold" onClick={handleLogout}> Logout</div>
+                                        <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold " onClick={handleLogout}> LogOut</div>
 
                                     </>
                                 </div>
@@ -244,10 +244,10 @@ const Header = ({ openLoginModal }) => {
                                 {userdata && userdata.phone && (
                                     <a
                                         href="#"
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                        className="-mx-3 block rounded-lg px-3 py-2.5   leading-7 text-[#870e4d] hover:bg-gray-50 text-[20px] " 
                                         onClick={handleLogout}
                                     >
-                                        Logout
+                                        Log out
                                     </a>
                                 )}
 

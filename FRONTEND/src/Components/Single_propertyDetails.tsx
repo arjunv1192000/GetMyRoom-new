@@ -161,8 +161,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
 
     const handleemailClick = async () => {
-        console.log(Id, "emailll");
-
+       
 
         if (userdata.id) {
 

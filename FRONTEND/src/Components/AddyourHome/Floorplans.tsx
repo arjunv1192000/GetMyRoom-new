@@ -14,7 +14,7 @@ const Floorplans = ({ handleFormDataChange }) => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log(values.image,"dddd");
+    
       
       try {
         if (values.image) {

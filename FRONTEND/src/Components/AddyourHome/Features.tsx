@@ -110,7 +110,7 @@ const Features = ({ handleFormDataChange }) => {
                     handleFeatureToggle('interiorDetails', placeType.name)
                   }
                 >
-                  <span className="text-[16px] sm:text-center">{placeType.name}</span>
+                  <span className="text-[12px] flex justify-center sm:text-center">{placeType.name}</span>
                   <span className="text-lg hidden sm:inline-block">{placeType.logo}</span>
                 </button>
               ))}
@@ -133,7 +133,7 @@ const Features = ({ handleFormDataChange }) => {
                     handleFeatureToggle('outdoorDetails', placeType.name)
                   }
                 >
-                  <span className="text-[16px]">{placeType.name}</span>
+                  <span className="text-[12px] flex justify-center sm:text-center">{placeType.name}</span>
                   <span className="text-lg hidden sm:inline-block">{placeType.logo}</span>
                 </button>
               ))}
@@ -156,7 +156,7 @@ const Features = ({ handleFormDataChange }) => {
                     handleFeatureToggle('utilities', placeType.name)
                   }
                 >
-                  <span className="text-[16px]">{placeType.name}</span>
+                  <span className="text-[12px] flex justify-center sm:text-center">{placeType.name}</span>
                   <span className="text-lg hidden sm:inline-block">{placeType.logo}</span>
                 </button>
               ))}
@@ -179,7 +179,7 @@ const Features = ({ handleFormDataChange }) => {
                     handleFeatureToggle('otherFeatures', placeType.name)
                   }
                 >
-                  <span className="text-[16px]">{placeType.name}</span>
+                  <span className="text-[12px] flex justify-center sm:text-center">{placeType.name}</span>
                   <span className="text-lg hidden sm:inline-block">{placeType.logo}</span>
                 </button>
               ))}

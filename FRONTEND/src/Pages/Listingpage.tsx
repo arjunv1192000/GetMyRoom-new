@@ -26,7 +26,7 @@ const Listingpage = () => {
     setFilters(newFilters);
   };
   
-  console.log(filters,"fndfnsngndsgn");
+ 
   
  
 

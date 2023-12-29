@@ -58,9 +58,11 @@ const Registercomponent = ({ onBack, onClose }) => {
 
     const validationSchemaStep4 = Yup.object({
         selectedCountryCodes: Yup.string().required('Country code is required'),
-        phoneNumber: Yup.string().required('Phone number is required'),
+        phoneNumber: Yup.string()
+          .required('Phone number is required')
+          .matches(/^[0-9]{10}$/, 'Invalid phone number'),
         dob: Yup.string().required('Date of birth is required'),
-    });
+      });
 
 
 
@@ -132,7 +134,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                 phoneNumber: phoneNumber,
                 otp: values.otp
             };
-            console.log(body);
+           
 
             axios.post('/verifyotp', body)
                 .then((response) => {
@@ -174,7 +176,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                 const imageUrl = imageResponse.data.response;
 
 
-                console.log(imageUrl, "s333");
+               
 
                 const imageUploadResponse = await fetch(imageUrl, {
                     method: 'PUT',
@@ -185,7 +187,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                 });
 
                 const userimage = imageUrl.split('?')[0];
-                console.log(userimage);
+               
 
 
                 const body = {

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import {Link,useNavigate } from 'react-router-dom';
 import axios from '../Components/Utils/property/axios';
 import MarkerClusterer from 'marker-clusterer-plus';
-import notfound from "../assets/3d-ad-block-blocker-concept-illustration_523487-190.jpg"
+import notfound from "../assets/file.png"
 
 
 

@@ -87,6 +87,9 @@ const Savedlist = () => {
                         <div className='flex justify-center w-full h-40'>
 
                             <p className="text-gray-500 mt-10">Saved list is empty.</p>
+                            <a href='/' className="mt-4 px-4 py-2">
+                                Go to Home
+                            </a>
 
                         </div>
 

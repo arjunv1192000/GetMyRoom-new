@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense, useEffect } from 'react';
 import Loadingpage from './Components/Loadingpage';
 import Loginpage from './Components/admin/Pages/Loginpage';
+import Terms from "./Components/Modals/Terms"
 
 
 
@@ -29,6 +30,7 @@ function App() {
             <Route path='/admin/*' element={<Suspense fallback={<Loadingpage />}><AdminRoutes /></Suspense>} />
            
           </Routes>
+          <Terms/>
       </BrowserRouter>
 
  

@@ -29,11 +29,11 @@ const Videos = ({ handleFormDataChange }) => {
           },
         });
 
-        console.log(videoUploadResponse);
+      
         
   
         const userVideoUrl = videoUrl.split('?')[0];
-        console.log(userVideoUrl,"pppspsps");
+        
   
         handleFormDataChange({ step6Data: userVideoUrl });
       } catch (error) {
@@ -53,33 +53,26 @@ const Videos = ({ handleFormDataChange }) => {
   };
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-16sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row justify-center">
-      <div className="w-full sm:w-[80%] h-auto sm:flex flex-col items-center">
-        <h5 className="mb-10 text-[30px] font-bold tracking-tight text-gray-900 dark:text-white w-full">
-          Add a video of your property
-        </h5>
-        {/* <p className=" font-normal text-gray-700 dark:text-gray-400">
-          You'll need one video to get started. You can add more or make changes later.
-        </p> */}
-        <form onSubmit={formik.handleSubmit}>
-          <div className="flex flex-col items-center gap-2 p-3 border-dotted border-2 border-gray-300 sm:w-[400px] ">
-            <label htmlFor="videoInput" className="flex items-center cursor-pointer">
-              <IoMdVideocam className="text-4xl " />
-              <span className="text-lg font-medium text-gray-700 dark:text-gray-400">
-                Select Video
-              </span>
-            </label>
-            <input
-              type="file"
-              id="videoInput"
-              accept="video/*"
-              onChange={handleVideoChange}
-              className="hidden"
-            />
-            <button type="submit" className="mt-20 p-3 text-white rounded-md w-full bg-[#390b79]">
-              Add
-            </button>
-          </div>
+    <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row justify-center mb-9">
+    <div className="w-full sm:w-[80%] h-auto sm:flex flex-col items-center">
+      <h5 className="mb-10 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white w-full">
+        Add a video of your property
+      </h5>
+      <form onSubmit={formik.handleSubmit}>
+        <div className="flex flex-col items-center gap-2 p-3 border-dotted border-2 border-gray-300 sm:w-[400px] ">
+          <label htmlFor="videoInput" className="flex items-center cursor-pointer">
+            <IoMdVideocam className="text-4xl " />
+            <span className="text-lg font-medium text-gray-700 dark:text-gray-400">
+              Select Video
+            </span>
+          </label>
+          <input
+            type="file"
+            id="videoInput"
+            accept="video/*"
+            onChange={handleVideoChange}
+            className="hidden"
+          />
           {formik.values.videoPreview && (
             <div className="mt-4 mb-10">
               <video width="500" height="500" controls>
@@ -88,9 +81,13 @@ const Videos = ({ handleFormDataChange }) => {
               </video>
             </div>
           )}
-        </form>
-      </div>
+          <button type="submit" className="mt-4 p-3 text-white rounded-md w-full bg-[#390b79]">
+            Add
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
   );
 };
 

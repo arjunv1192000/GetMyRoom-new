@@ -95,7 +95,7 @@ const Logincomponent = ({ onBack, isLogin, onClose }) => {
                 phoneNumber: phoneNumber,
                 otp: values.otp
             };
-            console.log(body);
+           
 
             axios.post('/verifyotplogin', body)
                 .then((response) => {
@@ -132,7 +132,7 @@ const Logincomponent = ({ onBack, isLogin, onClose }) => {
 
     const googlelogin = (body: { fullname: any; email: any; image: any; }) => {
 
-        console.log(body, "fjnfbfbfk");
+       
         axios.post('/googlelogin', body).then((response) => {
 
             if (response.data.status === true) {

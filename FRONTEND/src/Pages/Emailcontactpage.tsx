@@ -55,14 +55,14 @@ const Emailcontactpage = () => {
   const IdParam = queryParams.get('Id');
   const [property, setProperty] = useState<property[]>([]);
 
-  console.log(IdParam, "single");
+ 
 
 
   useEffect(() => {
     axios
       .get('/getsingleproperty?id=' + IdParam)
       .then((response) => {
-        console.log(response.data.propertydata, "jobdetails");
+       
         setProperty(response.data.propertydata);
       })
       .catch((error) => {

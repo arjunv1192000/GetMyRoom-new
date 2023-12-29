@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import Axios from "../Utils/Ssrvice/axios"
-import img4 from '../../assets/img2.webp'
+import img4 from '../../assets/contact-img.png'
 
 
 const Images = ({ handleFormDataChange }) => {
@@ -101,7 +101,7 @@ const Images = ({ handleFormDataChange }) => {
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Tell us about your features</h5>
         <p className=" font-normal text-gray-700 dark:text-gray-400">In this step, we'll ask you which type of property you have</p>
         <img
-          className="object-contain w-[500px] justify-center "
+          className="w-[60%] ml-10 mt-10 sm:object-contain w-[400px] flex justify-center "
           src={img4}
           alt=""
         ></img>

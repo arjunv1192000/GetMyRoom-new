@@ -8,10 +8,10 @@ const Hometitle = ({ handleFormDataChange }) => {
             title: '',
         },
         onSubmit: (values) => {
-            // Handle form submission here
+           
             console.log(values);
 
-            // Pass data to the parent component
+           
             handleFormDataChange({ step8Data: values.title  });
         },
     });

@@ -78,13 +78,13 @@ const Editprofile = ({ onClose }) => {
           });
 
           imageUrls = imageUrl.split('?')[0];
-          console.log(imageUrls,"s333333");
+         
           
 
         } else {
 
            imageUrls = values.profileImage;
-           console.log(imageUrls,"normall");
+          
 
 
         }
@@ -97,7 +97,7 @@ const Editprofile = ({ onClose }) => {
           userId: id
         };
 
-        console.log(body,"which image ");
+     
         
         axios.post('/updateuserdata', body).then((response) => {
 

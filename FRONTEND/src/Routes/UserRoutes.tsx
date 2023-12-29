@@ -1,6 +1,6 @@
 
 import { Routes, Route, } from 'react-router-dom';
-import { Homepage, Profilepage, Savepage, MYlistpage, Listpage, Detailpage,Emailpage,Formpage,Privacy } from "../Pages/index"
+import { Homepage, Profilepage, Savepage, MYlistpage, Listpage, Detailpage,Emailpage,Formpage,Privacy,Terms } from "../Pages/index"
 
 
 export default function UserRoutes() {
@@ -15,6 +15,7 @@ export default function UserRoutes() {
             <Route path='email' element={<Emailpage />} />
             <Route path='form' element={<Formpage />} />
             <Route path='privacy' element={<Privacy />} />
+            <Route path='terms' element={<Terms />} />
           
         </Routes>
 
