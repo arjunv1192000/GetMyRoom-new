@@ -10,7 +10,7 @@ const UserpropertyrepositoryInt=(dbrepository)=>{
     const listedproperty=()=>dbrepository.listedproperty()
     const unlistedproperty=()=>dbrepository.unlistedproperty()
     const verification=(postId)=>dbrepository.verification(postId)
-
+    const removlisteproperty=(postId)=>dbrepository.removlisteproperty(postId)
 
     return{
         create,
@@ -19,7 +19,8 @@ const UserpropertyrepositoryInt=(dbrepository)=>{
         singleproperty,
         listedproperty,
         unlistedproperty,
-        verification
+        verification,
+        removlisteproperty
 
     }
 

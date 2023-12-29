@@ -158,14 +158,14 @@ const Filterbar = ({ onViewTypeChange, onApplyFilters }) => {
 
         <div className="flex flex-col sm:flex-row items-center mt-5 gap-6">
           <button
-            className="w-20 sm:w-40 ml-2 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#77435d] duration-300 text-center font-medium text-white px-4 py-2 border rounded mr-2 flex  items-center  "
+            className="w-12 sm:w-40 ml-2 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#77435d] duration-300 text-center font-medium text-white px-4 py-2 border rounded mr-2 flex  items-center  "
             onClick={handleSearchButtonClick}
           >
             <IoIosSearch className="w-5 h-5 " />
             <span className="hidden sm:block">Search</span>
           </button>
           <button
-            className='w-20   sm:w-40 ml-2 transition ease-in-out delay-150 bg-[#870e4d] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#77435d] duration-300 text-center font-medium text-white px-4 py-2 border rounded mr-2 flex  items-center '
+            className='w-12 sm:w-40 ml-2 transition ease-in-out delay-150 bg-[#870e4d] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#77435d] duration-300 text-center font-medium text-white px-4 py-2 border rounded mr-2 flex  items-center '
             onClick={toggleFilterDialog}
           >
             <IoIosOptions className="w-5 h-5 " />

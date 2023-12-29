@@ -95,19 +95,19 @@ const Images = ({ handleFormDataChange }) => {
 
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8 flex flex-col sm:flex-row ">
-      <div className='w-full sm:w-1/2 h-[400px] sm:flex flex-col  mb-60 '>
+    <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8 flex flex-col sm:flex-row ">
+      <div className='w-full sm:w-1/2 h-[400px] sm:flex flex-col  mb-10'>
         <h5 className="  text-[36px] font-bold tracking-tight text-gray-900 dark:text-white ">Step 3</h5>
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Tell us about your features</h5>
         <p className=" font-normal text-gray-700 dark:text-gray-400">In this step, we'll ask you which type of property you have</p>
         <img
-          className="object-contain w-[400px] justify-center "
+          className="object-contain w-[500px] justify-center "
           src={img4}
           alt=""
         ></img>
       </div>
-      <div className='w-full  h-auto sm:flex flex-col sm:ml-36 '>
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white p-3">Add some photos of your house</h5>
+      <div className='w-full  h-auto sm:flex flex-col sm:ml-36 mb-10 '>
+        <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white p-3">Add some photos of your house</h5>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">You'll need 5 photos to get started.</p>
         <form onSubmit={formik.handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 p-2 border-dotted border-2 border-gray-300">
@@ -121,9 +121,6 @@ const Images = ({ handleFormDataChange }) => {
                   className="border border-dashed border-gray-300 p-2  rounded-md h-44 flex justify-center"
                 />
 
-                
-                
-              
                 {selectedImages[index] && (
                   <img
                     src={URL.createObjectURL(selectedImages[index])}

@@ -63,29 +63,29 @@ const userpropertyrepositoryImp = () => {
     try {
       const totalCount = await Property.countDocuments({
         'location.locationName': new RegExp(locationName.split(' ').join('|'), 'i'),
-         type: type,
+        type: type,
         approve: true,
       });
-      if(type=="AllType"){
+      if (type == "AllType") {
         const allproperty = await Property.find({
           'location.locationName': new RegExp(locationName.split(' ').join('|'), 'i'),
           approve: true,
         }).populate('userId', 'name email phone image');
-  
+
         return { totalCount, allproperty };
 
-      }else{
+      } else {
         const allproperty = await Property.find({
           'location.locationName': new RegExp(locationName.split(' ').join('|'), 'i'),
           type: type,
           approve: true,
         }).populate('userId', 'name email phone image');
-  
+
         return { totalCount, allproperty };
 
       }
 
-     
+
     } catch (error) {
       console.error('Error fetching properties:', error);
       throw error;
@@ -141,27 +141,45 @@ const userpropertyrepositoryImp = () => {
   const verification = async (postId) => {
     console.log(postId, "oooooo");
     try {
-       
-        const existingProperty = await Property.findOne({ _id: postId }).exec();
 
-        if (!existingProperty) {
-            console.log(`No property found with postId ${postId}.`);
-            return false;
-        }
+      const existingProperty = await Property.findOne({ _id: postId }).exec();
 
-       
-        existingProperty.approve = true;
-        const updatedProperty = await existingProperty.save();
-
-        console.log(`Property with postId ${postId} has been approved.`);
-        return true;
-    } catch (error) {
-        console.error('Error during verification:', error);
+      if (!existingProperty) {
+        console.log(`No property found with postId ${postId}.`);
         return false;
-    }
-};
+      }
 
-  
+
+      existingProperty.approve = true;
+      const updatedProperty = await existingProperty.save();
+
+      console.log(`Property with postId ${postId} has been approved.`);
+      return true;
+    } catch (error) {
+      console.error('Error during verification:', error);
+      return false;
+    }
+  };
+
+  const removlisteproperty = async (postId) => {
+    console.log(postId, "loppp");
+    try {
+      console.log(postId, "Deleting property...");
+      const deletedProperty = await Property.deleteOne({ _id: postId });
+
+      if (deletedProperty.deletedCount > 0) {
+        console.log("Property deleted successfully!");
+        return true;
+      } else {
+        console.log(`No property found with postId ${postId}.`);
+        return false;
+      }
+    } catch (error) {
+      console.error("Error deleting property:", error.message);
+      return false;
+    }
+  };
+
 
 
   return {
@@ -171,7 +189,8 @@ const userpropertyrepositoryImp = () => {
     singleproperty,
     listedproperty,
     unlistedproperty,
-    verification
+    verification,
+    removlisteproperty
 
   }
 }

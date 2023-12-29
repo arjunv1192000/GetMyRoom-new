@@ -1,6 +1,6 @@
 
 import { Routes, Route, } from 'react-router-dom';
-import { Homepage, Profilepage, Savepage, MYlistpage, Listpage, Detailpage,Emailpage,Formpage,Comparepage } from "../Pages/index"
+import { Homepage, Profilepage, Savepage, MYlistpage, Listpage, Detailpage,Emailpage,Formpage,Privacy } from "../Pages/index"
 
 
 export default function UserRoutes() {
@@ -14,7 +14,8 @@ export default function UserRoutes() {
             <Route path='details' element={<Detailpage />} />
             <Route path='email' element={<Emailpage />} />
             <Route path='form' element={<Formpage />} />
-            {/* <Route path='compare' element={<Comparepage />} /> */}
+            <Route path='privacy' element={<Privacy />} />
+          
         </Routes>
 
     )

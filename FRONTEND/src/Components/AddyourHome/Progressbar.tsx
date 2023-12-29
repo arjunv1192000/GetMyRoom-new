@@ -1,23 +1,19 @@
+const Progressbar = ({ currentStep, totalSteps, onNext, onPrev, onSubmit, isNextDisabled }) => {
 
-const Progressbar = ({ currentStep, totalSteps, onNext, onPrev,onSubmit }) => {
-    
     const isLastStep = currentStep === totalSteps;
     const progressPercentage = (currentStep / totalSteps) * 100;
 
     const handleNextClick = () => {
         if (isLastStep) {
-
             onSubmit();
-
-        } else {
+        } else if (!isNextDisabled) {
             onNext();
         }
     };
 
     return (
-
         <div className="w-full h-auto flex flex-col pb-10">
-            <div className='w-full h-10  flex justify-center' >
+            <div className='w-full h-10  flex justify-center'>
                 <div className="bg-gray-300 rounded-full w-[95%] h-2.5 mt-2 ">
                     <div
                         style={{ width: `${progressPercentage}%` }}
@@ -28,13 +24,12 @@ const Progressbar = ({ currentStep, totalSteps, onNext, onPrev,onSubmit }) => {
                         </div>
                     </div>
                 </div>
-
             </div>
             <div className="flex justify-between px-4 py-3 sm:px-6 mt-1">
                 <button
                     type="button"
                     onClick={onPrev}
-                    className="bg-gray-300 px-4 py-2 rounded-md focus:outline-none"
+                    className={`bg-gray-300 px-4 py-2 rounded-md focus:outline-none ${currentStep === 1 ? 'hidden' : ''}`}
                     disabled={currentStep === 1}
                 >
                     Previous
@@ -43,16 +38,15 @@ const Progressbar = ({ currentStep, totalSteps, onNext, onPrev,onSubmit }) => {
                     type="button"
                     onClick={handleNextClick}
                     className={`${isLastStep ? 'bg-green-500' : 'bg-[#870e4d]'
-                        } text-white px-4 py-2 rounded-md focus:outline-none w-40`}
+                        } text-white px-4 py-2 rounded-md focus:outline-none w-40 ${isNextDisabled ? 'opacity-50 cursor-not-allowed' : ''
+                        }`}
+                    disabled={isNextDisabled}
                 >
                     {isLastStep ? 'Submit' : 'Next'}
                 </button>
+
             </div>
-
         </div>
-
-
-
     );
 };
 

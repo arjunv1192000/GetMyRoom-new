@@ -112,8 +112,8 @@ const Listview = ({ location, type, filters }) => {
               className="px-4 py-2 mb-4 mt-5 "
               onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
             >
-              <option value="asc">Highest price</option>
-              <option value="desc">Lowest price</option>
+              <option value="asc">Lowest price</option>
+              <option value="desc">Highest price</option>
             </select>
           </div>
         </div>
@@ -124,8 +124,10 @@ const Listview = ({ location, type, filters }) => {
             ))}
           </div>
         ) : property.length === 0 ? (
-          <div className='flex justify-center'>
-            <img className="w-40 h-40 rounded-t-lg scale-1 hover:scale-[1.1] duration-300 " src={notfound} alt="" />
+          <div className='flex justify-center w-full h-60'>
+            {/* <img className="w-40 h-40 rounded-t-lg scale-1 hover:scale-[1.1] duration-300 " src={notfound} alt="" /> */}
+            <p className="text-gray-500 mt-4">Not found</p>
+            
           </div>
         ) : (
           <>
@@ -145,6 +147,7 @@ const Listview = ({ location, type, filters }) => {
                   username={data.userId.name}
                   userimg={data.userId.image}
                 />
+               
               ))}
             </div>
             <div className='flex justify-center mt-10'>

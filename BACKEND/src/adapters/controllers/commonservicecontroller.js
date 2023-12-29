@@ -13,9 +13,9 @@ const commonserviceController=()=>{
 
     const createemail=(req,res)=>{
         
-        const {fullname,email,phoneNumber,message,useremail,propertyname,location}=req.body
+        const {fullname,email,phoneNumber,message,useremail,propertyname,location,name}=req.body
 
-        Nodemailer(fullname,email,phoneNumber,message,useremail,propertyname,location).then((response)=>{
+        Nodemailer(fullname,email,phoneNumber,message,useremail,propertyname,location,name).then((response)=>{
 
             console.log(response,"poooo");
             

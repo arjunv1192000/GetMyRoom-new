@@ -6,6 +6,8 @@ import { MdEditDocument } from "react-icons/md";
 import { BiBed } from "react-icons/bi";
 import { MdMeetingRoom } from "react-icons/md";
 import { FaBath } from "react-icons/fa6";
+import axios from "../Components/Utils/property/axios"
+import toast, { Toaster } from 'react-hot-toast';
 
 
 type Props = {
@@ -34,11 +36,33 @@ type Props = {
     image: [string];
     price: number;
     video: string;
+    proId:string;
 }
 
-const Mylistcard: React.FC<Props> = ({ title, location, room, bathrooms, bedrooms, date, image, price, approve }) => {
+const Mylistcard: React.FC<Props> = ({proId,title, location, room, bathrooms, bedrooms, date, image, price, approve }) => {
 
 
+    const handleRemoveClick = async () => {
+        try {
+            const remove = await axios.post('/removeproperty', {postId:proId });
+            if (remove.data.status == true) {
+
+                toast.success('property remove Successfully')
+                window.location.reload();
+              
+
+            } else {
+                toast.error("error on removing job")
+
+            }
+
+
+
+        } catch (error) {
+
+            console.error('Error applying for the job:', error);
+        }
+    };
 
 
     return (
@@ -53,10 +77,10 @@ const Mylistcard: React.FC<Props> = ({ title, location, room, bathrooms, bedroom
 
                 <div className='w-full flex flex-col'>
                     <div className='w-1/2 ml-10'>
-                        <h2 className="flex  font-semibold text-gray-900 text-[32px] ">{title}</h2>
+                        <h2 className="flex  font-semibold text-gray-900  text-[24px] sm:text-[28px] md:text-[30px] lg:text-[32px]  ">{title}</h2>
                     </div>
                     <div className='w-1/2 ml-10'>
-                        <h2 className="font-semibold text-gray-900 text-[32px] ">{price}/month</h2>
+                        <h2 className="font-semibold text-gray-900 text-[22px] ">£{price}/month</h2>
                     </div>
                     <div className='w-1/2 flex flex-row ml-10 mt-2'>
                         <FaMapMarkerAlt className="mt-1.5 " />
@@ -91,11 +115,15 @@ const Mylistcard: React.FC<Props> = ({ title, location, room, bathrooms, bedroom
                     {/* <button className="w-10 h-10 flex items-center  border rounded " >
                         <MdEditDocument className="w-6 h-6 ml-2" color="#c2cbd9" fill="#c2cbd9" />
                     </button> */}
-                    <button className="w-10 h-10 flex items-center  border rounded " >
+                    <button className="w-10 h-10 flex items-center  border rounded " onClick={handleRemoveClick} >
                         <MdDeleteForever className="w-6 h-6 ml-2" color="#c2cbd9" fill="#c2cbd9" />
                     </button>
                 </div>
             </div>
+            <Toaster
+                position="bottom-center"
+                reverseOrder={false}
+            />
         </div>
 
     )

@@ -1,11 +1,11 @@
 
 
-const removepropertys = async (userId,postId,repositories) => {
-
+const removelistproperty= async (postId,repositories) => {
+    console.log(postId,"oododo");
 
     try {
 
-        const remove=await repositories.removeproperty(userId,postId)
+        const remove =await repositories.removlisteproperty(postId)
         if(remove===true){
 
             return ({ status: true})
@@ -15,11 +15,9 @@ const removepropertys = async (userId,postId,repositories) => {
         }
        
 
-      
-
     } catch {
         return { message: 'Error removing property', status: false };
 
     }
 }
-export default removepropertys
+export default removelistproperty

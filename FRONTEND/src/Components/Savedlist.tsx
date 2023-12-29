@@ -54,8 +54,8 @@ type property = {
         phone: string;
     }
     userimg: string;
-    Id:string;
-   
+    Id: string;
+
 }
 
 const Savedlist = () => {
@@ -64,18 +64,18 @@ const Savedlist = () => {
     const id = userdata.id;
 
     useEffect(() => {
-        const save=async()=>{
-           await axios .get('/getsavedjobs?id=' + id).then((response) => {
+        const save = async () => {
+            await axios.get('/getsavedjobs?id=' + id).then((response) => {
                 console.log(response.data.saved);
                 setProperty(response.data.saved);
             })
-            .catch((error) => {
-                console.error(error.message);
-            });
+                .catch((error) => {
+                    console.error(error.message);
+                });
 
         }
         save()
-       
+
     }, [id]);
 
     return (
@@ -83,31 +83,32 @@ const Savedlist = () => {
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 ">
                 <h2 className="text-2xl font-bold tracking-tight text-gray-900  ml-20 ">Saved listings</h2>
                 <div className='ml-20'>
-                    
+                    {property.length === 0 ? (
+                        <div className='flex justify-center w-full h-40'>
 
-                    {(property.map((data) => (
+                            <p className="text-gray-500 mt-10">Saved list is empty.</p>
 
-                        <Savedcard
-                            key={data.id}
-                            Id={data._id}
-                            title={data.title}
-                            location={data.location}
-                            image={data.image}
-                            date={data.date}
-                            room={data.room}
-                            bathrooms={data.bathrooms}
-                            bedrooms={data.bedrooms}
-                            price={data.price}
-                            userimage={data.userId.image}
-                            name={data.userId.name}
-                        
-                        />
-                    )))}
+                        </div>
 
-
-
+                    ) : (
+                        property.map((data) => (
+                            <Savedcard
+                                key={data.id}
+                                Id={data._id}
+                                title={data.title}
+                                location={data.location}
+                                image={data.image}
+                                date={data.date}
+                                room={data.room}
+                                bathrooms={data.bathrooms}
+                                bedrooms={data.bedrooms}
+                                price={data.price}
+                                userimage={data.userId.image}
+                                name={data.userId.name}
+                            />
+                        ))
+                    )}
                 </div>
-
             </div>
         </div>
     )

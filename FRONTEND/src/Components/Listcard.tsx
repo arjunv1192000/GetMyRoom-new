@@ -106,12 +106,12 @@ const Listcard: React.FC<Props> = ({ Id, title, image, date, room, bathrooms, be
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleShareClick = () => {
-     
-      setIsModalOpen(true);
+
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
-      setIsModalOpen(false);
+    setIsModalOpen(false);
   };
 
 
@@ -126,7 +126,7 @@ const Listcard: React.FC<Props> = ({ Id, title, image, date, room, bathrooms, be
           className="rounded-t-lg scale-1 hover:scale-[1.1] duration-300 h-[250px]"
           src={image[0]}
         />
-        <h2 className="absolute bottom-0 right-0 p-4 font-semibold text-white bg-black bg-opacity-50">
+        <h2 className="absolute bottom-0 right-0 p-4 font-semibold  text-white bg-black bg-opacity-50">
           £ {price}/month
         </h2>
       </a>
@@ -176,63 +176,78 @@ const Listcard: React.FC<Props> = ({ Id, title, image, date, room, bathrooms, be
             <IoShareSocialSharp className="w-5 h-5 ml-2" color="#c2cbd9" fill="#c2cbd9" />
           </button>
           {isModalOpen && (
-                                <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
-                                    <div className="relative w-auto max-w-[90%] sm:max-w-md">
+            <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
+              <div className="relative w-auto max-w-[90%] sm:max-w-md">
 
-                                        <div className="relative flex flex-col w-full bg-white border rounded-md shadow-lg outline-none focus:outline-none">
+                <div className="relative flex flex-col w-full bg-white border rounded-md shadow-lg outline-none focus:outline-none">
 
-                                            <button
-                                                className="self-end p-2 text-sm font-semibold text-gray-500 hover:text-gray-700 focus:outline-none"
-                                                onClick={closeModal}
-                                            >
-                                                Close
-                                            </button>
+                  <button
+                    className="self-end p-2 text-sm font-semibold text-gray-500 hover:text-gray-700 focus:outline-none"
+                    onClick={closeModal}
+                  >
+                    <svg
+                      className="w-3 h-3"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 14 14"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                      />
+                    </svg>
+                  </button>
 
-                                            <div className="p-4">
-                                                <div style={{ display: 'grid', gridGap: '20px', gridTemplateColumns: 'repeat(auto-fill, 30px)', maxWidth: '200px', margin: '0 auto' }}>
-                                                    <div style={{ textAlign: 'center' }}>
-                                                        <FacebookShareButton
-                                                            url={shareUrl}
-                                                            className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
-                                                        >
-                                                            <FacebookIcon size={32} round />
-                                                        </FacebookShareButton>
-                                                    </div>
-                                                    <div style={{ textAlign: 'center' }}>
-                                                        <TwitterShareButton
-                                                            url={shareUrl}
-                                                           
-                                                            className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
-                                                        >
-                                                            <XIcon size={32} round />
-                                                        </TwitterShareButton>
-                                                    </div>
-                                                    <div style={{ textAlign: 'center' }}>
-                                                        <TelegramShareButton
-                                                            url={shareUrl}
-                                                           
-                                                            className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
-                                                        >
-                                                            <TelegramIcon size={32} round />
-                                                        </TelegramShareButton>
-                                                    </div>
-                                                    <div style={{ textAlign: 'center' }}>
-                                                        <WhatsappShareButton
-                                                            url={shareUrl}
-                                                           
-                                                            separator=":: "
-                                                            className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
-                                                        >
-                                                            <WhatsappIcon size={32} round />
-                                                        </WhatsappShareButton>
-                                                    </div>
-                                                </div>
+                  <div className="p-4">
+                    <div style={{ display: 'grid', gridGap: '20px', gridTemplateColumns: 'repeat(auto-fill, 30px)', maxWidth: '200px', margin: '0 auto' }}>
+                      <div style={{ textAlign: 'center' }}>
+                        <FacebookShareButton
+                          url={shareUrl}
+                          
+                          className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
+                        >
+                          <FacebookIcon size={32} round />
+                        </FacebookShareButton>
+                      </div>
+                      <div style={{ textAlign: 'center' }}>
+                        <TwitterShareButton
+                          url={shareUrl}
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
+                          className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
+                        >
+                          <XIcon size={32} round />
+                        </TwitterShareButton>
+                      </div>
+                      <div style={{ textAlign: 'center' }}>
+                        <TelegramShareButton
+                          url={shareUrl}
+
+                          className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
+                        >
+                          <TelegramIcon size={32} round />
+                        </TelegramShareButton>
+                      </div>
+                      <div style={{ textAlign: 'center' }}>
+                        <WhatsappShareButton
+                          url={shareUrl}
+
+                          separator=":: "
+                          className="inline-flex justify-content-center white-space-nowrap overflow-visible width-0 font-size-14px"
+                        >
+                          <WhatsappIcon size={32} round />
+                        </WhatsappShareButton>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           <button className="w-10 h-10 flex items-center  border rounded " onClick={handleSaveClick} >
             <MdOutlineFavoriteBorder className="w-5 h-5 ml-2" color="#c2cbd9" fill="#c2cbd9" />

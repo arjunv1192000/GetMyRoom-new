@@ -16,7 +16,7 @@ import { MdOutlineHeatPump } from 'react-icons/md';
 import { GiGasStove } from 'react-icons/gi';
 
 const Features = ({ handleFormDataChange }) => {
-  
+
   const [selectedFeatures, setSelectedFeatures] = useState({
     interiorDetails: [],
     outdoorDetails: [],
@@ -59,7 +59,7 @@ const Features = ({ handleFormDataChange }) => {
   const handleFeatureToggle = (category: string, featureName: string) => {
 
     const updatedFeatures = { ...selectedFeatures };
-   
+
 
 
     if (updatedFeatures[category].includes(featureName)) {
@@ -79,7 +79,7 @@ const Features = ({ handleFormDataChange }) => {
       selectedFeatures,
     },
     onSubmit: (values) => {
-      
+
       handleFormDataChange({ step4Data: selectedFeatures });
     },
   });
@@ -87,10 +87,11 @@ const Features = ({ handleFormDataChange }) => {
   return (
     <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row justify-center mb-20">
       <div className="w-full sm:w-[70%] h-auto sm:flex flex-col ">
-        <h5 className="mb-2 text-[36px] font-bold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white">
           Tell us about what your place has to offer
         </h5>
-       
+
+
 
         <form onSubmit={formik.handleSubmit}>
           <div className="w-full h-auto mt-5">
@@ -102,8 +103,8 @@ const Features = ({ handleFormDataChange }) => {
                 <button
                   key={index}
                   className={`flex items-center justify-between px-4   border ${selectedFeatures.interiorDetails.includes(placeType.name)
-                      ? 'bg-gray-200'
-                      : 'border-gray-300'
+                    ? 'bg-gray-200'
+                    : 'border-gray-300'
                     } rounded-lg focus:outline-none focus: h-20`}
                   onClick={() =>
                     handleFeatureToggle('interiorDetails', placeType.name)
@@ -125,8 +126,8 @@ const Features = ({ handleFormDataChange }) => {
                 <button
                   key={index}
                   className={`flex items-center justify-between px-4 py-2 border ${selectedFeatures.outdoorDetails.includes(placeType.name)
-                      ? 'bg-gray-200'
-                      : 'border-gray-300'
+                    ? 'bg-gray-200'
+                    : 'border-gray-300'
                     } rounded-lg focus:outline-none focus: h-20`}
                   onClick={() =>
                     handleFeatureToggle('outdoorDetails', placeType.name)
@@ -148,8 +149,8 @@ const Features = ({ handleFormDataChange }) => {
                 <button
                   key={index}
                   className={`flex items-center justify-between px-4 py-2  border ${selectedFeatures.utilities.includes(placeType.name)
-                      ? 'bg-gray-200'
-                      : 'border-gray-300'
+                    ? 'bg-gray-200'
+                    : 'border-gray-300'
                     } rounded-lg focus:outline-none focus: h-20`}
                   onClick={() =>
                     handleFeatureToggle('utilities', placeType.name)
@@ -171,8 +172,8 @@ const Features = ({ handleFormDataChange }) => {
                 <button
                   key={index}
                   className={`flex items-center justify-between px-4 py-2    border ${selectedFeatures.otherFeatures.includes(placeType.name)
-                      ? ' bg-gray-200'
-                      : 'border-gray-300'
+                    ? ' bg-gray-200'
+                    : 'border-gray-300'
                     } rounded-lg focus:outline-none focus: h-20`}
                   onClick={() =>
                     handleFeatureToggle('otherFeatures', placeType.name)

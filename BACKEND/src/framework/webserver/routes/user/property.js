@@ -15,6 +15,7 @@ const propertyRouter=(express)=>{
     router.route('/getuserproperty').get(controller.getuserproperty)
     router.route('/getallproperty').get(controller.getproperty)
     router.route('/getsingleproperty').get(controller.selectpropertydata)
+    router.route('/removeproperty').post(controller.removepropertyes)
    
 
     return router;

@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import config from '../../../config/config.js';
 
-const Nodemailer = (fullname, email, phoneNumber,message, useremail, propertyname, location) => {
+const Nodemailer = (fullname, email, phoneNumber,message, useremail, propertyname, location,name) => {
 
     try {
         const transporter = nodemailer.createTransport({
@@ -22,9 +22,9 @@ const Nodemailer = (fullname, email, phoneNumber,message, useremail, propertynam
 
        subject = `New Property Inquiry: ${propertyname}`;
 
-       messageBody = ` <p>Dear ${fullname},</p>
-       <p>Thank you for your inquiry regarding the property "${propertyname}" located in ${location}.</p>
-       <p>We appreciate your interest and will get back to you as soon as possible. Meanwhile, if you have any specific questions or would like to schedule a viewing, please feel free to contact us at ${config.EMAIL} or ${phoneNumber}.</p>
+       messageBody = ` <p>Dear ${name},</p>
+       <p>Inquiry regarding the property "${propertyname}" located in ${location}.</p>
+       <p>I will get back to you as soon as possible. Meanwhile, if you have any specific questions or would like to schedule a viewing, please feel free to contact us at ${config.EMAIL} or ${phoneNumber}.</p>
        <p>Message details:</p>
        <ul>
          <li>Name: ${fullname}</li>
@@ -33,7 +33,7 @@ const Nodemailer = (fullname, email, phoneNumber,message, useremail, propertynam
          <li>Message: ${message}</li>
        </ul>
        <p>We look forward to assisting you with your property needs.</p>
-       <p>Best regards,<br/>Your Company Name</p>`;
+       <p>Best regards,<br/>GetMyRoom</p>`;
 
 
 

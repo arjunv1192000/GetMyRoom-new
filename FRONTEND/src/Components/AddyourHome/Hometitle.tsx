@@ -31,7 +31,7 @@ const Hometitle = ({ handleFormDataChange }) => {
             </div>
             <div className='w-full sm:w-1/2 h-auto sm:flex flex-col '>
                 <form onSubmit={formik.handleSubmit}>
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white ">Now, let's give a title</h5>
+                    <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white ">Now, let's give a title</h5>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Short titles work best. Have fun with it .</p>
                     <div className="flex flex-col gap-2 p-3">
                         <textarea

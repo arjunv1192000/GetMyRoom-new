@@ -1,12 +1,14 @@
-
+import { useNavigate } from 'react-router-dom';
 const Footer = () => {
+
+  const navigate = useNavigate();
   return (
     <footer className="bg-[#f7f6f5] mt-10">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8 " />
         <div className="sm:flex sm:items-center sm:justify-between xl:px-24">
           <div className="flex flex-col mt-4 gap-2 sm:flex-row sm:flex-nowrap sm:gap-5">
-            <a href="#" className="text-gray-500 hover:text-gray-900">Privacy</a>
+            <a href="#" className="text-gray-500 hover:text-gray-900" onClick={() => navigate('/privacy')}>Privacy</a>
             <a href="#" className="text-gray-500 hover:text-gray-900">Cookies</a>
             <a href="#" className="text-gray-500 hover:text-gray-900">Contact us</a>
             <a href="#" className="text-gray-500 hover:text-gray-900">About</a>

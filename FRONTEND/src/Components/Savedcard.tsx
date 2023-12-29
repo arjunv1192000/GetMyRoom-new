@@ -86,12 +86,12 @@ const Savedcard: React.FC<Props> = ({title,location,room,bathrooms,bedrooms,imag
                 <img className="object-cover w-full sm:w-2/6" src={image[0]} alt="" />
                 <div className='w-full flex flex-col'>
                     <div className='w-1/2 ml-10'>
-                        <h2 className="flex  font-semibold text-gray-900 text-[32px] ">{title}</h2>
+                        <h2 className="flex  font-semibold text-gray-900 text-[24px] sm:text-[28px] md:text-[30px] lg:text-[32px] ">{title}</h2>
 
                     </div>
                     <div className='w-1/2 ml-10'>
 
-                        <h2 className="font-semibold text-gray-900 text-[32px] ">${price}/month</h2>
+                        <h2 className="font-semibold text-gray-900 text-[22px] ">£{price}/month</h2>
 
                     </div>
                     <div className='w-1/2 flex flex-row ml-10 mt-2'>
@@ -145,9 +145,9 @@ const Savedcard: React.FC<Props> = ({title,location,room,bathrooms,bedrooms,imag
 
                 </div>
                 <div className=" mr-10 flex items-center gap-5">
-                    <button data-popover-target="popover-default" type="button" className="w-10 h-10 flex items-center  border rounded ml-12 " >
+                    {/* <button data-popover-target="popover-default" type="button" className="w-10 h-10 flex items-center  border rounded ml-12 " >
                         <IoShareSocialSharp className="w-6 h-6 ml-2"  color="#c2cbd9" fill="#c2cbd9" />
-                    </button>
+                    </button> */}
 
                     <button className="w-10 h-10 flex items-center  border rounded " onClick={handleRemoveClick} >
 

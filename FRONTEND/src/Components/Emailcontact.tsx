@@ -84,6 +84,7 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
             useremail: useremail,
             propertyname: title,
             location: location.locationName,
+            name:username,
 
         }
 

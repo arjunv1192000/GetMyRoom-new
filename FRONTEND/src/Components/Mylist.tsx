@@ -20,7 +20,7 @@ type RootState = {
 
 type property = {
   id: string;
-  title:string;
+  title: string;
   location: {
     coordinates: {
       lat: number;
@@ -65,30 +65,34 @@ const Mylist = () => {
   }, [id]);
 
   return (
-    <div className='bg-white'>
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 ">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900 ml-20 ">My listings</h2>
-        <div className='ml-20'>
+    <div className="bg-white">
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900 ml-20">My listings</h2>
+        <div className="ml-20">
+          {property.length === 0 ? (
+            <div className='flex justify-center w-full h-40'>
 
-          {(property.map((data) => (
+              <p className="text-gray-500 mt-4">No listings found.</p>
 
-            <Mylistcard
-            key={data.id}
-            title={data.title}
-            location={data.location}
-            image={data.image}
-            date={data.date}
-            room={data.room}
-            bathrooms={data.bathrooms}
-            bedrooms={data.bedrooms}
-            price={data.price}
-            approve={data.approve}
-             />
-          )))}
+            </div>
 
-
-
-
+          ) : (
+            property.map((data) => (
+              <Mylistcard
+                key={data._id}
+                proId={data._id}
+                title={data.title}
+                location={data.location}
+                image={data.image}
+                date={data.date}
+                room={data.room}
+                bathrooms={data.bathrooms}
+                bedrooms={data.bedrooms}
+                price={data.price}
+                approve={data.approve}
+              />
+            ))
+          )}
         </div>
       </div>
     </div>

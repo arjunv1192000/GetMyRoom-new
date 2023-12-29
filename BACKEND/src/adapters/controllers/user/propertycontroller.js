@@ -3,6 +3,7 @@ import adduserproperty from "../../../application/useCase/user/addproperty.js"
 import Getuserproperty from "../../../application/useCase/user/getuserproperty.js"
 import getallproperty from "../../../application/useCase/user/getallproperty.js"
 import getsingleproperty from "../../../application/useCase/user/getsingleproperty.js"
+import removelistproperty from "../../../application/useCase/user/removelistproperty.js"
 
 
 const propertycontroller=(userpropertyrepositoryInt,userpropertyrepositoryImp)=>{
@@ -57,6 +58,18 @@ const propertycontroller=(userpropertyrepositoryInt,userpropertyrepositoryImp)=>
 
  }
 
+ const removepropertyes=(req,res)=>{
+
+    const {postId} = req.body
+    console.log(postId,"ploooo");
+    removelistproperty(postId,dbrepository).then((response)=>{
+        res.json(response)
+
+    }).catch((err)=>console.log(err))
+
+
+ }
+
 
    
 
@@ -65,7 +78,8 @@ const propertycontroller=(userpropertyrepositoryInt,userpropertyrepositoryImp)=>
         addproperty,
         getuserproperty,
         getproperty,
-        selectpropertydata
+        selectpropertydata,
+        removepropertyes
 
     }
 }

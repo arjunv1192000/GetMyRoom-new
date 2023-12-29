@@ -118,7 +118,7 @@ const Location = ({handleFormDataChange}) => {
   return (
     <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row  justify-center mb-10">
       <div className='w-full h-auto sm:flex flex-col '>
-        <h5 className="mb-2 text-[16px] font-bold tracking-tight text-gray-900 dark:text-white">Where's your place located?</h5>
+        <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold tracking-tight text-gray-900 dark:text-white">Where's your place located?</h5>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Search your location and select the location marker.</p>
         <form onSubmit={formik.handleSubmit}>
           <div className="max-w-md mx-auto rounded-xl overflow-hidden shadow-lg md:max-w-2xl ">
@@ -140,7 +140,7 @@ const Location = ({handleFormDataChange}) => {
               name="coordinates.lng"
               value={formik.values.coordinates.lng}
             />
-           <div ref={mapRef} className="h-80 w-full sm:w-96 md:w-2/3 lg:w-3/4 xl:w-[600px] mt-5"></div>
+           <div ref={mapRef} className="h-80 w-full sm:w-96 md:w-2/3 lg:w-3/4 xl:w-full mt-5"></div>
 
             <div className='flex justify-end'>
             <button type="submit" className="mt-3 p-3 w-24 mb-10 bg-[#390b79] text-white rounded-md ">Submit</button>
