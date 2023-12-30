@@ -215,33 +215,33 @@ const Header = ({ openLoginModal }) => {
                                 <a
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                    onClick={() => userdata && userdata.phone ? navigate('/profile') : openLoginModal() || handlesidebarclose()}
+                                    onClick={() => userdata && userdata.email ? navigate('/profile') : openLoginModal() || handlesidebarclose()}
                                 >
                                     Profile
                                 </a>
                                 <a
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                    onClick={() => userdata && userdata.phone ? navigate('/save') : openLoginModal() || handlesidebarclose()}
+                                    onClick={() => userdata && userdata.email ? navigate('/save') : openLoginModal() || handlesidebarclose()}
                                 >
                                     Saved List
                                 </a>
                                 <a
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                    onClick={() => userdata && userdata.phone ? navigate('/mylist') : openLoginModal() || handlesidebarclose()}
+                                    onClick={() => userdata && userdata.email ? navigate('/mylist') : openLoginModal() || handlesidebarclose()}
                                 >
                                     My List
                                 </a>
                                 <a
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                    onClick={() => userdata && userdata.phone ? navigate('/form') : openLoginModal() || handlesidebarclose()}
+                                    onClick={() => userdata && userdata.email ? navigate('/form') : openLoginModal() || handlesidebarclose()}
                                 >
                                     Add your home
                                 </a>
 
-                                {userdata && userdata.phone && (
+                                {userdata && userdata.email && (
                                     <a
                                         href="#"
                                         className="-mx-3 block rounded-lg px-3 py-2.5   leading-7 text-[#870e4d] hover:bg-gray-50 text-[20px] " 
