@@ -22,7 +22,7 @@ const Floorplans = ({ handleFormDataChange }) => {
           const floorplanUrl = await uploadToS3(values.image);
 
           handleFormDataChange({
-            step7Data: {floorplanUrl},
+            step6Data: {floorplanUrl},
           });
         }
       } catch (error) {

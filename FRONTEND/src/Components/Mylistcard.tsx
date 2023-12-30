@@ -39,7 +39,7 @@ type Props = {
     proId:string;
 }
 
-const Mylistcard: React.FC<Props> = ({proId,title, location, room, bathrooms, bedrooms, date, image, price, approve }) => {
+const Mylistcard: React.FC<Props> = ({proId,title, location,bathrooms, bedrooms, date, image, price, approve }) => {
 
 
     const handleRemoveClick = async () => {
@@ -68,36 +68,37 @@ const Mylistcard: React.FC<Props> = ({proId,title, location, room, bathrooms, be
     return (
         <div className={`w-[80%] h-auto bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden mt-20 ${!approve && 'bg-gray-900 bg-opacity-40 pointer-events-none relative'}`}>
             {!approve && (
-                <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white  text-red text-xl font-semibold bg-red-500 bg-opacity-80">
-                    Waiting for admin approval...
+                <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white  text-red text-xl font-semibold bg-red-500 bg-opacity-80 ">
+                     <h2 className="flex  font-semibold text-white text-[20px] sm:text-[28px] md:text-[28px] lg:text-[30px] ml-8  "> Waiting for admin approval...</h2>
+                   
                 </div>
             )}
             <div className=" flex flex-col sm:flex-row">
                 <img className="object-cover w-full sm:w-2/6" src={image[0]} alt="" />
 
                 <div className='w-full flex flex-col'>
-                    <div className='w-1/2 ml-10'>
-                        <h2 className="flex  font-semibold text-gray-900  text-[24px] sm:text-[28px] md:text-[30px] lg:text-[32px]  ">{title}</h2>
+                    <div className=' w-auto ml-2  sm:w-1/2 sm:ml-10'>
+                        <h2 className="flex  font-semibold text-gray-900  text-[20px] sm:text-[28px] md:text-[28px] lg:text-[30px]  ">{title}</h2>
                     </div>
-                    <div className='w-1/2 ml-10'>
-                        <h2 className="font-semibold text-gray-900 text-[22px] ">£{price}/month</h2>
+                    <div className='w-auto ml-2  sm:w-1/2 sm:ml-10'>
+                        <h2 className="font-semibold text-gray-900 text-[16px] sm:text-[28px] md:text-[24px] lg:text-[28px]  ">£{price}/month</h2>
                     </div>
-                    <div className='w-1/2 flex flex-row ml-10 mt-2'>
-                        <FaMapMarkerAlt className="mt-1.5 " />
-                        <h2 className="flex  justify-start font-semibold text-gray-900 text-[18px] ml-3 ">{location.locationName}</h2>
+                    <div className='w-auto ml-2 mt-3 sm:w-1/2 flex flex-row sm:ml-10 sm:mt-2'>
+                        <FaMapMarkerAlt className="w-3 h-3 mt-2 sm:mt-1.5 " />
+                        <h2 className="flex  justify-start font-semibold text-gray-900 text-[12px] sm:text-[28px] md:text-[30px] lg:text-[18px] ml-3 ">{location.locationName}</h2>
                     </div>
-                    <div className="w-full h-20 flex flex-row  gap-4 mt-6">
-                        <div className='w-20 h-20 ml-4  flex flex-col items-center'>
+                    <div className="w-full  h-20 flex flex-row gap-4 sm:mt-6  ">
+                        {/* <div className='w-20 h-20 ml-4  flex flex-col items-center'>
                             <MdMeetingRoom color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
                             <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1">{room} room</h5>
-                        </div>
+                        </div> */}
                         <div className='w-20 h-20  flex flex-col items-center'>
                             <BiBed color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
-                            <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1">{bedrooms} room</h5>
+                            <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1">{bedrooms} Bed</h5>
                         </div>
                         <div className='w-20 h-20  flex flex-col items-center'>
                             <FaBath color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
-                            <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1">{bathrooms}room</h5>
+                            <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1">{bathrooms}Bath</h5>
                         </div>
                     </div>
                 </div>
@@ -111,7 +112,7 @@ const Mylistcard: React.FC<Props> = ({proId,title, location, room, bathrooms, be
                         </p>
                     </div>
                 </div>
-                <div className=" mr-10 flex items-center gap-5">
+                <div className=" mr-5 flex items-center gap-5">
                     {/* <button className="w-10 h-10 flex items-center  border rounded " >
                         <MdEditDocument className="w-6 h-6 ml-2" color="#c2cbd9" fill="#c2cbd9" />
                     </button> */}

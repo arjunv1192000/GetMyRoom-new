@@ -12,7 +12,7 @@ const Hometitle = ({ handleFormDataChange }) => {
             console.log(values);
 
            
-            handleFormDataChange({ step8Data: values.title  });
+            handleFormDataChange({ step7Data: values.title  });
         },
     });
     return (

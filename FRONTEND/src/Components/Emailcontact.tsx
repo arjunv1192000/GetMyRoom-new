@@ -62,7 +62,6 @@ type Props = {
 const validationSchema = Yup.object({
     fullName: Yup.string().required('Full name is required'),
     email: Yup.string().email('Invalid email address').required('Email address is required'),
-    phoneNumber: Yup.string().required('Phone number is required'),
     message: Yup.string().required('Message is required'),
 });
 
@@ -79,7 +78,6 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
         const body = {
             fullname: values.fullName,
             email: values.email,
-            phoneNumber: values.phoneNumber,
             message: values.message,
             useremail: useremail,
             propertyname: title,
@@ -113,7 +111,7 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
     return (
         <div className='bg-white '>
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row">
-                <div className='w-full sm:w-1/2 h-[800px] sm:flex flex-col'>
+                <div className='w-full sm:w-1/2 h-auto sm:flex flex-col '>
                     <div className='ml-3 mt-5'>
                         <h2 className="font-semibold text-gray-900 text-[28px] ">Email agent</h2>
                     </div>
@@ -122,7 +120,6 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
                         initialValues={{
                             fullName: userdata.name || '',
                             email: userdata.email || '',
-                            phoneNumber: userdata.phone || '',
                             message: '',
                         }}
                         validationSchema={validationSchema}
@@ -147,14 +144,14 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
                             />
                             <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
 
-                            <Field
+                            {/* <Field
                                 type="text"
                                 id="phoneNumber"
                                 name="phoneNumber"
                                 className="mt-1 p-4 bg-gray-50 border border-gray-300 mb-10 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Phone Number"
                             />
-                            <ErrorMessage name="phoneNumber" component="div" className="text-red-500 text-sm" />
+                            <ErrorMessage name="phoneNumber" component="div" className="text-red-500 text-sm" /> */}
 
                             <Field
                                 as="textarea"
@@ -176,27 +173,27 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
                     </Formik>
                 </div>
                 <div className='w-full sm:w-1/2 h-auto flex justify-center'>
-                    <div className=" w-[80%] h-[700px] bg-white border border-gray-200 rounded-lg shadow  hover:bg-gray-100 overflow-hidden mt-12">
+                    <div className=" w-[80%] h-auto bg-white border border-gray-200 rounded-lg shadow  hover:bg-gray-100 overflow-hidden mt-12">
                         <div className="flex flex-col">
                             <img className="object-cover w-full" src={image[0]} alt="" />
                             <div className='w-full flex flex-col'>
-                                <div className='w-1/2 ml-10'>
-                                    <h2 className="flex  font-semibold text-gray-900 text-[32px] ">{title}</h2>
+                                <div className='w-auto ml-2  sm:w-1/2 sm:ml-10'>
+                                    <h2 className="flex  font-semibold text-gray-900 text-[20px] sm:text-[28px] md:text-[28px] lg:text-[30px] ">{title}</h2>
 
                                 </div>
-                                <div className='w-1/2 ml-10'>
+                                <div className='w-auto ml-2  sm:w-1/2 sm:ml-10'>
 
-                                    <h2 className="font-semibold text-gray-900 text-[32px] ">${price}/month</h2>
+                                    <h2 className="font-semibold text-gray-900  text-[16px] sm:text-[28px] md:text-[24px] lg:text-[28px] ">${price}/month</h2>
 
                                 </div>
-                                <div className='w-1/2 flex flex-row ml-10 mt-2'>
-                                    <FaMapMarkerAlt className="mt-2 " />
-                                    <h2 className="flex  justify-start font-semibold text-gray-900 text-[18px] ml-3 ">{location.locationName}</h2>
+                                <div className='w-auto ml-2 mt-3 sm:w-1/2 flex flex-row sm:ml-10 sm:mt-2'>
+                                    <FaMapMarkerAlt className="w-3 h-3 mt-2 sm:mt-1.5 " />
+                                    <h2 className="flex  justify-start font-semibold text-gray-900 text-[14px] sm:text-[28px] md:text-[30px] lg:text-[18px] ml-3 ">{location.locationName}</h2>
 
                                 </div>
 
                                 <div className="w-full h-20 flex flex-row  gap-6">
-                                    <div className='w-20 h-20 ml-4  flex flex-col items-center'>
+                                    {/* <div className='w-20 h-20 ml-4  flex flex-col items-center'>
 
                                         <MdMeetingRoom color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
 
@@ -206,7 +203,7 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
                                         <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1"> {room} room</h5>
 
 
-                                    </div>
+                                    </div> */}
                                     <div className='w-20 h-20  flex flex-col items-center'>
                                         <BiBed color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
 

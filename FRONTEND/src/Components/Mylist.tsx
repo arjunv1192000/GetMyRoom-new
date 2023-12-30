@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Mylistcard from './Mylistcard'
 import { useSelector } from "react-redux";
 import axios from "./Utils/property/axios"
+import { useNavigate } from 'react-router-dom';
 
 
 type RootState = {
@@ -46,9 +47,11 @@ type property = {
   video: string;
 }
 
-const Mylist = () => {
+
+const Mylist = (openLoginModal) => {
   const [property, setProperty] = useState<property[]>([]);
   const userdata = useSelector((state: RootState) => state.user.value);
+  const navigate = useNavigate();
 
   const id = userdata.id;
 
@@ -66,16 +69,23 @@ const Mylist = () => {
 
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900 ml-20">My listings</h2>
-        <div className="ml-20">
+      <div className="mx-auto max-w-2xl px-4 py-5 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900  sm:ml-20 sm:text-3xl  ">My List</h2>
+        <div className=" ml-10 sm:ml-10">
           {property.length === 0 ? (
-            <div className='flex justify-center w-full h-40'>
+            <div className='flex justify-center w-full h-40 mt-10'>
 
-              <p className="text-gray-500 mt-4">No listings found.</p>
-              <a href='/form' className="mt-4 px-4 py-2">
-                List your property
-              </a>
+              <div onClick={() => navigate('/form')}
+                className=' text-sm font-semibold text-center py-2 w-[150px] h-10 rounded-full transition ease-in-out delay-150 bg-[#870e4d]  hover:-translate-y-1 hover:scale-110 hover:bg-[#390b79] hover: duration-300transition cursor-pointer text-white'
+              >
+                Add your home
+
+              </div>
+
+
+
+
+
 
             </div>
 
@@ -88,7 +98,6 @@ const Mylist = () => {
                 location={data.location}
                 image={data.image}
                 date={data.date}
-                room={data.room}
                 bathrooms={data.bathrooms}
                 bedrooms={data.bedrooms}
                 price={data.price}

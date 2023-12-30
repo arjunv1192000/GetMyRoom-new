@@ -7,7 +7,6 @@ type RootState = {
         id: string | null;
         name: string | null;
         email: string | null;
-        phone:string|null;
         image:string|null;
         access_token: string;
        
@@ -20,7 +19,7 @@ const intialValue = {value:{id:null,
     email:null,
     access_token:"",
     image:null,
-    phone:null,
+  
     
     
 }}

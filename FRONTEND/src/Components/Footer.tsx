@@ -12,8 +12,7 @@ const Footer = () => {
             <a href="#" className="text-gray-500 hover:text-gray-900">Cookies</a>
             <a href="#" className="text-gray-500 hover:text-gray-900">Contact us</a>
             <a href="#" className="text-gray-500 hover:text-gray-900">About</a>
-            <a href="#" className="text-gray-500 hover:text-gray-900">Careers</a>
-            <a href="#" className="text-gray-500 hover:text-gray-900">Display advertising</a>
+            
           </div>
 
           <div className="flex mt-4 sm:justify-center sm:mt-0">
@@ -52,11 +51,11 @@ const Footer = () => {
         <div className="sm:flex sm:items-center sm:justify-between mt-10 xl:px-24">
           <div className="flex flex-nowrap mt-4 sm:justify-center sm:mt-0 gap-3">
             <a href="" className="text-gray-500"  onClick={() => navigate('/terms')}>Terms</a>
-            <a href="#" className="text-gray-500">Member terms</a>
-            <a href="#" className="text-gray-500">Tax strategy</a>
+            {/* <a href="#" className="text-gray-500">Member terms</a>
+            <a href="#" className="text-gray-500">Tax strategy</a> */}
           </div>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
-            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">Getmyroom™</a>. All Rights Reserved.
+            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="" className="hover:underline">Getmyroom™</a>. All Rights Reserved.
             </span>
 
           </div>
@@ -79,3 +78,4 @@ const Footer = () => {
 }
 
 export default Footer
+

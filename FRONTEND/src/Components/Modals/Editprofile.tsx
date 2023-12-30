@@ -110,7 +110,6 @@ const Editprofile = ({ onClose }) => {
               id: response.data.isUser.userId,
               name: response.data.isUser.userName,
               email: response.data.isUser.userEmail,
-              phone: response.data.isUser.userphone,
               image: response.data.isUser.userimg,
               access_token: response.data.AccessToken,
 
@@ -187,7 +186,7 @@ const Editprofile = ({ onClose }) => {
             )}
           </div>
 
-          <div className="mt-1 p-2">
+          {/* <div className="mt-1 p-2">
             <input
               type="date"
               id="dob"
@@ -201,7 +200,7 @@ const Editprofile = ({ onClose }) => {
             {formik.touched.dob && formik.errors.dob && (
               <div className="text-red-500 text-sm">{formik.errors.dob}</div>
             )}
-          </div>
+          </div> */}
 
           <div className="mt-1 p-2">
             <input

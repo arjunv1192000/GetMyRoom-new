@@ -12,7 +12,7 @@ const userAuthRepositoryInt=(repository)=>{
     const googlecreate=(user)=>repository.googlecreate(user);
     const removeproperty=(userId,postId)=>repository.removeproperty(userId,postId)
     const userDatas=()=>repository.userDatas()
-    const userupdate=(fullname,email,image,dob,userId)=>repository.userupdate(fullname,email,image,dob,userId)
+    const userupdate=(fullname,email,image,userId)=>repository.userupdate(fullname,email,image,userId)
 
 
     return{

@@ -9,7 +9,7 @@ const Price = ({ handleFormDataChange }) => {
       price: 100,
     },
     onSubmit: (values) => {
-      handleFormDataChange({ step10Data: values.price });
+      handleFormDataChange({ step9Data: values.price });
       setEditMode(false);
     },
   });

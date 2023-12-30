@@ -74,8 +74,6 @@ const userAuthRepositoryImp = () => {
     const newuser = new userdata({
       name: user?.getname(),
       email: user?.getemail(),
-      phone: user?.getphone(),
-      dob: user?.getdob(),
       image: user?.getimage(),
       isBlock: false
 
@@ -115,14 +113,13 @@ const userAuthRepositoryImp = () => {
   }
 
 
-  const userupdate = async (fullname,email,image,dob,userId) => {
+  const userupdate = async (fullname,email,image,userId) => {
     const profile = await userdata.findOneAndUpdate(
       { _id: userId },
       {
         name:fullname,
         email: email,
         image:image,
-        dob:dob
         
       },
       { new: true }

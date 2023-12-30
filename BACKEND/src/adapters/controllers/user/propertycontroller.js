@@ -12,8 +12,8 @@ const propertycontroller=(userpropertyrepositoryInt,userpropertyrepositoryImp)=>
 
 
     const addproperty=(req,res)=>{
-     const {userId,tilte,type,location,room,bathrooms,bedrooms,buildYear,features,image,video,description,price,floorplans,seller}=req.body
-     adduserproperty(userId,tilte,type,location,room,bathrooms,bedrooms,buildYear,features,image,video,description,price,floorplans,seller,dbrepository).then((response)=>{
+     const {userId,tilte,type,location,bathrooms,bedrooms,features,image,description,price,floorplans,seller}=req.body
+     adduserproperty(userId,tilte,type,location,bathrooms,bedrooms,features,image,description,price,floorplans,seller,dbrepository).then((response)=>{
         console.log(response);
          res.json(response)
        

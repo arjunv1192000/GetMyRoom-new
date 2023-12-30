@@ -88,8 +88,7 @@ const Detaildatapage = () => {
           Id={data.userId?._id}
           username={data.userId.name}
           userimg={data.userId.image}
-          phone={data.userId.phone}
-          video={data.video}
+          // phone={data.userId.phone}
           features={data.features}
           description={data.description}
           document={data.document}

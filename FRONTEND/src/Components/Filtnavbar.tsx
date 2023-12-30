@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { IoIosClose } from 'react-icons/io';
 
 const FilterDialog = ({ isOpen, onClose, onApplyFilters }) => {
-  const [numberOfRooms, setNumberOfRooms] = useState('');
   const [numberOfBedrooms, setNumberOfBedrooms] = useState('');
   const [numberOfBathrooms, setNumberOfBathrooms] = useState('');
   const [priceRange, setPriceRange] = useState('');
@@ -14,7 +13,7 @@ const FilterDialog = ({ isOpen, onClose, onApplyFilters }) => {
 
    
     onApplyFilters({
-      numberOfRooms,
+     
       numberOfBedrooms,
       numberOfBathrooms,
       priceRange,
@@ -26,7 +25,7 @@ const FilterDialog = ({ isOpen, onClose, onApplyFilters }) => {
   };
 
   const handleApplyDefaultValues = () => {
-    setNumberOfRooms(''); 
+   
     setNumberOfBedrooms(''); 
     setNumberOfBathrooms(''); 
     setPriceRange(''); 
@@ -53,7 +52,7 @@ const FilterDialog = ({ isOpen, onClose, onApplyFilters }) => {
           </button>
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label htmlFor="rooms" className="block text-sm font-medium text-gray-600">
               Number of Rooms
             </label>
@@ -65,7 +64,7 @@ const FilterDialog = ({ isOpen, onClose, onApplyFilters }) => {
               onChange={(e) => setNumberOfRooms(e.target.value)}
               className="mt-1 p-2 w-full border rounded-md"
             />
-          </div>
+          </div> */}
 
           <div className="mb-4">
             <label htmlFor="bedrooms" className="block text-sm font-medium text-gray-600">

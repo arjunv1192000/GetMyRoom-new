@@ -80,16 +80,14 @@ const Savedlist = () => {
 
     return (
         <div className='bg-white'>
-            <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 ">
-                <h2 className="text-2xl font-bold tracking-tight text-gray-900  ml-20 ">Saved listings</h2>
-                <div className='ml-20'>
+            <div className="mx-auto max-w-2xl px-4 py-5 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 ">
+                <h2 className="text-2xl font-bold tracking-tight text-gray-900  sm:ml-20 sm:text-3xl  ">Saved List</h2>
+                <div className=' ml-10 sm:ml-10'>
                     {property.length === 0 ? (
                         <div className='flex justify-center w-full h-40'>
 
                             <p className="text-gray-500 mt-10">Saved list is empty.</p>
-                            <a href='/' className="mt-4 px-4 py-2">
-                                Go to Home
-                            </a>
+                           
 
                         </div>
 
@@ -102,7 +100,6 @@ const Savedlist = () => {
                                 location={data.location}
                                 image={data.image}
                                 date={data.date}
-                                room={data.room}
                                 bathrooms={data.bathrooms}
                                 bedrooms={data.bedrooms}
                                 price={data.price}

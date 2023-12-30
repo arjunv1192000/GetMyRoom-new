@@ -72,7 +72,6 @@ const Unlistedpropertypage = () => {
               location={data.location}
               image={data.image}
               date={data.date}
-              room={data.room}
               bathrooms={data.bathrooms}
               bedrooms={data.bedrooms}
               price={data.price}

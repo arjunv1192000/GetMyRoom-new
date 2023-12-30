@@ -53,7 +53,7 @@ const Header = ({ openLoginModal }) => {
     };
 
     const handletoggleClick = () => {
-        if (userdata && userdata.phone) {
+        if (userdata && userdata.email) {
 
             toggleopen()
 
@@ -67,7 +67,7 @@ const Header = ({ openLoginModal }) => {
 
 
     const handleformClick = () => {
-        if (userdata && userdata.phone) {
+        if (userdata && userdata.email) {
 
             navigate('/form')
 
@@ -161,13 +161,13 @@ const Header = ({ openLoginModal }) => {
 
 
 
-                            <div className="absolute rounded-xl shadow-md w-[40vm] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
+                            <div className="absolute  z-50 rounded-xl shadow-md w-[40vm] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
                                 <div className="flex flex-col cursor-pointer">
                                     <>
                                         <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold" onClick={() => navigate('/profile')}> Profile </div>
                                         <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold" onClick={() => navigate('/save')}> Saved List </div>
                                         <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold" onClick={() => navigate('/mylist')}> My List</div>
-                                        <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold " onClick={handleLogout}> LogOut</div>
+                                        <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold text-[#870e4d]" onClick={handleLogout}> LogOut</div>
 
                                     </>
                                 </div>
@@ -229,7 +229,7 @@ const Header = ({ openLoginModal }) => {
                                 <a
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                    onClick={() => userdata && userdata.phone ? navigate('/save') : openLoginModal() || handlesidebarclose()}
+                                    onClick={() => userdata && userdata.phone ? navigate('/mylist') : openLoginModal() || handlesidebarclose()}
                                 >
                                     My List
                                 </a>

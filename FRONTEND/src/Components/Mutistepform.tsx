@@ -69,33 +69,34 @@ const Mutistepform = () => {
             return formData.step9Data !== undefined && formData.step9Data !== null;
           case 10:
             return formData.step10Data !== undefined && formData.step10Data !== null;
-          case 11:
-            return formData.step11Data !== undefined && formData.step11Data !== null;
           default:
             return true;
     }
   };
 
+  console.log(formData,"pp");
+  
+
   const submitForm = async () => {
-    const isFormComplete = Array.from({ length: 11 }, (_, i) => isStepDataComplete(i + 1)).every(Boolean);
+    const isFormComplete = Array.from({ length: 10 }, (_, i) => isStepDataComplete(i + 1)).every(Boolean);
 
     if (isFormComplete) {
       const body = {
         userId: userdata.id,
         type: formData?.step1Data,
         location: formData?.step2Data,
-        room: formData?.step3Data?.rooms,
+        // room: formData?.step3Data?.rooms,
         bathrooms: formData?.step3Data?.bathrooms,
         bedrooms: formData?.step3Data?.bedrooms,
-        buildYear: formData?.step3Data?.buildYear,
+        // buildYear: formData?.step3Data?.buildYear,
         features: formData?.step4Data,
         image: formData?.step5Data,
-        video: formData?.step6Data,
-        tilte: formData?.step8Data,
-        description: formData?.step9Data,
-        price: formData?.step10Data,
-        seller: formData?.step11Data,
-        floorplans: formData?.step7Data?.floorplanUrl,
+        // video: formData?.step6Data,
+        tilte: formData?.step7Data,
+        description: formData?.step8Data,
+        price: formData?.step9Data,
+        seller: formData?.step10Data,
+        floorplans: formData?.step6Data?.floorplanUrl,
       };
 
       axios.post('/addnewproperty', body)
@@ -122,7 +123,7 @@ const Mutistepform = () => {
     <Rooms formData={formData} handleFormDataChange={handleFormDataChange} />,
     <Features formData={formData} handleFormDataChange={handleFormDataChange} />,
     <Images formData={formData} handleFormDataChange={handleFormDataChange} />,
-    <Videos formData={formData} handleFormDataChange={handleFormDataChange} />,
+    // <Videos formData={formData} handleFormDataChange={handleFormDataChange} />,
     <Floorplans formData={formData} handleFormDataChange={handleFormDataChange} />,
     <Hometitle formData={formData} handleFormDataChange={handleFormDataChange} />,
     <Description formData={formData} handleFormDataChange={handleFormDataChange} />,
@@ -139,7 +140,7 @@ const Mutistepform = () => {
           <div className="fixed bottom-0 left-0 right-0 bg-white">
             <Progressbar
               currentStep={currentStep}
-              totalSteps={11}
+              totalSteps={10}
               onNext={nextStep}
               onPrev={prevStep}
               onSubmit={submitForm}

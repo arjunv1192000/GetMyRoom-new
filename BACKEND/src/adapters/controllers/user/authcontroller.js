@@ -117,8 +117,8 @@ const Authcontroller = (userAuthRepositoryInt, userAuthRepositoryImp, authServic
 
 
     const createuserbygoogle=(req,res)=>{
-        const{fullname,email,image,phoneNumber,dob}=req.body
-        googleregister(fullname,email,image,phoneNumber,dob,dbrepository,authService).then((response)=>{
+        const{fullname,email,image}=req.body
+        googleregister(fullname,email,image,dbrepository,authService).then((response)=>{
             res.json(response)
         }).catch((err)=>console.log(err))
     }
@@ -147,8 +147,8 @@ const Authcontroller = (userAuthRepositoryInt, userAuthRepositoryImp, authServic
      }
 
      const updateuserdata=(req,res)=>{
-        const{name,email,image,dob,userId}=req.body
-        userdataupdation(name,email,image,dob,userId,dbrepository,authService).then((response)=>{
+        const{name,email,image,userId}=req.body
+        userdataupdation(name,email,image,userId,dbrepository,authService).then((response)=>{
             res.json(response)
         }).catch((err)=>console.log(err))
     }

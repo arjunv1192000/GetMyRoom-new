@@ -60,20 +60,25 @@ const Login = ({ onClose }) => {
                     </button>
                 </div>
 
-                {isLogin ? (
+
+                <Registercomponent onBack={() => setLogin(false)} isLogin={isLogin} onClose={onClose} />
+
+                
+
+                {/* {isLogin ? (
                     <Logincomponent onBack={() => setLogin(true)} isLogin={isLogin} onClose={onClose} />
                 ) : (
                     <Registercomponent onBack={() => setLogin(false)} isLogin={isLogin} onClose={onClose} />
-                )}
+                )} */}
 
-                <div className='mt-2 text-center'>
+                {/* <div className='mt-2 text-center'>
                     <p className="text-[16px] text-gray-600">
                         {isLogin ? "Don't have an account? " : "Already have an account? "}
                         <span className="text-blue-500 cursor-pointer" onClick={handleSwitchComponent}>
                             {isLogin ? "Register" : "Login"}
                         </span>
                     </p>
-                </div>
+                </div> */}
             </div>
         </div>
 

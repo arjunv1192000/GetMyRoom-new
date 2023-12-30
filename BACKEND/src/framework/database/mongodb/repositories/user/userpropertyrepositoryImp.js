@@ -14,13 +14,13 @@ const userpropertyrepositoryImp = () => {
         title: property?.gettitle(),
         type: property?.gettype(),
         location: property?.getlocation(),
-        room: property?.getroom(),
+        // room: property?.getroom(),
         bathrooms: property?.getbathrooms(),
         bedrooms: property?.getbedrooms(),
-        buildYear: property?.getbuildYear(),
+        // buildYear: property?.getbuildYear(),
         features: property?.getfeatures(),
         image: property?.getimage(),
-        video: property?.getvideo(),
+        // video: property?.getvideo(),
         description: property?.getdescription(),
         price: property?.getprice(),
         date: formattedDate,
@@ -70,7 +70,7 @@ const userpropertyrepositoryImp = () => {
         const allproperty = await Property.find({
           'location.locationName': new RegExp(locationName.split(' ').join('|'), 'i'),
           approve: true,
-        }).populate('userId', 'name email phone image');
+        }).populate('userId', 'name email image');
 
         return { totalCount, allproperty };
 
@@ -79,7 +79,7 @@ const userpropertyrepositoryImp = () => {
           'location.locationName': new RegExp(locationName.split(' ').join('|'), 'i'),
           type: type,
           approve: true,
-        }).populate('userId', 'name email phone image');
+        }).populate('userId', 'name email image');
 
         return { totalCount, allproperty };
 
@@ -97,7 +97,7 @@ const userpropertyrepositoryImp = () => {
   const singleproperty = async (Id) => {
 
     try {
-      const properties = await Property.find({ _id: Id }).populate('userId', 'name email phone image');;
+      const properties = await Property.find({ _id: Id }).populate('userId', 'name email  image');;
       console.log(properties, "single Properties");
       return properties;
     } catch (error) {
@@ -111,7 +111,7 @@ const userpropertyrepositoryImp = () => {
 
     try {
 
-      const properties = await Property.find({ approve: true }).populate('userId', 'name email phone image');
+      const properties = await Property.find({ approve: true }).populate('userId', 'name email  image');
       console.log(properties, "User Properties");
       return properties;
     } catch (error) {
@@ -126,7 +126,7 @@ const userpropertyrepositoryImp = () => {
 
     try {
 
-      const properties = await Property.find({ approve: false }).populate('userId', 'name email phone image');
+      const properties = await Property.find({ approve: false }).populate('userId', 'name email  image');
       console.log(properties, "User Properties");
       return properties;
     } catch (error) {

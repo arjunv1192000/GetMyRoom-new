@@ -88,7 +88,7 @@ type Props = {
 
 
 
-const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room, bathrooms, bedrooms, date, image, price, Id, buildYear, description, username, features, userimg, phone, video, floorplans, document, openLoginModal, sellertype }) => {
+const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathrooms, bedrooms, date, image, price, Id, buildYear, description, username, features, userimg, floorplans, document, openLoginModal, sellertype }) => {
 
     const navigate = useNavigate()
     const shareUrl = window.location.href;
@@ -161,7 +161,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
 
     const handleemailClick = async () => {
-       
+
 
         if (userdata.id) {
 
@@ -177,27 +177,39 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
     const handleSaveClick = async () => {
 
-        try {
-            const savejob = await axios.post('/save', { UserId: userdata.id, postId: proId });
 
-            if (savejob.data.status == true) {
-
-                toast.success('Property Saved Successfully')
-
-
-
-            } else {
-                toast.error("Already Saved This Property")
-
-
+        if (userdata.id) {
+            try {
+                const savejob = await axios.post('/save', { UserId: userdata.id, postId: proId });
+    
+                if (savejob.data.status == true) {
+    
+                    toast.success('Property Saved Successfully')
+    
+    
+    
+                } else {
+                    toast.error("Already Saved This Property")
+    
+    
+                }
+    
+    
+    
+            } catch (error) {
+    
+                console.error('Error Saving This job:', error);
             }
 
+          
 
+        } else {
 
-        } catch (error) {
+            openLoginModal();
 
-            console.error('Error Saving This job:', error);
         }
+
+      
     };
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -224,27 +236,27 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
     return (
 
         <div className='w-full h-auto bg-[#f7f4fb] flex flex-col justify-center items-center '>
-            <div className='w-[95%] sm:w-[80%] md:w-[80%] lg:w-[80%] h-auto mt-10 flex flex-col justify-center items-center'>
+            <div className='w-[95%] sm:w-[80%] md:w-[80%] lg:w-[80%] h-auto mt-5 flex flex-col justify-center items-center '>
                 <div className='w-full h-auto flex flex-col'>
                     <div className='w-full h-auto flex flex-col sm:flex-row'>
                         <div className='w-1/2'>
-                            <h2 className="flex font-semibold text-gray-900 text-[32px]">
+                            <h2 className="flex font-semibold text-gray-900 ml-2  text-[20px] sm:text-[28px] md:text-[28px] lg:text-[30px]">
                                 {title.toUpperCase()}
                             </h2>
                         </div>
                         <div className='w-1/2'>
                             {/*------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
-                            <h2 className="flex sm:justify-end  font-semibold text-gray-900 text-[32px] ">£{price} / month</h2>
+                            <h2 className="flex sm:justify-end  font-semibold text-gray-900 ml-2  text-[16px] sm:text-[28px] md:text-[24px] lg:text-[28px] ">£{price} / month</h2>
 
                         </div>
 
 
                     </div>
                     <div className='w-full   flex flex-col sm:flex-row'>
-                        <div className='w-1/2 flex flex-row '>
+                        <div className='w-auto  mt-3 sm:w-1/2 flex flex-row sm:ml-1 sm:mt-2 '>
                             <FaMapMarkerAlt className="mt-1 " />
-                            <h2 className="flex  justify-start font-semibold text-gray-900 text-[18px] ml-3 "> {location.locationName}</h2>
+                            <h2 className="flex justify-start font-semibold text-[#6f6f6f] text-[14px] sm:text-[28px] md:text-[30px] lg:text-[18px] ml-3"> {location.locationName}</h2>
 
                         </div>
                         <div className='w-1/2 flex flex-row gap-3 sm:justify-end pr-3 pb-2 '>
@@ -344,15 +356,15 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
 
                 {/*-------------------------------------------------------------------img container---------------------------------------------------------------------------------------------- */}
-                <div className='w-full h-auto shadow-md mt-3  mb-10'>
+                <div className='w-full h-auto shadow-md mt-3  mb-10 '>
 
                     {contentType === 'image' && (
 
-                        <div className='w-full h-auto bg-black  '>
+                        <div className=' sm:w-full sm:h-auto bg-white'>
                             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                                 {image.map((imageUrl, index) => (
                                     <SwiperSlide key={index}>
-                                        <img className='w-full h-auto object-contain' src={imageUrl} alt={`Image ${index + 1}`} />
+                                        <img className='w-full h-auto sm:h-[500px] object-cover ' src={imageUrl} alt={`Image ${index + 1}`} />
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
@@ -362,19 +374,19 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
                     )}
                     {contentType === 'location' && (
-                        <div className="w-full h-[600px] bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden ">
+                        <div className="w-full h-[300px]  sm:h-[500px] bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden ">
                             <Map location={location} />
                         </div>
 
 
                     )}
-                    {contentType === 'video' && (
-                        <video className='w-full h-[500px]' controls>
+                    {/* {contentType === 'video' && (
+                        <video className='w-full h-[300px] sm:h-[500px]' controls>
                             <source src={video} type='video/mp4' />
                             Your browser does not support the video tag.
                         </video>
-                    )}
-                    <div className='w-[150px] h-auto mt-3  flex flex-row gap-2 mb-5'>
+                    )} */}
+                    <div className='w-[150px] h-auto mt-3  flex flex-row gap-2 mb-5 '>
                         <button
                             className={`w-10 h-10 bg-black bg-opacity-50 text-white px-3 py-2 border rounded ml-1 ${contentType === 'image' ? 'border-blue-500' : ''
                                 }`}
@@ -389,13 +401,13 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                         >
                             <FaMapMarkerAlt />
                         </button>
-                        <button
+                        {/* <button
                             className={`w-10 h-10 bg-black bg-opacity-50 text-white px-3 py-2 border rounded ${contentType === 'video' ? 'border-blue-500' : ''
                                 }`}
                             onClick={() => handleButtonClick('video')}
                         >
                             <IoVideocam />
-                        </button>
+                        </button> */}
                     </div>
                 </div>
 
@@ -406,41 +418,41 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                 <div className='w-full h-auto  bg-white mt-10  shadow-md'>
                     <div className='w-full h-auto flex flex-col'>
                         <div className='w-full h-16'>
-                            <h2 className="mt-3 font-semibold text-gray-900 text-[24px] ml-5 ">Overview</h2>
+                            <h2 className="mt-3 font-semibold  font-sans text-gray-900 text-[22px] ml-5 ">Overview</h2>
                         </div>
                         <div className='w-full h-auto grid grid-cols-2 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-8 gap-y-8 '>
                             <div className='w-40  h-30  flex flex-col items-center bg-white'>
 
-                                <h5 className="mb-2 text-base font-sans  font-medium tracking-tight text-gray-900 mt-1">Updated On</h5>
-                                <h5 className="mb-5 text-base font-sans  font-medium  tracking-tight text-gray-900   ml-10">{date}</h5>
+                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight  mt-1">Updated On</h5>
+                                <h5 className="mb-5 text-[14px] text-[#6f6f6f] font-sans  font-semibold  tracking-tight    ml-10">{date}</h5>
 
                             </div>
-                            <div className='w-32  h-20  flex flex-col items-center bg-white'>
+                            {/* <div className='w-32  h-20  flex flex-col items-center bg-white'>
 
                                 <MdMeetingRoom color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
                                 <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1"> {room} Room</h5>
 
-                            </div>
-                            <div className='w-32  h-20  flex flex-col items-center bg-white'>
+                            </div> */}
+                            <div className='w-24  h-20  flex flex-col items-center bg-white'>
 
                                 <FaBath color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
 
-                                <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1">{bathrooms} Bathroom</h5>
+                                <h5 className="mb-2text-[14px] text-[#6f6f6f] font-sans  font-semibold  tracking-tight  mt-1">{bathrooms} Bathroom</h5>
 
                             </div>
                             <div className='w-32  h-20  flex flex-col items-center bg-white'>
 
                                 <BiBed color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
-                                <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1">{bedrooms} Bedroom</h5>
+                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight  mt-1">{bedrooms} Bedroom</h5>
 
                             </div>
 
-                            <div className='w-40  h-30  flex flex-col items-center bg-white'>
+                            {/* <div className='w-40  h-30  flex flex-col items-center bg-white'>
 
                                 <h5 className="mb-2 text-base font-sans  font-medium tracking-tight text-gray-900 mt-1">Build Year</h5>
                                 <h5 className="mb-5 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1  ml-10">{formatted}</h5>
 
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -458,7 +470,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                                 {isExpanded1 ? <FaChevronUp className="mr-5" /> : <FaChevronDown className="mr-5" />}
                             </div>
                             {isExpanded1 && <div className='mt-1 w-full h-auto bg-white'>
-                                <h3 className='text-base font-sans  font-semibold m-10'>
+                                <h3 className='text-[14px] text-[#6f6f6f] font-sans  font-semibold m-10 text-justify'>
                                     {description}
                                 </h3>
 
@@ -491,19 +503,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
 
 
-                        <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
-                            <div className='flex items-center justify-between cursor-pointer h-20' onClick={handleToggle7}>
-                                <h3 className='text-base font-sans  font-semibold ml-5'>Floor Plan</h3>
-                                {isExpanded7 ? <FaChevronUp className="mr-5" /> : <FaChevronDown className="mr-5" />}
-                            </div>
-                            {isExpanded7 && <div className='mt-1 w-full h-auto '>
-                                <div className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-lg md:max-w-2xl flex justify-center pb-32">
-                                    <img className="h-80 w-80   object-cover  p-4" src={floorplans} alt="Video Thumbnail" />
-
-                                </div>
-                            </div>}
-
-                        </div>
+                      
 
 
 
@@ -515,7 +515,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                     <div className='w-full sm:w-2/4 h-auto  flex flex-col gap-5 mb-5 '>
 
                         {/*-----------------------------------------------------------------------details-------------------------------------------------------------------------------------------- */}
-                        <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
+                        {/* <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
                             <div className='flex items-center justify-between cursor-pointer h-20' onClick={handleToggle4}>
                                 <h3 className='text-base font-sans  font-semibold ml-5'>Details</h3>
                                 {isExpanded4 ? <FaChevronUp className="mr-5" /> : <FaChevronDown className="mr-5" />}
@@ -541,7 +541,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
                                 </div>}
 
-                        </div>
+                        </div> */}
 
                         {/*----------------------------------------------------------------------------features--------------------------------------------------------------------------------------- */}
                         <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
@@ -551,13 +551,13 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                             </div>
                             {isExpanded5 && <div className='mt-1 w-full h-auto flex flex-col'>
                                 <div className="w-full h-auto">
-                                    <h5 className="mb-2 text-[25px] font-sans font-semibold ml-5 tracking-tight text-gray-900 mt-1">
+                                    <h5 className="mb-2 text-[20px] font-sans font-semibold ml-5 tracking-tight text-gray-900 mt-1">
                                         Interior Details
                                     </h5>
                                     <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8">
                                         {features?.interiorDetails.map((feature, index) => (
                                             <div key={index} className="flex flex-col ml-5">
-                                                <h5 className="mb-2 text-base font-sans font-medium tracking-tight text-gray-900 mt-3">
+                                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight mt-3">
                                                     {feature}
                                                 </h5>
                                             </div>
@@ -566,12 +566,12 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                                 </div>
 
                                 <div className='w-full h-auto'>
-                                    <h5 className="mb-2 text-[25px] font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Outdoor Details</h5>
+                                    <h5 className="mb-2 text-[20px] font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Outdoor Details</h5>
                                     <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8">
                                         {features?.outdoorDetails.map((feature, index) => (
                                             <div className='flex flex-row ml-5'>
 
-                                                <h5 className="mb-2 text-base font-sans font-medium  tracking-tight text-gray-900 mt-3">{feature}</h5>
+                                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight mt-3">{feature}</h5>
                                             </div>
 
                                         ))}
@@ -581,12 +581,12 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
                                 </div>
                                 <div className='w-full h-auto'>
-                                    <h5 className="mb-2 text-[25px] font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Utilities</h5>
+                                    <h5 className="mb-2 text-[20px] font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Utilities</h5>
                                     <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8">
                                         {features?.utilities.map((feature, index) => (
                                             <div className='flex flex-row ml-5'>
 
-                                                <h5 className="mb-2 text-base font-sans font-medium  tracking-tight text-gray-900 mt-3">{feature}</h5>
+                                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight mt-3">{feature}</h5>
                                             </div>
 
                                         ))}
@@ -596,11 +596,11 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
                                 </div>
                                 <div className='w-full h-auto'>
-                                    <h5 className="mb-2 text-[25px] font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Other Features</h5>
+                                    <h5 className="mb-2 text-[20px] font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Other Features</h5>
                                     <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8">
                                         {features?.otherFeatures.map((feature, index) => (
                                             <div className='flex flex-row ml-5'>
-                                                <h5 className="mb-2 text-base font-sans font-medium  tracking-tight text-gray-900 mt-3">{feature}</h5>
+                                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight mt-3">{feature}</h5>
                                             </div>
 
                                         ))}
@@ -612,9 +612,22 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
                             </div>}
 
                         </div>
+                        <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
+                            <div className='flex items-center justify-between cursor-pointer h-20' onClick={handleToggle7}>
+                                <h3 className='text-base font-sans  font-semibold ml-5'>Floor Plan</h3>
+                                {isExpanded7 ? <FaChevronUp className="mr-5" /> : <FaChevronDown className="mr-5" />}
+                            </div>
+                            {isExpanded7 && <div className='mt-1 w-full h-auto '>
+                                <div className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-lg md:max-w-2xl flex justify-center pb-32">
+                                    <img className="h-80 w-80   object-cover  p-4" src={floorplans} alt="Video Thumbnail" />
+
+                                </div>
+                            </div>}
+
+                        </div>
 
                         {/*------------------------------------------------------------------------video------------------------------------------------------------------------------------------- */}
-                        <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
+                        {/* <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
                             <div className='flex items-center justify-between cursor-pointer h-20' onClick={handleToggle6}>
                                 <h3 className='text-base font-sans  font-semibold ml-5'>Video</h3>
                                 {isExpanded6 ? <FaChevronUp className="mr-5" /> : <FaChevronDown className="mr-5" />}
@@ -630,22 +643,22 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, room,
 
                             </div>}
 
-                        </div>
+                        </div> */}
 
                         {/*---------------------------------------------------------------Contact ---------------------------------------------------------------------------------------------------- */}
                     </div>
                 </div>
-                <div className='sm:flex flex-row w-11/12 h-auto bg-white shadow-md mt-10 rounded-md mb-10'>
+                <div className='sm:flex flex-row w-11/12 h-auto bg-white shadow-md mt-10 rounded-md mb-10 '>
 
-                    <img className="w-60 h-60 bg-white border border-gray-200 rounded-lg shadow items-center m-6 object-cover" src={userimg} alt="Video Thumbnail" />
+                    <img className="ml-12 sm:w-60 h-60 bg-white border border-gray-200 rounded-lg shadow items-center m-6 object-cover" src={userimg} alt="Video Thumbnail" />
 
-                    <div className='w-[300px] h-60 mt-6 flex flex-col'>
+                    <div className='w-[300px] h-60 mt-6 flex flex-col ml-5'>
                         <h5 className="mb-2 text-base font-sans  font-semibold tracking-tight text-gray-900 mt-1">{username}</h5>
                         <h5 className="mb-2 text-base font-sans  font-semibold tracking-tight text-gray-900 mt-1">Seller Type: {sellertype}</h5>
-                        <button onClick={handleCallButtonClick} className="mt-5 w-30 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover:bg-[#870e4d] duration-300 text-white px-4 py-2 border rounded flex flex-row justify-center">
+                        {/* <button onClick={handleCallButtonClick} className="mt-5 w-30 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover:bg-[#870e4d] duration-300 text-white px-4 py-2 border rounded flex flex-row justify-center">
                             <IoIosCall className="w-5 h-5 ml-2 mt-0.5" />
                             {isCallClicked ? <span>{phone}</span> : <span>Call</span>}
-                        </button>
+                        </button> */}
                         <button className="mt-5 w-30 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover:bg-[#870e4d] duration-300 text-white px-4 py-2 border rounded flex flex-row justify-center" onClick={handleemailClick} >
                             <MdOutlineMailOutline className="w-5 h-5 ml-2 mt-0.5" />
                             Send Email

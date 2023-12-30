@@ -11,14 +11,13 @@ const Filterbar = ({ onViewTypeChange, onApplyFilters }) => {
   const [showFilterDialog, setShowFilterDialog] = useState(false);
   const [viewType, setViewType] = useState('map');
   const [filters, setFilters] = useState({
-    numberOfRooms: '',
     numberOfBedrooms: '',
     numberOfBathrooms: '',
     priceRange: '0-500',
     sellerType: 'AGENT',
   });
 
-  const handleApplyFilters = (newFilters: React.SetStateAction<{ numberOfRooms: string; numberOfBedrooms: string; numberOfBathrooms: string; priceRange: string; sellerType: string; }>) => {
+  const handleApplyFilters = (newFilters: React.SetStateAction<{  numberOfBedrooms: string; numberOfBathrooms: string; priceRange: string; sellerType: string; }>) => {
     setFilters(newFilters);
     onApplyFilters(newFilters);
   };

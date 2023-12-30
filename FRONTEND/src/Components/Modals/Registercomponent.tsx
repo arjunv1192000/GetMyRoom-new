@@ -59,10 +59,10 @@ const Registercomponent = ({ onBack, onClose }) => {
     const validationSchemaStep4 = Yup.object({
         selectedCountryCodes: Yup.string().required('Country code is required'),
         phoneNumber: Yup.string()
-          .required('Phone number is required')
-          .matches(/^[0-9]{10}$/, 'Invalid phone number'),
+            .required('Phone number is required')
+            .matches(/^[0-9]{11}$/, 'Invalid phone number'),
         dob: Yup.string().required('Date of birth is required'),
-      });
+    });
 
 
 
@@ -134,7 +134,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                 phoneNumber: phoneNumber,
                 otp: values.otp
             };
-           
+
 
             axios.post('/verifyotp', body)
                 .then((response) => {
@@ -176,7 +176,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                 const imageUrl = imageResponse.data.response;
 
 
-               
+
 
                 const imageUploadResponse = await fetch(imageUrl, {
                     method: 'PUT',
@@ -187,7 +187,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                 });
 
                 const userimage = imageUrl.split('?')[0];
-               
+
 
 
                 const body = {
@@ -234,12 +234,43 @@ const Registercomponent = ({ onBack, onClose }) => {
 
     const googleregister = (body: { fullname: any; email: any; image: any; }) => {
 
-        console.log(body, "fjnfbfbfk");
-        setGoogleRegistrationData(body);
+        // console.log(body, "fjnfbfbfk");
+        // setGoogleRegistrationData(body);
 
-        setStep(4);
+        // setStep(4);
+
+        axios.post('/googlesignup', body)
+        .then((response) => {
+            if (response.data.status === true) {
+                console.log(response.data);
+                localStorage.setItem('access_token_user', response.data.AccessToken);
+                localStorage.setItem('refresh_token_user', response.data.RefreshToken);
+                dispatch(login({
+                    id: response.data.isUser.userId,
+                    name: response.data.isUser.userName,
+                    email: response.data.isUser.userEmail,
+                    image: response.data.isUser.userimg,
+                    access_token: response.data.AccessToken,
+
+                }));
+                toast.success('Successfully Added!')
+                handleModalClose();
+
+            } else {
+                toast.error(response.data.message);
+
+            }
+        })
+        .catch((response) => {
+            console.error(response.message);
+        });
 
     }
+
+
+
+
+
 
 
     const formikStep4 = useFormik({
@@ -253,7 +284,7 @@ const Registercomponent = ({ onBack, onClose }) => {
             const fullPhoneNumber = `${values.selectedCountryCodes} ${values.phoneNumber}`;
 
             console.log(googleRegistrationData);
-            
+
 
 
             const body = {
@@ -265,50 +296,81 @@ const Registercomponent = ({ onBack, onClose }) => {
 
             axios.post('/googlesignup', body)
                 .then((response) => {
-                  if (response.data.status === true) {
-                    console.log(response.data);
-                    localStorage.setItem('access_token_user', response.data.AccessToken);
-                    localStorage.setItem('refresh_token_user', response.data.RefreshToken);
-                    dispatch(login({
-                        id: response.data.isUser.userId,
-                        name: response.data.isUser.userName,
-                        email: response.data.isUser.userEmail,
-                        phone: response.data.isUser.userphone,
-                        image: response.data.isUser.userimg,
-                        access_token: response.data.AccessToken,
+                    if (response.data.status === true) {
+                        console.log(response.data);
+                        localStorage.setItem('access_token_user', response.data.AccessToken);
+                        localStorage.setItem('refresh_token_user', response.data.RefreshToken);
+                        dispatch(login({
+                            id: response.data.isUser.userId,
+                            name: response.data.isUser.userName,
+                            email: response.data.isUser.userEmail,
+                            phone: response.data.isUser.userphone,
+                            image: response.data.isUser.userimg,
+                            access_token: response.data.AccessToken,
 
-                    }));
-                    toast.success('Successfully Added!')
-                    handleModalClose();
-                   
-                  } else {
-                    toast.error(response.data.message);
-                    setTimeout(() => {
+                        }));
+                        toast.success('Successfully Added!')
+                        handleModalClose();
 
-                        setStep(1);
-                        
-                      }, 1500);
+                    } else {
+                        toast.error(response.data.message);
+                        setTimeout(() => {
 
-                  }
+                            setStep(1);
+
+                        }, 1500);
+
+                    }
                 })
                 .catch((response) => {
-                  console.error(response.message);
+                    console.error(response.message);
                 });
 
 
-           
+
         },
     });
 
 
     return (
         <div>
+
+            <div className='flex justify-center mt-5'>
+                <h2 className=" font-semibold text-black text-[25px]  ml-5  ">Login</h2>
+            </div>
+            <div className='mt-5 p-2 flex justify-center'>
+                        <GoogleOAuthProvider clientId="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com">
+                            <GoogleLogin
+                                onSuccess={(credentialResponse) => {
+                                    const decoded = jwtDecode(credentialResponse.credential);
+                                    const body = {
+                                        fullname: decoded.name,
+                                        email: decoded.email,
+                                        image: decoded.picture,
+                                    }
+
+                                   
+                                    googleregister(body)
+                                }}
+                                onError={() => {
+                                    toast.error("Register failed !")
+                                }}
+                                width={300}
+
+                            />
+
+                        </GoogleOAuthProvider>
+
+
+                    </div>
+
+
             {step === 1 && (
                 <>
                     <form onSubmit={formikStep1.handleSubmit}>
-                        <div className='flex justify-center mt-5'>
-                            <h2 className=" font-semibold text-black text-[25px]  ml-5  ">Register</h2>
-                        </div>
+                        {/* <div className='flex justify-center mt-5'>
+                            <h2 className=" font-semibold text-black text-[25px]  ml-5  ">Login</h2>
+                        </div> */}
                         {/* <div className='mt-5 p-2'>
                             <select
                                 id="countryCode"
@@ -359,8 +421,8 @@ const Registercomponent = ({ onBack, onClose }) => {
                         <span className="text-gray-500">or</span>
                         <hr className="border-t border-gray-300 flex-grow ml-2" /> */}
                     </div>
-                    <div className='mt-5 p-2 flex justify-center'>
-                        <GoogleOAuthProvider clientId="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com">
+                    {/* <div className='mt-5 p-2 flex justify-center'>
+                        <GoogleOAuthProvider clientId="1084048115629-gpikjorqk28djapdi3qid41bn8k3k67e.apps.googleusercontent.com">
                             <GoogleLogin
                                 onSuccess={(credentialResponse) => {
                                     const decoded = jwtDecode(credentialResponse.credential);
@@ -370,7 +432,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                                         image: decoded.picture,
                                     }
 
-                                    console.log(body);
+                                   
                                     googleregister(body)
                                 }}
                                 onError={() => {
@@ -383,7 +445,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                         </GoogleOAuthProvider>
 
 
-                    </div>
+                    </div> */}
                 </>
 
             )}
@@ -543,7 +605,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                                 onBlur={formikStep4.handleBlur}
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             >
-                               
+
                                 <option value=""></option>
                                 <option value="+44">+44(UK)</option>
                             </select>

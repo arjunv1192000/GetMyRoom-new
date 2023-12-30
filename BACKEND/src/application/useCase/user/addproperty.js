@@ -1,10 +1,10 @@
 import propertydata from "../../../entities/property.js"
 
-const adduserproperty = async (userId,tilte,type,location,room,bathrooms,bedrooms,buildYear,features,image,video,description,price,floorplans,seller,repositories) => {
+const adduserproperty = async (userId,tilte,type,location,bathrooms,bedrooms,features,image,description,price,floorplans,seller,repositories) => {
    
 
     try {
-        const property = propertydata(userId,tilte,type,location,room,bathrooms,bedrooms,buildYear,features,image,video,description,price,floorplans,seller)
+        const property = propertydata(userId,tilte,type,location,bathrooms,bedrooms,features,image,description,price,floorplans,seller)
         console.log(property);
 
         const userproperty = await repositories.create(property)

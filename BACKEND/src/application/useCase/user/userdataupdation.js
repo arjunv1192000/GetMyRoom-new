@@ -1,6 +1,6 @@
-const userdataupdation = async (fullname, email, image, dob, userId, dbrepository, authService) => {
+const userdataupdation = async (fullname, email, image,userId, dbrepository, authService) => {
     try {
-        const userupdate = await dbrepository.userupdate(fullname, email, image, dob, userId);
+        const userupdate = await dbrepository.userupdate(fullname, email, image,userId);
 
         console.log(userupdate, "iiii");
 

@@ -63,12 +63,12 @@ const Profile = () => {
             <p className="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start">
              {profile?.email}
             </p>
-            <p className="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start">
+            {/* <p className="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start">
              {profile?.phone}
             </p>
             <p className="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start">
              {profile?.dob}
-            </p>
+            </p> */}
             <button className=" mr-20 transition ease-in-out delay-150 bg-[#390b79]  hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 rounded w-20 h-10 mt-5  " onClick={openEditModal} >Edit</button>
           </div>
         </div>

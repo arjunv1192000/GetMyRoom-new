@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 
 const SellerType = ({ handleFormDataChange }) => {
     const validationSchema = Yup.object({
-        step11Data: Yup.string().required('Please select a place type'),
+        step10Data: Yup.string().required('Please select a place type'),
     });
 
     const placeTypes = [
@@ -18,17 +18,17 @@ const SellerType = ({ handleFormDataChange }) => {
 
     const handlePlaceTypeSelection = (placeType: React.SetStateAction<string> | React.ChangeEvent<any>) => {
         setSelectedPlaceType(placeType);
-        formik.handleChange('step11Data')(placeType);
+        formik.handleChange('step10Data')(placeType);
     };
 
     const formik = useFormik({
         initialValues: {
-            step11Data: '',
+            step10Data: '',
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
             console.log(values, 'typess');
-            handleFormDataChange({ step11Data: values.step11Data });
+            handleFormDataChange({ step10Data: values.step10Data });
         },
     });
 

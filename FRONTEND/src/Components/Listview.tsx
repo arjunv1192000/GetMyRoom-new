@@ -40,7 +40,7 @@ type Property = {
   sellertype: string;
 };
 
-const Listview = ({ location, type, filters }) => {
+const Listview = ({ location, type, filters,openLoginModal }) => {
   const [loading, setLoading] = useState(true);
   const [property, setProperty] = useState<Property[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -55,10 +55,9 @@ const Listview = ({ location, type, filters }) => {
 
 
         const filteredProperties = allProperties.filter((property: {
-          sellertype: any; room: number; bedrooms: number; bathrooms: number; price: any; sellerType: any;
+          sellertype: any;  bedrooms: number; bathrooms: number; price: any; sellerType: any;
         }) => {
           if (
-            (filters?.numberOfRooms !== '' && property.room !== Number(filters?.numberOfRooms)) ||
             (filters?.numberOfBedrooms !== '' && property.bedrooms !== Number(filters?.numberOfBedrooms)) ||
             (filters?.numberOfBathrooms !== '' && property.bathrooms !== Number(filters?.numberOfBathrooms)) ||
             (filters?.priceRange !== '' && !isPriceInRange(property.price, convertPriceRange(filters?.priceRange))) ||
@@ -139,13 +138,14 @@ const Listview = ({ location, type, filters }) => {
                   title={data.title}
                   image={data.image}
                   date={data.date}
-                  room={data.room}
                   bathrooms={data.bathrooms}
                   bedrooms={data.bedrooms}
                   price={data.price}
                   userId={data.userId?._id}
                   username={data.userId.name}
                   userimg={data.userId.image}
+                  openLoginModal={openLoginModal} 
+                 
                 />
                
               ))}

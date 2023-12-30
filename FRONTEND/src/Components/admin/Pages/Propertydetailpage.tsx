@@ -77,7 +77,6 @@ const Propertydetailpage = () => {
           location={data.location}
           image={data.image}
           date={data.date}
-          room={data.room}
           bathrooms={data.bathrooms}
           bedrooms={data.bedrooms}
           price={data.price}
@@ -85,12 +84,9 @@ const Propertydetailpage = () => {
           username={data.userId.name}
           userimg={data.userId.image}
           phone={data.userId.phone}
-          video={data.video}
           features={data.features}
           description={data.description}
-          document={data.document}
           floorplans={data.floorplans}
-          buildYear={data.buildYear}
           sellertype={data.sellertype}
           email={data.userId.email}
         

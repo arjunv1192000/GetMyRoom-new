@@ -12,15 +12,15 @@ const Rooms = ({ handleFormDataChange }) => {
     const validationSchema = Yup.object({
         bedrooms: Yup.number().required('Bedrooms are required').min(1, 'Should be at least 1 Bedrooms'),
         bathrooms: Yup.number().required('Bathrooms are required').min(1, 'Should be at least 1 Bathrooms'),
-        rooms: Yup.number().required('Rooms are required').min(1, 'Should be at least 1'),
-        buildYear: Yup.date().nullable().required('Year of Build is required'),
+        // rooms: Yup.number().required('Rooms are required').min(1, 'Should be at least 1'),
+        // buildYear: Yup.date().nullable().required('Year of Build is required'),
     });
     const formik = useFormik({
         initialValues: {
             bedrooms: 1,
             bathrooms: 1,
-            rooms: 1,
-            buildYear: null,
+            // rooms: 1,
+            // buildYear: null,
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
@@ -47,14 +47,14 @@ const Rooms = ({ handleFormDataChange }) => {
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">How many people can stay here?</p>
 
                 <form onSubmit={formik.handleSubmit}>
-                    <div className="flex justify-between items-center mb-4 w-full h-24 ">
+                    {/* <div className="flex justify-between items-center mb-4 w-full h-24 ">
                         <label className="mr-4">Rooms:</label>
                         <div>
                             <button type="button" className="rounded-full px-4 py-2 border border-gray-300 hover:border-black" onClick={() => handleDecrement('rooms')}>-</button>
                             <span className="mx-2 p-2">{formik.values.rooms}</span>
                             <button type="button" className="rounded-full px-4 py-2 border border-gray-300 hover:border-black" onClick={() => handleIncrement('rooms')}>+</button>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className="flex justify-between items-center mb-4 w-full h-24 ">
                         <label className="mr-4">Bedrooms:</label>
@@ -74,7 +74,7 @@ const Rooms = ({ handleFormDataChange }) => {
                         </div>
                     </div>
 
-                    <div className="flex items-center justify-between mb-4 w-full h-24">
+                    {/* <div className="flex items-center justify-between mb-4 w-full h-24">
                         <label className="mr-4">Year of Build:</label>
                         <DatePicker
                             selected={formik.values.buildYear}
@@ -83,11 +83,11 @@ const Rooms = ({ handleFormDataChange }) => {
                             dateFormat="yyyy"
                             className="rounded-full px-1 py-2 border border-gray-300 hover:border-black"
                         />
-                    </div>
+                    </div> */}
                     {formik.errors.bedrooms && <div className="text-red-500">{formik.errors.bedrooms}</div>}
                     {formik.errors.bathrooms && <div className="text-red-500">{formik.errors.bathrooms}</div>}
-                    {formik.errors.rooms && <div className="text-red-500">{formik.errors.rooms}</div>}
-                    {formik.errors.buildYear && <div className="text-red-500">{formik.errors.buildYear}</div>}
+                    {/* {formik.errors.rooms && <div className="text-red-500">{formik.errors.rooms}</div>}
+                    {formik.errors.buildYear && <div className="text-red-500">{formik.errors.buildYear}</div>} */}
 
                     <button
                         type="submit"

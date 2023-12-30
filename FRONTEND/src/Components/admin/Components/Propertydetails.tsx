@@ -56,7 +56,7 @@ type Props = {
     proId: string;
 }
 
-const Propertydetails: React.FC<Props> = ({ title, proId, location, room, bathrooms, bedrooms, date, image, price, Id, buildYear, description, username, features, userimg, phone, video, floorplans, sellertype, email }) => {
+const Propertydetails: React.FC<Props> = ({ title, proId, location, room, bathrooms, bedrooms, date, image, price, Id, description, username, features, userimg, floorplans, sellertype, email }) => {
 
     const navigate = useNavigate();
     const [isExpanded1, setIsExpanded1] = useState(false);
@@ -106,9 +106,9 @@ const Propertydetails: React.FC<Props> = ({ title, proId, location, room, bathro
         month: 'long',
         day: 'numeric',
     };
-    const originalDateString = buildYear;
-    const dateObject = new Date(originalDateString);
-    const formatted = dateObject.toLocaleString('en-US', options);
+    // const originalDateString = buildYear;
+    // const dateObject = new Date(originalDateString);
+    // const formatted = dateObject.toLocaleString('en-US', options);
 
     const handleverificationClick = async () => {
 
@@ -197,12 +197,12 @@ const Propertydetails: React.FC<Props> = ({ title, proId, location, room, bathro
 
 
                     )}
-                    {contentType === 'video' && (
+                    {/* {contentType === 'video' && (
                         <video className='w-full h-[500px]' controls>
                             <source src={video} type='video/mp4' />
                             Your browser does not support the video tag.
                         </video>
-                    )}
+                    )} */}
                     <div className='w-[150px] h-auto mt-3  flex flex-row gap-2 mb-5'>
                         <button
                             className={`w-10 h-10 bg-black bg-opacity-50 text-white px-3 py-2 border rounded ml-1 ${contentType === 'image' ? 'border-blue-500' : ''
@@ -218,13 +218,13 @@ const Propertydetails: React.FC<Props> = ({ title, proId, location, room, bathro
                         >
                             <FaMapMarkerAlt />
                         </button>
-                        <button
+                        {/* <button
                             className={`w-10 h-10 bg-black bg-opacity-50 text-white px-3 py-2 border rounded ${contentType === 'video' ? 'border-blue-500' : ''
                                 }`}
                             onClick={() => handleButtonClick('video')}
                         >
                             <IoVideocam />
-                        </button>
+                        </button> */}
                     </div>
                 </div>
 
@@ -244,12 +244,12 @@ const Propertydetails: React.FC<Props> = ({ title, proId, location, room, bathro
                                 <h5 className="mb-5 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1  ml-10">{date}</h5>
 
                             </div>
-                            <div className='w-32  h-20  flex flex-col items-center bg-white'>
+                            {/* <div className='w-32  h-20  flex flex-col items-center bg-white'>
 
                                 <MdMeetingRoom color="red" fill="red" className=" w-[20px] h-[20px] mt-5" />
                                 <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1"> {room}Rooms</h5>
 
-                            </div>
+                            </div> */}
                             <div className='w-32  h-20  flex flex-col items-center bg-white'>
 
                                 <FaBath color="red" fill="red" className=" w-[20px] h-[20px] mt-5" />
@@ -264,12 +264,12 @@ const Propertydetails: React.FC<Props> = ({ title, proId, location, room, bathro
 
                             </div>
 
-                            <div className='w-40  h-30  flex flex-col items-center bg-white'>
+                            {/* <div className='w-40  h-30  flex flex-col items-center bg-white'>
 
                                 <h5 className="mb-2 text-base font-sans  font-medium tracking-tight text-gray-900 mt-1">Build year:</h5>
                                 <h5 className="mb-5 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1  ml-10">{formatted}</h5>
 
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -344,7 +344,7 @@ const Propertydetails: React.FC<Props> = ({ title, proId, location, room, bathro
                     <div className='w-full sm:w-2/4 h-auto  flex flex-col gap-5 mb-5 '>
 
                         {/*-----------------------------------------------------------------------details-------------------------------------------------------------------------------------------- */}
-                        <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
+                        {/* <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
                             <div className='flex items-center justify-between cursor-pointer h-20' onClick={handleToggle4}>
                                 <h3 className='text-base font-sans  font-semibold ml-5'>Details</h3>
                                 {isExpanded4 ? <FaChevronUp className="mr-5" /> : <FaChevronDown className="mr-5" />}
@@ -370,7 +370,7 @@ const Propertydetails: React.FC<Props> = ({ title, proId, location, room, bathro
 
                                 </div>}
 
-                        </div>
+                        </div> */}
 
                         {/*----------------------------------------------------------------------------features--------------------------------------------------------------------------------------- */}
                         <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
@@ -444,7 +444,7 @@ const Propertydetails: React.FC<Props> = ({ title, proId, location, room, bathro
                         </div>
 
                         {/*------------------------------------------------------------------------video------------------------------------------------------------------------------------------- */}
-                        <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
+                        {/* <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
                             <div className='flex items-center justify-between cursor-pointer h-20' onClick={handleToggle6}>
                                 <h3 className='text-base font-sans  font-semibold ml-5'>Video</h3>
                                 {isExpanded6 ? <FaChevronUp className="mr-5" /> : <FaChevronDown className="mr-5" />}
@@ -460,7 +460,7 @@ const Propertydetails: React.FC<Props> = ({ title, proId, location, room, bathro
 
                             </div>}
 
-                        </div>
+                        </div> */}
 
                         {/*---------------------------------------------------------------Contact ---------------------------------------------------------------------------------------------------- */}
                     </div>
@@ -473,7 +473,7 @@ const Propertydetails: React.FC<Props> = ({ title, proId, location, room, bathro
                         <h5 className="mb-2 text-base font-sans  font-semibold tracking-tight text-gray-900 mt-1">{username}</h5>
                         <h5 className="mb-2 text-base font-sans  font-semibold tracking-tight text-gray-900 mt-1">Seller Type: {sellertype}</h5>
                         <h5 className="mb-2 text-base font-sans  font-semibold tracking-tight text-gray-900 mt-1">{email}</h5>
-                        <h5 className="mb-2 text-base font-sans  font-semibold tracking-tight text-gray-900 mt-1">{phone}</h5>
+                        {/* <h5 className="mb-2 text-base font-sans  font-semibold tracking-tight text-gray-900 mt-1">{phone}</h5> */}
                         <button className="mt-5 w-30 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover:bg-[#870e4d] duration-300 text-white px-4 py-2 border rounded flex flex-row justify-center"onClick={handleverificationClick} >
 
                             Verify & Approve

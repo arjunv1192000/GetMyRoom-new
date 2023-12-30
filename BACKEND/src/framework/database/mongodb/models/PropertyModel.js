@@ -31,10 +31,10 @@ const propertySchema = new Schema({
       },
     },
   },
-  room: {
-    type: Number,
-    required: true,
-  },
+  // room: {
+  //   type: Number,
+  //   required: true,
+  // },
   bathrooms: {
     type: Number,
     required: true,
@@ -43,10 +43,10 @@ const propertySchema = new Schema({
     type: Number,
     required: true,
   },
-  buildYear: {
-    type: Date,
-    required: true,
-  },
+  // buildYear: {
+  //   type: Date,
+  //   required: true,
+  // },
   features: {
     interiorDetails: [
       {
@@ -72,10 +72,10 @@ const propertySchema = new Schema({
   image: [{
     type: String,
  } ],
-  video: {
-    type: String,
-    required: true,
-  },
+  // video: {
+  //   type: String,
+  //   required: true,
+  // },
 
   description: {
     type: String,

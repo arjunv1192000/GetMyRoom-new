@@ -69,7 +69,7 @@ type RootState = {
 
 
 
-const Listcard: React.FC<Props> = ({ Id, title, image, date, room, bathrooms, bedrooms, price, userId, username, userimg }) => {
+const Listcard: React.FC<Props> = ({ Id, title, image, date, bathrooms, bedrooms, price, userId, username, userimg, openLoginModal }) => {
   const navigate = useNavigate();
   const userdata = useSelector((state: RootState) => state.user.value);
   console.log(userdata.id);
@@ -81,27 +81,36 @@ const Listcard: React.FC<Props> = ({ Id, title, image, date, room, bathrooms, be
 
   const handleSaveClick = async () => {
 
-    try {
-      const savejob = await axios.post('/save', { UserId: userdata.id, postId: Id });
-
-      if (savejob.data.status == true) {
-
-        toast.success('Property Saved Successfully')
-
-
-
-      } else {
-        toast.error("Already Saved this Property")
-
-
+    if (userdata.id) {
+      try {
+        const savejob = await axios.post('/save', { UserId: userdata.id, postId: Id });
+  
+        if (savejob.data.status == true) {
+  
+          toast.success('Property Saved Successfully')
+  
+  
+  
+        } else {
+          toast.error("Already Saved this Property")
+  
+  
+        }
+  
+  
+  
+      } catch (error) {
+  
+        console.error('Error Saving this Property:', error);
       }
 
 
+  } else {
 
-    } catch (error) {
+      openLoginModal();
 
-      console.error('Error Saving this Property:', error);
-    }
+  }
+
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -132,7 +141,7 @@ const Listcard: React.FC<Props> = ({ Id, title, image, date, room, bathrooms, be
       </a>
 
       <div className="w-full h-20 flex flex-row  gap-6">
-        <div className='w-20 h-20 ml-4  flex flex-col items-center'>
+        {/* <div className='w-20 h-20 ml-4  flex flex-col items-center'>
 
           <MdMeetingRoom color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
 
@@ -142,19 +151,19 @@ const Listcard: React.FC<Props> = ({ Id, title, image, date, room, bathrooms, be
           <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1"> {room} room</h5>
 
 
-        </div>
+        </div> */}
         <div className='w-20 h-20  flex flex-col items-center'>
           <BiBed color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
 
 
-          <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1"> {bathrooms}Beds</h5>
+          <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1">{bedrooms} Beds</h5>
 
         </div>
         <div className='w-20 h-20  flex flex-col items-center'>
           <FaBath color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
 
 
-          <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1">{bedrooms} Baths</h5>
+          <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1">{bathrooms} Baths</h5>
 
         </div>
       </div>
