@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import img1 from '../../assets/formimg.png';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -8,6 +8,8 @@ import img4 from '../../assets/img2.webp'
 
 const Type = ({ handleFormDataChange }) => {
     const [formSubmitted, setFormSubmitted] = useState(false);
+    
+
     const validationSchema = Yup.object({
         step1Data: Yup.string().required('Please select a place type'),
     });
@@ -38,14 +40,19 @@ const Type = ({ handleFormDataChange }) => {
 
     const formik = useFormik({
         initialValues: {
-            step1Data:selectedState || '',
+            step1Data: selectedState || '',
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
             handleFormDataChange({ step1Data: values.step1Data });
             setFormSubmitted(true);
+
+
         },
     });
+
+    
+  
 
     return (
         <form onSubmit={formik.handleSubmit}>

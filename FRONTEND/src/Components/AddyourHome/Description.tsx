@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { useFormik } from 'formik';
 const Description = ({ handleFormDataChange }) => {
+    
     const formik = useFormik({
         initialValues: {
             description: '',
         },
         onSubmit: (values) => {
-            console.log(values);
+          
             handleFormDataChange({ step8Data: values.description });
         },
     });

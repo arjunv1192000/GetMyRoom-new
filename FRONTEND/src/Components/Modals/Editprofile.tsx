@@ -101,7 +101,6 @@ const Editprofile = ({ onClose }) => {
 
 
           if (response.data.status === true) {
-            console.log(response.data, "ppppp");
             localStorage.setItem('access_token_user', response.data.AccessToken);
             localStorage.setItem('refresh_token_user', response.data.RefreshToken);
             dispatch(login({
