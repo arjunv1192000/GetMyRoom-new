@@ -23,7 +23,6 @@ type RootState = {
 
 const validationSchema = Yup.object({
   fullName: Yup.string().required('Full Name is required'),
-  dob: Yup.date().required('Date of Birth is required'),
   email: Yup.string().email('Invalid email address').required('Email is required'),
 });
 
@@ -53,7 +52,6 @@ const Editprofile = ({ onClose }) => {
     enableReinitialize: true,
     initialValues: {
       fullName: profile?.name || '',
-      dob: profile?.dob || '',
       email: profile?.email || '',
       profileImage: profile?.image || null,
     },
