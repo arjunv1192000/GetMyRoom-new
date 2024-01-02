@@ -38,12 +38,17 @@ const Type = ({ handleFormDataChange }) => {
         setSelectedState(placeType);
     };
 
+
+    
+
     const formik = useFormik({
         initialValues: {
             step1Data: selectedState || '',
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
+            const expirationTime = new Date(Date.now() + 2 * 60 * 1000); 
+            document.cookie = `step1Data=${values.step1Data}; expires=${expirationTime.toUTCString()}; path=/`;
             handleFormDataChange({ step1Data: values.step1Data });
             setFormSubmitted(true);
 
@@ -51,8 +56,19 @@ const Type = ({ handleFormDataChange }) => {
         },
     });
 
+    useEffect(() => {
+       
+        const cookieValue = document.cookie
+          .split('; ')
+          .find((row) => row.startsWith('step1Data='))
+          ?.split('=')[1];
     
-  
+        if (cookieValue) {
+          formik.setFieldValue('step1Data', cookieValue);
+          setSelectedPlaceType(cookieValue);
+          setSelectedState(cookieValue);
+        }
+      }, []);
 
     return (
         <form onSubmit={formik.handleSubmit}>

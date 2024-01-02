@@ -2,8 +2,10 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Axios from '../Utils/Ssrvice/axios';
+import { useState } from 'react';
 
 const Floorplans = ({ handleFormDataChange }) => {
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const validationSchema = Yup.object({
     image: Yup.mixed().required('Please select a floorplan image'),
   });
@@ -21,9 +23,14 @@ const Floorplans = ({ handleFormDataChange }) => {
 
           const floorplanUrl = await uploadToS3(values.image);
 
+          const expirationTime = new Date(Date.now() + 2 * 60 * 1000); // 2 minutes
+                const floorplanUrlCookieValue = JSON.stringify({ step6Data: { floorplanUrl } });
+                document.cookie = `floorplanUrlData=${floorplanUrlCookieValue}; expires=${expirationTime.toUTCString()}; path=/`;
+
           handleFormDataChange({
             step6Data: {floorplanUrl},
           });
+          setFormSubmitted(true);
         }
       } catch (error) {
         console.error('Error uploading file to S3:', error);
@@ -75,9 +82,13 @@ const Floorplans = ({ handleFormDataChange }) => {
             )}
           </div>
           <div className='flex justify-end'>
-          <button type="submit" className="mt-3 mb-10 p-3 w-40 bg-[#390b79] text-white rounded-md">
-            Add
-          </button>
+          <button
+                type="submit"
+                className={`mt-3 p-3 w-40  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
+                  }`}
+              >
+                {formSubmitted ? 'Added!' : 'Add'}
+              </button>
 
           </div>
         </div>

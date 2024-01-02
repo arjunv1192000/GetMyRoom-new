@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import { CgGym } from 'react-icons/cg';
 import { TbToolsKitchen2 } from 'react-icons/tb';
@@ -79,10 +79,35 @@ const Features = ({ handleFormDataChange }) => {
       selectedFeatures,
     },
     onSubmit: (values) => {
+      const selectedFeaturesString = JSON.stringify(selectedFeatures);
+
+
+      console.log(selectedFeaturesString,"valuesss");
+      
+
+        
+        const expirationTime = new Date(Date.now() + 2 * 60 * 1000);
+        document.cookie = `step4Data=${selectedFeaturesString}; expires=${expirationTime.toUTCString()}; path=/`;
+
 
       handleFormDataChange({ step4Data: selectedFeatures });
     },
   });
+
+
+  useEffect(() => {
+    
+    const cookieValue = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('step4Data='))
+      ?.split('=')[1];
+
+    if (cookieValue) {
+      const parsedCookie = JSON.parse(decodeURIComponent(cookieValue));
+      setSelectedFeatures(parsedCookie);
+      formik.setValues({ selectedFeatures: parsedCookie });
+    }
+  }, []);
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row justify-center mb-20">

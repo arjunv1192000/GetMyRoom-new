@@ -422,7 +422,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                             <div className='w-40  h-30  flex flex-col items-center bg-white'>
 
                                 <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight  mt-1">Updated On</h5>
-                                <h5 className="mb-5 text-[14px] text-[#6f6f6f] font-sans  font-semibold  tracking-tight    ml-10">{date}</h5>
+                                <h5 className="mb-5 text-[14px] text-[#6f6f6f] font-sans  font-semibold  tracking-tight ">{date}</h5>
 
                             </div>
                             {/* <div className='w-32  h-20  flex flex-col items-center bg-white'>
@@ -438,7 +438,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                                 <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold  tracking-tight  mt-1">{bathrooms} Bathroom</h5>
 
                             </div>
-                            <div className='w-24  h-20  flex flex-col items-center bg-white'>
+                            <div className='w-24  h-20  flex flex-col items-center bg-white ml-5'>
 
                                 <BiBed color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
                                 <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight  mt-1">{bedrooms} Bedroom</h5>

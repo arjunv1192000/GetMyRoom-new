@@ -77,9 +77,7 @@ const Mapview = ({ location, type,filters }) => {
     getProperties();
   }, [location, type]);
 
-  console.log(filters);
   
-
   const convertPriceRange = (priceRangeString: string) => {
     const [min, max] = priceRangeString.split('-').map(Number);
     return { min, max };

@@ -1,9 +1,12 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const Location = ({handleFormDataChange}) => {
+const Location = ({ handleFormDataChange }) => {
   const mapRef = useRef(null);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+
 
   const validationSchema = Yup.object({
     locationName: Yup.string().required('Location name is required'),
@@ -20,16 +23,39 @@ const Location = ({handleFormDataChange}) => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      
-        const formData = {
-            step2Data: {
-              locationName: values.locationName,
-              coordinates: values.coordinates,
-            },
-          };
-          handleFormDataChange(formData);
+
+      const formData = {
+        step2Data: {
+          locationName: values.locationName,
+          coordinates: values.coordinates,
+        },
+      };
+      setFormSubmitted(true);
+      const formDataString = JSON.stringify(formData.step2Data);
+    const expirationTime = new Date(Date.now() + 2 * 60 * 1000); 
+     document.cookie = `step2Data=${formDataString}; expires=${expirationTime.toUTCString()}; path=/`;
+      handleFormDataChange(formData);
+
     },
+
   });
+
+  useEffect(() => {
+   
+    const cookieValue = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('step2Data='))
+      ?.split('=')[1];
+
+    if (cookieValue) {
+      const parsedData = JSON.parse(cookieValue);
+      formik.setValues({
+        locationName: parsedData.locationName,
+        coordinates: parsedData.coordinates,
+      });
+    }
+  }, []);
+
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -78,7 +104,7 @@ const Location = ({handleFormDataChange}) => {
       const bounds = new window.google.maps.LatLngBounds();
       places.forEach((place) => {
         if (!place.geometry || !place.geometry.location) {
-         
+
           return;
         }
 
@@ -93,9 +119,9 @@ const Location = ({handleFormDataChange}) => {
           const coordinates = place.geometry.location.toJSON();
           const locationName = place.formatted_address;
 
-         
 
-         
+
+
           formik.setValues({
             ...formik.values,
             locationName: locationName,
@@ -115,7 +141,7 @@ const Location = ({handleFormDataChange}) => {
   };
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row  justify-center mb-10">
+    <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row  justify-center mb-20">
       <div className='w-full h-auto sm:flex flex-col '>
         <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold tracking-tight text-gray-900 dark:text-white">Where's your place located?</h5>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Search your location and select the location marker.</p>
@@ -139,13 +165,19 @@ const Location = ({handleFormDataChange}) => {
               name="coordinates.lng"
               value={formik.values.coordinates.lng}
             />
-           <div ref={mapRef} className="h-80 w-full sm:w-96 md:w-2/3 lg:w-3/4 xl:w-full mt-5"></div>
+            <div ref={mapRef} className="h-80 w-full sm:w-96 md:w-2/3 lg:w-3/4 xl:w-full mt-5"></div>
 
             <div className='flex justify-end'>
-            <button type="submit" className="mt-3 p-3 w-24 mb-10 bg-[#390b79] text-white rounded-md ">Submit</button>
+              <button
+                type="submit"
+                className={`mt-3 p-3 w-40  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
+                  }`}
+              >
+                {formSubmitted ? 'Added!' : 'Add'}
+              </button>
 
             </div>
-           
+
           </div>
         </form>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -27,6 +27,11 @@ const Rooms = ({ handleFormDataChange }) => {
 
             setFormSubmitted(true);
             handleFormDataChange({ step3Data: values });
+            const formDataString = encodeURIComponent(JSON.stringify({ bedrooms: values.bedrooms, bathrooms: values.bathrooms }));
+    
+            const expirationTime = new Date(Date.now() + 2 * 60 * 1000);
+            document.cookie = `step3Data=${formDataString}; expires=${expirationTime.toUTCString()}; path=/`;
+    
         },
     });
 
@@ -39,6 +44,26 @@ const Rooms = ({ handleFormDataChange }) => {
             formik.setFieldValue(field, formik.values[field] - 1);
         }
     };
+
+    useEffect(() => {
+        const cookieValue = document.cookie
+            .split('; ')
+            .find((row) => row.startsWith('step3Data='))
+            ?.split('=')[1];
+    
+        if (cookieValue) {
+            const decodedCookie = decodeURIComponent(cookieValue);
+            const parsedCookie = JSON.parse(decodedCookie);
+    
+            formik.setFieldValue('bedrooms', parsedCookie.bedrooms);
+            formik.setFieldValue('bathrooms', parsedCookie.bathrooms);
+        }
+    }, []);
+    
+    
+
+    
+    
 
     return (
         <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row mb-24 ">
@@ -91,7 +116,7 @@ const Rooms = ({ handleFormDataChange }) => {
 
                     <button
                         type="submit"
-                        className={`mt-3 p-3 w-40  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-blue-500 text-white'
+                        className={`mt-3 p-3 w-40  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
                             }`}
                     >
                         {formSubmitted ? 'Added!' : 'Add'}

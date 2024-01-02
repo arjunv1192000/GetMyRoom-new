@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import img1 from '../../assets/avatarmedia.png';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -14,6 +14,19 @@ const SellerType = ({ handleFormDataChange }) => {
 
     ];
 
+    useEffect(() => {
+    
+        const cookieValue = document.cookie
+            .split('; ')
+            .find((row) => row.startsWith('step10Data='))
+            ?.split('=')[1];
+
+        if (cookieValue) {
+            const parsedCookie = JSON.parse(cookieValue);
+            setSelectedPlaceType(parsedCookie.step10Data);
+        }
+    }, []);
+
     const [selectedPlaceType, setSelectedPlaceType] = useState('');
 
     const handlePlaceTypeSelection = (placeType: React.SetStateAction<string> | React.ChangeEvent<any>) => {
@@ -27,7 +40,11 @@ const SellerType = ({ handleFormDataChange }) => {
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            console.log(values, 'typess');
+
+            const step10DataString = JSON.stringify({ step10Data: values.step10Data });
+            const expirationTime = new Date(Date.now() + 2 * 60 * 1000);
+            document.cookie = `step10Data=${step10DataString}; expires=${expirationTime.toUTCString()}; path=/`;
+       
             handleFormDataChange({ step10Data: values.step10Data });
         },
     });
@@ -69,9 +86,9 @@ const SellerType = ({ handleFormDataChange }) => {
                         ))}
                     </div>
                     <div className='flex justify-end'>
-                    <button type="submit" className="mt-3 p-3 bg-[#390b79] text-white rounded-md w-40 ">
+                    {/* <button type="submit" className="mt-3 p-3 bg-[#390b79] text-white rounded-md w-40 ">
                         Add
-                    </button>
+                    </button> */}
 
                 </div>
                 </div>

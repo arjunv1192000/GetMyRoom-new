@@ -1,14 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 
 const Price = ({ handleFormDataChange }) => {
   const [editMode, setEditMode] = useState(false);
+
+  useEffect(() => {
+    // Read the cookie and set the initial state based on the stored value
+    const cookieValue = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('step9Data='))
+      ?.split('=')[1];
+
+    if (cookieValue) {
+      const parsedCookie = JSON.parse(cookieValue);
+      formik.setFieldValue('price', parsedCookie.step9Data);
+    }
+  }, []); // Empty dependency array means this effect runs once when the component mounts
 
   const formik = useFormik({
     initialValues: {
       price: 100,
     },
     onSubmit: (values) => {
+      const priceDataString = JSON.stringify({ step9Data: values.price });
+
+      // Set the expiration time to 2 minutes
+      const expirationTime = new Date(Date.now() + 2 * 60 * 1000);
+      document.cookie = `step9Data=${priceDataString}; expires=${expirationTime.toUTCString()}; path=/`;
+
       handleFormDataChange({ step9Data: values.price });
       setEditMode(false);
     },
@@ -42,15 +61,12 @@ const Price = ({ handleFormDataChange }) => {
                 Edit Price
               </label>
               <input
-                
                 id="price-input"
                 name="price"
                 className="w-[300px] h-20 px-3 text-[80px] font-extrabold outline-none "
-              
                 value={formik.values.price}
                 onChange={handlePriceChange}
                 onBlur={handleBlur}
-                
               />
             </div>
           ) : (
@@ -67,7 +83,6 @@ const Price = ({ handleFormDataChange }) => {
               </label>
             </div>
           )}
-        
         </div>
       </form>
     </div>
