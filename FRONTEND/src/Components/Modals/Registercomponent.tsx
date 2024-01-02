@@ -9,6 +9,8 @@ import Axios from "../Utils/Ssrvice/axios"
 import toast, { Toaster } from 'react-hot-toast';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
+import { LoginSocialGoogle } from 'reactjs-social-login';
+import { GoogleLoginButton } from 'react-social-login-buttons';
 
 
 
@@ -240,30 +242,30 @@ const Registercomponent = ({ onBack, onClose }) => {
         // setStep(4);
 
         axios.post('/googlesignup', body)
-        .then((response) => {
-            if (response.data.status === true) {
-                console.log(response.data);
-                localStorage.setItem('access_token_user', response.data.AccessToken);
-                localStorage.setItem('refresh_token_user', response.data.RefreshToken);
-                dispatch(login({
-                    id: response.data.isUser.userId,
-                    name: response.data.isUser.userName,
-                    email: response.data.isUser.userEmail,
-                    image: response.data.isUser.userimg,
-                    access_token: response.data.AccessToken,
+            .then((response) => {
+                if (response.data.status === true) {
+                    console.log(response.data);
+                    localStorage.setItem('access_token_user', response.data.AccessToken);
+                    localStorage.setItem('refresh_token_user', response.data.RefreshToken);
+                    dispatch(login({
+                        id: response.data.isUser.userId,
+                        name: response.data.isUser.userName,
+                        email: response.data.isUser.userEmail,
+                        image: response.data.isUser.userimg,
+                        access_token: response.data.AccessToken,
 
-                }));
-                toast.success('Successfully Added!')
-                handleModalClose();
+                    }));
+                    toast.success('Successfully Added!')
+                    handleModalClose();
 
-            } else {
-                toast.error(response.data.message);
+                } else {
+                    toast.error(response.data.message);
 
-            }
-        })
-        .catch((response) => {
-            console.error(response.message);
-        });
+                }
+            })
+            .catch((response) => {
+                console.error(response.message);
+            });
 
     }
 
@@ -338,31 +340,52 @@ const Registercomponent = ({ onBack, onClose }) => {
             <div className='flex justify-center mt-5'>
                 <h2 className=" font-semibold text-black text-[25px]  ml-5  ">Login</h2>
             </div>
-            <div className='mt-5 p-2 flex justify-center'>
-                        <GoogleOAuthProvider clientId="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com">
-                            <GoogleLogin
-                                onSuccess={(credentialResponse) => {
-                                    const decoded = jwtDecode(credentialResponse.credential);
-                                    const body = {
-                                        fullname: decoded.name,
-                                        email: decoded.email,
-                                        image: decoded.picture,
-                                    }
-
-                                   
-                                    googleregister(body)
-                                }}
-                                onError={() => {
-                                    toast.error("Register failed !")
-                                }}
-                                width={300}
-
-                            />
-
-                        </GoogleOAuthProvider>
+            <div className='mt-5 p-2 flex justify-center flex-col'>
+                <GoogleOAuthProvider clientId="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com">
+                    <GoogleLogin
+                        onSuccess={(credentialResponse) => {
+                            const decoded = jwtDecode(credentialResponse.credential);
+                            const body = {
+                                fullname: decoded.name,
+                                email: decoded.email,
+                                image: decoded.picture,
+                            }
 
 
-                    </div>
+                            googleregister(body)
+                        }}
+                        onError={() => {
+                            toast.error("Register failed !")
+                        }}
+                        width={300}
+
+                    />
+
+                </GoogleOAuthProvider>
+
+
+                <LoginSocialGoogle
+                    client_id="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com"
+                    redirect_uri="http://localhost:5173/"
+                    scope="openid profile email"
+                    discoveryDocs="claims_supported"
+                    access_type="offline"
+                    onResolve={({ provider, data }) => {
+
+                        console.log(data,"ooooo");
+
+                    }}
+                    onReject={err => {
+                        console.log(err, "kkkkkk");
+                    }}
+                >
+                    <GoogleLoginButton />
+                </LoginSocialGoogle>
+
+
+
+
+            </div>
 
 
             {step === 1 && (

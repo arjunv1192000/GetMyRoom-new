@@ -167,7 +167,7 @@ const Header = ({ openLoginModal }) => {
                                         <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold" onClick={() => navigate('/profile')}> Profile </div>
                                         <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold" onClick={() => navigate('/save')}> Saved List </div>
                                         <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold" onClick={() => navigate('/mylist')}> My List</div>
-                                        <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold text-[#870e4d]" onClick={handleLogout}> LogOut</div>
+                                        <div className="px-4 py-3 hover:bg-neutral-100 transition font-bold text-[#870e4d]" onClick={handleLogout}>Log out</div>
 
                                     </>
                                 </div>

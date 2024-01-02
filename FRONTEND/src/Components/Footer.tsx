@@ -1,5 +1,11 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 const Footer = () => {
+  const [showContactInfo, setShowContactInfo] = useState(false);
+
+  const handleContactClick = () => {
+    setShowContactInfo(!showContactInfo);
+  };
 
   const navigate = useNavigate();
   return (
@@ -10,9 +16,15 @@ const Footer = () => {
           <div className="flex flex-col mt-4 gap-2 sm:flex-row sm:flex-nowrap sm:gap-5">
             <a href="" className="text-gray-500 hover:text-gray-900" onClick={() => navigate('/privacy')}>Privacy</a>
             <a href="#" className="text-gray-500 hover:text-gray-900">Cookies</a>
-            <a href="#" className="text-gray-500 hover:text-gray-900">Contact us</a>
+            <a  className="text-gray-500 hover:text-gray-900 cursor-pointer"onClick={handleContactClick}>Contact us</a>
             <a href="#" className="text-gray-500 hover:text-gray-900">About</a>
-            
+            {showContactInfo && (
+        <div className="mt-4 sm:mt-0">
+         <p>Email: <a href="mailto:Admin@visahelpgb.com" >Admin@visahelpgb.com</a></p>
+          <p className='text-gray-500'>Phone: 07733580559</p>
+        </div>
+      )}
+
           </div>
 
           <div className="flex mt-4 sm:justify-center sm:mt-0">
@@ -50,7 +62,7 @@ const Footer = () => {
         </div>
         <div className="sm:flex sm:items-center sm:justify-between mt-10 xl:px-24">
           <div className="flex flex-nowrap mt-4 sm:justify-center sm:mt-0 gap-3">
-            <a href="" className="text-gray-500"  onClick={() => navigate('/terms')}>Terms</a>
+            <a href="" className="text-gray-500" onClick={() => navigate('/terms')}>Terms</a>
             {/* <a href="#" className="text-gray-500">Member terms</a>
             <a href="#" className="text-gray-500">Tax strategy</a> */}
           </div>
