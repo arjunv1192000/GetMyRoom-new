@@ -132,7 +132,7 @@ const Listcard: React.FC<Props> = ({ Id, title, image, date, bathrooms, bedrooms
         onClick={() => navigate(`/details?Id=${Id}`)}
       >
         <img
-          className="rounded-t-lg scale-1 hover:scale-[1.1] duration-300 h-[250px]"
+          className="rounded-t-lg scale-1 hover:scale-[1.1] duration-300 h-[265px] w-full object-fill"
           src={image[0]}
         />
         <h2 className="absolute bottom-0 right-0 p-4 font-semibold  text-white bg-black bg-opacity-50">

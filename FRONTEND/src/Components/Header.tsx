@@ -42,6 +42,7 @@ const Header = ({ openLoginModal }) => {
     const handleLogout = () => {
         dispatch(logout());
         toggleopen();
+        localStorage.removeItem('isModalDisplayed');
         navigate('/')
 
     };

@@ -71,7 +71,7 @@ const Home_Search = () => {
     <>
       <div className='ansolute' ref={secondSectionRef}>
         <img className="w-full h-[700px] object-cover " src={hero} alt="image description" />
-        <div className='absolute top-[20%] left-[10%]  md:w-[40%] md:left-[10%]  '>
+        <div className='absolute top-[20%] left-[10%]  md:w-[40%] md:left-[7%]  '>
           <h2 className='flex font-extrabold text-[#870e4d] text-3xl sm:text-5xl'>
             Live Better, <span className='text-black'>Together</span>
           </h2>

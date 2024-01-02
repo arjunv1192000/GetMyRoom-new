@@ -7,8 +7,12 @@ const userpropertyrepositoryImp = () => {
 
     try {
       const currentDate = new Date();
-      const formattedDate = currentDate.toLocaleString();
-
+      const options = {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      };
+      const formattedDate = currentDate.toLocaleString(undefined, options);
       const newuserproperty = new Property({
         userId: property?.getuserid(),
         title: property?.gettitle(),

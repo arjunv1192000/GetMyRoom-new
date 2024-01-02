@@ -50,7 +50,25 @@ const Mapview = ({ location, type,filters }) => {
     const getProperties = async () => {
       try {
         const response = await axios.get(`/getallproperty?location=${location}&type=${type}`);
-        setProperty(response.data.propertydata.allproperty);
+
+        const allProperties = response.data.propertydata.allproperty;
+
+
+        const filteredProperties = allProperties.filter((property: {
+          sellertype: any;  bedrooms: number; bathrooms: number; price: any; sellerType: any;
+        }) => {
+          if (
+            (filters?.numberOfBedrooms !== '' && property.bedrooms !== Number(filters?.numberOfBedrooms)) ||
+            (filters?.numberOfBathrooms !== '' && property.bathrooms !== Number(filters?.numberOfBathrooms)) ||
+            (filters?.priceRange !== '' && !isPriceInRange(property.price, convertPriceRange(filters?.priceRange))) ||
+            (filters?.sellerType !== '' && property.sellertype !== filters?.sellerType)
+          ) {
+            return false;
+          }
+
+          return true;
+        });
+        setProperty(filteredProperties);
       } catch (error) {
         console.error(error.message);
       }
@@ -58,6 +76,18 @@ const Mapview = ({ location, type,filters }) => {
 
     getProperties();
   }, [location, type]);
+
+  console.log(filters);
+  
+
+  const convertPriceRange = (priceRangeString: string) => {
+    const [min, max] = priceRangeString.split('-').map(Number);
+    return { min, max };
+  };
+
+  const isPriceInRange = (price: number, priceRange: { min: number, max: number }) => {
+    return price >= priceRange.min && price <= priceRange.max;
+  };
 
   useEffect(() => {
     const loadMap = async () => {

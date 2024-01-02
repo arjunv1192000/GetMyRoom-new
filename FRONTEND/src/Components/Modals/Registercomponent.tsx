@@ -255,7 +255,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                         access_token: response.data.AccessToken,
 
                     }));
-                    toast.success('Successfully Added!')
+                    toast.success('Login Successfully ')
                     handleModalClose();
 
                 } else {
@@ -311,7 +311,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                             access_token: response.data.AccessToken,
 
                         }));
-                        toast.success('Successfully Added!')
+                        toast.success('Login Successfully ')
                         handleModalClose();
 
                     } else {
@@ -341,7 +341,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                 <h2 className=" font-semibold text-black text-[25px]  ml-5  ">Login</h2>
             </div>
             <div className='mt-5 p-2 flex justify-center flex-col'>
-                {/* <GoogleOAuthProvider clientId="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com">
+                {/* <GoogleOAuthProvider clientId="1084048115629-gpikjorqk28djapdi3qid41bn8k3k67e.apps.googleusercontent.com">
                     <GoogleLogin
                         onSuccess={(credentialResponse) => {
                             const decoded = jwtDecode(credentialResponse.credential);
@@ -369,23 +369,24 @@ const Registercomponent = ({ onBack, onClose }) => {
                     redirect_uri="https://getmyroom.co.uk/"
                     scope="openid profile email"
                     discoveryDocs="claims_supported"
-                    onResolve={({ provider, data }: any) => {
+                    onResolve={({ provider, data }) => {
+                        console.log("Resolved:", provider, data);
 
                         const body = {
                             name: data.name,
                             email: data.email,
                             image: data.picture
                         };
-                      
-                        googleregister(body)
+                        console.log("Parsed Body:", body);
 
-                        
+                        googleregister(body)
                     }}
                     onReject={err => {
                         console.log("Rejected:", err);
                     }}
+                   
                 >
-                    <GoogleLoginButton />
+                    <GoogleLoginButton  />
                 </LoginSocialGoogle>
 
 

@@ -10,7 +10,6 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { BiBed } from "react-icons/bi";
-import { MdMeetingRoom } from "react-icons/md";
 import { FaBath } from "react-icons/fa6";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -23,7 +22,6 @@ import Map from './Map';
 import {
     FacebookShareButton,
     FacebookIcon,
-    FacebookShareCount,
     TelegramIcon,
     TelegramShareButton,
     TwitterShareButton,
@@ -239,7 +237,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
             <div className='w-[95%] sm:w-[80%] md:w-[80%] lg:w-[80%] h-auto mt-5 flex flex-col justify-center items-center '>
                 <div className='w-full h-auto flex flex-col'>
                     <div className='w-full h-auto flex flex-col sm:flex-row'>
-                        <div className='w-1/2'>
+                        <div className='w-auto  sm:w-1/2 '>
                             <h2 className="flex font-semibold text-gray-900 ml-2  text-[20px] sm:text-[28px] md:text-[28px] lg:text-[30px]">
                                 {title.toUpperCase()}
                             </h2>
@@ -253,13 +251,13 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
 
                     </div>
-                    <div className='w-full   flex flex-col sm:flex-row'>
+                    <div className='w-full    flex flex-col sm:flex-row'>
                         <div className='w-auto  mt-3 sm:w-1/2 flex flex-row sm:ml-1 sm:mt-2 '>
                             <FaMapMarkerAlt className="mt-1 " />
                             <h2 className="flex justify-start font-semibold text-[#6f6f6f] text-[14px] sm:text-[28px] md:text-[30px] lg:text-[18px] ml-3"> {location.locationName}</h2>
 
                         </div>
-                        <div className='w-1/2 flex flex-row gap-3 sm:justify-end pr-3 pb-2 '>
+                        <div className='w-1/2 mt-3 flex flex-row gap-3 sm:justify-end pr-3 pb-2 '>
                             <button className=" flex items-center   sm:ml-12  mt-1 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover: hover: duration-300 text-white" onClick={handleShareClick} >
                                 <IoShareSocialSharp fill="#870e4d" className="w-8 h-8 ml-2 mr-3" />
 
@@ -341,7 +339,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
 
 
-                            <button className="w-auto  flex items-center  mr-1 " onClick={handleSaveClick} >
+                            <button className="w-auto  flex items-center  mr-1 mt-1 " onClick={handleSaveClick} >
                                 <MdOutlineFavoriteBorder
 
                                     className="w-8 h-8 flex justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:bg-[#870e4d]scale-110 hover:duration-300"
@@ -437,10 +435,10 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
                                 <FaBath color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
 
-                                <h5 className="mb-2text-[14px] text-[#6f6f6f] font-sans  font-semibold  tracking-tight  mt-1">{bathrooms} Bathroom</h5>
+                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold  tracking-tight  mt-1">{bathrooms} Bathroom</h5>
 
                             </div>
-                            <div className='w-32  h-20  flex flex-col items-center bg-white'>
+                            <div className='w-24  h-20  flex flex-col items-center bg-white'>
 
                                 <BiBed color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
                                 <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight  mt-1">{bedrooms} Bedroom</h5>
@@ -648,9 +646,12 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                         {/*---------------------------------------------------------------Contact ---------------------------------------------------------------------------------------------------- */}
                     </div>
                 </div>
-                <div className='sm:flex flex-row w-11/12 h-auto bg-white shadow-md mt-10 rounded-md mb-10 '>
+                <div className='sm:flex flex-row w-11/12 h-auto bg-white shadow-md mt-10 rounded-md mb-10  '>
 
-                    <img className="ml-12 sm:w-60 h-60 bg-white border border-gray-200 rounded-lg shadow items-center m-6 object-cover" src={userimg} alt="Video Thumbnail" />
+                    <div className='flex justify-center'>
+                    <img className=" w-[200px] h-[200px] bg-white border border-gray-200 rounded-lg shadow items-center m-6 " src={userimg} alt="Video Thumbnail" />
+
+                    </div>
 
                     <div className='w-[300px] h-60 mt-6 flex flex-col ml-5'>
                         <h5 className="mb-2 text-base font-sans  font-semibold tracking-tight text-gray-900 mt-1">{username}</h5>

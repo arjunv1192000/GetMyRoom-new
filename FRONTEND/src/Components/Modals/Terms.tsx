@@ -29,7 +29,7 @@ const Terms = () => {
     return (
         <>
             {modalOpen && (
-                <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75">
+                <div className="fixed inset-0  z-50 flex items-center justify-center bg-gray-500 bg-opacity-75">
                     <div className="bg-white h-[500px] w-[90%] sm:w-[600px] sm:h-[500px] border-gray-200 shadow-lg rounded-lg overflow-hidden flex flex-col">
                     <div className="h-full overflow-y-auto p-4" >
                             <p className=" p-20 font-medium">

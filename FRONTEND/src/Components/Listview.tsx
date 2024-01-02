@@ -96,7 +96,7 @@ const Listview = ({ location, type, filters,openLoginModal }) => {
 
   const isPriceInRange = (price: number, priceRange: { min: number, max: number }) => {
     return price >= priceRange.min && price <= priceRange.max;
-  };
+  };  
 
   return (
     <div className='bg-white'>
