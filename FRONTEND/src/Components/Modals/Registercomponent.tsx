@@ -341,7 +341,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                 <h2 className=" font-semibold text-black text-[25px]  ml-5  ">Login</h2>
             </div>
             <div className='mt-5 p-2 ml-10 flex justify-center flex-col'>
-                {/* <GoogleOAuthProvider clientId="1084048115629-gpikjorqk28djapdi3qid41bn8k3k67e.apps.googleusercontent.com">
+                <GoogleOAuthProvider clientId="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com">
                     <GoogleLogin
                         onSuccess={(credentialResponse) => {
                             const decoded = jwtDecode(credentialResponse.credential);
@@ -361,10 +361,10 @@ const Registercomponent = ({ onBack, onClose }) => {
 
                     />
 
-                </GoogleOAuthProvider> */}
+                </GoogleOAuthProvider>
 
 
-                <LoginSocialGoogle
+                {/* <LoginSocialGoogle
                     client_id="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com"
                     redirect_uri="https://getmyroom.co.uk/"
                     scope="openid profile email"
@@ -387,7 +387,7 @@ const Registercomponent = ({ onBack, onClose }) => {
 
                 >
                     <GoogleLoginButton />
-                </LoginSocialGoogle>
+                </LoginSocialGoogle> */}
 
 
 
