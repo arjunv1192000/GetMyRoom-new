@@ -341,7 +341,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                 <h2 className=" font-semibold text-black text-[25px]  ml-5  ">Login</h2>
             </div>
             <div className='mt-5 p-2 flex justify-center flex-col'>
-                <GoogleOAuthProvider clientId="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com">
+                {/* <GoogleOAuthProvider clientId="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com">
                     <GoogleLogin
                         onSuccess={(credentialResponse) => {
                             const decoded = jwtDecode(credentialResponse.credential);
@@ -361,26 +361,33 @@ const Registercomponent = ({ onBack, onClose }) => {
 
                     />
 
-                </GoogleOAuthProvider>
+                </GoogleOAuthProvider> */}
 
 
                 <LoginSocialGoogle
                     client_id="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com"
-                    redirect_uri="http://localhost:5173/"
+                    redirect_uri="https://getmyroom.co.uk/"
                     scope="openid profile email"
                     discoveryDocs="claims_supported"
-                    access_type="offline"
-                    onResolve={({ provider, data }) => {
+                    onResolve={({ provider, data }: any) => {
 
-                        console.log(data,"ooooo");
+                        const body = {
+                            name: data.name,
+                            email: data.email,
+                            image: data.picture
+                        };
+                      
+                        googleregister(body)
 
+                        
                     }}
                     onReject={err => {
-                        console.log(err, "kkkkkk");
+                        console.log("Rejected:", err);
                     }}
                 >
                     <GoogleLoginButton />
                 </LoginSocialGoogle>
+
 
 
 
