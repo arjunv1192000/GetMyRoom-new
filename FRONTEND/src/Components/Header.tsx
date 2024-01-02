@@ -35,10 +35,6 @@ const Header = ({ openLoginModal }) => {
     const dispatch = useDispatch();
     const userdata = useSelector((state: RootState) => state.user.value);
 
-
-
-
-
     const handleLogout = () => {
         dispatch(logout());
         toggleopen();
@@ -126,7 +122,7 @@ const Header = ({ openLoginModal }) => {
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <div className='relative'>
                         <div className='flex flex-row items-center gap-3'>
-                            <a href="#" className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer" onClick={() => navigate('/')}>
+                            <a href=" " className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer" onClick={() => navigate('/')}>
                                 Home
                             </a>
                             <div
@@ -207,35 +203,35 @@ const Header = ({ openLoginModal }) => {
 
                                 </Disclosure>
                                 <a
-                                    href="#"
+                                    
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     onClick={() => navigate('/')}
                                 >
                                     Home
                                 </a>
                                 <a
-                                    href="#"
+                                   
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     onClick={() => userdata && userdata.email ? navigate('/profile') : openLoginModal() || handlesidebarclose()}
                                 >
                                     Profile
                                 </a>
                                 <a
-                                    href="#"
+                                    
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     onClick={() => userdata && userdata.email ? navigate('/save') : openLoginModal() || handlesidebarclose()}
                                 >
                                     Saved List
                                 </a>
                                 <a
-                                    href="#"
+                                   
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     onClick={() => userdata && userdata.email ? navigate('/mylist') : openLoginModal() || handlesidebarclose()}
                                 >
                                     My List
                                 </a>
                                 <a
-                                    href="#"
+                                   
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     onClick={() => userdata && userdata.email ? navigate('/form') : openLoginModal() || handlesidebarclose()}
                                 >
@@ -244,7 +240,7 @@ const Header = ({ openLoginModal }) => {
 
                                 {userdata && userdata.email && (
                                     <a
-                                        href="#"
+                                       
                                         className="-mx-3 block rounded-lg px-3 py-2.5   leading-7 text-[#870e4d] hover:bg-gray-50 text-[20px] " 
                                         onClick={handleLogout}
                                     >

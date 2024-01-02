@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import Axios from "../Utils/Ssrvice/axios"
 import img4 from '../../assets/contact-img.png'
@@ -8,6 +8,7 @@ const Images = ({ handleFormDataChange }) => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [error, setError] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [cookiePreview, setCookiePreview] = useState(null);
 
   const isValidImage = (file) => {
     const allowedTypes = ['image/jpeg', 'image/png'];
@@ -43,6 +44,7 @@ const Images = ({ handleFormDataChange }) => {
     }
 
     setSelectedImages([...selectedImages, ...newImages]);
+
   };
 
   const formik = useFormik({
@@ -93,12 +95,22 @@ const Images = ({ handleFormDataChange }) => {
 
 
         handleFormDataChange({ step5Data: uploadedImageUrls });
+        setCookiePreview(uploadedImageUrls);
         setFormSubmitted(true);
       } catch (error) {
         console.error('Error uploading images to S3:', error);
       }
     },
   });
+  useEffect(() => {
+
+    const cookieValue = document.cookie.split('; ').find((row) => row.startsWith('uploadedImages='));
+
+    if (cookieValue) {
+      const data = JSON.parse(cookieValue.split('=')[1]);
+      setCookiePreview(data.step5Data);
+    }
+  }, []);
 
 
   return (
@@ -112,7 +124,7 @@ const Images = ({ handleFormDataChange }) => {
           src={img4}
           alt=""
         ></img>
-      </div>F
+      </div>
       <div className='w-full  h-auto sm:flex flex-col sm:ml-36 mb-20 '>
         <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white p-3">Add some photos of your house</h5>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">You'll need 5 photos to get started.</p>
@@ -120,7 +132,7 @@ const Images = ({ handleFormDataChange }) => {
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 p-2 border-dotted border-2 border-gray-300">
             {Array.from({ length: 5 }).map((_, index) => (
               <div key={index} className="relative">
-              
+
                 <input
                   type="file"
                   accept="image/*"
@@ -128,9 +140,9 @@ const Images = ({ handleFormDataChange }) => {
                   className="border border-dashed border-gray-300 p-2  rounded-md h-44 flex justify-center"
                 />
 
-                {selectedImages[index] && (
+                 {(selectedImages[index] || cookiePreview) && (
                   <img
-                    src={URL.createObjectURL(selectedImages[index])}
+                    src={selectedImages[index] ? URL.createObjectURL(selectedImages[index]) : cookiePreview[index]}
                     alt={`Preview ${index + 1}`}
                     className="absolute top-0 left-0 w-full h-full object-cover rounded-md"
                   />
@@ -144,17 +156,25 @@ const Images = ({ handleFormDataChange }) => {
               <p>{error}</p>
             </div>
           )}
+          {/* {cookiePreview && (
+            <div className="mt-3">
+              <p className="font-semibold">Uploaded Images Preview:</p>
+              {cookiePreview.map((url, index) => (
+                <img key={index} src={url} alt={`Image Preview ${index + 1}`} className="mt-2 max-w-full" />
+              ))}
+            </div>
+          )} */}
           <div className='flex justify-end'>
-          <button
-                type="submit"
-                className={`mt-3 p-3 w-40  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
-                  }`}
-              >
-                {formSubmitted ? 'Added!' : 'Add'}
-              </button>
+            <button
+              type="submit"
+              className={`mt-3 p-3 w-40  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
+                }`}
+            >
+              {formSubmitted ? 'Added!' : 'Add'}
+            </button>
 
           </div>
-        
+
         </form>
       </div>
     </div>

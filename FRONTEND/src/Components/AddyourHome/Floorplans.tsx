@@ -1,14 +1,27 @@
-
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Axios from '../Utils/Ssrvice/axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Floorplans = ({ handleFormDataChange }) => {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [floorplanPreview, setFloorplanPreview] = useState(null);
+
   const validationSchema = Yup.object({
     image: Yup.mixed().required('Please select a floorplan image'),
   });
+
+  useEffect(() => {
+    // Read floorplan data from cookie and update preview
+    const cookieValue = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('floorplanUrlData='));
+
+    if (cookieValue) {
+      const data = JSON.parse(cookieValue.split('=')[1]);
+      setFloorplanPreview(data.step6Data.floorplanUrl);
+    }
+  }, []);
 
   const formik = useFormik({
     initialValues: {
@@ -16,21 +29,21 @@ const Floorplans = ({ handleFormDataChange }) => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-    
-      
       try {
         if (values.image) {
-
           const floorplanUrl = await uploadToS3(values.image);
 
           const expirationTime = new Date(Date.now() + 2 * 60 * 1000); // 2 minutes
-                const floorplanUrlCookieValue = JSON.stringify({ step6Data: { floorplanUrl } });
-                document.cookie = `floorplanUrlData=${floorplanUrlCookieValue}; expires=${expirationTime.toUTCString()}; path=/`;
+          const floorplanUrlCookieValue = JSON.stringify({
+            step6Data: { floorplanUrl },
+          });
+          document.cookie = `floorplanUrlData=${floorplanUrlCookieValue}; expires=${expirationTime.toUTCString()}; path=/`;
 
           handleFormDataChange({
-            step6Data: {floorplanUrl},
+            step6Data: { floorplanUrl },
           });
           setFormSubmitted(true);
+          setFloorplanPreview(floorplanUrl);
         }
       } catch (error) {
         console.error('Error uploading file to S3:', error);
@@ -58,21 +71,25 @@ const Floorplans = ({ handleFormDataChange }) => {
     }
   };
 
-  const handleImageChange = (event: { currentTarget: { files: any[]; }; }) => {
+  const handleImageChange = (event) => {
     formik.setFieldValue('image', event.currentTarget.files[0]);
-};
+  };
 
   return (
     <form onSubmit={formik.handleSubmit}>
       <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 flex flex-col sm:flex-row  justify-center ">
         <div className="w-full sm:w-1/2 h-auto sm:flex flex-col">
-          <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white "> Add floor plan of your house</h5>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">You'll need 1 photos to get started.</p>
+          <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white ">
+            Add floor plan of your house
+          </h5>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            You'll need 1 photo to get started.
+          </p>
           <div className="flex flex-col gap-2 p-3 border-dotted border-2 border-gray-300">
             <input
               type="file"
               accept="image/*"
-              name='image'
+              name="image"
               onChange={handleImageChange}
               onBlur={formik.handleBlur}
               className="border border-dashed border-gray-300 p-2 rounded-md"
@@ -81,16 +98,22 @@ const Floorplans = ({ handleFormDataChange }) => {
               <div className="text-red-500 text-sm">{formik.errors.image}</div>
             )}
           </div>
-          <div className='flex justify-end'>
-          <button
-                type="submit"
-                className={`mt-3 p-3 w-40  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
-                  }`}
-              >
-                {formSubmitted ? 'Added!' : 'Add'}
-              </button>
-
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className={`mt-3 p-3 w-40 rounded-md ${
+                formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
+              }`}
+            >
+              {formSubmitted ? 'Added!' : 'Add'}
+            </button>
           </div>
+          {floorplanPreview && (
+            <div className="mt-3">
+              <p className="font-semibold">Floorplan Preview:</p>
+              <img src={floorplanPreview} alt="Floorplan Preview" className="mt-2 max-w-full" />
+            </div>
+          )}
         </div>
       </div>
     </form>

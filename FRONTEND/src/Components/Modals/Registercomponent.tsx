@@ -340,7 +340,7 @@ const Registercomponent = ({ onBack, onClose }) => {
             <div className='flex justify-center mt-5'>
                 <h2 className=" font-semibold text-black text-[25px]  ml-5  ">Login</h2>
             </div>
-            <div className='mt-5 p-2 flex justify-center flex-col'>
+            <div className='mt-5 p-2 ml-10 flex justify-center flex-col'>
                 {/* <GoogleOAuthProvider clientId="1084048115629-gpikjorqk28djapdi3qid41bn8k3k67e.apps.googleusercontent.com">
                     <GoogleLogin
                         onSuccess={(credentialResponse) => {
@@ -384,9 +384,9 @@ const Registercomponent = ({ onBack, onClose }) => {
                     onReject={err => {
                         console.log("Rejected:", err);
                     }}
-                   
+
                 >
-                    <GoogleLoginButton  />
+                    <GoogleLoginButton />
                 </LoginSocialGoogle>
 
 

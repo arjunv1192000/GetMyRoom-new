@@ -115,6 +115,8 @@ const Mutistepform = () => {
       toast.error("Please complete all steps before submitting.")
     }
   };
+ 
+  
 
   const steps = [
     // <Stepdetails />,
@@ -158,3 +160,5 @@ const Mutistepform = () => {
 };
 
 export default Mutistepform;
+
+

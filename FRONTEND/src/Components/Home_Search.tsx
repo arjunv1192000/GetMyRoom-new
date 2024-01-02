@@ -1,8 +1,5 @@
 import React, { MutableRefObject, useRef, useEffect } from 'react'
 import hero from "../assets/shutterstock_1470527960.jpg"
-import time from "../assets/time.svg"
-import key from "../assets/Keys.svg"
-import welcom from "../assets/Welcome.svg"
 import { useNavigate } from 'react-router-dom';
 
 const Home_Search = () => {
