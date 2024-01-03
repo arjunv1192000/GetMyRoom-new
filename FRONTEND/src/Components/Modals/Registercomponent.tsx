@@ -365,7 +365,7 @@ const Registercomponent = ({ onBack, onClose }) => {
 
 
                 <LoginSocialGoogle
-                    client_id="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com"
+                    client_id="1084048115629-05l6pb6m6eesvsrrd2hqpbq5j3lfggoe.apps.googleusercontent.com"
                     redirect_uri="https://getmyroom.co.uk/"
                     scope="openid profile email"
                     discoveryDocs="claims_supported"
