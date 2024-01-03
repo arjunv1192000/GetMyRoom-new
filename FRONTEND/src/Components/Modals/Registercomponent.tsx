@@ -365,11 +365,12 @@ const Registercomponent = ({ onBack, onClose }) => {
 
 
                 <LoginSocialGoogle
-                    client_id="1084048115629-05l6pb6m6eesvsrrd2hqpbq5j3lfggoe.apps.googleusercontent.com"
+                    client_id="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com"
                     redirect_uri="https://getmyroom.co.uk/"
                     scope="openid profile email"
                     discoveryDocs="claims_supported"
-                    onResolve={({ provider, data }) => {
+                    access_type="online"
+                    onResolve={({ provider, data }:any) => {
                         console.log("Resolved:", provider, data);
 
                         const body = {
