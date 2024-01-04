@@ -28,10 +28,10 @@ const Rooms = ({ handleFormDataChange }) => {
             setFormSubmitted(true);
             handleFormDataChange({ step3Data: values });
             const formDataString = encodeURIComponent(JSON.stringify({ bedrooms: values.bedrooms, bathrooms: values.bathrooms }));
-    
+
             const expirationTime = new Date(Date.now() + 2 * 60 * 1000);
             document.cookie = `step3Data=${formDataString}; expires=${expirationTime.toUTCString()}; path=/`;
-    
+
         },
     });
 
@@ -50,26 +50,25 @@ const Rooms = ({ handleFormDataChange }) => {
             .split('; ')
             .find((row) => row.startsWith('step3Data='))
             ?.split('=')[1];
-    
+
         if (cookieValue) {
             const decodedCookie = decodeURIComponent(cookieValue);
             const parsedCookie = JSON.parse(decodedCookie);
-    
+
             formik.setFieldValue('bedrooms', parsedCookie.bedrooms);
             formik.setFieldValue('bathrooms', parsedCookie.bathrooms);
         }
     }, []);
-    
-    
 
-    
-    
+
+
+
+
 
     return (
         <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row mb-24 ">
             <div className="w-full sm:w-full h-auto sm:flex flex-col">
                 <h5 className="mb-2 font-bold tracking-tight text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">Let's start with the basics</h5>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">How many people can stay here?</p>
 
                 <form onSubmit={formik.handleSubmit}>
                     {/* <div className="flex justify-between items-center mb-4 w-full h-24 ">
@@ -114,14 +113,17 @@ const Rooms = ({ handleFormDataChange }) => {
                     {/* {formik.errors.rooms && <div className="text-red-500">{formik.errors.rooms}</div>}
                     {formik.errors.buildYear && <div className="text-red-500">{formik.errors.buildYear}</div>} */}
 
-                    <button
-                        type="submit"
-                        className={`mt-3 p-3 w-40  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
-                            }`}
-                    >
-                        {formSubmitted ? 'Added!' : 'Add'}
-                    </button>
-                   
+                    <div className='flex justify-end p-3 '>
+                        <button
+                            type="submit"
+                            className={`p-3  w-32  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
+                                }`}
+                        >
+                            {formSubmitted ? 'Added!' : 'Add'}
+                        </button>
+
+                    </div> 
+
                 </form>
 
             </div>

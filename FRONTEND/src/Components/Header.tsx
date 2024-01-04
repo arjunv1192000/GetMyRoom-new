@@ -241,7 +241,7 @@ const Header = ({ openLoginModal }) => {
                                 {userdata && userdata.email && (
                                     <a
                                        
-                                        className="-mx-3 block rounded-lg px-3 py-2.5   leading-7 text-[#870e4d] hover:bg-gray-50 text-[20px] " 
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 font-bold   leading-7 text-[#870e4d] hover:bg-gray-50 text-[20px] " 
                                         onClick={handleLogout}
                                     >
                                         Log out

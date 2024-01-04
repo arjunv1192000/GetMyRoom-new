@@ -4,7 +4,7 @@ import img2 from '../../assets/illustration_login.png';
 
 const Hometitle = ({ handleFormDataChange }) => {
 
-    const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -23,7 +23,7 @@ const Hometitle = ({ handleFormDataChange }) => {
   });
 
   useEffect(() => {
-   
+
     const cookieValue = document.cookie
       .split('; ')
       .find((row) => row.startsWith('step7Data='))
@@ -33,7 +33,7 @@ const Hometitle = ({ handleFormDataChange }) => {
       const parsedCookie = JSON.parse(cookieValue);
       formik.setFieldValue('title', parsedCookie.step7Data);
     }
-  }, []); 
+  }, []);
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8 mb-20 flex flex-col sm:flex-row ">
@@ -64,13 +64,13 @@ const Hometitle = ({ handleFormDataChange }) => {
             />
           </div>
           <div className="flex justify-end">
-          <button
-                        type="submit"
-                        className={`mt-3 p-3 w-40  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
-                            }`}
-                    >
-                        {formSubmitted ? 'Added!' : 'Add'}
-                    </button>
+            <button
+              type="submit"
+              className={`mt-3 p-3 w-40  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
+                }`}
+            >
+              {formSubmitted ? 'Added!' : 'Add'}
+            </button>
           </div>
         </form>
       </div>

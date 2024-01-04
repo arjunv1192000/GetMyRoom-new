@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const Location = ({ handleFormDataChange }) => {
   const mapRef = useRef(null);
@@ -144,7 +145,13 @@ const Location = ({ handleFormDataChange }) => {
     <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row  justify-center mb-20">
       <div className='w-full h-auto sm:flex flex-col '>
         <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold tracking-tight text-gray-900 dark:text-white">Where's your place located?</h5>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Search your location and select the location marker.</p>
+        <div className='flex flex-row'>
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Select the location marker  </p>
+        <FaMapMarkerAlt fill="red" className=" w-4 h-4 ml-2 mt-1  " />
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400"> , Click Add</p>
+
+        </div>
+       
         <form onSubmit={formik.handleSubmit}>
           <div className="max-w-md mx-auto rounded-xl overflow-hidden shadow-lg md:max-w-2xl ">
             <input
@@ -165,12 +172,12 @@ const Location = ({ handleFormDataChange }) => {
               name="coordinates.lng"
               value={formik.values.coordinates.lng}
             />
-            <div ref={mapRef} className="h-80 w-full sm:w-96 md:w-2/3 lg:w-3/4 xl:w-full mt-5"></div>
+            <div ref={mapRef} className="h-60 w-full sm:w-96 md:w-2/3 lg:w-3/4 xl:w-full mt-5"></div>
 
-            <div className='flex justify-end'>
+            <div className='flex justify-end p-3'>
               <button
                 type="submit"
-                className={`mt-3 p-3 w-40  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
+                className={`p-3  w-32  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
                   }`}
               >
                 {formSubmitted ? 'Added!' : 'Add'}

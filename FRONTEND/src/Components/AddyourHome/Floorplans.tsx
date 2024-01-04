@@ -101,7 +101,7 @@ const Floorplans = ({ handleFormDataChange }) => {
           <div className="flex justify-end">
             <button
               type="submit"
-              className={`mt-3 p-3 w-40 rounded-md ${
+              className={`mt-3 p-3 w-32 rounded-md ${
                 formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
               }`}
             >

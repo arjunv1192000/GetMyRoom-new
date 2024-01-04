@@ -179,27 +179,27 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
         if (userdata.id) {
             try {
                 const savejob = await axios.post('/save', { UserId: userdata.id, postId: proId });
-    
+
                 if (savejob.data.status == true) {
-    
+
                     toast.success('Property Saved Successfully')
-    
-    
-    
+
+
+
                 } else {
                     toast.error("Already Saved This Property")
-    
-    
+
+
                 }
-    
-    
-    
+
+
+
             } catch (error) {
-    
+
                 console.error('Error Saving This job:', error);
             }
 
-          
+
 
         } else {
 
@@ -207,7 +207,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
         }
 
-      
+
     };
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -251,15 +251,15 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
 
                     </div>
-                    <div className='w-full    flex flex-col sm:flex-row'>
+                    <div className='w-full   flex flex-row justify-between  '>
                         <div className='w-auto  mt-3 sm:w-1/2 flex flex-row sm:ml-1 sm:mt-2 '>
-                            <FaMapMarkerAlt className="mt-1 " />
-                            <h2 className="flex justify-start font-semibold text-[#6f6f6f] text-[14px] sm:text-[28px] md:text-[30px] lg:text-[18px] ml-3"> {location.locationName}</h2>
+                            <FaMapMarkerAlt className=" mt-1  " />
+                            <h2 className="flex justify-start font-semibold text-[#6f6f6f] text-[14px] sm:text-[28px] md:text-[30px] lg:text-[18px] ml-1"> {location.locationName}</h2>
 
                         </div>
-                        <div className='w-1/2 mt-3 flex flex-row gap-3 sm:justify-end pr-3 pb-2 '>
+                        <div className='w-1/2 mt-3 flex flex-row gap-3 justify-end'>
                             <button className=" flex items-center   sm:ml-12  mt-1 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover: hover: duration-300 text-white" onClick={handleShareClick} >
-                                <IoShareSocialSharp fill="#870e4d" className="w-8 h-8 ml-2 mr-3" />
+                                <IoShareSocialSharp fill="#870e4d" className="w-6 h-6 ml-2 " />
 
                             </button>
                             {/* Modal */}
@@ -342,7 +342,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                             <button className="w-auto  flex items-center  mr-1 mt-1 " onClick={handleSaveClick} >
                                 <MdOutlineFavoriteBorder
 
-                                    className="w-8 h-8 flex justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:bg-[#870e4d]scale-110 hover:duration-300"
+                                    className="w-6 h-6 flex justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:bg-[#870e4d]scale-110 hover:duration-300"
                                     fill="#870e4d"
                                 />
 
@@ -418,7 +418,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                         <div className='w-full h-16'>
                             <h2 className="mt-3 font-semibold  font-sans text-gray-900 text-[22px] ml-5 ">Overview</h2>
                         </div>
-                        <div className='w-full h-auto grid grid-cols-2 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-8 gap-y-8 '>
+                        <div className='w-full h-auto grid grid-cols-2 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-1 gap-y-1 '>
                             <div className='w-40  h-30  flex flex-col items-center bg-white'>
 
                                 <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight  mt-1">Updated On</h5>
@@ -433,15 +433,15 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                             </div> */}
                             <div className='w-24  h-20  flex flex-col items-center bg-white'>
 
-                                <FaBath color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
+                                <FaBath color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-2 ml-3" />
 
-                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold  tracking-tight  mt-1">{bathrooms} Bathroom</h5>
+                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold  tracking-tight ml-3  mt-1">{bathrooms} Bathroom</h5>
 
                             </div>
                             <div className='w-24  h-20  flex flex-col items-center bg-white ml-5'>
 
-                                <BiBed color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
-                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight  mt-1">{bedrooms} Bedroom</h5>
+                                <BiBed color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-2 ml-3" />
+                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight ml-3  mt-1">{bedrooms} Bedroom</h5>
 
                             </div>
 
@@ -468,8 +468,10 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                                 {isExpanded1 ? <FaChevronUp className="mr-5" /> : <FaChevronDown className="mr-5" />}
                             </div>
                             {isExpanded1 && <div className='mt-1 w-full h-auto bg-white'>
-                                <h3 className='text-[14px] text-[#6f6f6f] font-sans  font-semibold m-10 text-justify'>
+                                <h3 className='text-[14px] text-[#6f6f6f] font-sans  font-semibold m-5 text-justify'>
                                     {description}
+
+
                                 </h3>
 
                             </div>}
@@ -489,7 +491,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                             </div>
                             {isExpanded3 && <div className='mt-1 w-full h-auto'>
 
-                                <div className="w-full h-[400px] bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden mt-20">
+                                <div className="w-full h-[300px] bg-white  hover:bg-gray-100 overflow-hidden p-5">
                                     <Map location={location} />
                                 </div>
                             </div>}
@@ -501,7 +503,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
 
 
-                      
+
 
 
 
@@ -542,34 +544,32 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                         </div> */}
 
                         {/*----------------------------------------------------------------------------features--------------------------------------------------------------------------------------- */}
-                        <div className='w-[96%] h-auto bg-white shadow-md rounded-md'>
+                        <div className='w-[96%] h-auto bg-white shadow-md rounded-md '>
                             <div className='flex items-center justify-between cursor-pointer h-20' onClick={handleToggle5}>
                                 <h3 className='text-base font-sans  font-semibold ml-5'>Features</h3>
                                 {isExpanded5 ? <FaChevronUp className="mr-5" /> : <FaChevronDown className="mr-5" />}
                             </div>
-                            {isExpanded5 && <div className='mt-1 w-full h-auto flex flex-col'>
-                                <div className="w-full h-auto">
-                                    <h5 className="mb-2 text-[20px] font-sans font-semibold ml-5 tracking-tight text-gray-900 mt-1">
+                            {isExpanded5 && <div className='mt-1 w-full h-auto flex flex-col mb-3'>
+                                <div className="w-full h-auto ">
+                                    <h5 className="mb-2 text-[20px] font-sans font-semibold ml-5 tracking-tight text-[#6f6f6f] mt-1">
                                         Interior Details
                                     </h5>
-                                    <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8">
+                                    <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-1">
                                         {features?.interiorDetails.map((feature, index) => (
-                                            <div key={index} className="flex flex-col ml-5">
-                                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight mt-3">
-                                                    {feature}
-                                                </h5>
+                                            <div key={index} className="flex flex-col ml-7 w-full">
+                                                <li className=" text-[14px] text-gray-900 font-sans  font-semibold tracking-tight mt-3">{feature}</li>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
 
                                 <div className='w-full h-auto'>
-                                    <h5 className="mb-2 text-[20px] font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Outdoor Details</h5>
-                                    <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8">
+                                    <h5 className="mb-2 text-[20px] font-sans  font-semibold ml-5  tracking-tight text-[#6f6f6f] mt-1">Outdoor Details</h5>
+                                    <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-1">
                                         {features?.outdoorDetails.map((feature, index) => (
-                                            <div className='flex flex-row ml-5'>
+                                            <div className='flex flex-row ml-7 w-full'>
 
-                                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight mt-3">{feature}</h5>
+                                                <li className=" text-[14px] text-gray-900 font-sans  font-semibold tracking-tight mt-3">{feature}</li>
                                             </div>
 
                                         ))}
@@ -579,12 +579,12 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
                                 </div>
                                 <div className='w-full h-auto'>
-                                    <h5 className="mb-2 text-[20px] font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Utilities</h5>
-                                    <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8">
+                                    <h5 className="mb-2 text-[20px] font-sans  font-semibold ml-5  tracking-tight text-[#6f6f6f] mt-1">Utilities</h5>
+                                    <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-1">
                                         {features?.utilities.map((feature, index) => (
-                                            <div className='flex flex-row ml-5'>
+                                            <div className='flex flex-row ml-7 w-full'>
 
-                                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight mt-3">{feature}</h5>
+                                                <li className=" text-[14px] text-gray-900 font-sans  font-semibold tracking-tight mt-3">{feature}</li>
                                             </div>
 
                                         ))}
@@ -594,11 +594,11 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
                                 </div>
                                 <div className='w-full h-auto'>
-                                    <h5 className="mb-2 text-[20px] font-sans  font-semibold ml-5  tracking-tight text-gray-900 mt-1">Other Features</h5>
-                                    <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8">
+                                    <h5 className="mb-2 text-[20px] font-sans  font-semibold ml-5  tracking-tight  text-[#6f6f6f] mt-1">Other Features</h5>
+                                    <div className="w-full h-auto grid grid-cols-1 gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-1">
                                         {features?.otherFeatures.map((feature, index) => (
-                                            <div className='flex flex-row ml-5'>
-                                                <h5 className="mb-2 text-[14px] text-[#6f6f6f] font-sans  font-semibold tracking-tight mt-3">{feature}</h5>
+                                            <div className='flex flex-row ml-7 w-full'>
+                                                <li className=" text-[14px] text-gray-900 font-sans  font-semibold tracking-tight mt-3">{feature}</li>
                                             </div>
 
                                         ))}
@@ -616,7 +616,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                                 {isExpanded7 ? <FaChevronUp className="mr-5" /> : <FaChevronDown className="mr-5" />}
                             </div>
                             {isExpanded7 && <div className='mt-1 w-full h-auto '>
-                                <div className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-lg md:max-w-2xl flex justify-center pb-32">
+                                <div className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-lg md:max-w-2xl flex justify-center pb-20">
                                     <img className="h-80 w-80   object-cover  p-4" src={floorplans} alt="Video Thumbnail" />
 
                                 </div>
@@ -649,13 +649,13 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                 <div className='sm:flex flex-row w-11/12 h-auto bg-white shadow-md mt-10 rounded-md mb-10  '>
 
                     <div className='flex justify-center'>
-                    <img className=" w-[200px] h-[200px] bg-white border border-gray-200 rounded-lg shadow items-center m-6 " src={userimg} alt="Video Thumbnail" />
+                        <img className=" w-[60px] h-[60px] bg-white border border-gray-200 rounded-lg shadow items-center m-6 " src={userimg} alt="Video Thumbnail" />
 
                     </div>
 
-                    <div className='w-[300px] h-60 mt-6 flex flex-col ml-5'>
+                    <div className='w-[300px] ml-5 h-60 mt-6 flex flex-col sm:ml-1'>
                         <h5 className="mb-2 text-base font-sans  font-semibold tracking-tight text-gray-900 mt-1">{username}</h5>
-                        <h5 className="mb-2 text-base font-sans  font-semibold tracking-tight text-gray-900 mt-1">Seller Type: {sellertype}</h5>
+                        <h5 className="mb-2 text-base italic font-bold tracking-tight text-gray-900 mt-1">Seller Type: <span className='text-[#870e4d]'>{sellertype}</span></h5>
                         {/* <button onClick={handleCallButtonClick} className="mt-5 w-30 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover:bg-[#870e4d] duration-300 text-white px-4 py-2 border rounded flex flex-row justify-center">
                             <IoIosCall className="w-5 h-5 ml-2 mt-0.5" />
                             {isCallClicked ? <span>{phone}</span> : <span>Call</span>}

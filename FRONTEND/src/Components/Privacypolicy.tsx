@@ -23,27 +23,27 @@ const Privacypolicy = () => {
                     <tbody>
                         <tr>
                             <td className="border px-4 py-2">Data</td>
-                            <td className="border px-4 py-2">collectively all information that you submit to visahelp limited via the Website. This definition incorporates, where applicable, the definitions provided in the Data Protection Laws;</td>
+                            <td className="border px-4 py-2">Collectively all information that you submit to visahelp limited via the Website. This definition incorporates, where applicable, the definitions provided in the Data Protection Laws;</td>
                         </tr>
                         <tr>
                             <td className="border px-4 py-2">Data Protection Laws</td>
-                            <td className="border px-4 py-2">any applicable law relating to the processing of personal Data, including but not limited to the GDPR, and any national implementing and supplementary laws, regulations and secondary legislation;</td>
+                            <td className="border px-4 py-2">Any applicable law relating to the processing of personal Data, including but not limited to the GDPR, and any national implementing and supplementary laws, regulations and secondary legislation;</td>
                         </tr>
                         <tr>
                             <td className="border px-4 py-2">GDPR</td>
-                            <td className="border px-4 py-2">the UK General Data Protection Regulation;</td>
+                            <td className="border px-4 py-2">The UK General Data Protection Regulation;</td>
                         </tr>
                         <tr>
                             <td className="border px-4 py-2">visahelpimited,we  or us</td>
-                            <td className="border px-4 py-2"> visahelp limited, a company incorporated in England and Wales with registered number 14409618  whose registered office is at flat 12, 2 westbourne crescent,   london,  w23db; </td>
+                            <td className="border px-4 py-2">visahelp limited, a company incorporated in England and Wales with registered number 14409618  whose registered office is at flat 12, 2 westbourne crescent,   london,  w23db; </td>
                         </tr>
                         <tr>
                             <td className="border px-4 py-2">User or you</td>
-                            <td className="border px-4 py-2">any third party that accesses the Website and is not either (i) employed by visahelp limited and acting in the course of their employment or (ii) engaged as a consultant or otherwise providing services to visahelp limited and accessing the Website in connection with the provision of such services; and</td>
+                            <td className="border px-4 py-2">Any third party that accesses the Website and is not either (i) employed by visahelp limited and acting in the course of their employment or (ii) engaged as a consultant or otherwise providing services to visahelp limited and accessing the Website in connection with the provision of such services; and</td>
                         </tr>
                         <tr>
                             <td className="border px-4 py-2">Website</td>
-                            <td className="border px-4 py-2">he website that you are currently using, www.getmyroom.co.uk, and any sub-domains of this site unless expressly excluded by their own terms and conditions.</td>
+                            <td className="border px-4 py-2">He website that you are currently using, www.getmyroom.co.uk, and any sub-domains of this site unless expressly excluded by their own terms and conditions.</td>
                         </tr>
                         
 
@@ -56,13 +56,13 @@ const Privacypolicy = () => {
                 2. In this Privacy Policy, unless the context requires a different interpretation:
             </p>
             <ol className="list-decimal ml-6 mb-4">
-                <li>the singular includes the plural and vice versa;</li>
-                <li>  references to sub-clauses, clauses, schedules or appendices are to sub-clauses, clauses, schedules or appendices of this Privacy Policy;
+                <li>The singular includes the plural and vice versa;</li>
+                <li>References to sub-clauses, clauses, schedules or appendices are to sub-clauses, clauses, schedules or appendices of this Privacy Policy;
                 </li>
-                <li>a reference to a person includes firms, companies, government entities, trusts and partnerships;</li>
-                <li>"including" is understood to mean "including without limitation";</li>
-                <li>reference to any statutory provision includes any modification or amendment of it;</li>
-                <li>the headings and sub-headings do not form part of this Privacy Policy.</li>
+                <li>A reference to a person includes firms, companies, government entities, trusts and partnerships;</li>
+                <li>"Including" is understood to mean "including without limitation";</li>
+                <li>Reference to any statutory provision includes any modification or amendment of it;</li>
+                <li>The headings and sub-headings do not form part of this Privacy Policy.</li>
             </ol>
 
             <h2 className="text-2xl font-bold mt-8 mb-4">Scope of this Privacy Policy</h2>
@@ -82,14 +82,14 @@ const Privacypolicy = () => {
 
             </p>
             <ol className="list-decimal ml-6 mb-4">
-                <li>name;</li>
-                <li>date of birth;</li>
-                <li>gender;  </li>
-                <li>contact Information such as email addresses and telephone numbers;</li>
+                <li>Name;</li>
+                <li>Date of birth;</li>
+                <li>Gender;  </li>
+                <li>Contact Information such as email addresses and telephone numbers;</li>
                 <li>IP address (automatically collected);  </li>
-                <li>web browser type and version (automatically collected); </li>
-                <li>operating system (automatically collected);</li>
-                <li>email address and password;</li>
+                <li>Web browser type and version (automatically collected); </li>
+                <li>Operating system (automatically collected);</li>
+                <li>Email address and password;</li>
 
             </ol>
 
@@ -100,26 +100,26 @@ const Privacypolicy = () => {
 
             </p>
             <ol className="list-decimal ml-6 mb-4">
-                <li> data is given to us by you; and</li>
-                <li>data is collected automatically.</li>
+                <li>Data is given to us by you; and</li>
+                <li>Data is collected automatically.</li>
 
 
             </ol>
 
             <h2 className="text-2xl font-bold mt-8 mb-4">Data That is Given to Us by You</h2>
             <p className="mb-4 text-lg">
-                7. visahelp limited will collect your Data in a number of ways, for example:
+                7. Visahelp limited will collect your Data in a number of ways, for example:
             </p>
             <ol className="list-decimal ml-6 mb-4">
-                <li> when you contact us through the Website, by telephone, post, e-mail or through any other means;</li>
-                <li> when you register with us and set up an account to receive our products/services;</li>
-                <li> when you complete surveys that we use for research purposes (although you are not obliged to respond to them);</li>
-                <li> when you enter a competition or promotion through a social media channel;</li>
-                <li> when you elect to receive marketing communications from us;</li>
-                <li> when you use our services;</li>
+                <li> When you contact us through the Website, by telephone, post, e-mail or through any other means;</li>
+                <li> When you register with us and set up an account to receive our products/services;</li>
+                <li> When you complete surveys that we use for research purposes (although you are not obliged to respond to them);</li>
+                <li> When you enter a competition or promotion through a social media channel;</li>
+                <li> When you elect to receive marketing communications from us;</li>
+                <li> When you use our services;</li>
             </ol>
             <p className="mb-4 text-lg">
-                in each case, in accordance with this Privacy Policy.
+                In each case, in accordance with this Privacy Policy.
             </p>
 
             <h2 className="text-2xl font-bold mt-8 mb-4">Data That is Collected Automatically</h2>
@@ -127,7 +127,7 @@ const Privacypolicy = () => {
                 8. To the extent that you access the Website, we will collect your Data automatically, for example:
             </p>
             <ol className="list-decimal ml-6 mb-4">
-                <li>we automatically collect some information about your visit to the Website. This information helps us to make improvements to Website content and navigation, and includes your IP address, the date, times and frequency with which you access the Website and the way you use and interact with its content.</li>
+                <li>We automatically collect some information about your visit to the Website. This information helps us to make improvements to Website content and navigation, and includes your IP address, the date, times and frequency with which you access the Website and the way you use and interact with its content.</li>
 
 
 
@@ -138,14 +138,14 @@ const Privacypolicy = () => {
                 9. Any or all of the above Data may be required by us from time to time in order to provide you with the best possible service and experience when using our Website. Specifically, Data may be used by us for the following reasons:
             </p>
             <ol className="list-decimal ml-6 mb-4">
-                <li>internal record keeping;</li>
-                <li>improvement of our products / services;</li>
-                <li>transmission by email of marketing materials that may be of interest to you;</li>
-                <li>contact for market research purposes which may be done using email, telephone, fax or mail. Such information may be used to customise or update the Website;</li>
+                <li>Internal record keeping;</li>
+                <li>Improvement of our products / services;</li>
+                <li>Transmission by email of marketing materials that may be of interest to you;</li>
+                <li>Contact for market research purposes which may be done using email, telephone, fax or mail. Such information may be used to customise or update the Website;</li>
 
             </ol>
             <p className="mb-4 text-lg">
-                n each case, in accordance with this Privacy Policy.
+                In each case, in accordance with this Privacy Policy.
             </p>
 
             <p className="mb-4 text-lg">
@@ -157,9 +157,9 @@ const Privacypolicy = () => {
                 11.For the delivery of direct marketing to you via e-mail, we'll need your consent, whether via an opt-in or soft-opt-in:
             </p>
             <ol className="list-decimal ml-6 mb-4">
-                <li>soft opt-in consent is a specific type of consent which applies when you have previously engaged with us (for example, you contact us to ask us for more details about a particular product/service, and we are marketing similar products/services). Under "soft opt-in" consent, we will take your consent as given unless you opt-out.</li>
-                <li>for other types of e-marketing, we are required to obtain your explicit consent; that is, you need to take positive and affirmative action when consenting by, for example, checking a tick box that we'll provide.</li>
-                <li>if you are not satisfied with our approach to marketing, you have the right to withdraw consent at any time. To find out how to withdraw your consent, see the section headed "Your rights" below.</li>
+                <li>Soft opt-in consent is a specific type of consent which applies when you have previously engaged with us (for example, you contact us to ask us for more details about a particular product/service, and we are marketing similar products/services). Under "soft opt-in" consent, we will take your consent as given unless you opt-out.</li>
+                <li>For other types of e-marketing, we are required to obtain your explicit consent; that is, you need to take positive and affirmative action when consenting by, for example, checking a tick box that we'll provide.</li>
+                <li>If you are not satisfied with our approach to marketing, you have the right to withdraw consent at any time. To find out how to withdraw your consent, see the section headed "Your rights" below.</li>
 
             </ol>
             <p className="mb-4 text-lg">
@@ -171,7 +171,7 @@ const Privacypolicy = () => {
                 13.We may share your Data with the following groups of people for the following reasons:
             </p>
             <ol className="list-decimal ml-6 mb-4">
-                <li>any of our group companies or affiliates - for verification purpose; in each case, in accordance with this Privacy Policy.</li>
+                <li>Any of our group companies or affiliates - for verification purpose; in each case, in accordance with this Privacy Policy.</li>
 
 
             </ol>
@@ -181,8 +181,8 @@ const Privacypolicy = () => {
                 14. We will use technical and organisational measures to safeguard your Data, for example:
             </p>
             <ol className="list-decimal ml-6 mb-4">
-                <li>access to your account is controlled by a password and a user name that is unique to you.</li>
-                <li>we store your Data on secure servers.</li>
+                <li>Access to your account is controlled by a password and a user name that is unique to you.</li>
+                <li>We store your Data on secure servers.</li>
 
             </ol>
             <p className="mb-4 text-lg">
@@ -276,7 +276,7 @@ const Privacypolicy = () => {
             <h2 className="text-2xl font-bold mt-8 mb-4">Changes to This Privacy Policy</h2>
 
             <p className="mb-4 text-lg">
-                31. visahelp limited reserves the right to change this Privacy Policy as we may deem necessary from time to time or as may be required by law. Any changes will be immediately posted on the Website and you are deemed to have accepted the terms of the Privacy Policy on your first use of the Website following the alterations.
+                31. Visahelp limited reserves the right to change this Privacy Policy as we may deem necessary from time to time or as may be required by law. Any changes will be immediately posted on the Website and you are deemed to have accepted the terms of the Privacy Policy on your first use of the Website following the alterations.
                 You may contact visahelp limited by email at <a>alvin.vncnt@gmail.com</a>
 
             </p>

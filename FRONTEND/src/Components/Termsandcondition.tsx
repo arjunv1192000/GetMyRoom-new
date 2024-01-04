@@ -188,8 +188,8 @@ const Termsandcondition = () => {
 
             </p>
             <ol className="list-decimal ml-6 mb-4 ">
-                <li>in the case of Services, within a reasonable time; and</li>
-                <li>in the case of Goods, without undue delay and, in any event, not more than 30 days after the day on which the
+                <li>In the case of Services, within a reasonable time; and</li>
+                <li>In the case of Goods, without undue delay and, in any event, not more than 30 days after the day on which the
                     Contract is entered into.</li>
             </ol>
             <p className="mb-4 text-start ">
@@ -205,10 +205,10 @@ const Termsandcondition = () => {
 
             </p>
             <ol className="list-decimal ml-6 mb-4 ">
-                <li>we have refused to deliver the Goods, or if delivery on time is essential taking into account all the relevant
+                <li>We have refused to deliver the Goods, or if delivery on time is essential taking into account all the relevant
                     circumstances at the time the Contract was made, or you said to us before the Contract was made that delivery on
                     time was essential; or</li>
-                <li>after we have failed to deliver on time, you have specified a later period which is appropriate to the
+                <li>After we have failed to deliver on time, you have specified a later period which is appropriate to the
                     circumstances and we have not delivered within that period.</li>
             </ol>
             <p className="mb-4 text-start ">
@@ -276,10 +276,10 @@ const Termsandcondition = () => {
 
             </p>
             <ol className="list-decimal ml-6 mb-4 ">
-                <li>accommodation, transport of goods, vehicle rental services, catering or services related to leisure activities, if the
+                <li>Accommodation, transport of goods, vehicle rental services, catering or services related to leisure activities, if the
                     contract provides for a specific date or period of performance;</li>
-                <li>goods that are made to your specifications or are clearly personalised;</li>
-                <li>goods which are liable to deteriorate or expire rapidly.</li>
+                <li>Goods that are made to your specifications or are clearly personalised;</li>
+                <li>Goods which are liable to deteriorate or expire rapidly.</li>
             </ol>
             <p className="mb-4 text-start ">
                 Right to Cancel
@@ -291,14 +291,14 @@ const Termsandcondition = () => {
 
             </p>
             <p className="mb-4 text-start ">
-                45. The cancellation period will expire after 14 days from the day on which you acquire, or a third party, other than the
+                45.The cancellation period will expire after 14 days from the day on which you acquire, or a third party, other than the
                 carrier, indicated by you, acquires physical possession of the last of the Goods. In a contract for the supply of services
                 only (without goods), the cancellation period will expire 14 days from the day the Contract was entered into. In a
                 contract for the supply of goods over time (ie subscriptions), the right to cancel will be 14 days after the first delivery.
 
             </p>
             <p className="mb-4 text-start ">
-                46. To exercise the right to cancel, you must inform us of your decision to cancel this Contract by a clear statement
+                46.To exercise the right to cancel, you must inform us of your decision to cancel this Contract by a clear statement
                 setting out your decision (eg a letter sent by post or email). You can use the attached model cancellation form, but it is
                 not obligatory. In any event, you must be able to show clear evidence of when the cancellation was made, so you may
                 decide to use the model cancellation form.
@@ -420,11 +420,11 @@ const Termsandcondition = () => {
 
             </p>
             <ol className="list-decimal ml-6 mb-4 ">
-                <li>be of satisfactory quality;</li>
-                <li>be reasonably fit for any particular purpose for which you buy the Goods which, before the Contract is made, you
+                <li>Be of satisfactory quality;</li>
+                <li>Be reasonably fit for any particular purpose for which you buy the Goods which, before the Contract is made, you
                     made known to us (unless you do not actually rely, or it is unreasonable for you to rely, on our skill and
                     judgment) and be fit for any purpose held out by us or set out in the Contract; and</li>
-                <li>conform to their description.</li>
+                <li>Conform to their description.</li>
             </ol>
             <p className="mb-4 text-start ">
                 60. It is not a failure to conform if the failure has its origin in your materials.
@@ -455,9 +455,9 @@ const Termsandcondition = () => {
 
             </p>
             <ol className="list-decimal ml-6 mb-4 ">
-                <li>commits a serious breach, or series of breaches resulting in a serious breach, of the Contract and the breach either
+                <li>Commits a serious breach, or series of breaches resulting in a serious breach, of the Contract and the breach either
                     cannot be fixed or is not fixed within 30 days of the written notice; or</li>
-                <li>is subject to any step towards its bankruptcy or liquidation.</li>
+                <li>Is subject to any step towards its bankruptcy or liquidation.</li>
             </ol>
             <p className="mb-4 text-start ">
                 65. On termination of the Contract for any reason, any of our respective remaining rights and liabilities will not be
@@ -479,9 +479,9 @@ const Termsandcondition = () => {
 
             </p>
             <ol className="list-decimal ml-6 mb-4 ">
-                <li>the party will advise the other party as soon as reasonably practicable; and</li>
-                <li>the party's obligations will be suspended so far as is reasonable, provided that that party will act reasonably, and
-                    the party will not be liable for any failure which it could not reasonably avoid, but this will not affect the
+                <li>The party will advise the other party as soon as reasonably practicable; and</li>
+                <li>The party's obligations will be suspended so far as is reasonable, provided that that party will act reasonably, and
+                    The party will not be liable for any failure which it could not reasonably avoid, but this will not affect the
                     Customer's above rights relating to delivery (and the right to cancel below).</li>
             </ol>
 
@@ -517,11 +517,11 @@ const Termsandcondition = () => {
 
             </p>
             <ol className="list-decimal ml-6 mb-4 ">
-                <li>before or at the time of collecting Personal Data, we will identify the purposes for which information is being
+                <li>Before or at the time of collecting Personal Data, we will identify the purposes for which information is being
                     collected;</li>
-                <li>we will only Process Personal Data for the purposes identified;</li>
-                <li>we will respect your rights in relation to your Personal Data; and</li>
-                <li>we will implement technical and organisational measures to ensure your Personal Data is secure.</li>
+                <li>We will only Process Personal Data for the purposes identified;</li>
+                <li>We will respect your rights in relation to your Personal Data; and</li>
+                <li>We will implement technical and organisational measures to ensure your Personal Data is secure.</li>
             </ol>
             <p className="mb-4 text-start ">
                 73. For any enquiries or complaints regarding data privacy, you can e-mail: alvin.vncnt@gmail.com.

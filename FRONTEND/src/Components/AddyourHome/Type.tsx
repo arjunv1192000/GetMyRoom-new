@@ -123,18 +123,18 @@ const Type = ({ handleFormDataChange }) => {
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white p-3">
                         What type of place will guests have?
                     </h5>
-                    <div className="flex flex-col gap-2 p-3">
+                    <div className=" grid grid-cols-2 gap-10 md:grid-cols-2 lg:grid-cols-3 lg: p-5 lg:gap-12">
                         {placeTypes.map((placeType, index) => (
                             <button
                                 key={index}
-                                className={`flex items-center justify-between px-4 py-2 border ${selectedPlaceType === placeType.name
+                                className={`flex items-center justify-between px-3 py-2 border  ${selectedPlaceType === placeType.name
                                     ? ' bg-gray-200 '
                                     : 'border-gray-300'
-                                    } rounded-lg focus:outline-none focus:border-black h-20`}
+                                    } rounded-lg focus:outline-none focus:border-black h-20 w-[125px]`}
                                 onClick={() => handlePlaceTypeSelection(placeType.name)}
                             >
-                                <span className="text-base">{placeType.name}</span>
-                                <span className="text-lg">{placeType.logo}</span>
+                                <span className="text-[12px] flex justify-center">{placeType.name}</span>
+                                {/* <span className="text-lg hidden sm:inline-block">{placeType.logo}</span> */}
                             </button>
                         ))}
                     </div>

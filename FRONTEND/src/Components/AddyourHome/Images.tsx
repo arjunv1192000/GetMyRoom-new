@@ -164,10 +164,10 @@ const Images = ({ handleFormDataChange }) => {
               ))}
             </div>
           )} */}
-          <div className='flex justify-end'>
+          <div className='flex justify-end mb-10'>
             <button
               type="submit"
-              className={`mt-3 p-3 w-40  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
+              className={`mt-3 p-3 w-32  rounded-md ${formSubmitted ? 'bg-green-500 text-white' : 'bg-[#390b79] text-white'
                 }`}
             >
               {formSubmitted ? 'Added!' : 'Add'}
