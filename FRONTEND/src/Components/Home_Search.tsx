@@ -97,17 +97,7 @@ const Home_Search = () => {
   }, []);
 
 
-  const LazyImageComponent = () => {
-    return (
-      <img
-        className="w-full h-[700px] object-cover"
-        src={hero}
-        data-src={hero}
-        alt="image description"
-        loading="lazy"
-      />
-    );
-  };
+  
 
 
 
@@ -118,10 +108,7 @@ const Home_Search = () => {
   return (
     <>
       <div className='ansolute' ref={secondSectionRef}>
-        {/* <img className="w-full h-[700px] object-cover " src={hero} alt="image description" /> */}
-        <React.Suspense fallback={<div>Loading...</div>}>
-          <LazyImageComponent />
-        </React.Suspense>
+        <img className="w-full h-[700px] object-cover " src={hero} alt="image description" />
         <div className='absolute top-[25%] left-[10%] md:w-[40%] md:left-[6%] md:top=[15%]'>
           <h2 className='flex font-extrabold text-[#870e4d] text-3xl sm:text-5xl'>
             Live Better, <span id="custom-typing-span" className='text-black  overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5'></span>
