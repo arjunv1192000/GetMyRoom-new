@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from '../Components/Utils/property/axios';
 import MarkerClusterer from 'marker-clusterer-plus';
 import notfound from "../assets/file.png"
@@ -41,7 +41,7 @@ type Property = {
   };
 };
 
-const Mapview = ({ location, type,filters }) => {
+const Mapview = ({ location, type, filters }) => {
   const mapRef = useRef(null);
   const navigate = useNavigate();
   const [property, setProperty] = useState<Property[]>([]);
@@ -55,7 +55,7 @@ const Mapview = ({ location, type,filters }) => {
 
 
         const filteredProperties = allProperties.filter((property: {
-          sellertype: any;  bedrooms: number; bathrooms: number; price: any; sellerType: any;
+          sellertype: any; bedrooms: number; bathrooms: number; price: any; sellerType: any;
         }) => {
           if (
             (filters?.numberOfBedrooms !== '' && property.bedrooms !== Number(filters?.numberOfBedrooms)) ||
@@ -77,7 +77,7 @@ const Mapview = ({ location, type,filters }) => {
     getProperties();
   }, [location, type]);
 
-  
+
   const convertPriceRange = (priceRangeString: string) => {
     const [min, max] = priceRangeString.split('-').map(Number);
     return { min, max };
@@ -117,14 +117,14 @@ const Mapview = ({ location, type,filters }) => {
       zoom: 5,
     });
 
-   
+
     const markers = createMarkers(map, property);
 
-   
+
     new MarkerClusterer(map, markers, {
       imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m',
       gridSize: 60,
-      maxZoom: 15, 
+      maxZoom: 15,
     });
   };
 
@@ -149,19 +149,46 @@ const Mapview = ({ location, type,filters }) => {
         lat: data.location.coordinates.lat + index * 0.0002,
         lng: data.location.coordinates.lng + index * 0.0002,
       };
-      
+
+
+
+      // const marker = new window.google.maps.Marker({
+      //   position,
+      //   map,
+      //   label: {
+      //     text: `$${data.price}`,
+      //     color: 'white',
+      //     fontWeight: 'bold',
+      //     fontSize: '12px', 
+      //     labelOrigin: new window.google.maps.Point(15, 10), 
+      //   },
+      // });
+
+      // Define your custom marker SVG
+      const customMarkerSvg = `
+      <svg fill="#d80e0e" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="home-alt" class="icon glyph"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M19.71,9.29l-7-7a1,1,0,0,0-1.42,0l-7,7A1,1,0,0,0,4,10V21a1,1,0,0,0,1,1H19a1,1,0,0,0,1-1V10A1,1,0,0,0,19.71,9.29Z"></path></g></svg>
+`;
+
      
-     
+      // Create a marker with a custom icon
       const marker = new window.google.maps.Marker({
         position,
         map,
+        icon: {
+          url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(customMarkerSvg)}`,
+          scaledSize: new window.google.maps.Size(60, 60), 
+        },
         label: {
           text: `$${data.price}`,
           color: 'white',
           fontWeight: 'bold',
+          fontSize: '12px',
+          labelOrigin: new window.google.maps.Point(15, 10),
         },
       });
-      
+
+
+
 
       const infowindow = new window.google.maps.InfoWindow({
         content: `<a href="/details?Id=${data._id}" class="infowindow-link">
@@ -171,7 +198,7 @@ const Mapview = ({ location, type,filters }) => {
               <p class="text-sm font-medium text-gray-900 truncate dark:text-white">$${data.price}/month</p>
             </div>
             <div class='w-full h-16 flex flex-row'>
-              <p class="text-sm font-medium text-gray-900 truncate dark:text-white ml-4 mt-5">${data.location.locationName }</p>
+              <p class="text-sm font-medium text-gray-900 truncate dark:text-white ml-4 mt-5">${data.location.locationName}</p>
             </div>
           </div>
         </a>`,
@@ -194,20 +221,20 @@ const Mapview = ({ location, type,filters }) => {
 
   return (
     <div className="sm:w-full h-auto bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden mt-20">
-    {property.length === 0 ? (
-      <div className='flex justify-center items-center w-full h-[300px] sm:h-[500px] flex-col'>
-        <img className="w-40 h-40 rounded-t-lg scale-1 hover:scale-[1.1] duration-300 " src={notfound} alt="" />
-        <a href='/' className="mt-4 px-4 py-2">
-          Go to Home
-        </a>
-      </div>
-    ) : (
-      <div ref={mapRef} className="w-full h-[400px] sm:w-full sm:h-[400px] md:h-[600px] lg:h-[800px]" />
+      {property.length === 0 ? (
+        <div className='flex justify-center items-center w-full h-[300px] sm:h-[500px] flex-col'>
+          <img className="w-40 h-40 rounded-t-lg scale-1 hover:scale-[1.1] duration-300 " src={notfound} alt="" />
+          <a href='/' className="mt-4 px-4 py-2">
+            Go to Home
+          </a>
+        </div>
+      ) : (
+        <div ref={mapRef} className="w-full h-[400px] sm:w-full sm:h-[400px] md:h-[600px] lg:h-[800px]" />
 
 
-    )}
-  </div>
-  
+      )}
+    </div>
+
   );
 };
 

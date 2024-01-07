@@ -58,7 +58,57 @@ const Home_Search = () => {
 
     navigate(`/listdata?location=${locationValue}&type=${typeValue}`);
   };
- 
+
+  useEffect(() => {
+    const texts = ["Together", "Together", "hellood"];
+    const typingContainer = document.getElementById("custom-typing-span");
+    let currentTextIndex = 0;
+    let currentText = "";
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function type() {
+      const text = texts[currentTextIndex];
+      if (isDeleting) {
+        currentText = text.substring(0, currentText.length - 1);
+      } else {
+        currentText = text.substring(0, currentText.length + 1);
+      }
+
+      typingContainer.innerHTML = currentText;
+
+      let typingDelay = isDeleting ? typingSpeed / 2 : typingSpeed;
+
+      if (!isDeleting && currentText === text) {
+        typingDelay = 1500;
+        isDeleting = true;
+      } else if (isDeleting && currentText === "") {
+        isDeleting = false;
+        currentTextIndex++;
+        if (currentTextIndex === texts.length) {
+          currentTextIndex = 0;
+        }
+      }
+
+      setTimeout(type, typingDelay);
+    }
+
+    type();
+  }, []);
+
+
+  const LazyImageComponent = () => {
+    return (
+      <img
+        className="w-full h-[700px] object-cover"
+        src={hero}
+        data-src={hero}
+        alt="image description"
+        loading="lazy"
+      />
+    );
+  };
+
 
 
 
@@ -68,26 +118,27 @@ const Home_Search = () => {
   return (
     <>
       <div className='ansolute' ref={secondSectionRef}>
-        <img className="w-full h-[700px] object-cover " src={hero} alt="image description" />
-        <div className='absolute top-[25%] left-[10%]  md:w-[40%] md:left-[6%]  md:top=[15%]'>
+        {/* <img className="w-full h-[700px] object-cover " src={hero} alt="image description" /> */}
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <LazyImageComponent />
+        </React.Suspense>
+        <div className='absolute top-[25%] left-[10%] md:w-[40%] md:left-[6%] md:top=[15%]'>
           <h2 className='flex font-extrabold text-[#870e4d] text-3xl sm:text-5xl'>
-            Live Better ,<span className='text-black animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 '>Together</span>
+            Live Better, <span id="custom-typing-span" className='text-black  overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5'></span>
           </h2>
         </div>
-        <div className='absolute top-[15%] left-[10%] md:w-[300px] md:left-[80%] hidden md:hidden sm:inline-block '>
+
+        <div className='absolute top-[15%] left-[10%] lg:w-auto lg:left-[80%] lg:top-[20%] sm:w-full sm:left-0 hidden sm:inline-block '>
           <blockquote className="text-xl italic font-semibold text-gray-900 dark:text-white">
             <svg className="w-5 h-5 text-black dark:text-gray-600 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
               <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
             </svg>
-            <h2 className="flex  text-black text-lg font-style:gabriela">
-              "Discover homes that offer flexibility, convenience,
-
-              and affordability with built-in camaraderie."
+            <h2 className="flex text-black text-lg font-style:gabriela w-60 ">
+              "Discover homes that offer flexibility, convenience, and affordability with built-in camaraderie."
             </h2>
-
           </blockquote>
-
         </div>
+
         <div className="absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-30 p-6 md:p-12 w-full md:w-[40%] md:[70%] rounded-lg">
           <input ref={searchInputRef} className="bg-white px-4 py-2 rounded mb-4 w-full font-semibold" type="text" placeholder="Enter an address or postcode " />
           <select ref={propertyTypeRef} className="bg-white px-4 py-2 rounded mb-4 w-full font-semibold">
