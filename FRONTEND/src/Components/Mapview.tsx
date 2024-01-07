@@ -149,24 +149,24 @@ const Mapview = ({ location, type,filters }) => {
         lat: data.location.coordinates.lat + index * 0.0002,
         lng: data.location.coordinates.lng + index * 0.0002,
       };
+      
      
      
-    const marker = new window.google.maps.Marker({
-      position,
-      map,
-      label: {
-        text: `$${data.price}`,
-        color: 'white', 
-        fontWeight: 'bold',
-        labelAnchor: new window.google.maps.Point(20, 0)
-
-      },
-    });
+      const marker = new window.google.maps.Marker({
+        position,
+        map,
+        label: {
+          text: `$${data.price}`,
+          color: 'white',
+          fontWeight: 'bold',
+        },
+      });
+      
 
       const infowindow = new window.google.maps.InfoWindow({
         content: `<a href="/details?Id=${data._id}" class="infowindow-link">
-          <div class="w-[200px] h-auto bg-white border border-gray-200 rounded-lg  items-center">
-            <img class="w-full rounded-t-lg scale-1 hover:scale-[1.1] duration-300 " src="${data.image[1]}" alt="" />
+          <div class="w-[200px]  h-auto bg-white border border-gray-200 rounded-lg  items-center">
+            <img class="w-full h-[150px] rounded-t-lg scale-1 hover:scale-[1.1] duration-300" src="${data.image[1]}" alt="" />
             <div class="flex-1 min-w-0 ms-4 mt-3">
               <p class="text-sm font-medium text-gray-900 truncate dark:text-white">$${data.price}/month</p>
             </div>

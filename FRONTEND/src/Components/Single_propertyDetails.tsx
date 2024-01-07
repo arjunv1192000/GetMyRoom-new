@@ -362,7 +362,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                                 {image.map((imageUrl, index) => (
                                     <SwiperSlide key={index}>
-                                        <img className='w-full h-auto sm:h-[500px] object-cover ' src={imageUrl} alt={`Image ${index + 1}`} />
+                                        <img className='w-full h-[300px] sm:h-[500px] object-cover ' src={imageUrl} alt={`Image ${index + 1}`} />
                                     </SwiperSlide>
                                 ))}
                             </Swiper>

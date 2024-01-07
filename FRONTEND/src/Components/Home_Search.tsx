@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useRef, useEffect } from 'react'
+import React, { MutableRefObject, useRef, useEffect, useState } from 'react'
 import hero from "../assets/shutterstock_1470527960.jpg"
 import { useNavigate } from 'react-router-dom';
 
@@ -58,6 +58,7 @@ const Home_Search = () => {
 
     navigate(`/listdata?location=${locationValue}&type=${typeValue}`);
   };
+ 
 
 
 

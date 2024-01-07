@@ -130,7 +130,7 @@ const Listview = ({ location, type, filters,openLoginModal }) => {
           </div>
         ) : (
           <>
-            <div className="mt-20 grid gap-3 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8 gap-y-8 justify-center">
+            <div className="mt-20 grid gap-3 gap-x-6 sm:grid-cols-2 sm:gap-x-20 lg:grid-cols-3 xl:gap-x-8 gap-y-8 justify-center">
               {currentItems.map((data) => (
                 <Listcard
                   key={data.id}
