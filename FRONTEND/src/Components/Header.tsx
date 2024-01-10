@@ -102,7 +102,7 @@ const Header = ({ openLoginModal }) => {
                 <div className="flex lg:flex-1">
                     <a href=" " className="-m-1.5 p-1.5" onClick={() => navigate('/')}>
                         <span className="sr-only">Your Company</span>
-                        <img className="h-8 sm:h-12 w-auto" src={logo} alt="" />
+                        <img className="h-12 w-auto" src={logo} alt="" />
                     </a>
                 </div>
                 <div className="flex lg:hidden">
