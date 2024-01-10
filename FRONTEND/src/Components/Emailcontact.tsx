@@ -208,7 +208,7 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
                                         <BiBed color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
 
 
-                                        <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1"> {bathrooms}Beds</h5>
+                                        <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1"> {bathrooms} Beds</h5>
 
                                     </div>
                                     <div className='w-20 h-20  flex flex-col items-center'>

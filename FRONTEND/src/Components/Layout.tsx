@@ -3,6 +3,7 @@ import Header from "./Header"
 import LoginModal from './Modals/LoginModal';
 
 
+
 const Layout = ({ children }) => {
 
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);

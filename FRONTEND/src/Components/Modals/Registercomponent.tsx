@@ -36,8 +36,13 @@ const Registercomponent = ({ onBack, onClose }) => {
             .min(5, 'Full name must be at least 5 characters')
             .required('Full name is required'),
 
-        email: Yup.string()
+            email: Yup.string()
             .trim()
+            .lowercase()
+            .matches(
+              /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
+              'Invalid email address'
+            )
             .email('Invalid email')
             .required('Email is required'),
         image: Yup.mixed()

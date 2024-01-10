@@ -7,6 +7,7 @@ import { IoArrowBackCircleSharp } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { login } from '../../redux/reducer/userSlice';
 import toast, { Toaster } from 'react-hot-toast';
+import {  IoEye, IoEyeOff } from 'react-icons/io5';
 
 const Registerform = ({ onBack, onClose }) => {
     const dispatch = useDispatch();
@@ -17,7 +18,14 @@ const Registerform = ({ onBack, onClose }) => {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const validationSchemaStep1 = Yup.object({
-        email: Yup.string().trim().email('Invalid email').required('Email is required'),
+        email: Yup.string()
+        .trim()
+        .matches(
+          /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
+          'Email must be in lowercase'
+        )
+        .email('Invalid email')
+        .required('Email is required'),
         password: Yup.string()
             .required('Password is required')
             .min(6, 'Password must be at least 6 characters'),
@@ -200,7 +208,7 @@ const Registerform = ({ onBack, onClose }) => {
                                 className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
                             />
                             {formikStep1.touched.email && formikStep1.errors.email && (
-                                <div className='text-red-500 text-sm'>{formikStep1.errors.email}</div>
+                                <div className='text-red-500 text-sm absolute mt-2'>{formikStep1.errors.email}</div>
                             )}
                         </div>
                         <div className='mt-5 p-2 relative'>
@@ -218,10 +226,10 @@ const Registerform = ({ onBack, onClose }) => {
                                 className='absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer'
                                 onClick={togglePasswordVisibility}
                             >
-                                {showPassword ? 'Hide' : 'Show'}
+                                {showPassword ?  <IoEye />: <IoEyeOff />}
                             </span>
                             {formikStep1.touched.password && formikStep1.errors.password && (
-                                <div className='text-red-500 text-sm'>{formikStep1.errors.password}</div>
+                                <div className='text-red-500 text-sm absolute mt-2'>{formikStep1.errors.password}</div>
                             )}
                         </div>
                         <div className='mt-5 p-2 relative'>
@@ -240,10 +248,11 @@ const Registerform = ({ onBack, onClose }) => {
                                 onClick={toggleConfirmPasswordVisibility}
                                 className='absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer'
                             >
-                                {showConfirmPassword ? 'Hide' : 'Show'}
+                               
+                                {showConfirmPassword ? <IoEye />: <IoEyeOff />}
                             </span>
                             {formikStep1.touched.confirmPassword && formikStep1.errors.confirmPassword && (
-                                <div className='text-red-500 text-sm'>{formikStep1.errors.confirmPassword}</div>
+                                <div className='text-red-500 text-sm absolute mt-2'>{formikStep1.errors.confirmPassword}</div>
                             )}
                         </div>
                         <div>
@@ -283,7 +292,7 @@ const Registerform = ({ onBack, onClose }) => {
 
                             />
                             {formikStep2.touched.fullName && formikStep2.errors.fullName && (
-                                <div className="text-red-500 text-sm">{formikStep2.errors.fullName}</div>
+                                <div className='text-red-500 text-sm absolute mt-2'>{formikStep2.errors.fullName}</div>
                             )}
 
                         </div>
@@ -300,7 +309,7 @@ const Registerform = ({ onBack, onClose }) => {
                                 className="mt-1 block w-full p-2.5"
                             />
                             {formikStep2.touched.image && formikStep2.errors.image && (
-                                <div className="text-red-500 text-sm">{formikStep2.errors.image}</div>
+                                <div className='text-red-500 text-sm absolute mt-2'>{formikStep2.errors.image}</div>
                             )}
                         </div>
                         <div>

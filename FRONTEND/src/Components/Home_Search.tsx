@@ -111,7 +111,7 @@ const Home_Search = () => {
         <img className="w-full h-[600px] object-cover " src={hero} alt="image description" />
         <div className='absolute top-[25%] sm:top-[25%] left-[10%] md:w-[40%] md:left-[6%] md:top=[15%]'>
           <h2 className='flex font-extrabold text-[#870e4d] text-3xl sm:text-5xl'>
-            Live Better, <span id="custom-typing-span" className='text-black  overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5'></span>
+            Live Better, <span id="custom-typing-span" className='text-black  overflow-hidden  pr-5'></span>
           </h2>
         </div>
 
@@ -126,7 +126,7 @@ const Home_Search = () => {
           </blockquote>
         </div>
 
-        <div className="absolute top-[50%] sm:top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-30 p-6 md:p-12 w-full md:w-[40%] md:[70%] rounded-lg">
+        <div className="absolute top-[60%] sm:top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-30 p-6 md:p-12 w-full md:w-[40%] md:[70%] rounded-lg">
           <label htmlFor="searchInput" className="sr-only">
             Search Address or Postcode
           </label>

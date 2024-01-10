@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 const Footer = () => {
   const [showContactInfo, setShowContactInfo] = useState(false);
 
@@ -7,9 +6,10 @@ const Footer = () => {
     setShowContactInfo(!showContactInfo);
   };
 
-  const navigate = useNavigate();
+
   return (
-    <footer className="bg-[#f7f6f5] mt-10">
+   
+    <div className="bg-[#f7f6f5] mt-10">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8 " />
         <div className="sm:flex sm:items-center sm:justify-between xl:px-24">
@@ -24,8 +24,6 @@ const Footer = () => {
               </div>
             )}
           </div>
-
-
           <div className="flex mt-4 sm:justify-center gap-4 sm:mt-0">
             
 
@@ -40,13 +38,6 @@ const Footer = () => {
                 className="w-5 h-5 mt-2"
               />
             </a>
-
-
-           
-
-
-
-           
           </div>
         </div>
         <div className="sm:flex sm:items-center sm:justify-between mt-5 xl:px-24">
@@ -67,12 +58,9 @@ const Footer = () => {
           </p>
         </div>
 
-
-
-
-
       </div>
-    </footer>
+    </div>
+    
 
 
   )

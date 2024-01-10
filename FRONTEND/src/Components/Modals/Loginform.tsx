@@ -5,6 +5,7 @@ import axios from '../Utils/user/axios';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/reducer/userSlice';
 import toast, { Toaster } from 'react-hot-toast';
+import { IoArrowBackCircleSharp, IoEye, IoEyeOff } from 'react-icons/io5';
 
 const Loginform = ({ onBack, isLogin, onClose }) => {
 
@@ -13,7 +14,14 @@ const Loginform = ({ onBack, isLogin, onClose }) => {
     const [showPassword, setShowPassword] = useState(false);
 
     const validationSchemaStep1 = Yup.object({
-        email: Yup.string().trim().email('Invalid email').required('Email is required'),
+        email: Yup.string()
+        .trim()
+        .matches(
+          /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
+          'Email must be in lowercase'
+        )
+        .email('Invalid email')
+        .required('Email is required'),
         password: Yup.string().required('Password is required'),
     });
 
@@ -92,7 +100,7 @@ const Loginform = ({ onBack, isLogin, onClose }) => {
                         placeholder='Email'
                     />
                     {formikStep1.touched.email && formikStep1.errors.email && (
-                        <div className='text-red-500 text-sm'>{formikStep1.errors.email}</div>
+                        <div className='text-red-500 text-sm absolute mt-2'>{formikStep1.errors.email}</div>
                     )}
                 </div>
                 <div className='mt-5 p-2 relative '>
@@ -107,13 +115,13 @@ const Loginform = ({ onBack, isLogin, onClose }) => {
                         placeholder='Password'
                     />
                     <span
-                        className='absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer'
+                        className='absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer '
                         onClick={togglePasswordVisibility}
                     >
-                        {showPassword ? 'Hide' : 'Show'}
+                         {showPassword ?  <IoEye />: <IoEyeOff />}
                     </span>
                     {formikStep1.touched.password && formikStep1.errors.password && (
-                        <div className='text-red-500 text-sm'>{formikStep1.errors.password}</div>
+                        <div className='text-red-500 text-sm absolute mt-2'>{formikStep1.errors.password}</div>
                     )}
                 </div>
                 <div>
