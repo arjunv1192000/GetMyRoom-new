@@ -108,7 +108,7 @@ const Home_Search = () => {
   return (
     <>
       <div className='ansolute' ref={secondSectionRef}>
-        <img className="w-full h-auto object-cover " src={hero} alt="image description" />
+        <img className="w-full sm:h-[600px] object-cover " src={hero} alt="image description" />
         <div className='absolute top-[15%] sm:top-[25%] left-[10%] md:w-[40%] md:left-[6%] md:top=[15%]'>
           <h2 className='flex font-extrabold text-[#870e4d] text-3xl sm:text-5xl'>
             Live Better, <span id="custom-typing-span" className='text-black  overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5'></span>
@@ -126,7 +126,7 @@ const Home_Search = () => {
           </blockquote>
         </div>
 
-        <div className="absolute w-[70%] top-[40%] sm:top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-30 p-6 md:p-12 md:top-[55%]  md:w-[40%] lg:top-[80%] md:[70%] rounded-lg">
+        <div className="absolute top-[40%] sm:top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-30 p-6 md:p-12 w-full md:w-[40%] md:[70%] rounded-lg">
           <label htmlFor="searchInput" className="sr-only">
             Search Address or Postcode
           </label>
@@ -149,7 +149,7 @@ const Home_Search = () => {
             <option value="4+ BED HOUSE/FLAT" className='font-semibold'>4+ BED HOUSE/FLAT</option>
           </select>
 
-          <button className="transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover:bg-[#870e4d] duration-300 text-white px-4 py-2 rounded-lg w-full font-semibold h-auto" onClick={handleSearchButtonClicks}>
+          <button className="transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover:bg-[#870e4d] duration-300 text-white px-4 py-2 rounded-lg w-full font-semibold h-16" onClick={handleSearchButtonClicks}>
             Search
           </button>
         </div>
