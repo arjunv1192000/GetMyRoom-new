@@ -108,7 +108,7 @@ const Home_Search = () => {
   return (
     <>
       <div className='ansolute' ref={secondSectionRef}>
-        <img className="w-full sm:h-[600px] object-cover " src={hero} alt="image description" />
+        <img className="w-full h-[600px] object-cover " src={hero} alt="image description" />
         <div className='absolute top-[15%] sm:top-[25%] left-[10%] md:w-[40%] md:left-[6%] md:top=[15%]'>
           <h2 className='flex font-extrabold text-[#870e4d] text-3xl sm:text-5xl'>
             Live Better, <span id="custom-typing-span" className='text-black  overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5'></span>
