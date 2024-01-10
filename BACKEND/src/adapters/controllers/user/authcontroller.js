@@ -20,9 +20,9 @@ const Authcontroller = (userAuthRepositoryInt, userAuthRepositoryImp, authServic
 
 
     const createuser = (req, res) => {
-        const{phoneNumber}=req.body
+        const{email}=req.body
     
-        register(phoneNumber,dbrepository,otpService).then((response)=>{
+        register(email,dbrepository,otpService).then((response)=>{
             console.log(response,"login");
             res.json(response)
 
@@ -45,8 +45,8 @@ const Authcontroller = (userAuthRepositoryInt, userAuthRepositoryImp, authServic
 
     
     const userlogin = (req, res) => {
-        const{phoneNumber}=req.body
-        login(phoneNumber,dbrepository,otpService,authService).then((response)=>{
+        const{email,password}=req.body
+        login(email,password,dbrepository,authService).then((response)=>{
             console.log(response,"login");
             res.json(response)
 
@@ -55,11 +55,11 @@ const Authcontroller = (userAuthRepositoryInt, userAuthRepositoryImp, authServic
     }
 
     const adduserdata = (req, res) => {
-        const{phoneNumber,name,email,dob,image}=req.body
+        const{email,name,password,image}=req.body
 
         console.log(req.body,"kittyooooo");
 
-        adduser(phoneNumber,name,email,dob,image,dbrepository,authService).then((response)=>{
+        adduser(email,name,password,image,dbrepository,authService).then((response)=>{
             console.log(response);
             res.json(response)
           

@@ -4,6 +4,8 @@ const AuthserviceInt=(repository)=>{
 
     const generateAccessToken = (user) => repository.generateAccessToken(user);
     const generatRefreshToken=(userId)=>repository.generatRefreshToken(userId)
+    const bcryptpassword=(password)=>repository.bcryptpassword(password)
+    const comparePassword=(password,hashPassword)=>repository.comparePassword(password,hashPassword)
     const verifyAccessToken=(token)=>repository.verifyAccessToken(token)
     const verifyRefreshToken=(token)=>repository.verifyRefreshToken(token)
 
@@ -12,7 +14,9 @@ const AuthserviceInt=(repository)=>{
         generateAccessToken,
         generatRefreshToken,
         verifyAccessToken,
-        verifyRefreshToken
+        verifyRefreshToken,
+        bcryptpassword,
+        comparePassword
         
     }
 

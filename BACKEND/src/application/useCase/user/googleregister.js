@@ -17,7 +17,6 @@ const googleregister = async (fullname, email, image, dbrepository, authService)
 
         return { status: true, isUser, AccessToken, RefreshToken };
     } else {
-        // User does not exist, proceed with registration and then login
         const userdetails = usergoogledata(fullname, email, image);
         const newuser = await dbrepository.googlecreate(userdetails);
 

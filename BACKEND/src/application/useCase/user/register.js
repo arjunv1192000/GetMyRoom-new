@@ -1,13 +1,14 @@
 
 
-const register = async (phone, repositories,otpService) => {
+const register = async (email, repositories) => {
 
-  return repositories.userexist(phone).then(async (user) => {
+  console.log(email);
+
+  return repositories.userexistemail(email).then(async (user) => {
     console.log(user);
     if (user===null) {
-      const otp=await otpService.createotp(phone)
 
-      return { status: true,phone};
+      return { status: true};
     } else  {
       console.log("hai");
       return { message: 'email already exists', status: false };

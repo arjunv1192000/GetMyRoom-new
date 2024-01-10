@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import post2 from '../../assets/shutterstock_1470527960.jpg'
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import countryData from 'country-data';
-import Logincomponent from './Logincomponent';
-import Registercomponent from './Registercomponent';
+// import Logincomponent from './Logincomponent';
+// import Registercomponent from './Registercomponent';
+import Loginform from './Loginform';
+import Registerform from './Registerform';
 
 
 
@@ -61,24 +63,24 @@ const Login = ({ onClose }) => {
                 </div>
 
 
-                <Registercomponent onBack={() => setLogin(false)} isLogin={isLogin} onClose={onClose} />
+          
 
                 
 
-                {/* {isLogin ? (
-                    <Logincomponent onBack={() => setLogin(true)} isLogin={isLogin} onClose={onClose} />
+                {isLogin ? (
+                    <Loginform onBack={() => setLogin(true)} isLogin={isLogin} onClose={onClose} />
                 ) : (
-                    <Registercomponent onBack={() => setLogin(false)} isLogin={isLogin} onClose={onClose} />
-                )} */}
+                    <Registerform onBack={() => setLogin(false)} isLogin={isLogin} onClose={onClose} />
+                )}
 
-                {/* <div className='mt-2 text-center'>
+                <div className='mt-2 text-center'>
                     <p className="text-[16px] text-gray-600">
                         {isLogin ? "Don't have an account? " : "Already have an account? "}
                         <span className="text-blue-500 cursor-pointer" onClick={handleSwitchComponent}>
                             {isLogin ? "Register" : "Login"}
                         </span>
                     </p>
-                </div> */}
+                </div>
             </div>
         </div>
 

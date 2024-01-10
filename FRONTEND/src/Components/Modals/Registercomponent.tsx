@@ -28,8 +28,21 @@ const Registercomponent = ({ onBack, onClose }) => {
 
 
     const validationSchemaStep1 = Yup.object({
-        selectedCountryCode: Yup.string().required('Country code is required'),
-        phoneNumber: Yup.string().required('Phone number is required'),
+        // selectedCountryCode: Yup.string().required('Country code is required'),
+        // phoneNumber: Yup.string().required('Phone number is required'),
+        fullName: Yup.string()
+            .trim()
+            .matches(/^[A-Za-z\s]+$/, 'Name cannot contain numbers')
+            .min(5, 'Full name must be at least 5 characters')
+            .required('Full name is required'),
+
+        email: Yup.string()
+            .trim()
+            .email('Invalid email')
+            .required('Email is required'),
+        image: Yup.mixed()
+            .nullable()
+            .required('Image is required') as Yup.MixedSchema<FileList | null>,
     });
     const validationSchemaStep2 = Yup.object({
         otp: Yup.string().matches(/^\d{6}$/, 'OTP must be a 6-digit number').required('OTP is required'),
@@ -337,11 +350,11 @@ const Registercomponent = ({ onBack, onClose }) => {
     return (
         <div>
 
-            <div className='flex justify-center mt-5'>
+            {/* <div className='flex justify-center mt-5'>
                 <h2 className=" font-semibold text-black text-[25px]  ml-5  ">Login</h2>
             </div>
             <div className='mt-5 p-2 ml-10 flex justify-center flex-col'>
-                {/* <GoogleOAuthProvider clientId="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com">
+                <GoogleOAuthProvider clientId="1084048115629-v02evalrb9gqteqs5lt8pmlc5kgqamo4.apps.googleusercontent.com">
                     <GoogleLogin
                         onSuccess={(credentialResponse) => {
                             const decoded = jwtDecode(credentialResponse.credential);
@@ -361,7 +374,7 @@ const Registercomponent = ({ onBack, onClose }) => {
 
                     />
 
-                </GoogleOAuthProvider> */}
+                </GoogleOAuthProvider>
 
 
                 <LoginSocialGoogle
@@ -370,7 +383,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                     scope="openid profile email"
                     discoveryDocs="claims_supported"
                     access_type="online"
-                    onResolve={({ provider, data }:any) => {
+                    onResolve={({ provider, data }: any) => {
                         console.log("Resolved:", provider, data);
 
                         const body = {
@@ -394,15 +407,15 @@ const Registercomponent = ({ onBack, onClose }) => {
 
 
 
-            </div>
+            </div> */}
 
 
             {step === 1 && (
                 <>
-                    <form onSubmit={formikStep1.handleSubmit}>
-                        {/* <div className='flex justify-center mt-5'>
-                            <h2 className=" font-semibold text-black text-[25px]  ml-5  ">Login</h2>
-                        </div> */}
+                    <form onSubmit={formikStep3.handleSubmit}>
+                        <div className='flex justify-center mt-2'>
+                            <h2 className=" font-semibold text-black text-[25px]  ml-5  ">Register</h2>
+                        </div>
                         {/* <div className='mt-5 p-2'>
                             <select
                                 id="countryCode"
@@ -436,6 +449,75 @@ const Registercomponent = ({ onBack, onClose }) => {
                                 <div className="text-red-500 text-[12px] ml-2 mt-2 ">{formikStep1.errors.phoneNumber}</div>
                             )}
 
+                        </div> */}
+                        <div className='mt-2 p-2'>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                name="fullName"
+                                value={formikStep3.values.fullName}
+                                onChange={formikStep3.handleChange}
+                                onBlur={formikStep3.handleBlur}
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Full Name"
+
+                            />
+                            {formikStep3.touched.fullName && formikStep3.errors.fullName && (
+                                <div className="text-red-500 text-sm">{formikStep3.errors.fullName}</div>
+                            )}
+
+                        </div>
+                        <div className='mt-1 p-2'>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                value={formikStep3.values.email}
+                                onChange={formikStep3.handleChange}
+                                onBlur={formikStep3.handleBlur}
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Email"
+
+                            />
+                            {formikStep3.touched.email && formikStep3.errors.email && (
+                                <div className="text-red-500 text-sm">{formikStep3.errors.email}</div>
+                            )}
+
+
+                        </div>
+                        <div className='mt-1 p-2'>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                value={formikStep3.values.email}
+                                onChange={formikStep3.handleChange}
+                                onBlur={formikStep3.handleBlur}
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Email"
+
+                            />
+                            {formikStep3.touched.email && formikStep3.errors.email && (
+                                <div className="text-red-500 text-sm">{formikStep3.errors.email}</div>
+                            )}
+
+
+                        </div>
+                        <div className='mt-5 p-2'>
+                            <label htmlFor="profileImage" className="text-gray-600">Profile Image:</label>
+                            <input
+                                type="file"
+                                id="image"
+                                accept="image/*"
+                                name='image'
+                                onChange={handleImageChange}
+                                onBlur={formikStep3.handleBlur}
+                                className="mt-1 block w-full p-2.5"
+                            />
+                            {formikStep3.touched.image && formikStep3.errors.image && (
+                                <div className="text-red-500 text-sm">{formikStep3.errors.image}</div>
+                            )}
                         </div>
                         <div>
 
@@ -446,13 +528,13 @@ const Registercomponent = ({ onBack, onClose }) => {
                         <div className='mt-5 p-2'>
                             <button type='submit' className=" transition ease-in-out delay-150 bg-[#390b79]  hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 rounded w-full " >Register</button>
 
-                        </div> */}
+                        </div>
                     </form>
-                    <div className="flex items-center justify-center p-2">
-                        {/* <hr className="border-t border-gray-300 flex-grow mr-2" />
+                    {/* <div className="flex items-center justify-center p-2">
+                        <hr className="border-t border-gray-300 flex-grow mr-2" />
                         <span className="text-gray-500">or</span>
-                        <hr className="border-t border-gray-300 flex-grow ml-2" /> */}
-                    </div>
+                        <hr className="border-t border-gray-300 flex-grow ml-2" />
+                    </div> */}
                     {/* <div className='mt-5 p-2 flex justify-center'>
                         <GoogleOAuthProvider clientId="1084048115629-gpikjorqk28djapdi3qid41bn8k3k67e.apps.googleusercontent.com">
                             <GoogleLogin
@@ -464,7 +546,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                                         image: decoded.picture,
                                     }
 
-                                   
+
                                     googleregister(body)
                                 }}
                                 onError={() => {
@@ -481,7 +563,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                 </>
 
             )}
-            {/* {step === 2 && (
+            {step === 2 && (
                 <div className="bg-white w-auto h-auto  flex flex-row  overflow-hidden mt-11 ">
                     <div className='w-[500px] h-[350px] border-gray-200 shadow-lg rounded-lg ml-1  flex flex-col overflow-hidden ' >
                         <button onClick={handleBack} className=" top-20 left-5 text-gray-500 hover:text-gray-700">
@@ -522,7 +604,7 @@ const Registercomponent = ({ onBack, onClose }) => {
                     </div>
                 </div>
 
-            )} */}
+            )}
             {step === 3 && (
                 <>
                     <div >

@@ -10,11 +10,10 @@ const userAuthRepositoryImp = () => {
   const create = (user) => {
     console.log(user, "dbbbbb");
     const newuser = new userdata({
-      name: user?.getname(),
-      email: user?.getemail(),
-      phone: user?.getphone(),
-      dob: user?.getdob(),
-      image: user?.getimage(),
+      name:user?.getname(),
+      email:user?.getemail(),
+      password:user?.getpassword(),
+      image:user?.getimage(),
       isBlock: false
 
     })

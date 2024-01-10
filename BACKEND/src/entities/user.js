@@ -1,11 +1,10 @@
  
-const userdata=(name,email,phone,dob,image)=>{
+const userdata=(name,email,hashpassword,image)=>{
     
     return{
         getname:()=>name,
         getemail:()=>email,
-        getphone:()=>phone,
-        getdob:()=>dob,
+        getpassword:()=>hashpassword,
         getimage:()=>image,
        
     }
