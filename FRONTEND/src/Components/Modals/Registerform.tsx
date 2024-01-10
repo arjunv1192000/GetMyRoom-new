@@ -188,7 +188,7 @@ const Registerform = ({ onBack, onClose }) => {
                         <div className='flex justify-center mt-5'>
                             <h2 className='font-semibold text-black text-[25px]  ml-5  '>Register</h2>
                         </div>
-                        <div className='mt-1 p-2'>
+                        <div className='mt-5 p-2'>
                             <input
                                 type='email'
                                 name='email'
@@ -203,7 +203,7 @@ const Registerform = ({ onBack, onClose }) => {
                                 <div className='text-red-500 text-sm'>{formikStep1.errors.email}</div>
                             )}
                         </div>
-                        <div className='mt-1 p-2 relative'>
+                        <div className='mt-5 p-2 relative'>
                             <input
                                 type={showPassword ? 'text' : 'password'}
                                 name='password'
@@ -224,7 +224,7 @@ const Registerform = ({ onBack, onClose }) => {
                                 <div className='text-red-500 text-sm'>{formikStep1.errors.password}</div>
                             )}
                         </div>
-                        <div className='mt-1 p-2 relative'>
+                        <div className='mt-5 p-2 relative'>
                             <input
                                 type={showConfirmPassword ? 'text' : 'password'}
                                 name='confirmPassword'
@@ -247,9 +247,9 @@ const Registerform = ({ onBack, onClose }) => {
                             )}
                         </div>
                         <div>
-                            <p className='text-xs text-gray-600 mt-1 ml-3'>
+                            <p className='text-xs text-gray-600 mt-5 ml-3'>
                                 We’ll call or text you to confirm your number. Standard message and data rates apply
-                                <a href='/privacy-policy' className='text-blue-500'>
+                                <a href='/privacy' className='text-blue-500'>
                                     Privacy Policy
                                 </a>
                                 .

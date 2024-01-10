@@ -27,19 +27,7 @@ const Footer = () => {
 
 
           <div className="flex mt-4 sm:justify-center gap-4 sm:mt-0">
-            <a
-             href='https://www.instagram.com/getmy_room?igsh=ODA1NTc5OTg5Nw=='
-             target='new'
-             aria-label="Instagram Profile: @getmy_room"
-            >
-              <img
-              
-                alt=""
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"
-                className="w-5 h-5 mt-2 "
-              />
-
-            </a>
+            
 
             <a
               href='https://www.instagram.com/getmy_room?igsh=ODA1NTc5OTg5Nw=='
@@ -54,18 +42,7 @@ const Footer = () => {
             </a>
 
 
-            <a
-             href='https://www.instagram.com/getmy_room?igsh=ODA1NTc5OTg5Nw=='
-             target='new'
-             aria-label="Instagram Profile: @getmy_room"
-            >
-            <img
-              alt=""
-              src="https://w7.pngwing.com/pngs/239/740/png-transparent-twitter-logo-icon-twitter-file-logo-social-media-news-thumbnail.png"
-              className="w-5 h-5 mt-2"
-            />
-
-            </a>
+           
 
 
 
@@ -74,7 +51,6 @@ const Footer = () => {
         </div>
         <div className="sm:flex sm:items-center sm:justify-between mt-5 xl:px-24">
           <div className="flex flex-nowrap mt-1 sm:justify-center sm:mt-0 gap-1">
-            {/* Your content here */}
           </div>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <span className="text-sm text-gray-600 sm:text-center dark:text-gray-400">
