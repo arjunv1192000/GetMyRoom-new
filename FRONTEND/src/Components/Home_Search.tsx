@@ -130,8 +130,12 @@ const Home_Search = () => {
           <label htmlFor="searchInput" className="sr-only">
             Search Address or Postcode
           </label>
-          <input ref={searchInputRef} className="bg-white px-4 py-2 rounded mb-4 w-full font-semibold" type="text" placeholder="Enter an address or postcode " />
-          <select ref={propertyTypeRef} className="bg-white px-4 py-2 rounded mb-4 w-full font-semibold">
+          <input ref={searchInputRef} className="bg-white px-4 py-2 rounded mb-4 w-full font-semibold" type="text" placeholder="Enter an address or postcode" />
+
+          <label htmlFor="propertyType" className="block text-white mb-2">
+            Select Property Type
+          </label>
+          <select ref={propertyTypeRef} id="propertyType" className="bg-white px-4 py-2 rounded mb-4 w-full font-semibold">
             <option value="AllType" className='font-semibold'>AllType</option>
             <option value="BOX ROOM" className='font-semibold'>BOX ROOM</option>
             <option value="BEDSIT" className='font-semibold'>TWIN ROOM</option>
@@ -143,10 +147,13 @@ const Home_Search = () => {
             <option value="2 BED HOUSE/FLAT" className='font-semibold'>2 BED HOUSE/FLAT</option>
             <option value="3 BED HOUSE/FLAT" className='font-semibold'>3 BED HOUSE/FLAT</option>
             <option value="4+ BED HOUSE/FLAT" className='font-semibold'>4+ BED HOUSE/FLAT</option>
-
           </select>
-          <button className=" transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 rounded-lg w-full font-semibold h-16" onClick={handleSearchButtonClicks}>Search</button>
+
+          <button className="transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover:bg-[#870e4d] duration-300 text-white px-4 py-2 rounded-lg w-full font-semibold h-16" onClick={handleSearchButtonClicks}>
+            Search
+          </button>
         </div>
+
       </div>
     </>
 
