@@ -122,7 +122,7 @@ const Header = ({ openLoginModal }) => {
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <div className='relative'>
                         <div className='flex flex-row items-center gap-3'>
-                            <a href=" " className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer" onClick={() => navigate('/')}>
+                            <a href="/" className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer">
                                 Home
                             </a>
                             <div

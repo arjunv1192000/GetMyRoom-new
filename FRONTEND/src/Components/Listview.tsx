@@ -52,8 +52,6 @@ const Listview = ({ location, type, filters,openLoginModal }) => {
       try {
         const response = await axios.get(`/getallproperty?location=${location}&type=${type}`);
         const allProperties = response.data.propertydata.allproperty;
-
-
         const filteredProperties = allProperties.filter((property: {
           sellertype: any;  bedrooms: number; bathrooms: number; price: any; sellerType: any;
         }) => {
