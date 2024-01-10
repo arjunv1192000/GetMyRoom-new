@@ -14,9 +14,9 @@ const Footer = () => {
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8 " />
         <div className="sm:flex sm:items-center sm:justify-between xl:px-24">
           <div className="flex flex-col mt-4 gap-2 sm:flex-row sm:flex-nowrap sm:gap-5">
-            <a className="text-gray-700 hover:text-gray-900 cursor-pointer" onClick={() => navigate('/privacy')}>Privacy</a>
-            <a className="text-gray-700 hover:text-gray-900 cursor-pointer" onClick={() => navigate('/terms')}>Terms</a>
-            <a className="text-gray-700 hover:text-gray-900 cursor-pointer" onClick={handleContactClick}>Contact us</a>
+            <a href="/privacy" className="text-gray-700 hover:text-gray-900 cursor-pointer" >Privacy</a>
+            <a href='/terms' className="text-gray-700 hover:text-gray-900 cursor-pointer" >Terms</a>
+            <span className="text-gray-700 hover:text-gray-900 cursor-pointer" onClick={handleContactClick}>Contact us</span>
             {showContactInfo && (
               <div className="mt-4 sm:mt-0">
                 <p>Email: <a href="mailto:Admin@visahelpgb.com" className="text-blue-700">Admin@visahelpgb.com</a></p>
@@ -27,8 +27,13 @@ const Footer = () => {
 
 
           <div className="flex mt-4 sm:justify-center gap-4 sm:mt-0">
-            <a>
+            <a
+             href='https://www.instagram.com/getmy_room?igsh=ODA1NTc5OTg5Nw=='
+             target='new'
+             aria-label="Instagram Profile: @getmy_room"
+            >
               <img
+              
                 alt=""
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"
                 className="w-5 h-5 mt-2 "
@@ -49,12 +54,22 @@ const Footer = () => {
             </a>
 
 
-
+            <a
+             href='https://www.instagram.com/getmy_room?igsh=ODA1NTc5OTg5Nw=='
+             target='new'
+             aria-label="Instagram Profile: @getmy_room"
+            >
             <img
               alt=""
               src="https://w7.pngwing.com/pngs/239/740/png-transparent-twitter-logo-icon-twitter-file-logo-social-media-news-thumbnail.png"
               className="w-5 h-5 mt-2"
             />
+
+            </a>
+
+
+
+           
           </div>
         </div>
         <div className="sm:flex sm:items-center sm:justify-between mt-5 xl:px-24">
@@ -63,7 +78,7 @@ const Footer = () => {
           </div>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <span className="text-sm text-gray-600 sm:text-center dark:text-gray-400">
-              © 2023 <a className="hover:underline">Getmyroom™</a>. All Rights Reserved.
+              © 2023 <a href="/" className="hover:underline">Getmyroom™</a>. All Rights Reserved.
             </span>
           </div>
         </div>
