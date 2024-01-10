@@ -1,5 +1,5 @@
 import React, { MutableRefObject, useRef, useEffect, useState } from 'react'
-import hero from "../assets/shutterstock_1470527960.jpg"
+import hero from "../assets/shutterstock_1470527960.webp"
 import { useNavigate } from 'react-router-dom';
 
 const Home_Search = () => {

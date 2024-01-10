@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import post2 from '../../assets/shutterstock_1470527960.jpg'
+import post2 from '../../assets/shutterstock_1470527960.webp'
 import { IoArrowBackCircleSharp } from "react-icons/io5";
-import countryData from 'country-data';
 // import Logincomponent from './Logincomponent';
 // import Registercomponent from './Registercomponent';
 import Loginform from './Loginform';

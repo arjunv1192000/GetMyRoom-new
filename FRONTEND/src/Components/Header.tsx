@@ -3,7 +3,7 @@ import { useState, useCallback, useEffect } from 'react'
 import { Dialog, Disclosure, Popover, } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, } from '@heroicons/react/24/outline'
 import { AiOutlineMenu } from "react-icons/ai"
-import logo from "../assets/Logo.png"
+import logo from "../assets/Logo.webp"
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { logout } from '../../src/redux/reducer/userSlice'
