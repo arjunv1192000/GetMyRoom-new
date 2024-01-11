@@ -74,8 +74,8 @@ const Type = ({ handleFormDataChange }) => {
         <form onSubmit={formik.handleSubmit}>
             <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-2 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row  ">
                 <div className="w-full sm: h-[700px] sm:flex flex-col   ">
-                    <h2 className="font-semibold text-gray-900 text-[38px] sm:text-[38px] md:text-4xl lg:text-5xl xl:text-[48px] text-center">It’s easy to get <br></br>started on GetMyRoom</h2>
-                    <div className='w-full sm:w-1/2 h-auto sm:flex flex-col sm:ml-44 mt-10 '>
+                    <h2 className="font-semibold text-gray-900 text-[38px] sm:text-[38px] md:text-4xl lg:text-5xl xl:text-[48px] ">It’s easy to get <br></br>started on GetMyRoom</h2>
+                    <div className='w-full sm:w-1/2 h-auto sm:flex flex-col  mt-10 '>
                         <div className='flex flex-col items-center  shadow md:flex-row  h-38 bg-white w-full'  >
                             <div className="flex flex-col justify-between p-4 leading-normal">
                                 <div className='flex flex-row'>
@@ -123,14 +123,14 @@ const Type = ({ handleFormDataChange }) => {
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white p-3">
                         What type of place will guests have?
                     </h5>
-                    <div className=" grid grid-cols-2 gap-10 md:grid-cols-2 lg:grid-cols-3 lg: p-5 lg:gap-12">
+                    <div className="grid grid-cols-2 gap-6  md:grid-cols-2 lg:grid-cols-3 lg:p-1 lg:gap-6">
                         {placeTypes.map((placeType, index) => (
                             <button
                                 key={index}
                                 className={`flex items-center justify-between px-3 py-2 border  ${selectedPlaceType === placeType.name
                                     ? ' bg-gray-200 '
                                     : 'border-gray-300'
-                                    } rounded-lg focus:outline-none focus:border-black h-20 w-[125px]`}
+                                    } rounded-lg focus:outline-none focus:border-black h-16 w-[125px]`}
                                 onClick={() => handlePlaceTypeSelection(placeType.name)}
                             >
                                 <span className="text-[12px] flex justify-center">{placeType.name}</span>

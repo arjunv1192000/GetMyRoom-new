@@ -126,7 +126,78 @@ const userAuthRepositoryImp = () => {
     return profile;
   };
 
+  const userpasswodupdate = async (email,hashPassword) => {
+    const profile = await userdata.findOneAndUpdate(
+      { email: email },
+      {
+       password:hashPassword,
+        
+      },
+      { new: true }
+    );
+    return profile;
+  };
 
+  const saveOtp = async (email, otpValue) => {
+    try {
+      const user = await userdata.findOneAndUpdate(
+        { email: email },
+        {
+          $set: {
+            otp: {
+              value: otpValue,
+              expiresAt: new Date(Date.now() + 2 * 60 * 1000), 
+            },
+          },
+        },
+        { new: true }
+      );
+  
+      if (!user) {
+       
+        console.log("User not found");
+        return null;
+      }
+  
+      console.log("OTP saved successfully for user:", email);
+      return user;
+    } catch (error) {
+      
+      console.error("Error saving OTP:", error);
+      throw error;
+    }
+  };
+
+  // const verify = async (email, enteredOtp) => {
+  //   console.log(email, enteredOtp);
+  //   try {
+  //     const user = await userdata.findOne({ email: email });
+
+  //     console.log(user);
+  
+  //     if (!user) {
+  //       return { status: false, message: "Invalid or expired OTP" };
+  //     }
+  
+  //     const currentTime = new Date();
+  //     if (user.otp.value === enteredOtp && user.otp.expiresAt > currentTime) {
+       
+  //       return { status: false, message: "Invalid or expired OTP" };
+  //     } else {
+  //       res.status(401).json({ success: false, message: "Invalid or expired OTP" });
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     return { status: false, message: "Invalid or expired OTP" };
+  //   }
+  // };
+  
+  
+   
+  
+  
+  
+  
 
 
 
@@ -140,7 +211,10 @@ const userAuthRepositoryImp = () => {
     googlecreate,
     removeproperty,
     userDatas,
-    userupdate
+    userupdate,
+    userpasswodupdate,
+    saveOtp,
+    
 
   }
 

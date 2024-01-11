@@ -22,6 +22,8 @@ const authRouter=(express)=>{
     router.route('/googlelogin').post(controller.userloginbygoogle)
     router.route('/removeproperty').post(controller.removeproperty)
     router.route('/updateuserdata').post(controller.updateuserdata)
+    router.route('/checkemail').post(controller.verifyemail)
+    router.route('/updatepassword').post(controller.updatepassword)
     
 
 

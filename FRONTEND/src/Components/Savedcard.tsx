@@ -83,7 +83,7 @@ const Savedcard: React.FC<Props> = ({title,location,bathrooms,bedrooms,image,pri
     return (
         <div className=" w-[80%] h-auto bg-white border border-gray-200 rounded-lg shadow  hover:bg-gray-100 overflow-hidden   mt-20" >
             <div className="flex flex-col sm:flex-row" onClick={() => navigate(`/details?Id=${Id}`)}>
-                <img className="object-cover w-full sm:w-2/6" src={image[0]} alt="" />
+                <img className="object-cover w-full h-60 sm:w-2/6" src={image[0]} alt="" />
                 <div className='w-full flex flex-col'>
                     <div className='w-auto ml-2  sm:w-1/2 sm:ml-10'>
                         <h2 className="flex  font-semibold text-gray-900 text-[20px] sm:text-[28px] md:text-[28px] lg:text-[30px] ">{title}</h2>

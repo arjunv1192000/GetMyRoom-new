@@ -114,7 +114,7 @@ const Filterbar = ({ onViewTypeChange, onApplyFilters }) => {
               placeholder="Type your location"
               value={location}
               onChange={handleInputChange}
-              className="p-2 border rounded text-sm   sm:w-60 md:w-72 lg:w-80 xl:w-60"
+              className="p-2 border rounded text-sm   sm:w-60 md:w-68 lg:w-80 xl:w-60"
             />
             {location && (
               <button
@@ -157,17 +157,17 @@ const Filterbar = ({ onViewTypeChange, onApplyFilters }) => {
 
         <div className="flex flex-col sm:flex-row items-center mt-5 gap-6">
           <button
-            className="w-12 sm:w-40 ml-2 transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#77435d] duration-300 text-center font-medium text-white px-4 py-2 border rounded mr-2 flex  items-center  "
+            className="w-12 sm:w-auto  transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#77435d] duration-300 text-center font-medium text-white px-4 py-2 border rounded mr-2 flex  items-center  "
             onClick={handleSearchButtonClick}
           >
-            <IoIosSearch className="w-5 h-5 " />
+            <IoIosSearch className="w-5 h-5 mr-1 " />
             <span className="hidden sm:block">Search</span>
           </button>
           <button
-            className='w-12  sm:w-40 ml-2 transition ease-in-out delay-150 bg-[#870e4d] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#77435d] duration-300 text-center font-medium text-white px-4 py-2 border rounded mr-2 flex  items-center '
+            className='w-12  sm:w-auto  transition ease-in-out delay-150 bg-[#870e4d] hover:-translate-y-1 hover:scale-110 hover: hover:bg-[#77435d] duration-300 text-center font-medium text-white px-4 py-2 border rounded mr-2 flex  items-center '
             onClick={toggleFilterDialog}
           >
-            <IoIosOptions className="w-5 h-5 " />
+            <IoIosOptions className="w-5 h-5 mr-1 " />
             <span className="hidden sm:block">Filter</span>
           </button>
         </div>

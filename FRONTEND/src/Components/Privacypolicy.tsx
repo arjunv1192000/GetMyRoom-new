@@ -18,8 +18,8 @@ const Privacypolicy = () => {
             <p className="mb-4 text-lg">
                 1.  In this Privacy Policy, the following definitions are used:
             </p>
-            <div className="container mx-auto">
-                <table className="table-auto">
+            <div className="container mx-auto ">
+                <table className="table-auto bg-slate-400">
                     <tbody>
                         <tr>
                             <td className="border px-4 py-2">Data</td>

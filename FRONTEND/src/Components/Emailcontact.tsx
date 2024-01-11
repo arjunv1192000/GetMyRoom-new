@@ -175,7 +175,7 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
                 <div className='w-full sm:w-1/2 h-auto flex justify-center'>
                     <div className=" w-[80%] h-auto bg-white border border-gray-200 rounded-lg shadow  hover:bg-gray-100 overflow-hidden mt-12">
                         <div className="flex flex-col">
-                            <img className="object-cover w-full" src={image[0]} alt="" />
+                            <img className="object-cover w-full h-60" src={image[0]} alt="" />
                             <div className='w-full flex flex-col'>
                                 <div className='w-auto ml-2  sm:w-1/2 sm:ml-10'>
                                     <h2 className="flex  font-semibold text-gray-900 text-[20px] sm:text-[28px] md:text-[28px] lg:text-[30px] ">{title}</h2>

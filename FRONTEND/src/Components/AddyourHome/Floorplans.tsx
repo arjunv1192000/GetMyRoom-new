@@ -111,7 +111,7 @@ const Floorplans = ({ handleFormDataChange }) => {
           {floorplanPreview && (
             <div className="mt-3">
               <p className="font-semibold">Floorplan Preview:</p>
-              <img src={floorplanPreview} alt="Floorplan Preview" className="mt-2 max-w-full" />
+              <img src={floorplanPreview} alt="Floorplan Preview" className="mt-2 w-full h-60 object-contain" />
             </div>
           )}
         </div>

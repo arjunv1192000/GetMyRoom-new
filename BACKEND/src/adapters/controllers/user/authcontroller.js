@@ -10,6 +10,8 @@ import googleregister from "../../../application/useCase/user/googleregister.js"
 import googlelogin from "../../../application/useCase/user/googlelogin.js"
 import removepropertys from "../../../application/useCase/user/removeproperty.js"
 import userdataupdation from "../../../application/useCase/user/userdataupdation.js"
+import Verifyemail from "../../../application/useCase/user/verifyemail.js"
+import passwordupdate from "../../../application/useCase/user/passwordupdate.js"
 
 
 const Authcontroller = (userAuthRepositoryInt, userAuthRepositoryImp, authServiceInterface, authServiceImp,otpserviceInt,otpserviceImp) => {
@@ -31,10 +33,37 @@ const Authcontroller = (userAuthRepositoryInt, userAuthRepositoryImp, authServic
 
 
     }
-    const otpverification = (req, res) =>{
-        const {otp,phoneNumber}=req.body
 
-        verifyotp(otp,phoneNumber,otpService).then((response)=>{
+    const verifyemail= (req, res) => {
+        const{email}=req.body
+    
+        Verifyemail(email,dbrepository,otpService).then((response)=>{
+           
+            res.json(response)
+
+          
+        }).catch((err)=>console.log(err))
+
+
+    }
+
+    const updatepassword = (req, res) => {
+        const{email,password}=req.body
+        passwordupdate(email,password,dbrepository,authService).then((response)=>{
+           
+            res.json(response)
+
+        }).catch((err)=>console.log(err))
+
+    }
+
+
+
+
+    const otpverification = (req, res) =>{
+        const {otp,email}=req.body
+
+        verifyotp(otp,email,dbrepository).then((response)=>{
             res.json(response)
           
         }).catch((err)=>console.log(err))
@@ -166,7 +195,9 @@ const Authcontroller = (userAuthRepositoryInt, userAuthRepositoryImp, authServic
         createuserbygoogle,
         userloginbygoogle,
         removeproperty,
-        updateuserdata
+        updateuserdata,
+        verifyemail,
+        updatepassword
         
 
     }

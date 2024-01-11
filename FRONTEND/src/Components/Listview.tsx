@@ -52,6 +52,7 @@ const Listview = ({ location, type, filters,openLoginModal }) => {
       try {
         const response = await axios.get(`/getallproperty?location=${location}&type=${type}`);
         const allProperties = response.data.propertydata.allproperty;
+        
         const filteredProperties = allProperties.filter((property: {
           sellertype: any;  bedrooms: number; bathrooms: number; price: any; sellerType: any;
         }) => {
@@ -148,7 +149,7 @@ const Listview = ({ location, type, filters,openLoginModal }) => {
                
               ))}
             </div>
-            <div className='flex justify-center mt-10'>
+            <div className='flex justify-center  mt-10'>
               <nav aria-label="Page navigation example">
                 <ul className="list-style-none flex">
                   <li>

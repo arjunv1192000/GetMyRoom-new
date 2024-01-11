@@ -7,7 +7,7 @@ import { IoArrowBackCircleSharp } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { login } from '../../redux/reducer/userSlice';
 import toast, { Toaster } from 'react-hot-toast';
-import {  IoEye, IoEyeOff } from 'react-icons/io5';
+import { IoEye, IoEyeOff } from 'react-icons/io5';
 
 const Registerform = ({ onBack, onClose }) => {
     const dispatch = useDispatch();
@@ -19,13 +19,13 @@ const Registerform = ({ onBack, onClose }) => {
 
     const validationSchemaStep1 = Yup.object({
         email: Yup.string()
-        .trim()
-        .matches(
-          /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
-          'Email must be in lowercase'
-        )
-        .email('Invalid email')
-        .required('Email is required'),
+            .trim()
+            .matches(
+                /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
+                'Email must be in lowercase'
+            )
+            .email('Invalid email')
+            .required('Email is required'),
         password: Yup.string()
             .required('Password is required')
             .min(6, 'Password must be at least 6 characters'),
@@ -41,9 +41,9 @@ const Registerform = ({ onBack, onClose }) => {
             .min(5, 'Full name must be at least 5 characters')
             .required('Full name is required'),
 
-        image: Yup.mixed()
-            .nullable()
-            .required('Image is required') as Yup.MixedSchema<FileList | null>,
+        // image: Yup.mixed()
+        //     .nullable()
+        //     .required('Image is required') as Yup.MixedSchema<FileList | null>,
     });
 
     const handleImageChange = (event: { currentTarget: { files: any[]; }; }) => {
@@ -56,7 +56,7 @@ const Registerform = ({ onBack, onClose }) => {
     };
 
     const handleBack = () => {
-        if (step === 2 ) {
+        if (step === 2) {
             setStep(1);
 
         } else {
@@ -82,7 +82,7 @@ const Registerform = ({ onBack, onClose }) => {
             axios.post('/register', body)
                 .then((response) => {
                     if (response.data.status === true) {
-                       
+
                         setStep(2);
 
                     } else {
@@ -94,7 +94,7 @@ const Registerform = ({ onBack, onClose }) => {
                 .catch((response) => {
                     console.error(response.message);
                 });
-            
+
 
 
         },
@@ -144,7 +144,7 @@ const Registerform = ({ onBack, onClose }) => {
                 };
 
                 console.log(body);
-                
+
                 axios.post('/adduserdata', body)
                     .then((response) => {
                         if (response.data.status === true) {
@@ -226,7 +226,7 @@ const Registerform = ({ onBack, onClose }) => {
                                 className='absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer'
                                 onClick={togglePasswordVisibility}
                             >
-                                {showPassword ?  <IoEye />: <IoEyeOff />}
+                                {showPassword ? <IoEye /> : <IoEyeOff />}
                             </span>
                             {formikStep1.touched.password && formikStep1.errors.password && (
                                 <div className='text-red-500 text-sm absolute mt-2'>{formikStep1.errors.password}</div>
@@ -248,8 +248,8 @@ const Registerform = ({ onBack, onClose }) => {
                                 onClick={toggleConfirmPasswordVisibility}
                                 className='absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer'
                             >
-                               
-                                {showConfirmPassword ? <IoEye />: <IoEyeOff />}
+
+                                {showConfirmPassword ? <IoEye /> : <IoEyeOff />}
                             </span>
                             {formikStep1.touched.confirmPassword && formikStep1.errors.confirmPassword && (
                                 <div className='text-red-500 text-sm absolute mt-2'>{formikStep1.errors.confirmPassword}</div>
@@ -257,11 +257,9 @@ const Registerform = ({ onBack, onClose }) => {
                         </div>
                         <div>
                             <p className='text-xs text-gray-600 mt-5 ml-3'>
-                                We’ll call or text you to confirm your number. Standard message and data rates apply
-                                <a href='/privacy' className='text-blue-500'>
-                                    Privacy Policy
-                                </a>
-                                .
+                                By clicking create account you confirm that you agree to our website
+                                <a href='/terms' className='text-blue-500'> terms of use </a> of use,our <a href='/privacy' className='text-blue-500'>Privacy Policy</a>
+
                             </p>
                         </div>
                         <div className='mt-5 p-2'>
@@ -270,62 +268,62 @@ const Registerform = ({ onBack, onClose }) => {
                     </form>
                 ) : (
                     <>
-                    <div className='flex justify-center mt-1  '>
-                    <h2 className=" font-semibold text-black text-[20px]  ml-5  ">Finish signing up</h2>
-                </div>
-                <button onClick={handleBack} className=" top-20 left-5 text-gray-500 hover:text-gray-700">
-                    <IoArrowBackCircleSharp />
-                </button>
-                    <form onSubmit={formikStep2.handleSubmit}>
-
-                        <div className='mt-5 p-2'>
-
-                            <input
-                                type="text"
-                                id="fullName"
-                                name="fullName"
-                                value={formikStep2.values.fullName}
-                                onChange={formikStep2.handleChange}
-                                onBlur={formikStep2.handleBlur}
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Full Name"
-
-                            />
-                            {formikStep2.touched.fullName && formikStep2.errors.fullName && (
-                                <div className='text-red-500 text-sm absolute mt-2'>{formikStep2.errors.fullName}</div>
-                            )}
-
+                        <div className='flex justify-center mt-1  '>
+                            <h2 className=" font-semibold text-black text-[20px]  ml-5  ">Finish signing up</h2>
                         </div>
-                      
-                        <div className='mt-5 p-2'>
-                            <label htmlFor="profileImage" className="text-gray-600">Profile Image:</label>
-                            <input
-                                type="file"
-                                id="image"
-                                accept="image/*"
-                                name='image'
-                                onChange={handleImageChange}
-                                onBlur={formikStep2.handleBlur}
-                                className="mt-1 block w-full p-2.5"
-                            />
-                            {formikStep2.touched.image && formikStep2.errors.image && (
-                                <div className='text-red-500 text-sm absolute mt-2'>{formikStep2.errors.image}</div>
-                            )}
-                        </div>
-                        <div>
+                        <button onClick={handleBack} className=" top-20 left-5 text-gray-500 hover:text-gray-700">
+                            <IoArrowBackCircleSharp />
+                        </button>
+                        <form onSubmit={formikStep2.handleSubmit}>
 
-                            <p className="text-xs text-gray-600 mt-1 ml-3">
-                                We’ll call or text you to confirm your number. Standard message and data rates apply<a href="/privacy-policy" className="text-blue-500">Privacy Policy</a>.
-                            </p>
-                        </div>
-                        <div className='mt-5 p-2 mb-10'>
-                            <button type="submit" className=" transition ease-in-out delay-150 bg-[#390b79]  hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 rounded w-full" >
-                                Agree and continue
-                            </button>
-                        </div>
+                            <div className='mt-5 p-2'>
+
+                                <input
+                                    type="text"
+                                    id="fullName"
+                                    name="fullName"
+                                    value={formikStep2.values.fullName}
+                                    onChange={formikStep2.handleChange}
+                                    onBlur={formikStep2.handleBlur}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Full Name"
+
+                                />
+                                {formikStep2.touched.fullName && formikStep2.errors.fullName && (
+                                    <div className='text-red-500 text-sm absolute mt-2'>{formikStep2.errors.fullName}</div>
+                                )}
+
+                            </div>
+
+                            <div className='mt-5 p-2'>
+                                <label htmlFor="profileImage" className="text-gray-600">Profile Image:</label>
+                                <input
+                                    type="file"
+                                    id="image"
+                                    accept="image/*"
+                                    name='image'
+                                    onChange={handleImageChange}
+                                    onBlur={formikStep2.handleBlur}
+                                    className="mt-1 block w-full p-2.5"
+                                />
+                                {formikStep2.touched.image && formikStep2.errors.image && (
+                                    <div className='text-red-500 text-sm absolute mt-2'>{formikStep2.errors.image}</div>
+                                )}
+                            </div>
+                            <div>
+
+                                <p className="text-xs text-gray-600 mt-1 ml-3">
+                                    We’ll call or text you to confirm your number. Standard message and data rates apply<a href="/privacy-policy" className="text-blue-500">Privacy Policy</a>.
+                                </p>
+                            </div>
+                            <div className='mt-5 p-2 mb-10'>
+                                <button type="submit" className=" transition ease-in-out delay-150 bg-[#390b79]  hover: hover:bg-[#870e4d] duration-300 text-white px-4 py-2 rounded w-full" >
+                                    Agree and continue
+                                </button>
+                            </div>
 
 
-                    </form>
+                        </form>
                     </>
                 )}
             </div>

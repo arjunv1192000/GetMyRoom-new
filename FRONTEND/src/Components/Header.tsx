@@ -138,7 +138,7 @@ const Header = ({ openLoginModal }) => {
                                     {userdata?.image ? (
                                         <img
                                             className="h-8 w-8 rounded-full"
-                                            src={userdata.image}
+                                            src={userdata.image?userdata.image:avatar}
                                             alt=""
                                         />
                                     ) : (

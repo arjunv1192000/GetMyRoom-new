@@ -13,6 +13,9 @@ const userAuthRepositoryInt=(repository)=>{
     const removeproperty=(userId,postId)=>repository.removeproperty(userId,postId)
     const userDatas=()=>repository.userDatas()
     const userupdate=(fullname,email,image,userId)=>repository.userupdate(fullname,email,image,userId)
+    const userpasswodupdate=(email,hashPassword)=>repository.userpasswodupdate(email,hashPassword)
+    const saveOtp=(email, otpValue)=>repository.saveOtp(email, otpValue)
+    const verify=(email,otpValue)=>repository.verify(email,otpValue)
 
 
     return{
@@ -25,7 +28,10 @@ const userAuthRepositoryInt=(repository)=>{
         googlecreate,
         removeproperty,
         userDatas,
-        userupdate
+        userupdate,
+        userpasswodupdate,
+        saveOtp,
+        verify
 
 
     }

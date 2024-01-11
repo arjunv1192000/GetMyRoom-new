@@ -145,12 +145,13 @@ const Location = ({ handleFormDataChange }) => {
     <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row  justify-center mb-20">
       <div className='w-full h-auto sm:flex flex-col '>
         <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold tracking-tight text-gray-900 dark:text-white">Where's your place located?</h5>
-        <div className='flex flex-row'>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Select the location marker  </p>
-        <FaMapMarkerAlt fill="red" className=" w-4 h-4 ml-2 mt-1  " />
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400"> , Click Add</p>
+        <div className='flex flex-row mt-2 border border-red-500  rounded justify-center '>
+        <p className="mb-3 font-medium text-gray-700 dark:text-gray-400">Note : Select the location marker</p>
+        <FaMapMarkerAlt fill="red" className=" w-4 h-4 mt-1  " />
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">,Click Add</p>
 
         </div>
+       
        
         <form onSubmit={formik.handleSubmit}>
           <div className="max-w-md mx-auto rounded-xl overflow-hidden shadow-lg md:max-w-2xl ">
@@ -172,7 +173,7 @@ const Location = ({ handleFormDataChange }) => {
               name="coordinates.lng"
               value={formik.values.coordinates.lng}
             />
-            <div ref={mapRef} className="h-60 w-full sm:w-96 md:w-2/3 lg:w-3/4 xl:w-full mt-5"></div>
+            <div ref={mapRef} className="h-60 w-full sm:w-full md:w-full lg:w-full xl:w-full mt-5"></div>
 
             <div className='flex justify-end p-3'>
               <button

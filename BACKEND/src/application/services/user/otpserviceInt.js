@@ -2,15 +2,15 @@
 
 const OtpserviceInt=(repository)=>{
 
-    const createotp=(number)=>repository.createotp(number)
-    const verify=(otp,phoneNumber)=>repository.verify(otp,phoneNumber)
-    const createotptelisign=(number)=>repository.createotptelisign(number)
+    const createotp=()=>repository.createotp()
+    const sendOtpByEmail=(email, otpValue)=>repository.sendOtpByEmail(email, otpValue)
+   
 
 
     return{
         createotp,
-        verify,
-        createotptelisign
+        sendOtpByEmail
+       
 
     }
 }

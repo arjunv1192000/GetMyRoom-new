@@ -71,19 +71,16 @@ const Mylist = (openLoginModal) => {
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-5 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900  sm:ml-20 sm:text-3xl  ">My List</h2>
-        <div className=" ml-10 sm:ml-10">
+        <div className=" ml-10 sm:ml-10 ">
           {property.length === 0 ? (
             <div className='flex justify-center w-full h-40 mt-10'>
 
               <div onClick={() => navigate('/form')}
-                className=' text-sm font-semibold text-center py-2 w-[150px] h-10 rounded-full transition ease-in-out delay-150 bg-[#870e4d]  hover:-translate-y-1 hover:scale-110 hover:bg-[#390b79] hover: duration-300transition cursor-pointer text-white'
+                className=' text-sm font-semibold text-center py-2 w-[300px] h-10 rounded-full transition ease-in-out delay-150 bg-[#870e4d]  hover:-translate-y-1 hover:scale-110 hover:bg-[#390b79] hover: duration-300transition cursor-pointer text-white'
               >
                 Add your home
 
               </div>
-
-
-
 
 
 

@@ -2,11 +2,11 @@ import { useState, useRef, useEffect } from 'react'
 import * as React from 'react';
 import { FaRegImage } from "react-icons/fa6";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { IoVideocam } from "react-icons/io5";
+// import { IoVideocam } from "react-icons/io5";
 import { IoShareSocialSharp } from "react-icons/io5";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
-import { IoIosCall } from "react-icons/io";
+// import { IoIosCall } from "react-icons/io";
 import { MdOutlineMailOutline } from "react-icons/md";
+import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { BiBed } from "react-icons/bi";
@@ -103,6 +103,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
     const [isExpanded7, setIsExpanded7] = useState(false);
     const [contentType, setContentType] = useState('image');
     const [isCallClicked, setIsCallClicked] = useState(false);
+    const [isFavorite, setIsFavorite] = useState(false);
 
 
     const handleCallButtonClick = () => {
@@ -174,6 +175,8 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
     }
 
     const handleSaveClick = async () => {
+
+        setIsFavorite(!isFavorite);
 
 
         if (userdata.id) {
@@ -336,16 +339,22 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                                 </div>
                             )}
                             {/* End Modal */}
+                            
 
 
 
-                            <button className="w-auto  flex items-center  mr-1 mt-1 " onClick={handleSaveClick} >
-                                <MdOutlineFavoriteBorder
-
-                                    className="w-6 h-6 flex justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:bg-[#870e4d]scale-110 hover:duration-300"
-                                    fill="#870e4d"
-                                />
-
+                            <button className="w-auto  flex items-center  mr-1 mt-1" onClick={handleSaveClick}>
+                                {isFavorite ? (
+                                    <MdFavorite
+                                        className="w-6 h-6 flex justify-center transition ease-in-out delay-150 hover:-translate-y-1  scale-110 hover:duration-300"
+                                        fill="#870e4d"
+                                    />
+                                ) : (
+                                    <MdOutlineFavoriteBorder
+                                        className="w-6 h-6 flex justify-center transition ease-in-out delay-150 hover:-translate-y-1  scale-110 hover:duration-300"
+                                        fill="#870e4d"
+                                    />
+                                )}
                             </button>
                         </div>
 
