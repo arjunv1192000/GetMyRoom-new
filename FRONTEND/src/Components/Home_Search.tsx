@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useRef, useEffect, useState } from 'react'
+import{ MutableRefObject, useRef, useEffect } from 'react'
 import hero from "../assets/shutterstock_1470527960.webp"
 import { useNavigate } from 'react-router-dom';
 
@@ -96,26 +96,16 @@ const Home_Search = () => {
     type();
   }, []);
   
-
-
-
-
-
-
-
-
-
   return (
     <>
       <div className='relative h-[600px]' ref={secondSectionRef} style={{ backgroundImage: `url(${hero})`, backgroundSize: 'cover', backgroundPosition: 'center',  }}>
-        {/* <img className="w-full h-[600px] object-cover " src={hero} alt="image description" /> */}
         <div className='absolute top-[15%] sm:top-[15%] left-[10%] md:w-[50%] md:left-[6%] md:top=[15%]'>
           <h2 className='flex font-extrabold text-[#870e4d] text-3xl sm:text-4xl'>
-            Live Better, <span id="custom-typing-span" className='text-black  overflow-hidden  pr-5 pb-2 '></span>
+            Live Better,  <span id="custom-typing-span" className='text-black  overflow-hidden  pr-5 pb-2 ml-2 '></span>
           </h2>
         </div>
 
-        <div className=' absolute  top-[10%]  lg:w-auto lg:left-[75%] lg:top-[20%]  sm:left-[70%] hidden sm:inline-block '>
+        <div className=' absolute  top-[10%]  lg:w-auto lg:left-[75%] lg:top-[10%]  sm:left-[70%] hidden sm:inline-block '>
           <blockquote className="text-xl italic font-semibold text-gray-900 dark:text-white">
             <svg className="w-5 h-5 text-black dark:text-gray-600 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
               <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />

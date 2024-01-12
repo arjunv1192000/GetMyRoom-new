@@ -2,9 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import * as React from 'react';
 import { FaRegImage } from "react-icons/fa6";
 import { FaMapMarkerAlt } from "react-icons/fa";
-// import { IoVideocam } from "react-icons/io5";
 import { IoShareSocialSharp } from "react-icons/io5";
-// import { IoIosCall } from "react-icons/io";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
@@ -29,6 +27,7 @@ import {
     WhatsappShareButton,
     XIcon,
 } from "react-share";
+import avatar from "../assets/avatar.png"
 
 type RootState = {
     user: {
@@ -339,7 +338,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                                 </div>
                             )}
                             {/* End Modal */}
-                            
+
 
 
 
@@ -387,12 +386,6 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
 
                     )}
-                    {/* {contentType === 'video' && (
-                        <video className='w-full h-[300px] sm:h-[500px]' controls>
-                            <source src={video} type='video/mp4' />
-                            Your browser does not support the video tag.
-                        </video>
-                    )} */}
                     <div className='w-[150px] h-auto mt-3  flex flex-row gap-2 mb-5 '>
                         <button
                             className={`w-10 h-10 bg-black bg-opacity-50 text-white px-3 py-2 border rounded ml-1 ${contentType === 'image' ? 'border-blue-500' : ''
@@ -408,13 +401,6 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                         >
                             <FaMapMarkerAlt />
                         </button>
-                        {/* <button
-                            className={`w-10 h-10 bg-black bg-opacity-50 text-white px-3 py-2 border rounded ${contentType === 'video' ? 'border-blue-500' : ''
-                                }`}
-                            onClick={() => handleButtonClick('video')}
-                        >
-                            <IoVideocam />
-                        </button> */}
                     </div>
                 </div>
 
@@ -434,12 +420,6 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                                 <h5 className="mb-5 text-[14px] text-[#6f6f6f] font-sans  font-semibold  tracking-tight ">{date}</h5>
 
                             </div>
-                            {/* <div className='w-32  h-20  flex flex-col items-center bg-white'>
-
-                                <MdMeetingRoom color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
-                                <h5 className="mb-2 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1"> {room} Room</h5>
-
-                            </div> */}
                             <div className='w-24  h-20  flex flex-col items-center bg-white'>
 
                                 <FaBath color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-2 ml-3" />
@@ -454,12 +434,6 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
                             </div>
 
-                            {/* <div className='w-40  h-30  flex flex-col items-center bg-white'>
-
-                                <h5 className="mb-2 text-base font-sans  font-medium tracking-tight text-gray-900 mt-1">Build Year</h5>
-                                <h5 className="mb-5 text-base font-sans  font-medium  tracking-tight text-gray-900 mt-1  ml-10">{formatted}</h5>
-
-                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -626,9 +600,13 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                             </div>
                             {isExpanded7 && <div className='mt-1 w-full h-auto '>
                                 <div className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-lg md:max-w-2xl flex justify-center pb-20">
-                                    <img className="h-80 w-80   object-cover  p-4" src={floorplans} alt="Video Thumbnail" />
-
+                                    {floorplans === 'Not available' ? (
+                                        <p className="text-gray-500">Not available</p>
+                                    ) : (
+                                        <img className="h-80 w-80 object-cover p-4" src={floorplans} alt="Video Thumbnail" />
+                                    )}
                                 </div>
+
                             </div>}
 
                         </div>
@@ -658,7 +636,13 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                 <div className='sm:flex flex-row w-11/12 h-auto bg-white shadow-md mt-10 rounded-md mb-10  '>
 
                     <div className='flex justify-center'>
-                        <img className=" w-[60px] h-[60px] bg-white border border-gray-200 rounded-lg shadow items-center m-6 " src={userimg} alt="Video Thumbnail" />
+                        {userimg && userimg !== 'Not available' ? (
+                             <img className=" w-[60px] h-[60px] border border-gray-200 rounded-lg shadow items-center m-6 " src={userimg} alt={username} />
+                        ) : (
+                            <img className=" w-[60px] h-[60px] border border-gray-200 rounded-lg shadow items-center m-6 " src={avatar} alt={username} />
+                        )}
+
+                       
 
                     </div>
 

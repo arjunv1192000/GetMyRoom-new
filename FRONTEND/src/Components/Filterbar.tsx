@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, MutableRefObject } from 'react';
-import { IoIosArrowDown, IoIosArrowUp, IoIosOptions, IoIosSearch, IoIosClose, IoIosArrowBack } from 'react-icons/io';
+import React, { useState,useRef, MutableRefObject } from 'react';
+import { IoIosOptions, IoIosSearch, IoIosClose, IoIosArrowBack } from 'react-icons/io';
 import { IoMapOutline } from "react-icons/io5";
 import FilterDialog from './Filtnavbar';
 import { useNavigate } from 'react-router-dom';
@@ -26,46 +26,6 @@ const Filterbar = ({ onViewTypeChange, onApplyFilters }) => {
   const propertyTypeRef: MutableRefObject<HTMLSelectElement | null> = useRef(null);
 
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   const script = document.createElement('script');
-  //   script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCoQVX3-I5XP1kdYs0b1SX-h-qy5Bd_CGU&libraries=places`;
-  //   script.async = true;
-  //   script.defer = true;
-  //   document.head.appendChild(script);
-
-  //   script.onload = () => {
-  //     initAutocomplete();
-  //   };
-
-  //   return () => {
-  //     document.head.removeChild(script);
-  //   };
-  // }, []);
-
-  // const initAutocomplete = () => {
-  //   const input = searchInputRef.current;
-
-  //   if (input) {
-  //     const searchBox = new window.google.maps.places.SearchBox(input);
-
-  //     searchBox.addListener('places_changed', () => {
-  //       const places = searchBox.getPlaces();
-
-  //       if (places.length === 0) {
-  //         return;
-  //       }
-
-  //       const selectedPlace = places[0];
-  //       const coordinates = selectedPlace.geometry?.location?.toJSON();
-  //       const locationName = selectedPlace.formatted_address;
-  //       setLocation(locationName)
-
-  //       console.log('Coordinates: ', coordinates);
-  //       console.log('Location Name: ', locationName);
-  //     });
-  //   }
-  // };
 
   const handleFilterClick = () => {
     setShowFilterDropdown(!showFilterDropdown);

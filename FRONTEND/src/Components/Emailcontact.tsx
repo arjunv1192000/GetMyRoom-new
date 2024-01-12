@@ -1,5 +1,3 @@
-
-import post from "../assets/poster.jpg"
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { ErrorMessage, Field, Form, Formik } from "formik";
@@ -8,8 +6,8 @@ import Axios from "../Components/Utils/Ssrvice/axios"
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { BiBed } from "react-icons/bi";
-import { MdMeetingRoom } from "react-icons/md";
 import { FaBath } from "react-icons/fa6";
+import avatar from "../assets/avatar.png"
 
 type RootState = {
     user: {
@@ -67,7 +65,7 @@ const validationSchema = Yup.object({
 
 
 
-const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedrooms, image, price, userimg, username, useremail, phone, Ids }) => {
+const Emailcontact: React.FC<Props> = ({ title, location, bathrooms, bedrooms, image, price, userimg, username, useremail, Ids }) => {
     const userdata = useSelector((state: RootState) => state.user.value);
     const navigate = useNavigate();
 
@@ -82,7 +80,7 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
             useremail: useremail,
             propertyname: title,
             location: location.locationName,
-            name:username,
+            name: username,
 
         }
 
@@ -93,7 +91,7 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
 
 
             if (response.data.response == true) {
-               
+
 
                 toast.success('Email send Successfully')
 
@@ -143,16 +141,6 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
                                 placeholder="Email Address"
                             />
                             <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
-
-                            {/* <Field
-                                type="text"
-                                id="phoneNumber"
-                                name="phoneNumber"
-                                className="mt-1 p-4 bg-gray-50 border border-gray-300 mb-10 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Phone Number"
-                            />
-                            <ErrorMessage name="phoneNumber" component="div" className="text-red-500 text-sm" /> */}
-
                             <Field
                                 as="textarea"
                                 id="message"
@@ -193,17 +181,6 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
                                 </div>
 
                                 <div className="w-full h-20 flex flex-row  gap-6">
-                                    {/* <div className='w-20 h-20 ml-4  flex flex-col items-center'>
-
-                                        <MdMeetingRoom color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
-
-
-
-
-                                        <h5 className="mb-2 text-sm  tracking-tight text-gray-900 mt-1"> {room} room</h5>
-
-
-                                    </div> */}
                                     <div className='w-20 h-20  flex flex-col items-center'>
                                         <BiBed color="#870e4d" fill="#870e4d" className=" w-[20px] h-[20px] mt-5" />
 
@@ -227,8 +204,13 @@ const Emailcontact: React.FC<Props> = ({ title, location, room, bathrooms, bedro
                         <div className='w-full h-20  flex justify-between'>
                             <div className="flex items-center w-1/2">
                                 <div className="flex-shrink-0 ml-3">
-                                    <img className="w-8 h-8 rounded-full" src={userimg} alt="Neil image" />
+                                    {userimg && userimg !== 'Not available' ? (
+                                        <img className="w-8 h-8 rounded-full" src={userimg} alt={username} />
+                                    ) : (
+                                        <img className="w-8 h-8 rounded-full" src={avatar} alt={username} />
+                                    )}
                                 </div>
+
                                 <div className="flex-1 min-w-0 ms-4">
                                     <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
                                         {username}

@@ -38,6 +38,7 @@ type Property = {
     phone: string;
   };
   sellertype: string;
+  proId: string;
 };
 
 
@@ -67,6 +68,7 @@ const Listedpropertypage = () => {
 
             <Propertycard2
               key={data.id}
+              proId={data._id}
               title={data.title}
               location={data.location}
               image={data.image}

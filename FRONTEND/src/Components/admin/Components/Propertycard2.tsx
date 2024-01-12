@@ -3,6 +3,9 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { BiBed } from "react-icons/bi";
 import { MdMeetingRoom } from "react-icons/md";
 import { FaBath } from "react-icons/fa6";
+import { MdDeleteForever } from "react-icons/md";
+import axios from "../../Utils/property/axios"
+import toast, { Toaster } from 'react-hot-toast';
 
 type Props = {
     id: string;
@@ -32,13 +35,37 @@ type Props = {
     video: string;
     username: string;
     userimg: string;
+    proId:string;
 }
 
-const Propertycard2: React.FC<Props> = ({ title, location, room, bathrooms, bedrooms, date, image, price, username, userimg }) => {
+const Propertycard2: React.FC<Props> = ({ proId, title, location, room, bathrooms, bedrooms, date, image, price, username, userimg }) => {
+
+    const handleRemoveClick = async () => {
+        try {
+            const remove = await axios.post('/removeproperty', {postId:proId });
+            if (remove.data.status == true) {
+
+                toast.success('property remove Successfully')
+                window.location.reload();
+              
+
+            } else {
+                toast.error("error on removing job")
+
+            }
+
+
+
+        } catch (error) {
+
+            console.error('Error applying for the job:', error);
+        }
+    };
+
     return (
         <div className={`w-[80%] h-auto bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 overflow-hidden mt-20`}>
             <div className=" flex flex-col sm:flex-row">
-                <img className="object-cover w-full sm:w-2/6" src={image[0]} alt="" />
+                <img className="object-cover w-full h-60 sm:w-2/6" src={image[0]} alt="" />
 
                 <div className='w-full flex flex-col'>
                     <div className='w-1/2 ml-10'>
@@ -93,7 +120,17 @@ const Propertycard2: React.FC<Props> = ({ title, location, room, bathrooms, bedr
 
                     </div>
                 </div>
+                <div className=" mr-5 flex items-center gap-5">
+                   
+                    <button className="w-10 h-10 flex items-center  border rounded " onClick={handleRemoveClick}  >
+                        <MdDeleteForever className="w-6 h-6 ml-2" color="#c2cbd9" fill="#c2cbd9" />
+                    </button>
+                </div>
             </div>
+            <Toaster
+                position="bottom-center"
+                reverseOrder={false}
+            />
         </div>
     )
 }

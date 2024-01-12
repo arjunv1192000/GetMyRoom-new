@@ -9,6 +9,7 @@ import { login } from '../redux/reducer/userSlice';
 import toast, { Toaster } from 'react-hot-toast';
 import Axios from "../Components/Utils/Ssrvice/axios"
 import { IoEye, IoEyeOff } from 'react-icons/io5';
+import avatar from "../assets/avatar.png"
 
 type RootState = {
   user: {
@@ -242,11 +243,22 @@ const Profile = () => {
           </div>
           <div>
             <div className="relative rounded-lg shadow-xl mx-auto h-24 w-24 bg-cover bg-center">
-              <img
-                src={selectedFile ? URL.createObjectURL(selectedFile) : profile?.image}
+              {profile?.image && profile?.image !== 'Not available' ? (
+               <img
+               src={selectedFile ? URL.createObjectURL(selectedFile) :profile?.image }
+               className="object-fill rounded-lg shadow-xl mx-auto mt-6 h-24 w-24 bg-cover bg-center"
+               alt="Profile"
+             />
+              ) : (
+                <img
+                src={selectedFile ? URL.createObjectURL(selectedFile) :  avatar}
                 className="object-fill rounded-lg shadow-xl mx-auto mt-6 h-24 w-24 bg-cover bg-center"
                 alt="Profile"
               />
+              )}
+
+
+              
               <label
                 htmlFor="profileImage"
                 className="absolute bottom-0 right-0 bg-[#870e4d] text-white w-8 h-8 rounded-full p-2 cursor-pointer text-xs"

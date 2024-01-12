@@ -136,19 +136,27 @@ const Header = ({ openLoginModal }) => {
                                 <AiOutlineMenu />
                                 <div className="hidden md:block">
                                     {userdata?.image ? (
-                                        <img
-                                            className="h-8 w-8 rounded-full"
-                                            src={userdata.image?userdata.image:avatar}
-                                            alt=""
-                                        />
+                                        userdata.image === 'Not available' ? (
+                                            <img
+                                                className="h-8 w-8 rounded-full"
+                                                src={avatar}
+                                                alt=""
+                                            />
+                                        ) : (
+                                            <img
+                                                className="h-8 w-8 rounded-full"
+                                                src={userdata.image}
+                                                alt=""
+                                            />
+                                        )
                                     ) : (
-
                                         <img
                                             className="h-8 w-8 rounded-full"
                                             src={avatar}
                                             alt=""
                                         />
                                     )}
+
                                 </div>
                             </div>
 
@@ -203,35 +211,35 @@ const Header = ({ openLoginModal }) => {
 
                                 </Disclosure>
                                 <a
-                                    
+
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     onClick={() => navigate('/')}
                                 >
                                     Home
                                 </a>
                                 <a
-                                   
+
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     onClick={() => userdata && userdata.email ? navigate('/profile') : openLoginModal() || handlesidebarclose()}
                                 >
                                     Profile
                                 </a>
                                 <a
-                                    
+
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     onClick={() => userdata && userdata.email ? navigate('/save') : openLoginModal() || handlesidebarclose()}
                                 >
                                     Saved List
                                 </a>
                                 <a
-                                   
+
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     onClick={() => userdata && userdata.email ? navigate('/mylist') : openLoginModal() || handlesidebarclose()}
                                 >
-                                   My Listings
+                                    My Listings
                                 </a>
                                 <a
-                                   
+
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     onClick={() => userdata && userdata.email ? navigate('/form') : openLoginModal() || handlesidebarclose()}
                                 >
@@ -240,8 +248,8 @@ const Header = ({ openLoginModal }) => {
 
                                 {userdata && userdata.email && (
                                     <a
-                                       
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 font-bold   leading-7 text-[#870e4d] hover:bg-gray-50 text-[20px] " 
+
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 font-bold   leading-7 text-[#870e4d] hover:bg-gray-50 text-[20px] "
                                         onClick={handleLogout}
                                     >
                                         Log out

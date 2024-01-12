@@ -104,25 +104,20 @@ const Registerform = ({ onBack, onClose }) => {
 
 
     const formikStep2 = useFormik({
-        initialValues: {
-            fullName: '',
-            image: '',
+    initialValues: {
+        fullName: '',
+        image: '',
+    },
+    validationSchema: validationSchemaStep2,
+    onSubmit: async (values) => {
+        const fileimg = values.image;
 
-        },
-        validationSchema: validationSchemaStep2,
-        onSubmit: async (values) => {
-            const fileimg = values.image;
-            if (!fileimg) {
-                formikStep2.setFieldError('image', 'Image is required');
-            }
+        try {
+            let userimage = 'Not available';
 
-            try {
-
+            if (fileimg) {
                 const imageResponse = await Axios.get('/s3service');
                 const imageUrl = imageResponse.data.response;
-
-
-
 
                 const imageUploadResponse = await fetch(imageUrl, {
                     method: 'PUT',
@@ -132,53 +127,44 @@ const Registerform = ({ onBack, onClose }) => {
                     },
                 });
 
-                const userimage = imageUrl.split('?')[0];
-
-
-
-                const body = {
-                    email: formikStep1.values.email,
-                    password: formikStep1.values.password,
-                    name: values.fullName,
-                    image: userimage,
-                };
-
-                console.log(body);
-
-                axios.post('/adduserdata', body)
-                    .then((response) => {
-                        if (response.data.status === true) {
-                            console.log(response.data);
-                            localStorage.setItem('access_token_user', response.data.accessToken);
-                            dispatch(login({
-                                id: response.data.isUser.userId,
-                                name: response.data.isUser.userName,
-                                email: response.data.isUser.userEmail,
-                                image: response.data.isUser.userImg,
-                                access_token: response.data.accessToken,
-
-                            }));
-                            toast.success('Successfully Added!')
-                            handleModalClose();
-
-
-                        }
-                    })
-                    .catch((response) => {
-                        console.error(response.message);
-                    });
-
-            } catch (error) {
-                toast.error('Error uploading image:')
+                userimage = imageUrl.split('?')[0];
             }
 
+            const body = {
+                email: formikStep1.values.email,
+                password: formikStep1.values.password,
+                name: values.fullName,
+                image: userimage,
+            };
 
+            console.log(body);
 
+            axios.post('/adduserdata', body)
+                .then((response) => {
+                    if (response.data.status === true) {
+                        console.log(response.data);
+                        localStorage.setItem('access_token_user', response.data.accessToken);
+                        dispatch(login({
+                            id: response.data.isUser.userId,
+                            name: response.data.isUser.userName,
+                            email: response.data.isUser.userEmail,
+                            image: response.data.isUser.userImg,
+                            access_token: response.data.accessToken,
+                        }));
+                        toast.success('Successfully Added!')
+                        handleModalClose();
+                    }
+                })
+                .catch((response) => {
+                    console.error(response.message);
+                });
 
+        } catch (error) {
+            toast.error('Error uploading image:')
+        }
+    },
+});
 
-        },
-
-    });
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -306,9 +292,6 @@ const Registerform = ({ onBack, onClose }) => {
                                     onBlur={formikStep2.handleBlur}
                                     className="mt-1 block w-full p-2.5"
                                 />
-                                {formikStep2.touched.image && formikStep2.errors.image && (
-                                    <div className='text-red-500 text-sm absolute mt-2'>{formikStep2.errors.image}</div>
-                                )}
                             </div>
                             <div>
 

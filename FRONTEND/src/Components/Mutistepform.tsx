@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import Stepdetails from './AddyourHome/Stepdetails';
 import Location from './AddyourHome/Location';
 import Progressbar from './AddyourHome/Progressbar';
 import Type from './AddyourHome/Type';
 import Rooms from './AddyourHome/Rooms';
 import Features from './AddyourHome/Features';
 import Images from './AddyourHome/Images';
-import Videos from './AddyourHome/Videos';
 import Price from './AddyourHome/Price';
 import Description from './AddyourHome/Description';
 import Floorplans from './AddyourHome/Floorplans';
@@ -74,7 +72,6 @@ const Mutistepform = () => {
     }
   };
 
-  console.log(formData,"pp");
   
 
   const submitForm = async () => {
@@ -85,13 +82,10 @@ const Mutistepform = () => {
         userId: userdata.id,
         type: formData?.step1Data,
         location: formData?.step2Data,
-        // room: formData?.step3Data?.rooms,
         bathrooms: formData?.step3Data?.bathrooms,
         bedrooms: formData?.step3Data?.bedrooms,
-        // buildYear: formData?.step3Data?.buildYear,
         features: formData?.step4Data,
         image: formData?.step5Data,
-        // video: formData?.step6Data,
         tilte: formData?.step7Data,
         description: formData?.step8Data,
         price: formData?.step9Data,
@@ -102,7 +96,6 @@ const Mutistepform = () => {
       axios.post('/addnewproperty', body)
         .then((response) => {
           if (response.data.status === true) {
-            console.log(response.data);
             navigate("/mylist");
           }
         })
@@ -119,13 +112,11 @@ const Mutistepform = () => {
   
 
   const steps = [
-    // <Stepdetails />,
     <Type formData={formData} handleFormDataChange={handleFormDataChange} />,
     <Location formData={formData} handleFormDataChange={handleFormDataChange} />,
     <Rooms formData={formData} handleFormDataChange={handleFormDataChange} />,
     <Features formData={formData} handleFormDataChange={handleFormDataChange} />,
     <Images formData={formData} handleFormDataChange={handleFormDataChange} />,
-    // <Videos formData={formData} handleFormDataChange={handleFormDataChange} />,
     <Floorplans formData={formData} handleFormDataChange={handleFormDataChange} />,
     <Hometitle formData={formData} handleFormDataChange={handleFormDataChange} />,
     <Description formData={formData} handleFormDataChange={handleFormDataChange} />,

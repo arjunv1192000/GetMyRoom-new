@@ -8,11 +8,13 @@ const Floorplans = ({ handleFormDataChange }) => {
   const [floorplanPreview, setFloorplanPreview] = useState(null);
 
   const validationSchema = Yup.object({
-    image: Yup.mixed().required('Please select a floorplan image'),
+    image: Yup.mixed().when('hasFloorplan', {
+      is: true,
+      then: Yup.mixed().required('Please select a floorplan image'),
+    }),
   });
 
   useEffect(() => {
-    // Read floorplan data from cookie and update preview
     const cookieValue = document.cookie
       .split('; ')
       .find((row) => row.startsWith('floorplanUrlData='));
@@ -25,25 +27,33 @@ const Floorplans = ({ handleFormDataChange }) => {
 
   const formik = useFormik({
     initialValues: {
+      hasFloorplan: false,
       image: '',
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       try {
-        if (values.image) {
-          const floorplanUrl = await uploadToS3(values.image);
+        if (values.hasFloorplan) {
+          if (values.image) {
+            const floorplanUrl = await uploadToS3(values.image);
 
-          const expirationTime = new Date(Date.now() + 2 * 60 * 1000); // 2 minutes
-          const floorplanUrlCookieValue = JSON.stringify({
-            step6Data: { floorplanUrl },
-          });
-          document.cookie = `floorplanUrlData=${floorplanUrlCookieValue}; expires=${expirationTime.toUTCString()}; path=/`;
+            const expirationTime = new Date(Date.now() + 2 * 60 * 1000); 
+            const floorplanUrlCookieValue = JSON.stringify({
+              step6Data: { floorplanUrl },
+            });
+            document.cookie = `floorplanUrlData=${floorplanUrlCookieValue}; expires=${expirationTime.toUTCString()}; path=/`;
 
+            handleFormDataChange({
+              step6Data: { floorplanUrl },
+            });
+            setFormSubmitted(true);
+            setFloorplanPreview(floorplanUrl);
+          }
+        } else {
           handleFormDataChange({
-            step6Data: { floorplanUrl },
+            step6Data: { floorplanUrl: 'Not available' },
           });
           setFormSubmitted(true);
-          setFloorplanPreview(floorplanUrl);
         }
       } catch (error) {
         console.error('Error uploading file to S3:', error);
@@ -86,16 +96,43 @@ const Floorplans = ({ handleFormDataChange }) => {
             You'll need 1 photo to get started.
           </p>
           <div className="flex flex-col gap-2 p-3 border-dotted border-2 border-gray-300">
-            <input
-              type="file"
-              accept="image/*"
-              name="image"
-              onChange={handleImageChange}
-              onBlur={formik.handleBlur}
-              className="border border-dashed border-gray-300 p-2 rounded-md"
-            />
-            {formik.touched.image && formik.errors.image && (
-              <div className="text-red-500 text-sm">{formik.errors.image}</div>
+            <label>
+              <input
+                type="radio"
+                name="hasFloorplan"
+                value={true}
+                checked={formik.values.hasFloorplan === true}
+                onChange={formik.handleChange}
+              />
+              Yes
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="hasFloorplan"
+                value={false}
+                checked={formik.values.hasFloorplan === false}
+                onChange={formik.handleChange}
+              />
+              No
+            </label>
+            {formik.touched.hasFloorplan && formik.errors.hasFloorplan && (
+              <div className="text-red-500 text-sm">{formik.errors.hasFloorplan}</div>
+            )}
+            {formik.values.hasFloorplan && (
+              <>
+                <input
+                  type="file"
+                  accept="image/*"
+                  name="image"
+                  onChange={handleImageChange}
+                  onBlur={formik.handleBlur}
+                  className="border border-dashed border-gray-300 p-2 rounded-md"
+                />
+                {formik.touched.image && formik.errors.image && (
+                  <div className="text-red-500 text-sm">{formik.errors.image}</div>
+                )}
+              </>
             )}
           </div>
           <div className="flex justify-end">

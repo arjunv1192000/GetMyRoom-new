@@ -52,20 +52,6 @@ const FilterDialog = ({ isOpen, onClose, onApplyFilters }) => {
           </button>
         </div>
         <form onSubmit={handleSubmit}>
-          {/* <div className="mb-4">
-            <label htmlFor="rooms" className="block text-sm font-medium text-gray-600">
-              Number of Rooms
-            </label>
-            <input
-              type="number"
-              id="rooms"
-              name="rooms"
-              value={numberOfRooms}
-              onChange={(e) => setNumberOfRooms(e.target.value)}
-              className="mt-1 p-2 w-full border rounded-md"
-            />
-          </div> */}
-
           <div className="mb-4">
             <label htmlFor="bedrooms" className="block text-sm font-medium text-gray-600">
               Number of Bedrooms

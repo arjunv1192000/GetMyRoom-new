@@ -8,7 +8,7 @@ const Footer = () => {
 
 
   return (
-   
+
     <div className="bg-[#f7f6f5] mt-10">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8 " />
@@ -25,7 +25,7 @@ const Footer = () => {
             )}
           </div>
           <div className="flex mt-4 sm:justify-center gap-4 sm:mt-0">
-            
+
 
             <a
               href='https://www.instagram.com/getmy_room?igsh=ODA1NTc5OTg5Nw=='
@@ -42,6 +42,9 @@ const Footer = () => {
         </div>
         <div className="sm:flex sm:items-center sm:justify-between mt-5 xl:px-24">
           <div className="flex flex-nowrap mt-1 sm:justify-center sm:mt-0 gap-1">
+          <a href="https://www.spidero.in/" className="text-gray-700 hover:text-gray-900 cursor-pointer" target='new' >Developer</a>
+           
+
           </div>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <span className="text-sm text-gray-600 sm:text-center dark:text-gray-400">
@@ -60,7 +63,7 @@ const Footer = () => {
 
       </div>
     </div>
-    
+
 
 
   )

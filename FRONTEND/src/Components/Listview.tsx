@@ -2,7 +2,7 @@ import Listcard from './Listcard';
 import Listcards from './Skeletons/Listcards';
 import { useEffect, useState } from 'react';
 import axios from '../Components/Utils/property/axios';
-import notfound from "../assets/file.png"
+
 
 type Property = {
   id: string;
@@ -122,8 +122,8 @@ const Listview = ({ location, type, filters,openLoginModal }) => {
             ))}
           </div>
         ) : property.length === 0 ? (
-          <div className='flex justify-center w-full h-90'>
-            <img className="w-40 h-40 rounded-t-lg scale-1 hover:scale-[1.1] duration-300 " src={notfound} alt="" />
+          <div className='flex justify-center w-full h-90 mt-10'>
+            <img className="w-60 h-60 rounded-t-lg scale-1 hover:scale-[1.1] duration-300 " src="https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif" alt="" />
            
             
           </div>
