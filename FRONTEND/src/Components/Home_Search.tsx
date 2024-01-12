@@ -95,7 +95,7 @@ const Home_Search = () => {
 
     type();
   }, []);
-
+  
 
 
 
@@ -107,7 +107,7 @@ const Home_Search = () => {
 
   return (
     <>
-      <div className='relative' ref={secondSectionRef} style={{ backgroundImage: `url(${hero})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '600px' }}>
+      <div className='relative h-[600px]' ref={secondSectionRef} style={{ backgroundImage: `url(${hero})`, backgroundSize: 'cover', backgroundPosition: 'center',  }}>
         {/* <img className="w-full h-[600px] object-cover " src={hero} alt="image description" /> */}
         <div className='absolute top-[15%] sm:top-[15%] left-[10%] md:w-[50%] md:left-[6%] md:top=[15%]'>
           <h2 className='flex font-extrabold text-[#870e4d] text-3xl sm:text-4xl'>

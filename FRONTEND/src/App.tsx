@@ -28,7 +28,6 @@ function App() {
             <Route path='/*' element={<Suspense fallback={<Loadingpage />}><UserRoutes /></Suspense>} />
             <Route path='/admin' element={<Suspense fallback={<Loadingpage />}><Loginpage /></Suspense>} />
             <Route path='/admin/*' element={<Suspense fallback={<Loadingpage />}><AdminRoutes /></Suspense>} />
-           
           </Routes>
           <Terms/>
       </BrowserRouter>

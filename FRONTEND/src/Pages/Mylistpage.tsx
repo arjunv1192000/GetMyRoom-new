@@ -9,7 +9,11 @@ const Mylistpage = () => {
   return (
    <Layout>
     <Mylist/>
-    <Footer/>
+   <div>
+   <Footer/>
+
+   </div>
+    
    </Layout>
   )
 }
