@@ -43,12 +43,12 @@ const Mylistcard: React.FC<Props> = ({proId,title, location,bathrooms, bedrooms,
             const remove = await axios.post('/removeproperty', {postId:proId });
             if (remove.data.status == true) {
 
-                toast.success('property remove Successfully')
+                toast.success('Property Removed')
                 window.location.reload();
               
 
             } else {
-                toast.error("error on removing job")
+                toast.error("Error On Removing Property")
 
             }
 
@@ -56,7 +56,7 @@ const Mylistcard: React.FC<Props> = ({proId,title, location,bathrooms, bedrooms,
 
         } catch (error) {
 
-            console.error('Error applying for the job:', error);
+            toast.error("Error On Removing Property")
         }
     };
 
@@ -70,7 +70,7 @@ const Mylistcard: React.FC<Props> = ({proId,title, location,bathrooms, bedrooms,
                 </div>
             )}
             <div className=" flex flex-col sm:flex-row">
-                <img className="object-cover w-full sm:w-2/6" src={image[0]} alt="" />
+                <img className="object-cover w-full h-60 sm:w-2/6" src={image[0]} alt="" />
 
                 <div className='w-full flex flex-col'>
                     <div className=' w-auto ml-2   sm:ml-10 '>

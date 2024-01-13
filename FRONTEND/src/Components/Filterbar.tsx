@@ -97,7 +97,7 @@ const Filterbar = ({ onViewTypeChange, onApplyFilters }) => {
                 onChange={handlePropertyTypeChange}
                 className="bg-white px-4 py-2 border rounded mr-2 relative flex items-center text-sm"
               >
-                <option value="AllType" className='font-semibold'>AllType</option>
+                <option value="AllType" className='font-semibold'>All Type</option>
                 <option value="BOX ROOM" className='font-semibold'>BOX ROOM</option>
                 <option value="BEDSIT" className='font-semibold'>TWIN ROOM</option>
                 <option value="SINGLE ROOM" className='font-semibold'>SINGLE ROOM</option>

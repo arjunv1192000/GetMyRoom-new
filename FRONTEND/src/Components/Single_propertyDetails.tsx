@@ -184,12 +184,12 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
                 if (savejob.data.status == true) {
 
-                    toast.success('Property Saved Successfully')
+                    toast.success('Property Saved')
 
 
 
                 } else {
-                    toast.error("Already Saved This Property")
+                    toast.error("Property Removed")
 
 
                 }
@@ -198,7 +198,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
             } catch (error) {
 
-                console.error('Error Saving This job:', error);
+                console.error('Error :', error);
             }
 
 
@@ -241,7 +241,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                     <div className='w-full h-auto flex flex-col sm:flex-row'>
                         <div className='w-auto  sm:w-1/2 '>
                             <h2 className="flex font-semibold text-gray-900 ml-2  text-[20px] sm:text-[28px] md:text-[28px] lg:text-[30px]">
-                                {title.toUpperCase()}
+                                {title}
                             </h2>
                         </div>
                         <div className='w-1/2'>

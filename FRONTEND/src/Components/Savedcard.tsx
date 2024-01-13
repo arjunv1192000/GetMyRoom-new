@@ -61,12 +61,12 @@ const Savedcard: React.FC<Props> = ({ title, location, bathrooms, bedrooms, imag
             const remove = await axios.post('/removeproperty', { UserId: userdata.id, postId: Id });
             if (remove.data.status == true) {
 
-                toast.success('property remove Successfully')
+                toast.success('Property Removed Successfully')
                 window.location.reload();
 
 
             } else {
-                toast.error("error on removing job")
+                toast.error("Error On Removing Property ")
 
             }
 
@@ -74,7 +74,7 @@ const Savedcard: React.FC<Props> = ({ title, location, bathrooms, bedrooms, imag
 
         } catch (error) {
 
-            console.error('Error applying for the job:', error);
+            console.error('Error:', error);
         }
     };
 

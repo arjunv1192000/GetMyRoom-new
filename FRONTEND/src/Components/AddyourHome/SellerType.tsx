@@ -26,17 +26,7 @@ const SellerType = ({ handleFormDataChange }) => {
             setSelectedPlaceType(parsedCookie.step10Data);
         }
 
-        const handleBeforeUnload = () => {
-           
-            document.cookie = 'step7Data=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-          };
         
-          window.addEventListener('beforeunload', handleBeforeUnload);
-        
-          return () => {
-            // Cleanup: Remove the event listener when the component is unmounted.
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-          };
 
 
     }, []);

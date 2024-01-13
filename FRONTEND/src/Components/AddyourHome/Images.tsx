@@ -89,7 +89,7 @@ const Images = ({ handleFormDataChange }) => {
         const uploadedImageUrls = await Promise.all(uploadPromises);
 
 
-        const expirationTime = new Date(Date.now() + 10 * 60 * 1000); 
+        const expirationTime = new Date(Date.now() + 3 * 60 * 1000); 
         const uploadedImagesCookieValue = JSON.stringify({ step5Data: uploadedImageUrls });
         document.cookie = `uploadedImages=${uploadedImagesCookieValue}; expires=${expirationTime.toUTCString()}; path=/`;
 
@@ -127,7 +127,7 @@ const Images = ({ handleFormDataChange }) => {
       </div>
       <div className='w-full  h-auto sm:flex flex-col sm:ml-36 mb-20 '>
         <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white p-3">Add some photos of your house</h5>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">You'll need 5 photos to get started.</p>
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">You'll need 4 photos to get started.</p>
         <form onSubmit={formik.handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 p-2 border-dotted border-2 border-gray-300">
             {Array.from({ length: 4 }).map((_, index) => (
