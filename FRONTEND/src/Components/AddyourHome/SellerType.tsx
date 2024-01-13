@@ -25,6 +25,20 @@ const SellerType = ({ handleFormDataChange }) => {
             const parsedCookie = JSON.parse(cookieValue);
             setSelectedPlaceType(parsedCookie.step10Data);
         }
+
+        const handleBeforeUnload = () => {
+           
+            document.cookie = 'step7Data=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+          };
+        
+          window.addEventListener('beforeunload', handleBeforeUnload);
+        
+          return () => {
+            // Cleanup: Remove the event listener when the component is unmounted.
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+          };
+
+
     }, []);
 
     const [selectedPlaceType, setSelectedPlaceType] = useState('');
@@ -42,7 +56,7 @@ const SellerType = ({ handleFormDataChange }) => {
         onSubmit: (values) => {
 
             const step10DataString = JSON.stringify({ step10Data: values.step10Data });
-            const expirationTime = new Date(Date.now() + 2 * 60 * 1000);
+            const expirationTime = new Date(Date.now() + 10 * 60 * 1000);
             document.cookie = `step10Data=${step10DataString}; expires=${expirationTime.toUTCString()}; path=/`;
        
             handleFormDataChange({ step10Data: values.step10Data });
@@ -68,7 +82,7 @@ const SellerType = ({ handleFormDataChange }) => {
                 </div>
                 <div className="w-full sm:w-1/2 h-auto sm:flex flex-col">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900  p-3">
-                     Are you an
+                     Are you the
                     </h5>
                     <div className="flex flex-col gap-2 p-3">
                         {placeTypes.map((placeType, index) => (

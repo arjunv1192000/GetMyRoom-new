@@ -14,7 +14,7 @@ const Hometitle = ({ handleFormDataChange }) => {
       console.log(values);
 
       const titleDataString = JSON.stringify({ step7Data: values.title });
-      const expirationTime = new Date(Date.now() + 2 * 60 * 1000);
+      const expirationTime = new Date(Date.now() + 10 * 60 * 1000);
       document.cookie = `step7Data=${titleDataString}; expires=${expirationTime.toUTCString()}; path=/`;
       setFormSubmitted(true);
 

@@ -33,7 +33,7 @@ const Location = ({ handleFormDataChange }) => {
       };
       setFormSubmitted(true);
       const formDataString = JSON.stringify(formData.step2Data);
-    const expirationTime = new Date(Date.now() + 2 * 60 * 1000); 
+    const expirationTime = new Date(Date.now() + 10 * 60 * 1000); 
      document.cookie = `step2Data=${formDataString}; expires=${expirationTime.toUTCString()}; path=/`;
       handleFormDataChange(formData);
 

@@ -86,7 +86,7 @@ const Features = ({ handleFormDataChange }) => {
       
 
         
-        const expirationTime = new Date(Date.now() + 2 * 60 * 1000);
+        const expirationTime = new Date(Date.now() + 10 * 60 * 1000);
         document.cookie = `step4Data=${selectedFeaturesString}; expires=${expirationTime.toUTCString()}; path=/`;
 
 

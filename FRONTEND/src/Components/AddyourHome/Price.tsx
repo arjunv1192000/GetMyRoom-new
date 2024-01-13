@@ -25,7 +25,7 @@ const Price = ({ handleFormDataChange }) => {
       const priceDataString = JSON.stringify({ step9Data: values.price });
 
       // Set the expiration time to 2 minutes
-      const expirationTime = new Date(Date.now() + 2 * 60 * 1000);
+      const expirationTime = new Date(Date.now() + 10 * 60 * 1000);
       document.cookie = `step9Data=${priceDataString}; expires=${expirationTime.toUTCString()}; path=/`;
 
       handleFormDataChange({ step9Data: values.price });

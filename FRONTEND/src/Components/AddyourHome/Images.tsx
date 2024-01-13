@@ -12,7 +12,7 @@ const Images = ({ handleFormDataChange }) => {
 
   const isValidImage = (file) => {
     const allowedTypes = ['image/jpeg', 'image/png'];
-    const maxSize = 5 * 1024 * 1024;
+    const maxSize = 4 * 1024 * 1024;
 
     if (!allowedTypes.includes(file.type)) {
       setError('Please select a valid image file (JPEG or PNG).');
@@ -52,8 +52,8 @@ const Images = ({ handleFormDataChange }) => {
       selectedImages: [],
     },
     onSubmit: async (values) => {
-      if (selectedImages.length < 5) {
-        setError('Please select at least 5 images.');
+      if (selectedImages.length < 4) {
+        setError('Please select at least 4 images.');
         return;
       }
       try {
@@ -89,7 +89,7 @@ const Images = ({ handleFormDataChange }) => {
         const uploadedImageUrls = await Promise.all(uploadPromises);
 
 
-        const expirationTime = new Date(Date.now() + 2 * 60 * 1000); // 2 minutes
+        const expirationTime = new Date(Date.now() + 10 * 60 * 1000); 
         const uploadedImagesCookieValue = JSON.stringify({ step5Data: uploadedImageUrls });
         document.cookie = `uploadedImages=${uploadedImagesCookieValue}; expires=${expirationTime.toUTCString()}; path=/`;
 
@@ -130,7 +130,7 @@ const Images = ({ handleFormDataChange }) => {
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">You'll need 5 photos to get started.</p>
         <form onSubmit={formik.handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 p-2 border-dotted border-2 border-gray-300">
-            {Array.from({ length: 5 }).map((_, index) => (
+            {Array.from({ length: 4 }).map((_, index) => (
               <div key={index} className="relative">
 
                 <input

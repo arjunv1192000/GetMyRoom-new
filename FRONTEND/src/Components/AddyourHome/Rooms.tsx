@@ -29,7 +29,7 @@ const Rooms = ({ handleFormDataChange }) => {
             handleFormDataChange({ step3Data: values });
             const formDataString = encodeURIComponent(JSON.stringify({ bedrooms: values.bedrooms, bathrooms: values.bathrooms }));
 
-            const expirationTime = new Date(Date.now() + 2 * 60 * 1000);
+            const expirationTime = new Date(Date.now() + 10 * 60 * 1000);
             document.cookie = `step3Data=${formDataString}; expires=${expirationTime.toUTCString()}; path=/`;
 
         },

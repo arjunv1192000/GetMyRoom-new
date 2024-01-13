@@ -20,11 +20,10 @@ const Nodemailer = (fullname, email,message, useremail, propertyname, location,n
         let messageBody = '';
 
 
-       subject = `New Property Inquiry: ${propertyname}`;
+       subject = `New Property Inquiry(GetMyRoom): ${propertyname}`;
 
        messageBody = ` <p>Dear ${name},</p>
        <p>Inquiry regarding the property "${propertyname}" located in ${location}.</p>
-       <p>I will get back to you as soon as possible. Meanwhile, if you have any specific questions or would like to schedule a viewing, please feel free to contact us at ${config.EMAIL}.</p>
        <p>Message details:</p>
        <ul>
          <li>Name: ${fullname}</li>

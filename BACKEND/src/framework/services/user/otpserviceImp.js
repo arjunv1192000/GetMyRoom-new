@@ -29,7 +29,7 @@ const OtpserviceImp = () => {
       const mailOptions = {
         from:config.EMAIL,
         to: email,
-        subject: "OTP Verification ",
+        subject: "OTP Verification for GetMyRoom ",
         text: `Your OTP is: ${otpValue}`,
       };
   

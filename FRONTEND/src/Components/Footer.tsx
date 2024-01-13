@@ -42,7 +42,7 @@ const Footer = () => {
         </div>
         <div className="sm:flex sm:items-center sm:justify-between mt-5 xl:px-24">
           <div className="flex flex-nowrap mt-1 sm:justify-center sm:mt-0 gap-1">
-          <a href="https://www.spidero.in/" className="text-gray-700 hover:text-gray-900 cursor-pointer" target='new' >Developer</a>
+          <a href="http://www.spiderotechnology.com" className="text-gray-700 hover:text-gray-900 cursor-pointer" target='new' >Developer</a>
            
 
           </div>
@@ -54,10 +54,10 @@ const Footer = () => {
         </div>
         <div className="mt-10 xl:px-24">
           <p className="text-gray-600 text-xs p-3">
-            GetMyRoom: Your one-stop shop for stress-free travel. Find your ideal accommodation, research visa requirements with our expert guidance (Registered Visa Help Company No. 14409618).
+            GetMyRoom: Your one-stop shop for stress-free travel. Find your ideal accommodation, research property requirements with our expert guidance (Registered Company No. 14409618).
           </p>
           <p className="text-gray-600 text-xs p-3">
-            Explore local attractions, and manage your booking with ease. We're here to empower your adventures every step of the way. Registered Office Address: 12, 2 Westbourne Crescent, London, United Kingdom, W2 3DB
+            Explore local attractions, and manage your booking with ease. We're here to empower your adventures every step of the way. Registered Office Address: 2 Westbourne Crescent, London, United Kingdom, W2 3DB
           </p>
         </div>
 

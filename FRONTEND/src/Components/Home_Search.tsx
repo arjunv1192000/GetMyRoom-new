@@ -105,12 +105,12 @@ const Home_Search = () => {
           </h2>
         </div>
 
-        <div className=' absolute  top-[10%]  lg:w-auto lg:left-[75%] lg:top-[10%]  sm:left-[70%] hidden sm:inline-block '>
+        <div className=' absolute  top-[10%]  lg:w-auto lg:left-[76%] lg:top-[10%]  sm:left-[70%] hidden sm:inline-block '>
           <blockquote className="text-xl italic font-semibold text-gray-900 dark:text-white">
             <svg className="w-5 h-5 text-black dark:text-gray-600 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
               <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
             </svg>
-            <h2 className="flex text-black text-lg font-style:gabriela w-60 ">
+            <h2 className="flex text-black text-lg font-style:gabriela w-58 ">
               "Discover homes that offer flexibility, convenience, and affordability with built-in camaraderie."
             </h2>
           </blockquote>
@@ -122,7 +122,7 @@ const Home_Search = () => {
           </label>
           <input ref={searchInputRef} className="bg-white px-4 py-2 rounded mb-4 w-full font-semibold" type="text" placeholder="Enter an address or postcode" />
           <select ref={propertyTypeRef} id="propertyType" className="bg-white px-4 py-2 rounded mb-4 w-full font-semibold">
-            <option value="AllType" className='font-semibold'>AllType</option>
+            <option value="AllType" className='font-semibold'>All Type</option>
             <option value="BOX ROOM" className='font-semibold'>BOX ROOM</option>
             <option value="BEDSIT" className='font-semibold'>TWIN ROOM</option>
             <option value="SINGLE ROOM" className='font-semibold'>SINGLE ROOM</option>
