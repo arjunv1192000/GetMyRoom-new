@@ -112,7 +112,7 @@ const Features = ({ handleFormDataChange }) => {
   return (
     <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row justify-center mb-20">
       <div className="w-full sm:w-[70%] h-auto sm:flex flex-col ">
-        <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold  text-gray-900 dark:text-white">
           Tell us about what your place has to offer
         </h5>
 
@@ -120,7 +120,7 @@ const Features = ({ handleFormDataChange }) => {
 
         <form onSubmit={formik.handleSubmit}>
           <div className="w-full h-auto mt-5">
-            <h5 className="mb-2 text-[26px] font-bold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="mb-2 text-[26px] font-bold  text-gray-900 dark:text-white">
               Interior Details
             </h5>
             <div className="container m-auto grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
@@ -143,7 +143,7 @@ const Features = ({ handleFormDataChange }) => {
           </div>
 
           <div className="w-full h-auto mt-5 ">
-            <h5 className="mb-2 text-[26px] font-bold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="mb-2 text-[26px] font-bold  text-gray-900 dark:text-white">
               Outdoor Details
             </h5>
             <div className="container m-auto grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
@@ -166,7 +166,7 @@ const Features = ({ handleFormDataChange }) => {
           </div>
 
           <div className="w-full h-auto mt-5">
-            <h5 className="mb-2 text-[26px] font-bold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="mb-2 text-[26px] font-bold  text-gray-900 dark:text-white">
               Utilities
             </h5>
             <div className="container m-auto grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
@@ -189,7 +189,7 @@ const Features = ({ handleFormDataChange }) => {
           </div>
 
           <div className="w-full h-auto mt-5">
-            <h5 className="mb-2 text-[26px] font-bold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="mb-2 text-[26px] font-bold  text-gray-900 dark:text-white">
               Other Features
             </h5>
             <div className="container m-auto grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">

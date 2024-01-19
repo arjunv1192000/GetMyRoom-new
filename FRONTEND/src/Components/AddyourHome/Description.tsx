@@ -35,7 +35,7 @@ const Description = ({ handleFormDataChange }) => {
     <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-18 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row   justify-center  mb-24">
       <form onSubmit={formik.handleSubmit}>
         <div className="w-full h-[300px] sm:flex flex-col">
-          <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white ">
+          <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold  text-gray-900 dark:text-white ">
             Create your description
           </h5>
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 ml-5">Share what makes your place special.</p>

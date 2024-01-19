@@ -38,7 +38,7 @@ const Hometitle = ({ handleFormDataChange }) => {
   return (
     <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8 mb-20 flex flex-col sm:flex-row ">
       <div className="w-full sm:w-1/2 h-[400px] sm:flex flex-col mb-50 ">
-        <h5 className="mb-2 text-[36px] font-bold tracking-tight text-gray-900 dark:text-white">Step 4</h5>
+        <h5 className="mb-2 text-[36px] font-bold  text-gray-900 dark:text-white">Step 4</h5>
 
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
           Choose if you'd like to start with an experienced guest, set a starting
@@ -48,7 +48,7 @@ const Hometitle = ({ handleFormDataChange }) => {
       </div>
       <div className="w-full sm:w-1/2 h-auto sm:flex flex-col ">
         <form onSubmit={formik.handleSubmit}>
-          <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white ">
+          <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold  text-gray-900 dark:text-white ">
             Now, let's give a title
           </h5>
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Short titles work best. Have fun with it.</p>
