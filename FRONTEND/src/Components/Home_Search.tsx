@@ -1,5 +1,5 @@
-import{ MutableRefObject, useRef, useEffect } from 'react'
-import hero from "../assets/shutterstock_1470527960.webp"
+import { MutableRefObject, useRef, useEffect } from 'react'
+import hero from "../assets/shutterstock_1470527960-ezgif.com-optiwebp.webp"
 import { useNavigate } from 'react-router-dom';
 
 const Home_Search = () => {
@@ -95,50 +95,53 @@ const Home_Search = () => {
 
     type();
   }, []);
-  
+
   return (
     <>
-      <div className='relative h-[600px]' ref={secondSectionRef} style={{ backgroundImage: `url(${hero})`, backgroundSize: 'cover', backgroundPosition: 'center',  }}>
-        <div className='absolute top-[15%] sm:top-[15%] left-[10%] md:w-[50%] md:left-[6%] md:top=[15%]'>
-          <h2 className='flex font-extrabold text-[#870e4d] text-3xl sm:text-4xl'>
-            Live Better,  <span id="custom-typing-span" className='text-black  overflow-hidden  pr-5 pb-2 ml-2 '></span>
-          </h2>
-        </div>
-
-        <div className=' absolute  top-[10%]  lg:w-auto lg:left-[76%] lg:top-[10%]  sm:left-[70%] hidden sm:inline-block '>
-          <blockquote className="text-xl italic font-semibold text-gray-900 dark:text-white">
-            <svg className="w-5 h-5 text-black dark:text-gray-600 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
-              <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
-            </svg>
-            <h2 className="flex text-black text-lg font-style:gabriela w-58 ">
-              "Discover homes that offer flexibility, convenience, and affordability with built-in camaraderie."
+      <div className='before:absolute bg-[#c3c0c2] bg-opacity-50  after:relative h-[600px]' ref={secondSectionRef} style={{ backgroundImage: `url(${hero})`, backgroundSize: 'cover', backgroundPosition: 'center',position: 'relative' }}>
+          <div className='absolute top-[15%] sm:top-[15%] left-[10%] md:w-[50%] md:left-[6%] md:top=[15%]'>
+            <h2 className='flex font-extrabold text-[#870e4d] text-3xl sm:text-4xl'>
+              Live Better,  <span id="custom-typing-span" className='text-black  overflow-hidden  pr-5 pb-2 ml-2 '></span>
             </h2>
-          </blockquote>
-        </div>
+          </div>
 
-        <div className="absolute top-[60%]  left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-30 p-6 md:p-12 w-[90%] md:w-[40%]  rounded-lg">
-          <label htmlFor="searchInput" className="sr-only">
-            Search Address or Postcode
-          </label>
-          <input ref={searchInputRef} className="bg-white px-4 py-2 rounded mb-4 w-full font-semibold" type="text" placeholder="Enter an address or postcode" />
-          <select ref={propertyTypeRef} id="propertyType" className="bg-white px-4 py-2 rounded mb-4 w-full font-semibold">
-            <option value="AllType" className='font-semibold'>All Type</option>
-            <option value="BOX ROOM" className='font-semibold'>BOX ROOM</option>
-            <option value="BEDSIT" className='font-semibold'>TWIN ROOM</option>
-            <option value="SINGLE ROOM" className='font-semibold'>SINGLE ROOM</option>
-            <option value="STUDIO" className='font-semibold'>STUDIO</option>
-            <option value="DOUBLE ROOM" className='font-semibold'>DOUBLE ROOM</option>
-            <option value="TRIPLE/QUADRUPLE ROOM" className='font-semibold'>TRIPLE/QUADRUPLE ROOM</option>
-            <option value="1 BED HOUSE/FLAT" className='font-semibold'>1 BED HOUSE/FLAT</option>
-            <option value="2 BED HOUSE/FLAT" className='font-semibold'>2 BED HOUSE/FLAT</option>
-            <option value="3 BED HOUSE/FLAT" className='font-semibold'>3 BED HOUSE/FLAT</option>
-            <option value="4+ BED HOUSE/FLAT" className='font-semibold'>4+ BED HOUSE/FLAT</option>
-          </select>
+          <div className=' absolute  top-[10%]  lg:w-auto lg:left-[76%] lg:top-[10%]  sm:left-[70%] hidden sm:inline-block '>
+            <blockquote className="text-xl italic font-semibold text-gray-900 dark:text-white">
+              <svg className="w-5 h-5 text-black dark:text-gray-600 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+                <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
+              </svg>
+              <h2 className="flex text-black text-lg font-style:gabriela w-58 ">
+                "Discover homes that offer flexibility, convenience, and affordability with built-in camaraderie."
+              </h2>
+            </blockquote>
+          </div>
 
-          <button className="transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover:bg-[#870e4d] duration-300 text-white px-4 py-2 rounded-lg w-full font-semibold h-16" onClick={handleSearchButtonClicks}>
-            Search
-          </button>
-        </div>
+          <div className="absolute top-[60%]  left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-30 p-6 md:p-12 w-[90%] md:w-[40%]  rounded-lg">
+            <label htmlFor="searchInput" className="sr-only">
+              Search Address or Postcode
+            </label>
+            <input ref={searchInputRef} className="bg-white px-4 py-2 rounded mb-4 w-full font-semibold" type="text" placeholder="Enter an address or postcode" />
+            <select ref={propertyTypeRef} id="propertyType" className="bg-white px-4 py-2 rounded mb-4 w-full font-semibold">
+              <option value="AllType" className='font-semibold'>All Type</option>
+              <option value="BOX ROOM" className='font-semibold'>BOX ROOM</option>
+              <option value="BEDSIT" className='font-semibold'>TWIN ROOM</option>
+              <option value="SINGLE ROOM" className='font-semibold'>SINGLE ROOM</option>
+              <option value="STUDIO" className='font-semibold'>STUDIO</option>
+              <option value="DOUBLE ROOM" className='font-semibold'>DOUBLE ROOM</option>
+              <option value="TRIPLE/QUADRUPLE ROOM" className='font-semibold'>TRIPLE/QUADRUPLE ROOM</option>
+              <option value="1 BED HOUSE/FLAT" className='font-semibold'>1 BED HOUSE/FLAT</option>
+              <option value="2 BED HOUSE/FLAT" className='font-semibold'>2 BED HOUSE/FLAT</option>
+              <option value="3 BED HOUSE/FLAT" className='font-semibold'>3 BED HOUSE/FLAT</option>
+              <option value="4+ BED HOUSE/FLAT" className='font-semibold'>4+ BED HOUSE/FLAT</option>
+            </select>
+
+            <button className="transition ease-in-out delay-150 bg-[#390b79] hover:-translate-y-1 hover:scale-110 hover:bg-[#870e4d] duration-300 text-white px-4 py-2 rounded-lg w-full font-semibold h-16" onClick={handleSearchButtonClicks}>
+              Search
+            </button>
+          </div>
+
+      
+
 
       </div>
     </>

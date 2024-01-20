@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import post2 from '../../assets/shutterstock_1470527960.webp'
+import post2 from '../../assets/shutterstock_1470527960-ezgif.com-optiwebp.webp'
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 // import Logincomponent from './Logincomponent';
 // import Registercomponent from './Registercomponent';
