@@ -50,10 +50,10 @@ const Price = ({ handleFormDataChange }) => {
   return (
     <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 flex flex-col sm:flex-row  justify-center">
       <form onSubmit={formik.handleSubmit} className="w-full h-[400px] sm:flex flex-col">
-        <h5 className="mb-2  font-bold   text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+        <h5 className="mb-2  font-semibold   text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
           Now, set your price
         </h5>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">You can change it anytime.</p>
+        <p className="mb-3 font-semibold text-gray-700 dark:text-gray-400">You can change it anytime.</p>
         <div className="w-full h-40">
           {editMode ? (
             <div>

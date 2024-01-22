@@ -116,9 +116,9 @@ const Images = ({ handleFormDataChange }) => {
   return (
     <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8 flex flex-col sm:flex-row  mb-30 ">
       <div className='w-full sm:w-1/2 h-[400px] sm:flex flex-col '>
-        <h5 className="  text-[36px] font-bold  text-gray-900 dark:text-white ">Step 3</h5>
-        <h5 className="mb-2 text-2xl font-bold  text-gray-900 dark:text-white">Tell us about your features</h5>
-        <p className=" font-normal text-gray-700 dark:text-gray-400">In this step, we'll ask you which type of property you have</p>
+        <h5 className="  text-[36px] font-semibold  text-gray-900 dark:text-white ">Step 3</h5>
+        <h5 className="mb-2 text-2xl font-semibold  text-gray-900 dark:text-white">Tell us about your features</h5>
+        <p className=" font-semibold text-gray-700 dark:text-gray-400">In this step, we'll ask you which type of property you have</p>
         <img
           className="w-[60%] ml-10 mt-10 sm:object-contain w-[400px] flex justify-center "
           src={img4}
@@ -126,8 +126,8 @@ const Images = ({ handleFormDataChange }) => {
         ></img>
       </div>
       <div className='w-full  h-auto sm:flex flex-col sm:ml-36 mb-20 '>
-        <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold  text-gray-900 dark:text-white p-3">Add some photos of your house</h5>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">You'll need 4 photos to get started.</p>
+        <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold  text-gray-900 dark:text-white p-3">Add some photos of your house</h5>
+        <p className="mb-3 font-semibold text-gray-700 dark:text-gray-400">You'll need 4 photos to get started.</p>
         <form onSubmit={formik.handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 p-2 border-dotted border-2 border-gray-300">
             {Array.from({ length: 4 }).map((_, index) => (

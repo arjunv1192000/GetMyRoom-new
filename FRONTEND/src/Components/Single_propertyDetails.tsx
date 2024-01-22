@@ -366,11 +366,11 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
                     {contentType === 'image' && (
 
-                        <div className=' sm:w-full sm:h-auto bg-white'>
+                        <div className='w-90 sm:w-full sm:h-auto'>
                             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                                 {image.map((imageUrl, index) => (
-                                    <SwiperSlide key={index}>
-                                        <img className='w-full h-[300px] sm:h-[500px] object-cover ' src={imageUrl} alt={`Image ${index + 1}`} />
+                                    <SwiperSlide key={index} className="flex items-center justify-center">
+                                        <img className='w-[85%] h-[300px] sm:h-[500px] object-cover mx-auto' src={imageUrl} alt={`Image ${index + 1}`} />
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
@@ -637,12 +637,12 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
                     <div className='flex justify-center'>
                         {userimg && userimg !== 'Not available' ? (
-                             <img className=" w-[60px] h-[60px] border border-gray-200 rounded-lg shadow items-center m-6 " src={userimg} alt={username} />
+                            <img className=" w-[60px] h-[60px] border border-gray-200 rounded-lg shadow items-center m-6 " src={userimg} alt={username} />
                         ) : (
                             <img className=" w-[60px] h-[60px] border border-gray-200 rounded-lg shadow items-center m-6 " src={avatar} alt={username} />
                         )}
 
-                       
+
 
                     </div>
 

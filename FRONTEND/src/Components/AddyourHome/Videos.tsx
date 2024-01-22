@@ -55,7 +55,7 @@ const Videos = ({ handleFormDataChange }) => {
   return (
     <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row justify-center mb-20  ">
       <div className="w-full sm:w-[80%] h-auto sm:flex flex-col items-center">
-        <h5 className="mb-10 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white w-full">
+        <h5 className="mb-10 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-gray-900 dark:text-white w-full">
           Add a video of your property
         </h5>
         <form onSubmit={formik.handleSubmit}>

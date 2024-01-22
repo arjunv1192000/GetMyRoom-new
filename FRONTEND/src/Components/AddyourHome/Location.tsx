@@ -144,7 +144,7 @@ const Location = ({ handleFormDataChange }) => {
   return (
     <div className="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8  flex flex-col sm:flex-row  justify-center mb-20">
       <div className='w-full h-auto sm:flex flex-col '>
-        <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold  text-gray-900 dark:text-white">Where's your place located?</h5>
+        <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold  text-gray-900 dark:text-white">Where's your place located?</h5>
         <div className='flex flex-row mt-2 border border-red-500  rounded justify-center '>
         <p className="mb-3 font-medium text-gray-700 dark:text-gray-400">Select the location marker</p>
         <FaMapMarkerAlt fill="red" className=" w-4 h-4 mt-1  " />
