@@ -79,8 +79,8 @@ const Type = ({ handleFormDataChange }) => {
                         <div className='flex flex-col items-center  shadow md:flex-row  h-38 bg-white w-full'  >
                             <div className="flex flex-col justify-between p-4 leading-normal">
                                 <div className='flex flex-row'>
-                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900  text-start ml-2 font-sans "> 1.  </h5>
-                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900  text-start ml-2 font-sans ">Tell us about your places</h5>
+                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900  text-start ml-2  "> 1.  </h5>
+                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900  text-start ml-2  ">Tell us about your places</h5>
                                 </div>
                             </div>
                             <img className="object-cover rounded-t-lg h-20 md:h-24 md:w-28 md:rounded-none md:rounded-s-lg hidden sm:inline-block" src={img1} alt=""></img>
@@ -89,18 +89,18 @@ const Type = ({ handleFormDataChange }) => {
                         <div className='flex flex-col items-center  shadow md:flex-row  h-38 bg-white w-full'  >
                             <div className="flex flex-col justify-between p-4 leading-normal">
                                 <div className='flex flex-row'>
-                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 dark:text-white ml-2 font-sans">2.</h5>
-                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 dark:text-white ml-2 font-sans"> Make it stand out the property</h5>
+                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 text-start ml-2 ">2.</h5>
+                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 text-start ml-2 "> Make it stand out the property</h5>
                                 </div>
                             </div>
                             <img className="object-cover  rounded-t-lg h-20 md:h-24 md:w-28 md:rounded-none md:rounded-s-lg hidden sm:inline-block" src={img4} alt=""></img>
                         </div>
-                        <hr className="border-t border-gray-300  " />
+                        <hr className="border-t border-gray-300 " />
                         <div className='flex flex-col items-center  shadow md:flex-row  h-38 bg-white w-full'  >
                             <div className="flex flex-col justify-between p-4 leading-normal">
                                 <div className='flex flex-row'>
-                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 dark:text-white ml-2">3.</h5>
-                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 dark:text-white ml-2"> Tell us about your features</h5>
+                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 text-start ml-2">3.</h5>
+                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 text-start ml-2"> Tell us about your features</h5>
                                 </div>
                             </div>
                             <img className="object-cover  rounded-t-lg h-20 md:h-24 md:w-28 md:rounded-none md:rounded-s-lg hidden sm:inline-block" src={img3} alt=""></img>
@@ -109,8 +109,8 @@ const Type = ({ handleFormDataChange }) => {
                         <div className='flex flex-col items-center  shadow md:flex-row  h-38 bg-white w-full'  >
                             <div className="flex flex-col justify-between p-4 leading-normal">
                                 <div className='flex flex-row'>
-                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 dark:text-white ml-2">4.</h5>
-                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 dark:text-white ml-2"> Finish up and publish</h5>
+                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 text-start ml-2">4.</h5>
+                                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 text-start ml-2"> Finish up and publish</h5>
                                 </div>
                                 <p className="mb-3 font-semibold text-gray-700 dark:text-gray-400 ml-2">Choose if you'd like to start with an experienced guest, set a starting price and publish your listing.</p>
                             </div>
