@@ -120,7 +120,7 @@ const Type = ({ handleFormDataChange }) => {
                     </div>
                 </div>
                 <div className="w-full sm:w-1/2 h-auto sm:flex flex-col mb-32 ">
-                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 dark:text-white p-3">
+                    <h5 className="mb-2 text-2xl font-semibold  text-gray-900 text-start p-3">
                         What type of place will guests have?
                     </h5>
                     <div className="grid grid-cols-2 gap-6  md:grid-cols-2 lg:grid-cols-3 lg:p-1 lg:gap-6">
