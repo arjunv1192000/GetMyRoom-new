@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Location from './AddyourHome/Location';
 import Progressbar from './AddyourHome/Progressbar';
 import Type from './AddyourHome/Type';
@@ -33,6 +33,23 @@ const Mutistepform = () => {
   const [formData, setFormData] = useState({});
   const userdata = useSelector((state: RootState) => state.user.value);
 
+  useEffect(() => {
+    const cleanupCookies = () => {
+      const cookieNames = ['step1Data', 'step2Data', 'step3Data', 'uploadedImages', 'floorplanUrlData', 'step4Data', 'step7Data', 'step8Data', 'step9Data', 'step10Data'];
+      cookieNames.forEach((cookieName) => {
+        document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+      });
+    };
+
+    // Add event listener for beforeunload event
+    window.addEventListener('beforeunload', cleanupCookies);
+
+    // Remove event listener when the component unmounts
+    return () => {
+      window.removeEventListener('beforeunload', cleanupCookies);
+    };
+  }, []);
+
   const nextStep = () => {
     setCurrentStep((prevStep) => prevStep + 1);
   };
@@ -47,32 +64,32 @@ const Mutistepform = () => {
 
   const isStepDataComplete = (stepIndex) => {
     switch (stepIndex) {
-        case 1:
-            return formData.step1Data !== undefined && formData.step1Data !== null;
-          case 2:
-            return formData.step2Data !== undefined && formData.step2Data !== null;
-          case 3:
-            return formData.step3Data !== undefined && formData.step3Data !== null;
-          case 4:
-            return formData.step4Data !== undefined && formData.step4Data !== null;
-          case 5:
-            return formData.step5Data !== undefined && formData.step5Data !== null;
-          case 6:
-            return formData.step6Data !== undefined && formData.step6Data !== null;
-          case 7:
-            return formData.step7Data !== undefined && formData.step7Data !== null;
-          case 8:
-            return formData.step8Data !== undefined && formData.step8Data !== null;
-          case 9:
-            return formData.step9Data !== undefined && formData.step9Data !== null;
-          case 10:
-            return formData.step10Data !== undefined && formData.step10Data !== null;
-          default:
-            return true;
+      case 1:
+        return formData.step1Data !== undefined && formData.step1Data !== null;
+      case 2:
+        return formData.step2Data !== undefined && formData.step2Data !== null;
+      case 3:
+        return formData.step3Data !== undefined && formData.step3Data !== null;
+      case 4:
+        return formData.step4Data !== undefined && formData.step4Data !== null;
+      case 5:
+        return formData.step5Data !== undefined && formData.step5Data !== null;
+      case 6:
+        return formData.step6Data !== undefined && formData.step6Data !== null;
+      case 7:
+        return formData.step7Data !== undefined && formData.step7Data !== null;
+      case 8:
+        return formData.step8Data !== undefined && formData.step8Data !== null;
+      case 9:
+        return formData.step9Data !== undefined && formData.step9Data !== null;
+      case 10:
+        return formData.step10Data !== undefined && formData.step10Data !== null;
+      default:
+        return true;
     }
   };
 
-  
+
 
   const submitForm = async () => {
     const isFormComplete = Array.from({ length: 10 }, (_, i) => isStepDataComplete(i + 1)).every(Boolean);
@@ -96,20 +113,24 @@ const Mutistepform = () => {
       axios.post('/addnewproperty', body)
         .then((response) => {
           if (response.data.status === true) {
+            const cookieNames = ['step1Data', 'step2Data', 'step3Data', 'uploadedImages', 'floorplanUrlData', 'step4Data', 'step7Data', 'step8Data', 'step9Data', 'step10Data'];
+            cookieNames.forEach((cookieName) => {
+              document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+            });
             navigate("/mylist");
           }
         })
         .catch((response) => {
           console.error(response.message);
           toast.error(response.message)
-          
+
         });
     } else {
       toast.error("Please complete all steps before submitting.")
     }
   };
- 
-  
+
+
 
   const steps = [
     <Type formData={formData} handleFormDataChange={handleFormDataChange} />,
@@ -123,7 +144,9 @@ const Mutistepform = () => {
     <Price formData={formData} handleFormDataChange={handleFormDataChange} />,
     <SellerType formData={formData} handleFormDataChange={handleFormDataChange} />
   ];
-  
+
+
+
 
   return (
     <div className='bg-white '>
@@ -143,9 +166,9 @@ const Mutistepform = () => {
         </div>
       </div>
       <Toaster
-                position="bottom-center"
-                reverseOrder={false}
-            />
+        position="bottom-center"
+        reverseOrder={false}
+      />
     </div>
   );
 };

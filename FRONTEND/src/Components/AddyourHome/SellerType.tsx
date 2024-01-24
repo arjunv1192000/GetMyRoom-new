@@ -46,7 +46,7 @@ const SellerType = ({ handleFormDataChange }) => {
         onSubmit: (values) => {
 
             const step10DataString = JSON.stringify({ step10Data: values.step10Data });
-            const expirationTime = new Date(Date.now() + 10 * 60 * 1000);
+            const expirationTime = new Date(Date.now() + 3 * 60 * 1000);
             document.cookie = `step10Data=${step10DataString}; expires=${expirationTime.toUTCString()}; path=/`;
        
             handleFormDataChange({ step10Data: values.step10Data });

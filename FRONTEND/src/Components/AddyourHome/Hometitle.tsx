@@ -14,7 +14,7 @@ const Hometitle = ({ handleFormDataChange }) => {
       console.log(values);
 
       const titleDataString = JSON.stringify({ step7Data: values.title });
-      const expirationTime = new Date(Date.now() + 10 * 60 * 1000);
+      const expirationTime = new Date(Date.now() + 5 * 60 * 1000);
       document.cookie = `step7Data=${titleDataString}; expires=${expirationTime.toUTCString()}; path=/`;
       setFormSubmitted(true);
 
@@ -48,10 +48,10 @@ const Hometitle = ({ handleFormDataChange }) => {
       </div>
       <div className="w-full sm:w-1/2 h-auto sm:flex flex-col ">
         <form onSubmit={formik.handleSubmit}>
-          <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold  text-gray-900 dark:text-white ">
+          <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold  text-gray-900  ">
             Now, let's give a title
           </h5>
-          <p className="mb-3 font-semibold text-gray-700 dark:text-gray-400">Short titles work best. Have fun with it.</p>
+          <p className="mb-3 font-semibold text-gray-700 ">Short titles work best. Have fun with it.</p>
           <div className="flex flex-col gap-2 p-3">
             <textarea
               name="title"
@@ -61,6 +61,7 @@ const Hometitle = ({ handleFormDataChange }) => {
               placeholder="Enter your title here (max 2 lines)"
               rows={7}
               className="border border-gray-300 rounded-md p-2"
+              required
             />
           </div>
           <div className="flex justify-end">

@@ -198,7 +198,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
 
             } catch (error) {
 
-                console.error('Error :', error);
+                console.error('Error :', error);   
             }
 
 

@@ -25,7 +25,7 @@ const Price = ({ handleFormDataChange }) => {
       const priceDataString = JSON.stringify({ step9Data: values.price });
 
       // Set the expiration time to 2 minutes
-      const expirationTime = new Date(Date.now() + 10 * 60 * 1000);
+      const expirationTime = new Date(Date.now() + 5 * 60 * 1000);
       document.cookie = `step9Data=${priceDataString}; expires=${expirationTime.toUTCString()}; path=/`;
 
       handleFormDataChange({ step9Data: values.price });
@@ -53,7 +53,7 @@ const Price = ({ handleFormDataChange }) => {
         <h5 className="mb-2  font-semibold   text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
           Now, set your price
         </h5>
-        <p className="mb-3 font-semibold text-gray-700 dark:text-gray-400">You can change it anytime.</p>
+        <p className="mb-3 font-semibold text-gray-700 ">You can change it anytime.</p>
         <div className="w-full h-40">
           {editMode ? (
             <div>

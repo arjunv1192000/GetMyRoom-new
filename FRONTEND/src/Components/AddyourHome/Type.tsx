@@ -47,7 +47,7 @@ const Type = ({ handleFormDataChange }) => {
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            const expirationTime = new Date(Date.now() + 10 * 60 * 1000); 
+            const expirationTime = new Date(Date.now() + 5 * 60 * 1000); 
             document.cookie = `step1Data=${values.step1Data}; expires=${expirationTime.toUTCString()}; path=/`;
             handleFormDataChange({ step1Data: values.step1Data });
             setFormSubmitted(true);
@@ -69,6 +69,10 @@ const Type = ({ handleFormDataChange }) => {
           setSelectedState(cookieValue);
         }
       }, []);
+
+     
+
+     
 
     return (
         <form onSubmit={formik.handleSubmit}>
