@@ -11,8 +11,8 @@ export default {
     REFRESH_TOKEN_SECRET: process.env.REFRESH_TOKEN_SECRET,
     S3_ACESS_KEY: process.env.S3_ACESS_KEY,
     S3_SECRET_KEY: process.env.S3_SECRET_KEY,
-    EMAIL: process.env.EMAIL_NODEMAILER,
-    PASSWORD: process.env.PASSWORD_NODEMAILER,
+    EMAIL:"cloud@spidero.in",
+    PASSWORD:"qxomducmjakbydbz",
 
 
 
