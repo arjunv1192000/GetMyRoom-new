@@ -1,1 +1,1 @@
-export const baseUrl = " https://getmyroom.co.uk  /api/v1/property"  
+export const baseUrl = "https://getmyroom.co.uk/api/v1/property"  
