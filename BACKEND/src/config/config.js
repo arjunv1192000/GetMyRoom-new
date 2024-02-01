@@ -12,7 +12,7 @@ export default {
     S3_ACESS_KEY: process.env.S3_ACESS_KEY,
     S3_SECRET_KEY: process.env.S3_SECRET_KEY,
     EMAIL:"cloud@spidero.in",
-    PASSWORD:"qxomducmjakbydbz",
+    PASSWORD:"ywsrhyqnpkgqnjkv",
 
 
 
