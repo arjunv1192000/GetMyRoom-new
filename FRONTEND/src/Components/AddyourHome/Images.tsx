@@ -134,6 +134,7 @@ const Images = ({ handleFormDataChange }) => {
               <div key={index} className="relative">
 
                 <input
+                 key={index}
                   type="file"
                   accept="image/*"
                   onChange={(e) => handleImageChange(e, index)}
