@@ -7,6 +7,7 @@ import { MdDeleteForever } from "react-icons/md";
 import axios from "../../Utils/property/axios"
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import avatar from "../../../assets/avatar.png"
 
 type Props = {
     id: string;
@@ -97,40 +98,45 @@ const Propertycard2: React.FC<Props> = ({ proId, title, location, room, bathroom
                         </div>
                     </div>
                 </div>
-                <hr className="border-t border-gray-300 mt-1" />
-                <div className='w-full h-20  flex justify-between'>
-                    <div className="flex items-center w-1/2">
-                        <div className="flex-1 min-w-0 ms-4">
-                            <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                                Listed on {date}
-                            </p>
-                        </div>
-                    </div>
-                    <div className=" mr-10 flex items-center gap-5">
-                        <div className="flex items-center  flex-row">
-                            <div className="flex-shrink-0 ml-3">
-                                <img className="w-8 h-8 rounded-full" src={userimg} alt="Neil image" />
-
-                            </div>
-
-
-                        </div>
-                        <div className="flex-1 min-w-0 ms-4">
-                            <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                                {username}
-                            </p>
-
-
-                        </div>
-                    </div>
-                    <div className=" mr-5 flex items-center gap-5">
-
-                        <button className="w-10 h-10 flex items-center  border rounded " onClick={handleRemoveClick}  >
-                            <MdDeleteForever className="w-6 h-6 ml-2" color="#c2cbd9" fill="#c2cbd9" />
-                        </button>
+            </a>
+            <hr className="border-t border-gray-300 mt-1" />
+            <div className='w-full h-20  flex justify-between'>
+                <div className="flex items-center w-1/2">
+                    <div className="flex-1 min-w-0 ms-4">
+                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Listed on {date}
+                        </p>
                     </div>
                 </div>
-            </a>
+                <div className=" mr-10 flex items-center gap-5">
+                    <div className="flex items-center  flex-row">
+                        <div className="flex-shrink-0 ml-3">
+                            {userimg && userimg !== 'Not available' ? (
+                                <img className="w-8 h-8 rounded-full" src={userimg} alt={name} />
+                            ) : (
+                                <img className="w-8 h-8 rounded-full" src={avatar} alt={name} />
+                            )}
+
+                        </div>
+
+
+                    </div>
+                    <div className="flex-1 min-w-0 ms-4">
+                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            {username}
+                        </p>
+
+
+                    </div>
+                </div>
+                <div className=" mr-5 flex items-center gap-5">
+
+                    <button className="w-10 h-10 flex items-center  border rounded " onClick={handleRemoveClick}  >
+                        <MdDeleteForever className="w-6 h-6 ml-2" color="#c2cbd9" fill="#c2cbd9" />
+                    </button>
+                </div>
+            </div>
+
             <Toaster
                 position="bottom-center"
                 reverseOrder={false}

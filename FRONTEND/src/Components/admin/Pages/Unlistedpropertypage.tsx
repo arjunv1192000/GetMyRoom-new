@@ -57,38 +57,36 @@ const Unlistedpropertypage = () => {
         console.error(error.message);
       });
   }, []);
+
   return (
     <Layout>
       <div className='bg-white'>
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 ">
 
-
-          {(property.map((data) => (
-
-            <Propertycard
-              key={data.id}
-              Id={data._id}
-              title={data.title}
-              location={data.location}
-              image={data.image}
-              date={data.date}
-              bathrooms={data.bathrooms}
-              bedrooms={data.bedrooms}
-              price={data.price}
-              username={data.userId.name}
-              userimg={data.userId.image}
-            />
-          )))}
-
-
+          {property.length === 0 ? (
+            <p className='flex text-center justify-center text-2xl font-medium'>No properties found.</p>
+          ) : (
+            property.map((data) => (
+              <Propertycard
+                key={data.id}
+                Id={data._id}
+                title={data.title}
+                location={data.location}
+                image={data.image}
+                date={data.date}
+                bathrooms={data.bathrooms}
+                bedrooms={data.bedrooms}
+                price={data.price}
+                username={data.userId.name}
+                userimg={data.userId.image}
+              />
+            ))
+          )}
 
         </div>
       </div>
-
-
-
     </Layout>
-  )
+  );
 }
 
-export default Unlistedpropertypage
+export default Unlistedpropertypage;

@@ -6,6 +6,9 @@ import { BiBed } from "react-icons/bi";
 import { MdMeetingRoom } from "react-icons/md";
 import { FaBath } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
+import avatar from "../../../assets/avatar.png"
+
+
 type Props = {
     id: string;
     title: string;
@@ -85,10 +88,13 @@ const Propertycard: React.FC<Props> = ({ Id, title, location, room, bathrooms, b
                     </div>
                     <div className=" mr-10 flex items-center gap-5">
                         <div className="flex items-center  flex-row">
-                            <div className="flex-shrink-0 ml-3">
-                                <img className="w-8 h-8 rounded-full" src={userimg} alt="Neil image" />
-
-                            </div>
+                        <div className="flex-shrink-0 ml-3">
+                        {userimg && userimg !== 'Not available' ? (
+                            <img className="w-8 h-8 rounded-full" src={userimg} alt={name} />
+                        ) : (
+                            <img className="w-8 h-8 rounded-full" src={avatar} alt={name} />
+                        )}
+                    </div>
 
 
                         </div>

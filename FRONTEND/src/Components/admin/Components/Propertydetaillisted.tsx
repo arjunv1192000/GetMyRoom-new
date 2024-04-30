@@ -15,6 +15,7 @@ import { Navigation } from 'swiper/modules';
 import toast, { Toaster } from 'react-hot-toast';
 import Map from '../../Map';
 import axios from "../Utils/axios"
+import avatar from "../../../assets/avatar.png"
 type Props = {
     id: string;
     title: string;
@@ -441,8 +442,16 @@ const Propertydetaillisted: React.FC<Props> = ({ title, proId, location, room, b
         </div>
         <div className=' sm:flex w-11/12 h-auto bg-white shadow-md mt-10 rounded-md mb-10 flex flex-row'>
 
-            <img className="w-60 h-60 bg-white border border-gray-200 rounded-lg shadow items-center m-6 object-cover" src={userimg} alt="Video Thumbnail" />
+        <div className='flex justify-center'>
+                        {userimg && userimg !== 'Not available' ? (
+                            <img className=" w-[60px] h-[60px] border border-gray-200 rounded-lg shadow items-center m-6 " src={userimg} alt={username} />
+                        ) : (
+                            <img className=" w-[60px] h-[60px] border border-gray-200 rounded-lg shadow items-center m-6 " src={avatar} alt={username} />
+                        )}
 
+
+
+                    </div>
             <div className='w-[300px] h-60 mt-6 flex flex-col'>
                 <h5 className="mb-2 text-base font-sans  font-semibold tracking-tight text-gray-900 mt-1">{username}</h5>
                 <h5 className="mb-2 text-base font-sans  font-semibold tracking-tight text-gray-900 mt-1">Seller Type: {sellertype}</h5>

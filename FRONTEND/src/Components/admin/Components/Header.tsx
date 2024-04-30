@@ -93,19 +93,19 @@ const header = () => {
 
 
                 </Popover.Group>
-                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                <div className="hidden lg:flex lg:flex-1 lg:justify-end ">
                     <div className='relative'>
-                        <div className='flex flex-row items-center gap-3'>
-                            <a href="#" className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer"onClick={() => navigate('/admin/dashboard')} >
+                        <div className='flex flex-row items-center gap-3 '>
+                            <a  className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer"onClick={() => navigate('/admin/dashboard')} >
                                 Home
                             </a>
-                            <a href="#" className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer"onClick={() => navigate('/admin/user')} >
+                            <a  className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer"onClick={() => navigate('/admin/user')} >
                                 Users
                             </a>
-                            <a href="#" className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer"onClick={() => navigate('/admin/listed')} >
+                            <a  className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer"onClick={() => navigate('/admin/listed')} >
                              Listed Properties
                             </a>
-                            <a href="#" className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer"onClick={() => navigate('/admin/unlisted')} >
+                            <a className="text-[20px] font-semibold leading-6 text-gray-900 py-3 px-4 rounded-full  hover:bg-neutral-100 transition cursor-pointer"onClick={() => navigate('/admin/unlisted')} >
                              Unlisted Properties
                             </a>
                             <div onClick={handletoggleClick} className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition">

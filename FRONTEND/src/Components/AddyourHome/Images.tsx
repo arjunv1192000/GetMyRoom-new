@@ -57,10 +57,7 @@ const Images = ({ handleFormDataChange }) => {
         setLoading(true);
 
         const selectedImagesArray = Array.from(selectedImages);
-
-
-
-
+        
         const s3Urls = await Promise.all(selectedImagesArray.map(async (file) => {
           const imageResponse = await Axios.get('/s3service');
 
