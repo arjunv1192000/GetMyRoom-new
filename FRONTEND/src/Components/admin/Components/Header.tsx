@@ -170,28 +170,28 @@ const header = () => {
 
                                 </Disclosure>
                                 <a
-                                    href="#"
+                                    href="/admin/dashboard"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
 
                                 >
                                     Dashboard
                                 </a>
                                 <a
-                                    href="#"
+                                    href="/admin/user"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
 
                                 >
                                     Users
                                 </a>
                                 <a
-                                    href="#"
+                                    href="/admin/listed"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
 
                                 >
                                     Listed property
                                 </a>
                                 <a
-                                    href="#"
+                                    href="/admin/unlisted"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
 
                                 >
@@ -204,9 +204,9 @@ const header = () => {
                             <div className="py-6">
                                 <a
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onClick={handleLogout}
                                 >
-                                    Add your home
+                                    Logout
                                 </a>
 
                             </div>

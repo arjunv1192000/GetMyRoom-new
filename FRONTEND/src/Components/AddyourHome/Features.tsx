@@ -82,7 +82,7 @@ const Features = ({ handleFormDataChange }) => {
       const selectedFeaturesString = JSON.stringify(selectedFeatures);
 
 
-      console.log(selectedFeaturesString,"valuesss");
+     
       
 
         

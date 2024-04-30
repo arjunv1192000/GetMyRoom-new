@@ -73,6 +73,9 @@ const Images = ({ handleFormDataChange }) => {
         const uploadPromises = selectedImages.map(async (file, index) => {
           const s3Url = s3Urls[index];
 
+          console.log(s3Url);
+          
+
           const imageUploadResponse = await fetch(s3Url, {   
             method: 'PUT',
             body: file,
@@ -125,7 +128,7 @@ const Images = ({ handleFormDataChange }) => {
           alt=""
         ></img>
       </div>
-      <div className='w-full  h-auto sm:flex flex-col sm:ml-36 mb-20 '>
+      <div className='w-full  h-auto sm:flex flex-col sm:ml-20 mb-20  '>
         <h5 className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold  text-gray-900 ">Add some photos of your house</h5>
         <p className="mb-3 font-semibold text-gray-700 ">You'll need 4 photos to get started.</p>
         <form onSubmit={formik.handleSubmit}>
@@ -138,7 +141,7 @@ const Images = ({ handleFormDataChange }) => {
                   type="file"
                   accept="image/*"
                   onChange={(e) => handleImageChange(e, index)}
-                  className="border border-dashed border-gray-300 p-2  rounded-md h-44 flex justify-center"
+                  className="border border-dashed border-gray-300 p-2  rounded-md h-44 w-auto flex justify-center "
                 />
 
                 {(selectedImages[index] || cookiePreview) && (

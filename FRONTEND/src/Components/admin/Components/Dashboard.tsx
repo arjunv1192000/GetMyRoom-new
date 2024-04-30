@@ -7,7 +7,7 @@ const Dashboard = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center h-screen flex-col md:flex-row">
             <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-2">
                 <div className="flex justify-end px-4 pt-4"></div>
                 <div className="flex flex-col items-center pb-10">

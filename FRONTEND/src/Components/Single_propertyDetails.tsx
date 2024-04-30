@@ -370,7 +370,8 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                                 {image.map((imageUrl, index) => (
                                     <SwiperSlide key={index} className="flex items-center justify-center">
-                                        <img className='w-auto h-[300px] sm:h-[500px] object-cover mx-auto' src={imageUrl} alt={`Image ${index + 1}`} />
+                                        {/* <img className='w-auto h-[300px] sm:h-[500px] object-cover mx-auto' src={imageUrl} alt={`Image ${index + 1}`} /> */}
+                                        <img className='w-full h-[600px]  object-contain' src={imageUrl} alt={`Image ${index + 1}`} />
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
@@ -451,7 +452,7 @@ const Single_propertyDetails: React.FC<Props> = ({ title, proId, location, bathr
                                 {isExpanded1 ? <FaChevronUp className="mr-5" /> : <FaChevronDown className="mr-5" />}
                             </div>
                             {isExpanded1 && <div className='mt-1 w-full h-auto bg-white'>
-                                <h3 className='text-[14px] text-[#6f6f6f] font-sans  font-semibold m-5 text-justify'>
+                                <h3 className='text-[14px] text-[#6f6f6f] font-sans  overflow-hidden font-semibold m-5 text-justify'>
                                     {description}
 
 

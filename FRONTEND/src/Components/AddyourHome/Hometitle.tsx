@@ -11,7 +11,7 @@ const Hometitle = ({ handleFormDataChange }) => {
       title: '',
     },
     onSubmit: (values) => {
-      console.log(values);
+     
 
       const titleDataString = JSON.stringify({ step7Data: values.title });
       const expirationTime = new Date(Date.now() + 5 * 60 * 1000);

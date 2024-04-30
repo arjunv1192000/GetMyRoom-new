@@ -59,7 +59,7 @@ const Mylist = (openLoginModal) => {
     axios
       .get('/getuserproperty?id=' + id)
       .then((response) => {
-        console.log(response.data.userlist);
+      
         setProperty(response.data.userlist)
       })
       .catch((error) => {
